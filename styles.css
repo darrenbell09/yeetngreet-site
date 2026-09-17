@@ -1,0 +1,36 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a222c;
+  --ink: #e8eef4;
+  --muted: #8b9aab;
+  --accent: #3db8e8;
+  --accent-ink: #042433;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(1200px 600px at 10% -10%, #1a3a4a, var(--bg));
+  color: var(--ink);
+  line-height: 1.5;
+}
+.hero { padding: 4rem 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+.brand { font-weight: 700; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 1rem; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.15; margin: 0 0 1rem; }
+.lede { color: var(--muted); font-size: 1.05rem; }
+.cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.1rem; border-radius: 10px;
+  text-decoration: none; font-weight: 600;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { border: 1px solid #334; color: var(--ink); }
+main { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.cards article {
+  background: var(--surface); border: 1px solid #2a3540; border-radius: 14px; padding: 1rem 1.1rem;
+}
+.price { font-size: 1.4rem; font-weight: 700; margin: 0.25rem 0; }
+footer { text-align: center; color: var(--muted); padding: 2rem; font-size: 0.9rem; }
+.narrow { max-width: 640px; margin: 2rem auto; padding: 0 1.5rem 3rem; }
+a { color: var(--accent); }
