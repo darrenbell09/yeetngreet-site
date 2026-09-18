@@ -1,35 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet — MSP onboard &amp; offboard for Microsoft 365</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="brand">YeetnGreet</div>
-    <h1>Offboard and onboard Microsoft 365 users without putting customer data in our cloud.</h1>
-    <p class="lede">Runs on your technicians' PCs. Graph talks to the customer tenant directly. We only see license and billing metadata.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://github.com/darrenbell09/yeetngreet-site/releases/latest/download/YeetnGreet.exe">Download for Windows</a>
-      <a class="btn ghost" href="privacy.html">Privacy</a>
-    </div>
-    <p class="fine">Single-file app (~50&nbsp;MB). Product source stays in a private repo — this download is the exe only.</p>
-  </header>
-  <main>
-    <section>
-      <h2>Pricing</h2>
-      <div class="cards">
-        <article><h3>Free</h3><p class="price">$0</p><p>5 runs · watermarked reports · 1 seat · single tenant</p></article>
-        <article><h3>Solo</h3><p class="price">$20/mo</p><p>1 seat · single tenant</p></article>
-        <article><h3>SMB</h3><p class="price">$80/mo</p><p>5 seats · single tenant</p></article>
-        <article><h3>MSP / Enterprise</h3><p class="price">$120/mo</p><p>Unlimited seats · multi-tenant</p></article>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">YeetnGreet</div>
+      <nav>
+        <a href="#pricing">Pricing</a>
+        <a href="privacy.html">Privacy</a>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Offboard and onboard Microsoft&nbsp;365 without putting customer data in our cloud.</h1>
+      <p class="lede">Runs on your technicians’ PCs. Graph talks to the customer tenant directly. We only see license and billing metadata.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/darrenbell09/yeetngreet-site/releases/latest/download/YeetnGreet.exe">Download for Windows</a>
+        <a class="btn ghost" href="privacy.html">Privacy</a>
+      </div>
+      <p class="fine">Single-file app. Product source stays private — this download is the exe only.</p>
+    </section>
+
+    <section id="pricing">
+      <h2 class="section-label">Pricing</h2>
+      <div class="pricing">
+        <article class="card">
+          <h3>Trial</h3>
+          <p class="price">7 days</p>
+          <p>Full features. Unlimited managed tenants for the trial window.</p>
+        </article>
+        <article class="card">
+          <h3>Single</h3>
+          <p class="price">$39/mo</p>
+          <p>One organization · 1 managed tenant · templates bound to that tenant.</p>
+        </article>
+        <article class="card featured">
+          <span class="tag">MSP</span>
+          <h3>MSP</h3>
+          <p class="price">$129/mo</p>
+          <p>One organization · unlimited managed tenants · per-tenant templates.</p>
+        </article>
       </div>
     </section>
-  </main>
-  <footer>
-    <p>Product site: <code>yeetngreet.darrenbell.net</code> (GitHub Pages). Blog stays on <code>darrenbell.net</code>.</p>
-  </footer>
+
+    <footer>
+      <p>yeetngreet.darrenbell.net · Per organization, not per seat. Blog on darrenbell.net.</p>
+    </footer>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const saved = localStorage.getItem("yeetngreet-site-theme");
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function sync() {
+      const light = root.getAttribute("data-theme") === "light";
+      btn.textContent = light ? "Dark" : "Light";
+    }
+    sync();
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("yeetngreet-site-theme", next);
+      sync();
+    });
+  </script>
 </body>
 </html>
