@@ -236,13 +236,6 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-.fine {
-  margin: 1rem 0 0;
-  color: var(--ink-tertiary);
-  font-size: 0.85rem;
-  max-width: 34rem;
-}
-
 .pricing-section { padding-top: 0.5rem; }
 
 .section-label {
@@ -322,10 +315,34 @@ footer {
 }
 
 .narrow h1 {
+  margin: 0.75rem 0 0.85rem;
   font-size: clamp(1.4rem, 4vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.03em;
 }
 
-.narrow p { color: var(--ink-secondary); }
-.narrow strong { color: var(--ink); font-weight: 600; }
+.narrow h2 {
+  margin: 1.75rem 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.narrow .lede {
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  max-width: 36rem;
+}
+
+.narrow p {
+  margin: 0 0 0.85rem;
+  color: var(--ink-secondary);
+}
+
+.privacy-back {
+  margin-top: 2rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+}

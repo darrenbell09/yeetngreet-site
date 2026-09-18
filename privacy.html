@@ -10,15 +10,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260918b" />
+  <link rel="stylesheet" href="styles.css?v=20260918c" />
 </head>
 <body>
   <main class="narrow">
     <p><a class="brand-link" href="index.html"><img src="logo.png" alt="" width="22" height="22" /> YeetnGreet</a></p>
     <h1>Privacy</h1>
-    <p>YeetnGreet performs Microsoft Graph and Exchange operations <strong>on the technician workstation</strong> against the customer tenant you select.</p>
-    <p>YeetnGreet cloud services (when enabled) store <strong>license and billing metadata only</strong> (account email, plan, expiry, managed-tenant caps). We do not receive or retain customer user profiles, mail, files, or activity logs.</p>
-    <p>Local logs and templates remain on your device under AppData / Documents unless you choose to store them elsewhere.</p>
+    <p class="lede">YeetnGreet is built so customer Microsoft 365 data stays between your technicians and the tenant they are working in—not in our cloud.</p>
+
+    <h2>Where the work happens</h2>
+    <p>Onboarding, offboarding, reporting, and Graph or Exchange actions run on the technician’s Windows PC. The app signs into the customer tenant you select and talks to Microsoft from that machine.</p>
+
+    <h2>What we receive</h2>
+    <p>When cloud licensing is enabled, we store only what we need to run your YeetnGreet account: things like account email, plan, expiry, and managed-tenant limits.</p>
+    <p>We do not receive customer user profiles, mail, files, mailbox activity, or other tenant content.</p>
+
+    <h2>What stays on your side</h2>
+    <p>Templates, local logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else.</p>
+
+    <p class="privacy-back"><a href="index.html">← Back to YeetnGreet</a></p>
   </main>
   <script>
     const saved = localStorage.getItem("yeetngreet-site-theme");
