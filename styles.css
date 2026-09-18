@@ -90,7 +90,6 @@ a:hover { text-decoration: underline; }
 .brand img {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
   display: block;
 }
 
@@ -105,7 +104,6 @@ a:hover { text-decoration: underline; }
 .brand-link img {
   width: 22px;
   height: 22px;
-  border-radius: 5px;
 }
 
 .hero-brand {
@@ -118,7 +116,6 @@ a:hover { text-decoration: underline; }
 .hero-brand img {
   width: 72px;
   height: 72px;
-  border-radius: 16px;
   display: block;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
 }
