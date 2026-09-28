@@ -56,9 +56,9 @@ a:hover { text-decoration: underline; }
 
 .shell {
   width: 100%;
-  max-width: 720px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 1.5rem) 3rem;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem) 3rem;
   overflow-x: clip;
 }
 
@@ -193,7 +193,7 @@ a:hover { text-decoration: underline; }
   margin: 0;
   color: var(--ink-secondary);
   font-size: 1.02rem;
-  max-width: 38rem;
+  max-width: 42rem;
 }
 
 .cta {
@@ -306,9 +306,9 @@ footer {
 }
 
 .narrow {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 2rem clamp(1rem, 4vw, 1.5rem) 3rem;
+  padding: 2rem clamp(1.25rem, 4vw, 2.5rem) 3rem;
 }
 
 .narrow h1 {
