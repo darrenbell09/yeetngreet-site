@@ -316,19 +316,7 @@ footer {
   font-size: 0.88rem;
 }
 
-.narrow {
-  width: 100%;
-  max-width: 52rem;
-  margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 4rem) 3.5rem;
-}
-
-.narrow .topbar {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.narrow h1 {
+.page h1 {
   margin: 0 0 0.85rem;
   font-size: clamp(1.45rem, 3vw, 1.85rem);
   font-weight: 650;
@@ -336,7 +324,7 @@ footer {
   line-height: 1.15;
 }
 
-.narrow h2 {
+.page h2 {
   margin: 1.85rem 0 0.5rem;
   font-size: 1.05rem;
   font-weight: 650;
@@ -344,22 +332,21 @@ footer {
   color: var(--ink);
 }
 
-.narrow .lede {
+.page .lede {
   margin: 0 0 0.5rem;
-  color: var(--ink-secondary);
-  font-size: 1.05rem;
-  max-width: 40rem;
 }
 
-.narrow p {
+.page p {
   margin: 0 0 0.9rem;
   color: var(--ink-secondary);
   font-size: 1rem;
   line-height: 1.55;
+  max-width: 42rem;
 }
 
 .privacy-back {
   margin-top: 2.25rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
+  max-width: 42rem;
 }

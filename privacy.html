@@ -4,47 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy — YeetnGreet</title>
-  <link rel="icon" href="favicon.ico?v=20260928d" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20260928d" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260928d" />
+  <meta name="yeetngreet-build" content="20260928e" />
+  <link rel="icon" href="favicon.ico?v=20260928e" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20260928e" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20260928e" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260928d" />
+  <link rel="stylesheet" href="styles.css?v=20260928e" />
 </head>
 <body>
-  <main class="narrow">
+  <div class="shell">
     <header class="topbar">
-      <a class="brand-link" href="index.html">
+      <a class="brand" href="index.html">
         <span class="brand-mark" aria-hidden="true"></span>
         <span>YeetnGreet</span>
       </a>
       <nav>
         <a href="index.html#pricing">Pricing</a>
         <a href="privacy.html" aria-current="page">Privacy</a>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
       </nav>
     </header>
 
-    <h1>Privacy</h1>
-    <p class="lede">YeetnGreet is built so customer Microsoft 365 data stays between your technicians and the tenant they are working in—not in our cloud.</p>
+    <section class="page">
+      <h1>Privacy</h1>
+      <p class="lede">YeetnGreet is built so customer Microsoft 365 data stays between your technicians and the tenant they are working in—not in our cloud.</p>
 
-    <h2>Where the work happens</h2>
-    <p>Onboarding, offboarding, reporting, and Graph or Exchange actions run on the technician’s Windows PC. The app signs into the customer tenant you select and talks to Microsoft from that machine.</p>
+      <h2>Where the work happens</h2>
+      <p>Onboarding, offboarding, reporting, and Graph or Exchange actions run on the technician’s Windows PC. The app signs into the customer tenant you select and talks to Microsoft from that machine.</p>
 
-    <h2>What we receive</h2>
-    <p>When cloud licensing is enabled, we store only what we need to run your YeetnGreet account: things like account email, plan, expiry, and managed-tenant limits.</p>
-    <p>We do not receive customer user profiles, mail, files, mailbox activity, or other tenant content.</p>
+      <h2>What we receive</h2>
+      <p>When cloud licensing is enabled, we store only what we need to run your YeetnGreet account: things like account email, plan, expiry, and managed-tenant limits.</p>
+      <p>We do not receive customer user profiles, mail, files, mailbox activity, or other tenant content.</p>
 
-    <h2>What stays on your side</h2>
-    <p>Templates, local logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else.</p>
+      <h2>What stays on your side</h2>
+      <p>Templates, local logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else.</p>
 
-    <p class="privacy-back"><a href="index.html">← Back to YeetnGreet</a></p>
-  </main>
+      <p class="privacy-back"><a href="index.html">← Back to YeetnGreet</a></p>
+    </section>
+
+    <footer>
+      <p>yeetngreet.darrenbell.net · <a href="https://darrenbell.net">darrenbell.net</a></p>
+    </footer>
+  </div>
   <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
     const saved = localStorage.getItem("yeetngreet-site-theme");
-    if (saved === "light" || saved === "dark") {
-      document.documentElement.setAttribute("data-theme", saved);
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function sync() {
+      const light = root.getAttribute("data-theme") === "light";
+      btn.textContent = light ? "Dark" : "Light";
     }
+    sync();
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("yeetngreet-site-theme", next);
+      sync();
+    });
   </script>
 </body>
 </html>
