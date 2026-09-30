@@ -1,0 +1,101 @@
+name: publish-staged-release
+
+on:
+  push:
+    paths:
+      - ".release-staging/**/READY"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version folder under .release-staging (e.g. 0.5.54)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve staging version
+        id: ver
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            V="${{ inputs.version }}"
+          else
+            READY_PATH=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep '/READY$' | head -1)
+            V=$(basename $(dirname "$READY_PATH"))
+          fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          test -n "$V"
+          test -f ".release-staging/$V/META.txt"
+          test -f ".release-staging/$V/READY"
+          cat ".release-staging/$V/META.txt"
+
+      - name: Reassemble YeetnGreet.exe
+        run: |
+          set -euo pipefail
+          V="${{ steps.ver.outputs.version }}"
+          ST=".release-staging/$V"
+          source <(sed 's/^/export /' "$ST/META.txt")
+          echo "Reassembling $parts parts for v$version..."
+          : > YeetnGreet.exe
+          i=0
+          while [ "$i" -lt "$parts" ]; do
+            printf -v idx '%02d' "$i"
+            f="$ST/part_${idx}.b64"
+            test -f "$f"
+            base64 -d "$f" >> YeetnGreet.exe
+            i=$((i + 1))
+          done
+          ACTUAL=$(sha256sum YeetnGreet.exe | awk '{print $1}')
+          echo "expected=$sha256"
+          echo "actual=$ACTUAL"
+          test "$ACTUAL" = "$sha256"
+          test "$(wc -c < YeetnGreet.exe)" -eq "$size"
+          ls -la YeetnGreet.exe
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          V="${{ steps.ver.outputs.version }}"
+          source <(sed 's/^/export /' ".release-staging/$V/META.txt")
+          TAG="v${version}"
+          BODY=$(printf '%s\n' \
+            "## YeetnGreet v${version}" \
+            "" \
+            "Includes merged fixes from main:" \
+            "" \
+            "- **PR #11** — Fix schedule report button and email settings persistence; maximize taskbar" \
+            "- **PR #10** — Fix Identity Mode radio layout in Add tenant modal" \
+            "" \
+            "**SHA256:** \`${sha256}\`" \
+            "**Size:** ${size} bytes" \
+            "**Source commit (main):** \`${source_commit}\`" \
+            "**CI artifact:** yeetngreet-host from build-host run ${ci_run}")
+          if gh release view "$TAG" -R "${{ github.repository }}" >/dev/null 2>&1; then
+            gh release upload "$TAG" YeetnGreet.exe -R "${{ github.repository }}" --clobber
+          else
+            gh release create "$TAG" YeetnGreet.exe \
+              -R "${{ github.repository }}" \
+              --title "YeetnGreet v${version}" \
+              --notes "$BODY"
+          fi
+          gh release view "$TAG" -R "${{ github.repository }}"
+
+      - name: Cleanup staging files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          V="${{ steps.ver.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r ".release-staging/$V"
+          git commit -m "chore: cleanup release staging for v${V}"
+          git push
