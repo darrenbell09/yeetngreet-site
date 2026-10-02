@@ -1,0 +1,52 @@
+name: Rebuild docs for Pages
+
+# Pages is legacy: branch main, folder / (root). Marketing stays at repo root;
+# MkDocs HTML is committed into docs/ so https://yeetngreet.app/docs/ works.
+# Source Markdown lives in docsrc/ (edit there, not the built docs/ HTML).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docsrc/**"
+      - "mkdocs.yml"
+      - "requirements.txt"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-docs
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install MkDocs
+        run: pip install -r requirements.txt
+
+      - name: Build into docs/
+        run: |
+          set -euo pipefail
+          mkdocs build --strict -d docs
+          touch docs/.nojekyll
+
+      - name: Commit published docs/
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(docs): rebuild MkDocs site"
+          file_pattern: docs/
+          disable_globbing: true
