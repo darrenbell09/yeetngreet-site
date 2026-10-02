@@ -382,3 +382,14 @@ footer {
   border-top: 1px solid var(--line);
   max-width: 52rem;
 }
+
+.plan .plan-subcta {
+  margin-top: 0.65rem;
+  color: var(--ink-tertiary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.plan .plan-cta .btn {
+  width: 100%;
+}
