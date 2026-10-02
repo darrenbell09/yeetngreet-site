@@ -1,7 +1,7 @@
-/* YeetnGreet docs — light theme aligned to app UI; dark keeps branded slate */
+/* YeetnGreet docs — Studio-aligned light theme; branded dark slate */
 
 :root {
-  /* App light tokens (Studio-locked) */
+  /* App light tokens (Studio-locked) — no new hex beyond these */
   --yg-bg: #f3f4f7;
   --yg-chrome: #e8eaef;
   --yg-panel: #ffffff;
@@ -17,6 +17,7 @@
   --yg-radius: 6px;
   --yg-radius-lg: 10px;
   --yg-font: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --md-header-height: 3rem; /* 48px WinUI-ish */
 }
 
 /* Material custom primary / accent (light) */
@@ -101,18 +102,89 @@
   font-family: var(--yg-font);
 }
 
-/* Header: light chrome like app title bar (not Material indigo) */
+/* ------------------------------------------------------------------ */
+/* 1. Logo tile — white glyph on accent blue (taskbar app icon)      */
+/* ------------------------------------------------------------------ */
+.md-header__button.md-logo,
+.md-nav__button.md-logo {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0;
+  margin: 0 0.55rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b6ae8;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg,
+.md-nav__button.md-logo img,
+.md-nav__button.md-logo svg {
+  /* Hide raw img; paint white glyph via mask on the chip */
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  /* Light glyph asset → force white on blue tile */
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  border-radius: 0;
+}
+
+/* Prefer mask approach when supported (cleaner than filter invert) */
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
+  .md-header__button.md-logo img,
+  .md-nav__button.md-logo img {
+    /* Keep img for a11y/layout; paint via parent mask instead */
+    opacity: 0;
+    filter: none;
+  }
+
+  .md-header__button.md-logo,
+  .md-nav__button.md-logo {
+    -webkit-mask-image: none;
+    mask-image: none;
+    position: relative;
+  }
+
+  .md-header__button.md-logo::after,
+  .md-nav__button.md-logo::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    background-color: #ffffff;
+    -webkit-mask: url("../images/logo.png") center / contain no-repeat;
+    mask: url("../images/logo.png") center / contain no-repeat;
+    pointer-events: none;
+  }
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo {
+  background-color: #3b6ae8;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Header chrome — elevated, WinUI density                          */
+/* ------------------------------------------------------------------ */
 .md-header {
-  background-color: var(--md-primary-fg-color);
-  color: #ffffff;
-  box-shadow: none;
-  border-bottom: 1px solid transparent;
+  background-color: var(--yg-chrome);
+  color: var(--yg-ink);
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--yg-line);
+}
+
+.md-header--shadow {
+  box-shadow: none !important;
 }
 
 [data-md-color-scheme="default"] .md-header {
-  background-color: var(--yg-panel);
-  color: var(--yg-ink);
-  border-bottom: 1px solid var(--yg-line);
+  background-color: #e8eaef !important;
+  color: #12141a;
+  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
 }
 
 [data-md-color-scheme="slate"] .md-header {
@@ -121,93 +193,291 @@
   border-bottom: 1px solid rgba(169, 177, 214, 0.14);
 }
 
-.md-header__button,
-.md-header .md-header__topic,
-.md-header .md-search__form {
+.md-header__inner {
+  min-height: 48px;
+  height: 48px;
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
+}
+
+.md-header__title {
+  margin-left: 0;
+  line-height: 1.2;
+}
+
+.md-header__topic {
+  font-size: 13px !important; /* punch: 12–13px (Material rem is ~20px) */
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+[data-md-color-scheme="default"] .md-header__topic {
+  color: #12141a;
+}
+
+.md-header__button {
+  margin: 0;
+  padding: 0.35rem;
+}
+
+.md-header__button.md-icon {
   color: inherit;
 }
 
-[data-md-color-scheme="default"] .md-header__button {
-  color: var(--yg-ink);
+[data-md-color-scheme="default"] .md-header__button.md-icon {
+  color: #4a5163;
 }
 
-[data-md-color-scheme="slate"] .md-header__button {
-  color: #f4f5f8;
+[data-md-color-scheme="slate"] .md-header__button.md-icon {
+  color: #a9b1d6;
 }
 
-/* Logo sizing */
-.md-header__button.md-logo {
-  padding: 0.3rem;
-  margin: 0.2rem 0.35rem 0.2rem 0;
+/* ------------------------------------------------------------------ */
+/* 3. Search + theme toggle — aligned, compact                         */
+/* ------------------------------------------------------------------ */
+.md-header__option,
+.md-header__source {
+  align-self: center;
 }
 
-.md-header__button.md-logo img,
-.md-header__button.md-logo svg {
-  height: 30px;
-  width: auto;
-  border-radius: var(--yg-radius);
+/* Theme toggle: ~32px control, secondary ink */
+.md-header__button[for^="__palette"] {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem; /* ~8px gap before search */
+  border-radius: 6px;
 }
 
-/* Logo: asset is light glyph — dark in light mode, light in dark mode (like marketing mask) */
-[data-md-color-scheme="default"] .md-header__button.md-logo img,
-[data-md-color-scheme="default"] .md-nav__button.md-logo img {
-  filter: brightness(0) saturate(100%);
-  opacity: 0.92;
+[data-md-color-scheme="default"] .md-header__button[for^="__palette"] {
+  color: #4a5163;
 }
 
-[data-md-color-scheme="slate"] .md-header__button.md-logo img,
-[data-md-color-scheme="slate"] .md-nav__button.md-logo img {
-  filter: none;
-  opacity: 1;
+.md-header__button[for^="__palette"]:hover {
+  background-color: var(--yg-accent-soft);
+  color: var(--yg-accent);
 }
 
+/* Search form: compact, not Material pill */
+.md-search {
+  align-self: center;
+}
 
-/* Page / sidebars / content surfaces */
+.md-search__form {
+  height: 32px;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: #f3f4f7;
+  border: 1px solid rgba(18, 20, 26, 0.1);
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  font-size: 0.8125rem;
+  color: #12141a;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder,
+[data-md-color-scheme="default"] .md-search__input + .md-search__icon {
+  color: #4a5163;
+}
+
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #1c1e26;
+  border: 1px solid rgba(169, 177, 214, 0.14);
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    width: 12.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Sidebar — section labels quiet; only leaf page is active         */
+/* ------------------------------------------------------------------ */
 [data-md-color-scheme="default"] .md-main,
-[data-md-color-scheme="default"] .md-content,
 [data-md-color-scheme="default"] body {
-  background-color: var(--yg-bg);
-  color: var(--yg-ink);
+  background-color: #f3f4f7;
+  color: #12141a;
 }
 
-[data-md-color-scheme="default"] .md-sidebar,
-[data-md-color-scheme="default"] .md-sidebar__scrollwrap,
-[data-md-color-scheme="default"] .md-nav,
-[data-md-color-scheme="default"] .md-nav--primary {
-  background-color: var(--yg-panel);
+[data-md-color-scheme="default"] .md-sidebar {
+  background-color: transparent;
 }
 
 [data-md-color-scheme="default"] .md-sidebar--primary {
-  border-right: 1px solid var(--yg-line);
+  border-right: 1px solid rgba(18, 20, 26, 0.1);
 }
 
 [data-md-color-scheme="default"] .md-sidebar--secondary {
-  border-left: 1px solid var(--yg-line);
+  border-left: 1px solid rgba(18, 20, 26, 0.1);
+}
+
+.md-sidebar__scrollwrap {
+  scrollbar-width: thin;
 }
 
 [data-md-color-scheme="default"] .md-nav__title {
-  background-color: var(--yg-panel);
-  color: var(--yg-ink);
+  background-color: transparent;
+  color: #12141a;
   box-shadow: none;
-  border-bottom: 1px solid var(--yg-line);
+  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 76.1875em) {
   [data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
-    background-color: var(--yg-panel);
-    color: var(--yg-ink);
+    background-color: #e8eaef;
+    color: #12141a;
   }
 }
 
-/* Tabs */
+/* Base nav links */
+.md-nav--primary .md-nav__link {
+  color: #4a5163;
+  border-radius: 6px;
+  margin: 0.15rem 0.5rem;
+  padding: 0.45rem 0.55rem;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link {
+  color: #a9b1d6;
+}
+
+.md-nav--primary .md-nav__link:focus,
+.md-nav--primary .md-nav__link:hover {
+  color: #3b6ae8;
+  background-color: rgba(59, 106, 232, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:focus,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:hover {
+  color: #7aa2f7;
+  background-color: rgba(122, 162, 247, 0.14);
+}
+
+/* Section labels (Getting started / Jobs / Reports): tertiary, NOT accent */
+.md-nav--primary .md-nav__item--section > .md-nav__link,
+.md-nav--primary .md-nav__item--section > label.md-nav__link,
+.md-nav--primary .md-nav__item--section.md-nav__item--active > .md-nav__link,
+.md-nav--primary .md-nav__item--section.md-nav__item--active > label.md-nav__link {
+  color: #7a8296 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  font-size: 11px !important; /* punch: ~11px */
+  font-weight: 600 !important;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.1rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.3rem;
+  box-shadow: none !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > label.md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section.md-nav__item--active > .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section.md-nav__item--active > label.md-nav__link {
+  color: #7a829e !important;
+  background: transparent !important;
+}
+
+.md-nav--primary .md-nav__item--section > .md-nav__link:hover,
+.md-nav--primary .md-nav__item--section > label.md-nav__link:hover {
+  color: #4a5163 !important;
+  background: transparent !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > label.md-nav__link:hover {
+  color: #a9b1d6 !important;
+}
+
+/* Active leaf page only: soft accent pill with horizontal inset */
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > a.md-nav__link--active,
+.md-nav--primary a.md-nav__link--active {
+  color: #3b6ae8 !important;
+  background-color: rgba(59, 106, 232, 0.1) !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+}
+
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > a.md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav--primary a.md-nav__link--active {
+  color: #7aa2f7 !important;
+  background-color: rgba(122, 162, 247, 0.14) !important;
+}
+
+/* Hide duplicate TOC toggle label that can look like a second active row */
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > label.md-nav__link--active {
+  display: none !important;
+}
+
+/* Hide crude sticky drawer title on desktop (avoids logo/title overlay in sidebar) */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title {
+    display: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Content density / h1 / white panel                               */
+/* ------------------------------------------------------------------ */
+[data-md-color-scheme="default"] .md-content {
+  background-color: transparent;
+}
+
+[data-md-color-scheme="default"] .md-content__inner {
+  background-color: #ffffff;
+  border: 1px solid rgba(18, 20, 26, 0.1);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: none;
+}
+
+.md-typeset h1 {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--yg-ink);
+}
+
+[data-md-color-scheme="default"] .md-typeset h1 {
+  color: #12141a;
+}
+
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--yg-ink);
+}
+
+/* Tabs (if present) */
 .md-tabs {
   background-color: transparent;
 }
 
 [data-md-color-scheme="default"] .md-tabs {
-  background-color: var(--yg-panel);
-  border-bottom: 1px solid var(--yg-line);
-  color: var(--yg-ink-secondary);
+  background-color: #e8eaef;
+  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
+  color: #4a5163;
 }
 
 [data-md-color-scheme="slate"] .md-tabs {
@@ -215,30 +485,48 @@
   border-bottom: 1px solid rgba(169, 177, 214, 0.14);
 }
 
-/* Nav links */
-.md-nav__link {
-  color: var(--md-default-fg-color--light);
-  border-radius: var(--yg-radius);
+/* ------------------------------------------------------------------ */
+/* 6. TOC                                                              */
+/* ------------------------------------------------------------------ */
+.md-nav--secondary .md-nav__title {
+  color: #7a8296 !important;
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-bottom: none;
 }
 
-.md-nav__link:focus,
-.md-nav__link:hover {
-  color: var(--md-accent-fg-color);
-  background-color: var(--md-accent-fg-color--transparent);
+.md-nav--secondary .md-nav__link {
+  color: #4a5163;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
-.md-nav__link--active {
-  color: var(--md-accent-fg-color);
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: #a9b1d6;
+}
+
+.md-nav--secondary .md-nav__link--active,
+.md-nav--secondary .md-nav__item--active > .md-nav__link {
+  color: #3b6ae8 !important;
+  background-color: transparent !important;
   font-weight: 600;
 }
 
-[data-md-color-scheme="default"] .md-nav__item--active > .md-nav__link:not(.md-nav__container),
-[data-md-color-scheme="default"] .md-nav__link--active {
-  background-color: var(--yg-accent-soft);
-  color: var(--yg-accent);
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__item--active > .md-nav__link {
+  color: #7aa2f7 !important;
 }
 
-/* Typeset links + buttons */
+.md-nav--secondary .md-nav__link:hover {
+  color: #3b6ae8;
+  background-color: rgba(59, 106, 232, 0.1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Typeset links + buttons                                             */
+/* ------------------------------------------------------------------ */
 .md-typeset a {
   color: var(--md-typeset-a-color);
 }
@@ -330,25 +618,6 @@
   background-color: #1c1e26;
 }
 
-/* Search */
-.md-search__form {
-  border-radius: var(--yg-radius);
-}
-
-[data-md-color-scheme="default"] .md-search__form {
-  background-color: var(--yg-bg);
-  border: 1px solid var(--yg-line);
-}
-
-[data-md-color-scheme="default"] .md-search__input,
-[data-md-color-scheme="default"] .md-search__input + .md-search__icon {
-  color: var(--yg-ink-secondary);
-}
-
-[data-md-color-scheme="slate"] .md-search__form {
-  background-color: #1c1e26;
-}
-
 /* Tables */
 [data-md-color-scheme="default"] .md-typeset table:not([class]) {
   border: 1px solid var(--yg-line);
@@ -382,7 +651,7 @@
   opacity: 0.85;
 }
 
-/* Hide Material repo chip (stars/forks) — repo is private; no header source */
+/* Hide Material repo chip (stars/forks) — keep gone */
 .md-header__source,
 .md-nav__source {
   display: none !important;
