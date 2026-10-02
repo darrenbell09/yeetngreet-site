@@ -367,3 +367,9 @@
   font-size: 0.8em;
   opacity: 0.85;
 }
+
+/* Hide Material repo chip (stars/forks) — repo is private; no header source */
+.md-header__source,
+.md-nav__source {
+  display: none !important;
+}
