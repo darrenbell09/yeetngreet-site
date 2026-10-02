@@ -1,26 +1,28 @@
-name: Deploy site and docs
+name: Rebuild docs for Pages
 
-# Builds marketing pages + MkDocs Material into one artifact and deploys via
-# GitHub Pages (Actions). After merge, set:
-#   Settings → Pages → Source: GitHub Actions
-# (one-time). Keeps https://yeetngreet.app/ (marketing) and /docs/ (MkDocs).
+# Pages is legacy: branch main, folder / (root). Marketing stays at repo root;
+# MkDocs HTML is committed into docs/ so https://yeetngreet.app/docs/ works.
+# Source Markdown lives in docsrc/ (edit there, not the built docs/ HTML).
 
 on:
   push:
     branches: [main]
+    paths:
+      - "docsrc/**"
+      - "mkdocs.yml"
+      - "requirements.txt"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: rebuild-docs
   cancel-in-progress: true
 
 jobs:
-  build:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,36 +38,15 @@ jobs:
       - name: Install MkDocs
         run: pip install -r requirements.txt
 
-      - name: Build MkDocs into _site/docs
-        run: mkdocs build --site-dir _site/docs
-
-      - name: Assemble marketing root into _site
+      - name: Build into docs/
         run: |
           set -euo pipefail
-          # Root marketing (do not overwrite _site/docs)
-          for f in index.html privacy.html styles.css CNAME .nojekyll \
-                   favicon.ico favicon-32.png apple-touch-icon.png logo.png docs.html; do
-            if [ -f "$f" ]; then
-              cp "$f" "_site/$f"
-            fi
-          done
-          # Ensure docs directory URL works without trailing issues
-          test -f _site/docs/index.html
-          ls -la _site | head
-          ls -la _site/docs | head
+          mkdocs build --strict -d docs
+          touch docs/.nojekyll
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Commit published docs/
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          path: _site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          commit_message: "chore(docs): rebuild MkDocs site"
+          file_pattern: docs/
+          disable_globbing: true
