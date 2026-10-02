@@ -1,4 +1,4 @@
-/* YeetnGreet docs — Studio-aligned light theme; branded dark slate */
+/* YeetnGreet docs — Studio punch list P1–P4 (light); branded dark slate */
 
 :root {
   /* App light tokens (Studio-locked) — no new hex beyond these */
@@ -17,7 +17,8 @@
   --yg-radius: 6px;
   --yg-radius-lg: 10px;
   --yg-font: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  --md-header-height: 3rem; /* 48px WinUI-ish */
+  /* P1: force ~48px header */
+  --md-header-height: 3rem;
 }
 
 /* Material custom primary / accent (light) */
@@ -47,7 +48,7 @@
   --md-footer-bg-color: var(--yg-chrome);
   --md-footer-bg-color--dark: #dde0e7;
   --md-footer-fg-color: var(--yg-ink-secondary);
-  --md-footer-fg-color--light: var(--yg-ink);
+  --md-footer-fg-color--light: var(--yg-ink-secondary);
   --md-footer-fg-color--lighter: var(--yg-ink-tertiary);
   --md-code-bg-color: var(--yg-accent-soft);
   --md-code-fg-color: var(--yg-ink);
@@ -103,13 +104,13 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* 1. Logo tile — white glyph on accent blue (taskbar app icon)      */
+/* P1 — Logo tile 32×32, glyph ~20px (white on #3b6ae8)               */
 /* ------------------------------------------------------------------ */
 .md-header__button.md-logo,
 .md-nav__button.md-logo {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
   padding: 0;
   margin: 0 0.55rem 0 0;
   display: inline-flex;
@@ -124,21 +125,17 @@
 .md-header__button.md-logo svg,
 .md-nav__button.md-logo img,
 .md-nav__button.md-logo svg {
-  /* Hide raw img; paint white glyph via mask on the chip */
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
-  /* Light glyph asset → force white on blue tile */
   filter: brightness(0) invert(1);
   opacity: 1;
   border-radius: 0;
 }
 
-/* Prefer mask approach when supported (cleaner than filter invert) */
 @supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
   .md-header__button.md-logo img,
   .md-nav__button.md-logo img {
-    /* Keep img for a11y/layout; paint via parent mask instead */
     opacity: 0;
     filter: none;
   }
@@ -154,7 +151,8 @@
   .md-nav__button.md-logo::after {
     content: "";
     position: absolute;
-    inset: 5px;
+    /* (32 - 20) / 2 = 6px inset → ~20px glyph */
+    inset: 6px;
     background-color: #ffffff;
     -webkit-mask: url("../images/logo.png") center / contain no-repeat;
     mask: url("../images/logo.png") center / contain no-repeat;
@@ -168,13 +166,15 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* 2. Header chrome — elevated, WinUI density                          */
+/* P1 — Header chrome: white on page #f3f4f7, strong bottom border    */
 /* ------------------------------------------------------------------ */
 .md-header {
-  background-color: var(--yg-chrome);
+  background-color: var(--yg-panel);
   color: var(--yg-ink);
   box-shadow: none !important;
-  border-bottom: 1px solid var(--yg-line);
+  border-bottom: 1px solid var(--yg-line-strong);
+  height: var(--md-header-height);
+  min-height: var(--md-header-height);
 }
 
 .md-header--shadow {
@@ -182,9 +182,9 @@
 }
 
 [data-md-color-scheme="default"] .md-header {
-  background-color: #e8eaef !important;
+  background-color: #ffffff !important;
   color: #12141a;
-  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
+  border-bottom: 1px solid rgba(18, 20, 26, 0.16);
 }
 
 [data-md-color-scheme="slate"] .md-header {
@@ -194,8 +194,8 @@
 }
 
 .md-header__inner {
-  min-height: 48px;
-  height: 48px;
+  min-height: 3rem;
+  height: 3rem;
   padding-top: 0;
   padding-bottom: 0;
   align-items: center;
@@ -207,7 +207,7 @@
 }
 
 .md-header__topic {
-  font-size: 13px !important; /* punch: 12–13px (Material rem is ~20px) */
+  font-size: 13px !important;
   font-weight: 600 !important;
   letter-spacing: -0.01em;
 }
@@ -234,21 +234,20 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* 3. Search + theme toggle — aligned, compact                         */
+/* P4 — Search compact; theme + search only (repo chip stays hidden)  */
 /* ------------------------------------------------------------------ */
 .md-header__option,
 .md-header__source {
   align-self: center;
 }
 
-/* Theme toggle: ~32px control, secondary ink */
 .md-header__button[for^="__palette"] {
   width: 32px;
   height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5rem; /* ~8px gap before search */
+  margin-right: 0.5rem;
   border-radius: 6px;
 }
 
@@ -261,7 +260,6 @@
   color: var(--yg-accent);
 }
 
-/* Search form: compact, not Material pill */
 .md-search {
   align-self: center;
 }
@@ -284,7 +282,8 @@
 
 [data-md-color-scheme="default"] .md-search__input::placeholder,
 [data-md-color-scheme="default"] .md-search__input + .md-search__icon {
-  color: #4a5163;
+  color: #7a8296;
+  opacity: 1;
 }
 
 [data-md-color-scheme="slate"] .md-search__form {
@@ -294,12 +293,18 @@
 
 @media screen and (min-width: 60em) {
   .md-search__form {
-    width: 12.5rem;
+    width: 11.5rem;
   }
 }
 
+/* Hide Material repo chip (stars/forks) — keep gone */
+.md-header__source,
+.md-nav__source {
+  display: none !important;
+}
+
 /* ------------------------------------------------------------------ */
-/* 4. Sidebar — section labels quiet; only leaf page is active         */
+/* Page + sidebars                                                     */
 /* ------------------------------------------------------------------ */
 [data-md-color-scheme="default"] .md-main,
 [data-md-color-scheme="default"] body {
@@ -319,8 +324,23 @@
   border-left: 1px solid rgba(18, 20, 26, 0.1);
 }
 
+/* Soft scrollbars */
 .md-sidebar__scrollwrap {
   scrollbar-width: thin;
+  scrollbar-color: rgba(18, 20, 26, 0.16) transparent;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 20, 26, 0.16);
+  border-radius: 6px;
 }
 
 [data-md-color-scheme="default"] .md-nav__title {
@@ -334,12 +354,14 @@
 
 @media screen and (max-width: 76.1875em) {
   [data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
-    background-color: #e8eaef;
+    background-color: #ffffff;
     color: #12141a;
   }
 }
 
-/* Base nav links */
+/* ------------------------------------------------------------------ */
+/* P2 — Nav: section labels #4a5163; active soft pill + inset bar     */
+/* ------------------------------------------------------------------ */
 .md-nav--primary .md-nav__link {
   color: #4a5163;
   border-radius: 6px;
@@ -365,15 +387,15 @@
   background-color: rgba(122, 162, 247, 0.14);
 }
 
-/* Section labels (Getting started / Jobs / Reports): tertiary, NOT accent */
+/* Section labels: secondary ink (readable), NOT accent */
 .md-nav--primary .md-nav__item--section > .md-nav__link,
 .md-nav--primary .md-nav__item--section > label.md-nav__link,
 .md-nav--primary .md-nav__item--section.md-nav__item--active > .md-nav__link,
 .md-nav--primary .md-nav__item--section.md-nav__item--active > label.md-nav__link {
-  color: #7a8296 !important;
+  color: #4a5163 !important;
   background: transparent !important;
   background-color: transparent !important;
-  font-size: 11px !important; /* punch: ~11px */
+  font-size: 12px !important;
   font-weight: 600 !important;
   text-transform: none;
   letter-spacing: 0.02em;
@@ -388,22 +410,22 @@
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > label.md-nav__link,
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section.md-nav__item--active > .md-nav__link,
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section.md-nav__item--active > label.md-nav__link {
-  color: #7a829e !important;
+  color: #a9b1d6 !important;
   background: transparent !important;
 }
 
 .md-nav--primary .md-nav__item--section > .md-nav__link:hover,
 .md-nav--primary .md-nav__item--section > label.md-nav__link:hover {
-  color: #4a5163 !important;
+  color: #12141a !important;
   background: transparent !important;
 }
 
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > .md-nav__link:hover,
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > label.md-nav__link:hover {
-  color: #a9b1d6 !important;
+  color: #f4f5f8 !important;
 }
 
-/* Active leaf page only: soft accent pill with horizontal inset */
+/* Active leaf: soft accent pill + inset accent bar */
 .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
 .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > a.md-nav__link--active,
 .md-nav--primary a.md-nav__link--active {
@@ -415,6 +437,7 @@
   margin-right: 0.5rem;
   padding-left: 0.55rem;
   padding-right: 0.55rem;
+  box-shadow: inset 3px 0 0 #3b6ae8 !important;
 }
 
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
@@ -422,14 +445,13 @@
 [data-md-color-scheme="slate"] .md-nav--primary a.md-nav__link--active {
   color: #7aa2f7 !important;
   background-color: rgba(122, 162, 247, 0.14) !important;
+  box-shadow: inset 3px 0 0 #7aa2f7 !important;
 }
 
-/* Hide duplicate TOC toggle label that can look like a second active row */
 .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > label.md-nav__link--active {
   display: none !important;
 }
 
-/* Hide crude sticky drawer title on desktop (avoids logo/title overlay in sidebar) */
 @media screen and (min-width: 76.25em) {
   .md-nav--primary > .md-nav__title {
     display: none !important;
@@ -437,56 +459,7 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* 5. Content density / h1 / white panel                               */
-/* ------------------------------------------------------------------ */
-[data-md-color-scheme="default"] .md-content {
-  background-color: transparent;
-}
-
-[data-md-color-scheme="default"] .md-content__inner {
-  background-color: #ffffff;
-  border: 1px solid rgba(18, 20, 26, 0.1);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem 2rem;
-  margin-bottom: 1.5rem;
-  box-shadow: none;
-}
-
-.md-typeset h1 {
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  color: var(--yg-ink);
-}
-
-[data-md-color-scheme="default"] .md-typeset h1 {
-  color: #12141a;
-}
-
-.md-typeset h2,
-.md-typeset h3 {
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: var(--yg-ink);
-}
-
-/* Tabs (if present) */
-.md-tabs {
-  background-color: transparent;
-}
-
-[data-md-color-scheme="default"] .md-tabs {
-  background-color: #e8eaef;
-  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
-  color: #4a5163;
-}
-
-[data-md-color-scheme="slate"] .md-tabs {
-  background-color: #161821;
-  border-bottom: 1px solid rgba(169, 177, 214, 0.14);
-}
-
-/* ------------------------------------------------------------------ */
-/* 6. TOC                                                              */
+/* P2 — TOC: links 13px/#4a5163; title tertiary; active accent/600    */
 /* ------------------------------------------------------------------ */
 .md-nav--secondary .md-nav__title {
   color: #7a8296 !important;
@@ -499,8 +472,9 @@
 
 .md-nav--secondary .md-nav__link {
   color: #4a5163;
-  font-size: 0.75rem;
+  font-size: 13px;
   font-weight: 500;
+  border-radius: 6px;
 }
 
 [data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
@@ -522,6 +496,81 @@
 .md-nav--secondary .md-nav__link:hover {
   color: #3b6ae8;
   background-color: rgba(59, 106, 232, 0.1);
+}
+
+/* ------------------------------------------------------------------ */
+/* P4 — Layout: hide TOC until primary nav shows (~1220px); tighten   */
+/* ------------------------------------------------------------------ */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 11rem;
+  }
+
+  .md-sidebar--secondary {
+    width: 9.75rem;
+  }
+
+  .md-grid {
+    max-width: 64rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* P3 — Content card: border only, radius 10, no shadow               */
+/* ------------------------------------------------------------------ */
+[data-md-color-scheme="default"] .md-content {
+  background-color: transparent;
+}
+
+[data-md-color-scheme="default"] .md-content__inner {
+  background-color: #ffffff;
+  border: 1px solid rgba(18, 20, 26, 0.1);
+  border-radius: 10px;
+  padding: 1.1rem 1.35rem 1.6rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: none !important;
+}
+
+/* P3 — h1 ~1.75rem / weight 650 */
+.md-typeset h1 {
+  font-size: 1.75rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--yg-ink);
+  margin-top: 0;
+}
+
+[data-md-color-scheme="default"] .md-typeset h1 {
+  color: #12141a;
+}
+
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--yg-ink);
+}
+
+.md-tabs {
+  background-color: transparent;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(18, 20, 26, 0.16);
+  color: #4a5163;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #161821;
+  border-bottom: 1px solid rgba(169, 177, 214, 0.14);
 }
 
 /* ------------------------------------------------------------------ */
@@ -553,9 +602,10 @@
 
 [data-md-color-scheme="default"] .md-typeset .md-button--primary:focus,
 [data-md-color-scheme="default"] .md-typeset .md-button--primary:hover {
-  background-color: #262a38;
-  border-color: #262a38;
+  background-color: var(--yg-cta);
+  border-color: var(--yg-cta);
   color: var(--yg-cta-ink);
+  opacity: 0.92;
   filter: none;
 }
 
@@ -565,23 +615,117 @@
   color: var(--yg-cta-ink);
 }
 
-/* Cards / admonitions */
+/* ------------------------------------------------------------------ */
+/* P3 — Admonitions: accent-soft bg + #3b6ae8 left (no Material teal) */
+/* ------------------------------------------------------------------ */
 .md-typeset .admonition,
 .md-typeset details {
-  border-color: var(--yg-line);
   border-radius: var(--yg-radius-lg);
-  box-shadow: none;
+  box-shadow: none !important;
+  border: 1px solid var(--yg-line);
+  border-left: 3px solid #3b6ae8;
 }
 
 [data-md-color-scheme="default"] .md-typeset .admonition,
 [data-md-color-scheme="default"] .md-typeset details {
-  background-color: var(--yg-panel);
-  border-color: var(--yg-line-strong);
+  background-color: rgba(59, 106, 232, 0.1);
+  border-color: rgba(18, 20, 26, 0.1);
+  border-left-color: #3b6ae8;
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.note,
+[data-md-color-scheme="default"] .md-typeset .admonition.tip,
+[data-md-color-scheme="default"] .md-typeset .admonition.info,
+[data-md-color-scheme="default"] .md-typeset .admonition.important,
+[data-md-color-scheme="default"] .md-typeset .admonition.warning,
+[data-md-color-scheme="default"] .md-typeset .admonition.caution,
+[data-md-color-scheme="default"] .md-typeset .admonition.danger,
+[data-md-color-scheme="default"] .md-typeset details.note,
+[data-md-color-scheme="default"] .md-typeset details.tip,
+[data-md-color-scheme="default"] .md-typeset details.info,
+[data-md-color-scheme="default"] .md-typeset details.important,
+[data-md-color-scheme="default"] .md-typeset details.warning {
+  border-color: rgba(18, 20, 26, 0.1);
+  border-left-color: #3b6ae8;
+}
+
+[data-md-color-scheme="default"] .md-typeset .note > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .tip > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .info > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .important > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .warning > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .caution > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .danger > .admonition-title,
+[data-md-color-scheme="default"] .md-typeset .note > summary,
+[data-md-color-scheme="default"] .md-typeset .tip > summary,
+[data-md-color-scheme="default"] .md-typeset .info > summary,
+[data-md-color-scheme="default"] .md-typeset .important > summary,
+[data-md-color-scheme="default"] .md-typeset .warning > summary {
+  background-color: rgba(59, 106, 232, 0.1);
+}
+
+[data-md-color-scheme="default"] .md-typeset .note > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .tip > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .info > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .important > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .warning > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .caution > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .danger > .admonition-title::before,
+[data-md-color-scheme="default"] .md-typeset .note > summary::before,
+[data-md-color-scheme="default"] .md-typeset .tip > summary::before,
+[data-md-color-scheme="default"] .md-typeset .info > summary::before,
+[data-md-color-scheme="default"] .md-typeset .important > summary::before,
+[data-md-color-scheme="default"] .md-typeset .warning > summary::before {
+  background-color: #3b6ae8;
+}
+
+[data-md-color-scheme="default"] .md-typeset .note > .admonition-title::after,
+[data-md-color-scheme="default"] .md-typeset .tip > .admonition-title::after,
+[data-md-color-scheme="default"] .md-typeset .info > .admonition-title::after,
+[data-md-color-scheme="default"] .md-typeset .important > .admonition-title::after,
+[data-md-color-scheme="default"] .md-typeset .warning > .admonition-title::after,
+[data-md-color-scheme="default"] .md-typeset .note > summary::after,
+[data-md-color-scheme="default"] .md-typeset .tip > summary::after {
+  color: #3b6ae8;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .admonition,
 [data-md-color-scheme="slate"] .md-typeset details {
-  background-color: #161821;
+  background-color: rgba(122, 162, 247, 0.14);
+  border-left-color: #7aa2f7;
+}
+
+/* ------------------------------------------------------------------ */
+/* P3 — Home “Start here” cards: icons one size, #4a5163              */
+/* ------------------------------------------------------------------ */
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li,
+[data-md-color-scheme="default"] .md-typeset .grid > .card {
+  border: 1px solid rgba(18, 20, 26, 0.1);
+  border-radius: 10px;
+  box-shadow: none !important;
+  background-color: #ffffff;
+}
+
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="default"] .md-typeset .grid.cards > ol > li:hover,
+[data-md-color-scheme="default"] .md-typeset .grid > .card:hover {
+  border-color: rgba(18, 20, 26, 0.16);
+  box-shadow: none !important;
+}
+
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .twemoji svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  max-width: 1.25rem !important;
+  max-height: 1.25rem !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .grid.cards .twemoji,
+[data-md-color-scheme="default"] .md-typeset .grid.cards .twemoji svg {
+  color: #4a5163;
+  fill: #4a5163;
 }
 
 /* Screenshots / figures */
@@ -603,7 +747,7 @@
 
 [data-md-color-scheme="default"] .md-typeset code {
   background-color: var(--yg-accent-soft);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 [data-md-color-scheme="default"] .md-typeset .highlight,
@@ -611,6 +755,7 @@
   background-color: var(--yg-chrome);
   border: 1px solid var(--yg-line);
   border-radius: var(--yg-radius);
+  box-shadow: none !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .highlight,
@@ -623,6 +768,7 @@
   border: 1px solid var(--yg-line);
   border-radius: var(--yg-radius);
   background-color: var(--yg-panel);
+  box-shadow: none !important;
 }
 
 [data-md-color-scheme="default"] .md-typeset table:not([class]) th {
@@ -635,10 +781,12 @@
   border-top: 1px solid var(--yg-line);
 }
 
-/* Footer */
+/* ------------------------------------------------------------------ */
+/* P4 — Footer: no Material credit crowding; copyright #4a5163        */
+/* ------------------------------------------------------------------ */
 [data-md-color-scheme="default"] .md-footer {
   background-color: var(--yg-chrome);
-  color: var(--yg-ink-secondary);
+  color: #4a5163;
   border-top: 1px solid var(--yg-line);
 }
 
@@ -646,13 +794,26 @@
   background-color: var(--yg-chrome);
 }
 
+[data-md-color-scheme="default"] .md-copyright,
+[data-md-color-scheme="default"] .md-copyright__highlight {
+  color: #4a5163;
+}
+
+[data-md-color-scheme="default"] .md-copyright a {
+  color: #4a5163;
+}
+
+/* Backup if generator somehow remains */
+.md-copyright {
+  font-size: 0.75rem;
+}
+
 .placeholder-note {
   font-size: 0.8em;
   opacity: 0.85;
 }
 
-/* Hide Material repo chip (stars/forks) — keep gone */
-.md-header__source,
-.md-nav__source {
-  display: none !important;
+/* Back-to-top: keep quiet */
+.md-top {
+  border-radius: 6px;
 }
