@@ -42,6 +42,7 @@ extra_css:
   - assets/styles/extra.css
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/solid/globe
       link: https://yeetngreet.app/

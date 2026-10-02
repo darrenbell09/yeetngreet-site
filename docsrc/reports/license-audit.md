@@ -15,8 +15,7 @@ See which Microsoft 365 licenses are assigned, with SKU detail and named users (
 3. Run the report
 4. Export or [deliver](delivery.md) as needed
 
-![Screenshot: Reports — license audit](../assets/images/reports-license-audit.png){ width="720" }
-*Placeholder — SKU counts and named users.*
+See [Samples](samples.md) for anonymized SKU counts and named-user examples.
 
 !!! tip "Community preview"
     Community includes a limited license-report preview (counts and savings range). Team / MSP / Founding unlock full SKU detail, named users, and exports.
