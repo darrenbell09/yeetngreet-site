@@ -1,1 +1,103 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YeetnGreet</title>
+  <meta name="description" content="MSP onboard and offboard for Microsoft 365 — runs on your technicians’ PCs without putting customer data in our cloud." />
+  <meta name="yeetngreet-build" content="20261002c" />
+  <link rel="icon" href="favicon.ico?v=20261002c" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261002c" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261002c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261002c" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>YeetnGreet</span>
+      </a>
+      <nav>
+        <a href="#pricing">Pricing</a>
+        <a href="#founding">Founding</a>
+        <a href="docs.html">Docs</a>
+        <a href="privacy.html">Privacy</a>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <p class="brand-name">YeetnGreet</p>
+      </div>
+      <h1>Offboard and onboard Microsoft 365 without putting customer data in our cloud.</h1>
+      <p class="lede">YeetnGreet runs on your technicians’ PCs. Microsoft Graph talks to each customer tenant directly from that machine. We only receive license and billing metadata for your YeetnGreet account.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/darrenbell09/yeetngreet-site/releases/latest">Download YeetnGreet</a>
+        <a class="btn ghost" href="#founding">Reserve a founding slot</a>
+        <a class="btn ghost" href="docs.html">Docs</a>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+      <h2 class="section-label">Pricing</h2>
+      <p class="section-note">Billed per managed tenant, not per seat. Prefer annual (shown under each paid plan). Community is free forever for light use; Team and MSP unlock full reports.</p>
+      <div class="pricing">
+        <article class="plan">
+          <h3>Community</h3>
+          <p class="price">Free</p>
+          <p>1 managed tenant · 5 jobs/mo · one license-report preview (counts + savings range only).</p>
+        </article>
+        <article class="plan">
+          <h3>Team</h3>
+          <p class="price">$39<span>/mo</span></p>
+          <p class="price-annual">or $390/yr</p>
+          <p>1 managed tenant · unlimited jobs · full reports, SKU detail, named users, and exports.</p>
+        </article>
+        <article class="plan featured">
+          <h3>MSP</h3>
+          <p class="price">$69<span>/mo</span></p>
+          <p class="price-annual">or $690/yr</p>
+          <p>5 tenants included · then $12/tenant/mo · same full reports as Team.</p>
+        </article>
+        <article class="plan founding" id="founding">
+          <h3>Founding beta</h3>
+          <p class="price">$349<span>/yr</span></p>
+          <p>MSP features · 5 tenants · 10 slots · founding renewal lock · hybrid AD free for this cohort when it ships.</p>
+          <p class="plan-cta">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" target="_blank" rel="noopener noreferrer">Reserve a founding slot</a>
+          </p>
+          <p class="plan-subcta">Preregister now (Google Form). Optional $349 prepay opens when checkout is live.</p>
+        </article>
+      </div>
+      <p class="section-note hybrid-note">MSP Hybrid (Entra + on-prem AD) planned at $99/mo or $990/yr when hybrid support ships.</p>
+    </section>
+
+    <footer>
+      <p>yeetngreet.app · <a href="https://darrenbell.net">darrenbell.net</a></p>
+    </footer>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const saved = localStorage.getItem("yeetngreet-site-theme");
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function sync() {
+      const light = root.getAttribute("data-theme") === "light";
+      btn.textContent = light ? "Dark" : "Light";
+    }
+    sync();
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("yeetngreet-site-theme", next);
+      sync();
+    });
+  </script>
+</body>
+</html>
