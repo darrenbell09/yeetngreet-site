@@ -148,6 +148,20 @@
   border-radius: var(--yg-radius);
 }
 
+/* Logo: asset is light glyph — dark in light mode, light in dark mode (like marketing mask) */
+[data-md-color-scheme="default"] .md-header__button.md-logo img,
+[data-md-color-scheme="default"] .md-nav__button.md-logo img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.92;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img {
+  filter: none;
+  opacity: 1;
+}
+
+
 /* Page / sidebars / content surfaces */
 [data-md-color-scheme="default"] .md-main,
 [data-md-color-scheme="default"] .md-content,
