@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs — YeetnGreet</title>
+  <meta name="description" content="How to install YeetnGreet and run Microsoft 365 onboard and offboard on your technicians’ PCs." />
+  <meta name="yeetngreet-build" content="20261002c" />
+  <link rel="icon" href="favicon.ico?v=20261002c" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261002c" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261002c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261002c" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>YeetnGreet</span>
+      </a>
+      <nav>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#founding">Founding</a>
+        <a href="docs.html" aria-current="page">Docs</a>
+        <a href="privacy.html">Privacy</a>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
+      </nav>
+    </header>
+
+    <section class="page">
+      <h1>Docs</h1>
+      <p class="lede">YeetnGreet helps MSPs and IT teams onboard and offboard Microsoft 365 users from a Windows PC — without sending customer tenant data to our cloud.</p>
+
+      <p class="docs-toc">
+        <a href="#install">Install</a> ·
+        <a href="#pricing">Plans</a> ·
+        <a href="#offboard">Offboard</a> ·
+        <a href="#onboard">Onboard</a> ·
+        <a href="#more">More you can do</a>
+      </p>
+
+      <h2 id="install">Install</h2>
+      <p>Download YeetnGreet for Windows from <a href="https://github.com/darrenbell09/yeetngreet-site/releases/latest">Releases</a>. It is a single app (WebView2). Run it, sign in to the customer tenant you manage, and you are ready to work.</p>
+      <p>Microsoft Graph runs on your technician’s PC. We only use the cloud for your YeetnGreet license and billing — not mail, files, or user content. Updates are available from inside the app.</p>
+
+      <h2 id="pricing">Plans</h2>
+      <p>Pricing is per managed tenant, not per seat.</p>
+      <ul class="docs-list">
+        <li><strong>Community</strong> — free for light use (1 tenant, a small monthly job allowance, and a license-report preview)</li>
+        <li><strong>Team</strong> — $39/mo or $390/yr — one tenant, unlimited jobs, full reports</li>
+        <li><strong>MSP</strong> — $69/mo or $690/yr — five tenants included, then $12 per extra tenant per month</li>
+        <li><strong>Founding beta</strong> — $349/yr for early MSP customers (limited slots) — <a href="index.html#founding">reserve a slot</a></li>
+      </ul>
+      <p>You activate your plan in the app. Website checkout is coming; founding interest is collected on the homepage form today.</p>
+
+      <h2 id="offboard">Offboard</h2>
+      <p>Offboard one person or many (list or CSV). Use templates for handoff, checklist, and shared settings. Preview what will run, confirm deliberately, then go. You can also schedule a job to run later on that same PC.</p>
+
+      <h2 id="onboard">Onboard</h2>
+      <p>Create or enable a user, require a password change, and optionally assign licenses, groups, and a manager. Templates and CSV cover repeatable or bulk work. Confirm before anything Live runs — same careful path as offboard, including optional scheduling.</p>
+
+      <h2 id="more">More you can do</h2>
+      <ul class="docs-list">
+        <li>Switch between the tenants you manage</li>
+        <li>License audit, unused seats, and what-if reports — on demand or on a schedule</li>
+        <li>Send reports by email (Microsoft Graph) or to Teams, Slack, or a webhook</li>
+        <li>Optional hybrid Active Directory support per tenant when you need on-prem identity with Entra</li>
+      </ul>
+
+      <p class="docs-download">
+        <a class="btn primary" href="https://github.com/darrenbell09/yeetngreet-site/releases/latest">Download YeetnGreet</a>
+        <a class="btn ghost" href="privacy.html">How privacy works</a>
+      </p>
+
+      <p class="privacy-back"><a href="index.html">← Back to YeetnGreet</a></p>
+    </section>
+
+    <footer>
+      <p>yeetngreet.app · <a href="https://darrenbell.net">darrenbell.net</a></p>
+    </footer>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const saved = localStorage.getItem("yeetngreet-site-theme");
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    function sync() {
+      const light = root.getAttribute("data-theme") === "light";
+      btn.textContent = light ? "Dark" : "Light";
+    }
+    sync();
+    btn.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("yeetngreet-site-theme", next);
+      sync();
+    });
+  </script>
+</body>
+</html>
