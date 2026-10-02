@@ -240,6 +240,13 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+}
+
 .pricing-section { padding-top: 0.25rem; }
 
 .section-label {
@@ -258,14 +265,23 @@ a:hover { text-decoration: underline; }
   max-width: 40rem;
 }
 
+.hybrid-note {
+  margin-top: 1.15rem;
+  margin-bottom: 0;
+}
+
 .pricing {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.85rem;
 }
 
-@media (min-width: 900px) {
-  .pricing { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 700px) {
+  .pricing { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1100px) {
+  .pricing { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .plan {
@@ -280,6 +296,10 @@ a:hover { text-decoration: underline; }
   border-color: var(--accent);
 }
 
+.plan.founding {
+  border-color: rgba(122, 162, 247, 0.45);
+}
+
 .plan h3 {
   margin: 0;
   font-size: 0.95rem;
@@ -288,7 +308,7 @@ a:hover { text-decoration: underline; }
 }
 
 .plan .price {
-  margin: 0.65rem 0 0.5rem;
+  margin: 0.65rem 0 0.15rem;
   font-size: clamp(1.55rem, 2.5vw, 1.85rem);
   font-weight: 650;
   letter-spacing: -0.03em;
@@ -301,11 +321,21 @@ a:hover { text-decoration: underline; }
   color: var(--ink-tertiary);
 }
 
+.plan .price-annual {
+  margin: 0 0 0.5rem;
+  color: var(--ink-tertiary);
+  font-size: 0.85rem;
+}
+
 .plan p {
   margin: 0;
   color: var(--ink-secondary);
   font-size: 0.92rem;
   line-height: 1.45;
+}
+
+.plan .plan-cta {
+  margin-top: 1rem;
 }
 
 footer {
@@ -351,4 +381,15 @@ footer {
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
   max-width: 52rem;
+}
+
+.plan .plan-subcta {
+  margin-top: 0.65rem;
+  color: var(--ink-tertiary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.plan .plan-cta .btn {
+  width: 100%;
 }
