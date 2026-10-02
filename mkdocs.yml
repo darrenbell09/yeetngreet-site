@@ -4,10 +4,6 @@ site_url: https://yeetngreet.app/docs/
 site_author: YeetnGreet
 docs_dir: docsrc
 
-repo_url: https://github.com/darrenbell09/yeetngreet-site
-repo_name: yeetngreet-site
-edit_uri: ""
-
 copyright: Copyright &copy; YeetnGreet · <a href="https://yeetngreet.app/">yeetngreet.app</a>
 
 theme:
@@ -42,9 +38,6 @@ theme:
     - search.highlight
     - content.code.copy
     - toc.follow
-  icon:
-    repo: fontawesome/brands/github
-
 extra_css:
   - assets/styles/extra.css
 
