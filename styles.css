@@ -1,24 +1,6 @@
-/* YeetnGreet marketing — dark (default) / light */
+/* YeetnGreet marketing — light (default) / dark */
 
 :root {
-  --bg: #0e0f14;
-  --panel: #161821;
-  --ink: #f4f5f8;
-  --ink-secondary: #a9b1d6;
-  --ink-tertiary: #7a829e;
-  --line: rgba(169, 177, 214, 0.14);
-  --accent: #7aa2f7;
-  --accent-soft: rgba(122, 162, 247, 0.14);
-  --cta: #7aa2f7;
-  --cta-ink: #0b1020;
-  --control: #1c1e26;
-  --brand-mark: #ffffff;
-  --font: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  --radius: 10px;
-  color-scheme: dark;
-}
-
-:root[data-theme="light"] {
   --bg: #f4f4f5;
   --panel: #ffffff;
   --ink: #111111;
@@ -31,7 +13,25 @@
   --cta-ink: #ffffff;
   --control: #ffffff;
   --brand-mark: #171717;
+  --font: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --radius: 10px;
   color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e0f14;
+  --panel: #161821;
+  --ink: #f4f5f8;
+  --ink-secondary: #a9b1d6;
+  --ink-tertiary: #7a829e;
+  --line: rgba(169, 177, 214, 0.14);
+  --accent: #7aa2f7;
+  --accent-soft: rgba(122, 162, 247, 0.14);
+  --cta: #7aa2f7;
+  --cta-ink: #0b1020;
+  --control: #1c1e26;
+  --brand-mark: #ffffff;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
