@@ -1,0 +1,26 @@
+/* Align docs slightly with yeetngreet.app dark marketing feel */
+:root {
+  --yg-accent: #7aa2f7;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0e0f14;
+  --md-default-bg-color--light: #161821;
+  --md-primary-fg-color: #7aa2f7;
+}
+
+.md-typeset img {
+  border-radius: 8px;
+  border: 1px solid rgba(169, 177, 214, 0.14);
+}
+
+.md-typeset figcaption {
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--md-default-fg-color--light);
+}
+
+.placeholder-note {
+  font-size: 0.8em;
+  opacity: 0.85;
+}

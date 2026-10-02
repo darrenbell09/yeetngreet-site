@@ -1,0 +1,98 @@
+site_name: YeetnGreet Docs
+site_description: Onboard and offboard Microsoft 365 for MSPs and IT admins — from your technicians' PCs.
+site_url: https://yeetngreet.app/docs/
+site_author: YeetnGreet
+
+repo_url: https://github.com/darrenbell09/yeetngreet-site
+repo_name: yeetngreet-site
+edit_uri: ""
+
+copyright: Copyright &copy; YeetnGreet · <a href="https://yeetngreet.app/">yeetngreet.app</a>
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - assets/styles/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://yeetngreet.app/
+      name: YeetnGreet home
+    - icon: fontawesome/brands/github
+      link: https://github.com/darrenbell09/yeetngreet-site/releases/latest
+      name: Download
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Install: getting-started/install.md
+      - First run: getting-started/first-run.md
+  - Jobs:
+      - Offboard: jobs/offboard.md
+      - Onboard: jobs/onboard.md
+      - Schedules: jobs/schedules.md
+  - Reports:
+      - Overview: reports/overview.md
+      - License audit: reports/license-audit.md
+      - Unused seats: reports/unused-seats.md
+      - What-if: reports/what-if.md
+      - Delivery: reports/delivery.md
+      - Samples: reports/samples.md
+  - Tenants:
+      - Multi-tenant: tenants/multi-tenant.md
+      - Hybrid AD: tenants/hybrid-ad.md
+  - Pricing and licensing: pricing-and-licensing.md
+  - Privacy: privacy.md
