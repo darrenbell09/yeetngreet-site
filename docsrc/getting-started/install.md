@@ -32,6 +32,9 @@ Most Windows 10/11 machines already have the **Evergreen WebView2 Runtime**. If 
 
 Sign in with an account that can administer the **customer Microsoft 365 tenant** you are working in. Graph calls leave from **this PC** to Microsoft — not through YeetnGreet’s vendor cloud.
 
+!!! note "Admin consent first"
+    Each customer tenant needs an admin to grant consent for YeetnGreet's Microsoft Graph and Exchange Online permissions before the first job. See [Admin permissions and consent](permissions.md) for the full list.
+
 ![Screenshot: Install — tenant sign-in](../assets/images/install-tenant-signin.png){ width="720" }
 *Placeholder — Microsoft sign-in happens on the technician PC.*
 
