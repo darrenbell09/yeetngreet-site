@@ -35,6 +35,6 @@ touch docs/.nojekyll
 
 `docsrc/assets/images/*.png` are **placeholders**. Replace with real captures from a technician PC (app UI / `%LOCALAPPDATA%\YeetnGreet`), then rebuild.
 
-## Download
+## Get early access
 
-[GitHub Releases](https://github.com/darrenbell09/yeetngreet-site/releases/latest) — `YeetnGreet.exe`.
+Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [homepage founding form](https://yeetngreet.app/#founding) ($349/yr · 10 slots · 5 tenants).

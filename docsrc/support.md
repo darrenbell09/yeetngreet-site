@@ -14,7 +14,7 @@ Many how-tos are already covered here:
 
 | Topic | Docs |
 | --- | --- |
-| Download and launch | [Install](getting-started/install.md) |
+| Install and launch | [Install](getting-started/install.md) |
 | First tenant sign-in and preview | [First run](getting-started/first-run.md) |
 | Offboard / onboard / schedules | [Jobs](jobs/offboard.md) |
 | License and unused-seat reports | [Reports](reports/overview.md) |

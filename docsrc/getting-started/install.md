@@ -2,14 +2,15 @@
 
 YeetnGreet is a **Windows single-file** app (`YeetnGreet.exe`) that uses **Microsoft Edge WebView2** for the UI. Install once on each technician PC that will run jobs.
 
-## 1. Download
+## 1. Get the app
 
-1. Open the latest release: [github.com/darrenbell09/yeetngreet-site/releases/latest](https://github.com/darrenbell09/yeetngreet-site/releases/latest)
-2. Download **YeetnGreet.exe**
-3. Save it somewhere durable (for example `C:\Tools\YeetnGreet\` or a shared tech folder)
+Public Windows downloads are **not available yet**. YeetnGreet ships as a single-file **`YeetnGreet.exe`** with the release. Until then:
 
-!!! note "Updates"
-    Newer builds are announced from inside the app when available. You can always re-download from Releases.
+1. [Reserve a founding slot](https://yeetngreet.app/#founding) on the homepage (Google Form — $349/yr · 10 slots · 5 tenants)
+2. When your build is ready, save **`YeetnGreet.exe`** somewhere durable (for example `C:\Tools\YeetnGreet\` or a shared tech folder)
+
+!!! note "Coming with the release"
+    Download links will appear here when the public release ships. Founding members get access through the preregister path first.
 
 ## 2. WebView2
 

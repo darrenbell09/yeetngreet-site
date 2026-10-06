@@ -12,7 +12,7 @@ Microsoft Graph runs on your technicians’ machines. We only use the cloud for 
 
     ---
 
-    Download the Windows app, confirm WebView2, and launch.
+    Install guide for when the Windows app ships — WebView2 and first launch.
 
     [:octicons-arrow-right-24: Install guide](getting-started/install.md)
 
@@ -51,9 +51,9 @@ Microsoft Graph runs on your technicians’ machines. We only use the cloud for 
 | [Tenants](tenants/multi-tenant.md) | Switch customers; optional [hybrid AD](tenants/hybrid-ad.md) per tenant |
 | [Pricing](pricing-and-licensing.md) | Community, Team, MSP, and Founding plans |
 
-## Download
+## Get early access
 
-Grab the latest Windows build from [GitHub Releases](https://github.com/darrenbell09/yeetngreet-site/releases/latest).
+Public downloads are not available yet. When the Windows app ships, this guide will cover install. Until then, [reserve a founding slot](https://yeetngreet.app/#founding) on the homepage ($349/yr · 10 slots · 5 tenants).
 
 !!! tip "Privacy in one line"
     Customer mail, files, and user content stay between your PC and Microsoft. See [Privacy](privacy.md) and the full [privacy page](https://yeetngreet.app/privacy.html).
