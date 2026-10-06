@@ -37,4 +37,4 @@ touch docs/.nojekyll
 
 ## Get early access
 
-Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [homepage founding form](https://yeetngreet.app/#founding) ($349/yr · 10 slots · 5 tenants).
+Public Windows downloads are not linked from this site yet. Both homepage CTAs (pre-release list and founding member) go to the same [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform). No upfront payment is required. Founding: $349/yr · 10 slots · 5 tenants.

@@ -1,6 +1,6 @@
 # Pricing and licensing
 
-Pricing is **per managed tenant**, not per seat. Activate your plan in the app. Website checkout is coming; founding interest is collected on the [homepage form](https://yeetngreet.app/#founding) today.
+Pricing is **per managed tenant**, not per seat. Activate your plan in the app. Website checkout is coming; pre-release and founding sign-ups use the same [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform) today. No upfront payment is required.
 
 ## Plans
 

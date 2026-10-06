@@ -6,11 +6,13 @@ YeetnGreet is a **Windows single-file** app (`YeetnGreet.exe`) that uses **Micro
 
 Public Windows downloads are **not available yet**. YeetnGreet ships as a single-file **`YeetnGreet.exe`** with the release. Until then:
 
-1. [Reserve a founding slot](https://yeetngreet.app/#founding) on the homepage (Google Form — $349/yr · 10 slots · 5 tenants)
+1. Sign up using the [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform). No upfront payment is required. Pick one:
+    - **Pre-release list**: get notified when the build is ready.
+    - **Founding member**: $349/yr · 10 slots · 5 tenants. Optional prepay opens when checkout is live.
 2. When your build is ready, save **`YeetnGreet.exe`** somewhere durable (for example `C:\Tools\YeetnGreet\` or a shared tech folder)
 
 !!! note "Coming with the release"
-    Download links will appear here when the public release ships. Founding members get access through the preregister path first.
+    Download links will appear here when the public release ships. People who signed up (pre-release or founding) hear first.
 
 ## 2. WebView2
 
