@@ -5,7 +5,7 @@ After [install](install.md), walk through a low-risk path: pick a tenant, confir
 ## Checklist
 
 1. **Launch** YeetnGreet on the technician PC
-2. **Sign in** to the customer tenant you manage
+2. **Sign in** to the customer tenant you manage. Admin consent must already be granted in that tenant. See [Admin permissions and consent](permissions.md)
 3. Confirm the tenant name / domain matches the ticket
 4. Open **Offboard** or **Onboard** and use **Preview** (or equivalent review step) before confirm
 5. Optionally save a **template** if this customer has a standard checklist
