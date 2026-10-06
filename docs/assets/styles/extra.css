@@ -241,7 +241,9 @@
   align-self: center;
 }
 
-.md-header__button[for^="__palette"] {
+/* Only the active palette label. Material marks the other toggle [hidden];
+   forcing display here used to paint both gear icons beside search. */
+.md-header__button[for^="__palette"]:not([hidden]) {
   width: 32px;
   height: 32px;
   display: inline-flex;
@@ -249,6 +251,10 @@
   justify-content: center;
   margin-right: 0.5rem;
   border-radius: 6px;
+}
+
+.md-header__button[for^="__palette"][hidden] {
+  display: none;
 }
 
 [data-md-color-scheme="default"] .md-header__button[for^="__palette"] {
