@@ -53,7 +53,7 @@ Microsoft Graph runs on your technicians’ machines. We only use the cloud for 
 
 ## Get early access
 
-Public downloads are not available yet. When the Windows app ships, this guide will cover install. Until then, [reserve a founding slot](https://yeetngreet.app/#founding) on the homepage ($349/yr · 10 slots · 5 tenants).
+Public downloads are not available yet. When the Windows app ships, this guide will cover install. Until then, sign up with the [sign-up form](https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform). **No upfront payment required.** Join the **pre-release list**, or become a **founding member** ($349/yr · 10 slots · 5 tenants; optional prepay opens when checkout is live).
 
 !!! tip "Privacy in one line"
     Customer mail, files, and user content stay between your PC and Microsoft. See [Privacy](privacy.md) and the full [privacy page](https://yeetngreet.app/privacy.html).

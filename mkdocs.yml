@@ -48,8 +48,8 @@ extra:
       link: https://yeetngreet.app/
       name: YeetnGreet home
     - icon: fontawesome/solid/handshake
-      link: https://yeetngreet.app/#founding
-      name: Founding beta
+      link: https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform
+      name: Sign up (pre-release or founding, no upfront payment)
 
 plugins:
   - search
