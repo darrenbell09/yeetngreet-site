@@ -1368,7 +1368,7 @@
 </tr>
 <tr>
 <td><code>DeviceManagementManagedDevices.PrivilegedOperations.All</code></td>
-<td>Retire those Intune devices. Only needed if you use <strong>Retire Intune devices</strong>.</td>
+<td>Retire those Intune devices. Requires <strong>admin consent</strong>. Without consent, the app greys out <strong>Retire</strong>. Only needed if you use <strong>Retire Intune devices</strong>.</td>
 </tr>
 <tr>
 <td><code>Reports.Read.All</code></td>
@@ -1376,6 +1376,7 @@
 </tr>
 </tbody>
 </table>
+<p>YeetnGreet does <strong>not</strong> request application <code>Mail.Send</code>. Report email delivery is interactive-only (see below).</p>
 <h3 id="office-365-exchange-online">Office 365 Exchange Online<a class="headerlink" href="#office-365-exchange-online" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1416,8 +1417,8 @@
 <p>Microsoft blocks lower-privileged roles from disabling, resetting, or removing MFA for <strong>other administrators</strong>. If you offboard someone who holds an admin role, the app may need <strong>Privileged Authentication Administrator</strong>. Otherwise, do those steps in the Entra admin center.</p>
 </div>
 <h2 id="interactive-delegated-permissions">Interactive: delegated permissions<a class="headerlink" href="#interactive-delegated-permissions" title="Permanent link">&para;</a></h2>
-<p>When a technician signs in, YeetnGreet requests these <strong>delegated</strong> Microsoft Graph permissions. They are the same names as the app-only list, plus <code>Directory.AccessAsUser.All</code>, which lets the app act as the signed-in admin:</p>
-<p><code>User.ReadWrite.All</code>, <code>User.EnableDisableAccount.All</code>, <code>User-PasswordProfile.ReadWrite.All</code>, <code>Directory.AccessAsUser.All</code>, <code>User.RevokeSessions.All</code>, <code>LicenseAssignment.ReadWrite.All</code>, <code>UserAuthenticationMethod.ReadWrite.All</code>, <code>MailboxSettings.ReadWrite</code>, <code>GroupMember.ReadWrite.All</code>, <code>RoleManagement.ReadWrite.Directory</code>, <code>Directory.ReadWrite.All</code>, <code>Files.ReadWrite.All</code>, <code>DeviceManagementManagedDevices.ReadWrite.All</code>, <code>Reports.Read.All</code></p>
+<p>When a technician signs in, YeetnGreet requests these <strong>delegated</strong> Microsoft Graph permissions. They match the app-only Graph names above, plus <code>Directory.AccessAsUser.All</code> (act as the signed-in admin) and <code>Mail.Send</code> (report email):</p>
+<p><code>User.ReadWrite.All</code>, <code>User.EnableDisableAccount.All</code>, <code>User-PasswordProfile.ReadWrite.All</code>, <code>Directory.AccessAsUser.All</code>, <code>User.RevokeSessions.All</code>, <code>LicenseAssignment.ReadWrite.All</code>, <code>UserAuthenticationMethod.ReadWrite.All</code>, <code>MailboxSettings.ReadWrite</code>, <code>GroupMember.ReadWrite.All</code>, <code>RoleManagement.ReadWrite.Directory</code>, <code>Directory.ReadWrite.All</code>, <code>Files.ReadWrite.All</code>, <code>DeviceManagementManagedDevices.ReadWrite.All</code>, <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code>, <code>Reports.Read.All</code>, <code>Mail.Send</code></p>
 <p>Interactive sign-in uses Microsoft's <strong>Microsoft Graph Command Line Tools</strong> app. The first time, approve the consent prompt and tick <strong>Consent on behalf of your organization</strong>, or grant admin consent to that app in the customer tenant.</p>
 <p>Consent alone doesn't let a technician run the job. The technician's account needs an active admin role too:</p>
 <table>
@@ -1438,16 +1439,22 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Report email delivery</p>
+<p>Sending a report by email uses <strong>delegated</strong> <code>Mail.Send</code> and works only in <strong>interactive</strong> sign-in. In <strong>app-only</strong> mode, email delivery is unavailable — use a <a href="../../reports/delivery/">webhook</a> or save the report locally instead. Application <code>Mail.Send</code> is not used.</p>
+</div>
 <h2 id="what-yeetngreet-does-not-need">What YeetnGreet does <em>not</em> need<a class="headerlink" href="#what-yeetngreet-does-not-need" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Your MSP tenant:</strong> MSP sign-in to YeetnGreet itself (team and license features) only uses <code>User.Read</code> against your own work account. It never grants access to customer data.</li>
 <li><strong>Hybrid AD:</strong> on-premises Active Directory steps run against your domain from the technician PC, not through Microsoft Graph. See <a href="../../tenants/hybrid-ad/">Hybrid AD</a>.</li>
+<li><strong>Application <code>Mail.Send</code>:</strong> not requested. Email reports are interactive-only (delegated <code>Mail.Send</code>).</li>
 </ul>
 <h2 id="checklist-per-customer-tenant">Checklist per customer tenant<a class="headerlink" href="#checklist-per-customer-tenant" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Grant admin consent for every Microsoft Graph and Exchange Online permission above</li>
 <li>App-only: assign <strong>Exchange Administrator</strong> and <strong>User Administrator</strong> to the YeetnGreet enterprise app</li>
 <li>Interactive: confirm the technician account has <strong>User Administrator</strong> (or higher) and <strong>Exchange Administrator</strong></li>
+<li>If you use <strong>Retire Intune devices</strong>: confirm admin consent for <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code> (otherwise Retire stays greyed out)</li>
 <li>Run a <strong>Preview</strong> in <a href="../first-run/">First run</a> before any Live job</li>
 </ol>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
@@ -1455,6 +1462,7 @@
 <li><a href="../install/">Install</a></li>
 <li><a href="../first-run/">First run</a></li>
 <li><a href="../../tenants/multi-tenant/">Multi-tenant</a></li>
+<li><a href="../../reports/delivery/">Report delivery</a></li>
 </ul>
 
 
