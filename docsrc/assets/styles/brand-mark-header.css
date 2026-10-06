@@ -1,0 +1,74 @@
+/* Studio locked: docs header brand-mark match (overrides P1 logo tile) */
+
+.md-header__button.md-logo,
+.md-nav__button.md-logo {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  padding: 0 !important;
+  margin: 0 0.55rem 0 0 !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg,
+.md-nav__button.md-logo img,
+.md-nav__button.md-logo svg {
+  width: 28px !important;
+  height: 28px !important;
+  filter: brightness(0) !important;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo svg {
+  filter: brightness(0) invert(1) !important;
+}
+
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
+  .md-header__button.md-logo img,
+  .md-nav__button.md-logo img {
+    opacity: 0 !important;
+    filter: none !important;
+  }
+
+  .md-header__button.md-logo::after,
+  .md-nav__button.md-logo::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-color: #171717 !important;
+    -webkit-mask: url("../images/logo.png") center / contain no-repeat !important;
+    mask: url("../images/logo.png") center / contain no-repeat !important;
+    pointer-events: none !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-header__button.md-logo::after,
+  [data-md-color-scheme="slate"] .md-nav__button.md-logo::after {
+    background-color: #ffffff !important;
+  }
+}
+
+.md-header__topic {
+  font-weight: 650 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Preserve one-theme-control */
+.md-header__button[for^="__palette"]:not([hidden]) {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+}
+
+.md-header__button[for^="__palette"][hidden] {
+  display: none;
+}

@@ -41,6 +41,7 @@ theme:
     - toc.follow
 extra_css:
   - assets/styles/extra.css
+  - assets/styles/brand-mark-header.css
 
 extra:
   generator: false
