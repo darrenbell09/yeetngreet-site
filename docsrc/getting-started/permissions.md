@@ -36,8 +36,10 @@ Grant these in the customer tenant for the YeetnGreet app (Enterprise applicatio
 | `MailboxSettings.ReadWrite` | Set the leaver's out-of-office auto-reply. |
 | `Files.ReadWrite.All` | Share the leaver's OneDrive with their manager or the handoff person. |
 | `DeviceManagementManagedDevices.ReadWrite.All` | Find the leaver's Intune-managed devices. |
-| `DeviceManagementManagedDevices.PrivilegedOperations.All` | Retire those Intune devices. Only needed if you use **Retire Intune devices**. |
+| `DeviceManagementManagedDevices.PrivilegedOperations.All` | Retire those Intune devices. Requires **admin consent**. Without consent, the app greys out **Retire**. Only needed if you use **Retire Intune devices**. |
 | `Reports.Read.All` | Read Microsoft 365 mail activity for the **Unused seats** and **License audit** reports. |
+
+YeetnGreet does **not** request application `Mail.Send`. Report email delivery is interactive-only (see below).
 
 ### Office 365 Exchange Online
 
@@ -59,9 +61,9 @@ Microsoft requires an admin role on the app as well as the permissions above for
 
 ## Interactive: delegated permissions
 
-When a technician signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions. They are the same names as the app-only list, plus `Directory.AccessAsUser.All`, which lets the app act as the signed-in admin:
+When a technician signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions. They match the app-only Graph names above, plus `Directory.AccessAsUser.All` (act as the signed-in admin) and `Mail.Send` (report email):
 
-`User.ReadWrite.All`, `User.EnableDisableAccount.All`, `User-PasswordProfile.ReadWrite.All`, `Directory.AccessAsUser.All`, `User.RevokeSessions.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All`, `MailboxSettings.ReadWrite`, `GroupMember.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`, `Directory.ReadWrite.All`, `Files.ReadWrite.All`, `DeviceManagementManagedDevices.ReadWrite.All`, `Reports.Read.All`
+`User.ReadWrite.All`, `User.EnableDisableAccount.All`, `User-PasswordProfile.ReadWrite.All`, `Directory.AccessAsUser.All`, `User.RevokeSessions.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All`, `MailboxSettings.ReadWrite`, `GroupMember.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`, `Directory.ReadWrite.All`, `Files.ReadWrite.All`, `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`, `Reports.Read.All`, `Mail.Send`
 
 Interactive sign-in uses Microsoft's **Microsoft Graph Command Line Tools** app. The first time, approve the consent prompt and tick **Consent on behalf of your organization**, or grant admin consent to that app in the customer tenant.
 
@@ -72,20 +74,26 @@ Consent alone doesn't let a technician run the job. The technician's account nee
 | **User Administrator** (or Global Administrator / Privileged Role Administrator) | Required to disable accounts and reset passwords. YeetnGreet checks for it and stops before a Live job if it's missing. |
 | **Exchange Administrator** | Needed for the Exchange Online sign-in that runs the mailbox steps. |
 
+!!! note "Report email delivery"
+    Sending a report by email uses **delegated** `Mail.Send` and works only in **interactive** sign-in. In **app-only** mode, email delivery is unavailable — use a [webhook](../reports/delivery.md) or save the report locally instead. Application `Mail.Send` is not used.
+
 ## What YeetnGreet does *not* need
 
 - **Your MSP tenant:** MSP sign-in to YeetnGreet itself (team and license features) only uses `User.Read` against your own work account. It never grants access to customer data.
 - **Hybrid AD:** on-premises Active Directory steps run against your domain from the technician PC, not through Microsoft Graph. See [Hybrid AD](../tenants/hybrid-ad.md).
+- **Application `Mail.Send`:** not requested. Email reports are interactive-only (delegated `Mail.Send`).
 
 ## Checklist per customer tenant
 
 1. Grant admin consent for every Microsoft Graph and Exchange Online permission above
 2. App-only: assign **Exchange Administrator** and **User Administrator** to the YeetnGreet enterprise app
 3. Interactive: confirm the technician account has **User Administrator** (or higher) and **Exchange Administrator**
-4. Run a **Preview** in [First run](first-run.md) before any Live job
+4. If you use **Retire Intune devices**: confirm admin consent for `DeviceManagementManagedDevices.PrivilegedOperations.All` (otherwise Retire stays greyed out)
+5. Run a **Preview** in [First run](first-run.md) before any Live job
 
 ## Related
 
 - [Install](install.md)
 - [First run](first-run.md)
 - [Multi-tenant](../tenants/multi-tenant.md)
+- [Report delivery](../reports/delivery.md)
