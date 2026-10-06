@@ -207,12 +207,17 @@
 
 .md-header__title {
   margin-left: 0;
-  line-height: 1.2;
+  line-height: 2.4rem;
+}
+
+/* Material's [dir=ltr] margin-left: 1rem outranks the rule above */
+[dir="ltr"] .md-header__title {
+  margin-left: 0;
 }
 
 .md-header__topic {
-  font-size: 13px !important;
-  font-weight: 650 !important;
+  font-size: 14.4px !important;
+  font-weight: 500 !important;
   letter-spacing: -0.03em;
 }
 
