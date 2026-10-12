@@ -104,20 +104,18 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* P1 — Logo tile 32×32, glyph ~20px (white on #3b6ae8)               */
+/* P1 — Logo mark 28×28 (homepage brand-mark: no tile, mask fill)     */
 /* ------------------------------------------------------------------ */
 .md-header__button.md-logo,
 .md-nav__button.md-logo {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
   padding: 0;
   margin: 0 0.55rem 0 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #3b6ae8;
-  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -125,12 +123,19 @@
 .md-header__button.md-logo svg,
 .md-nav__button.md-logo img,
 .md-nav__button.md-logo svg {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
   opacity: 1;
   border-radius: 0;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo svg {
+  filter: brightness(0) invert(1);
 }
 
 @supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
@@ -151,18 +156,17 @@
   .md-nav__button.md-logo::after {
     content: "";
     position: absolute;
-    /* (32 - 20) / 2 = 6px inset → ~20px glyph */
-    inset: 6px;
-    background-color: #ffffff;
+    inset: 0;
+    background-color: #171717;
     -webkit-mask: url("../images/logo.png") center / contain no-repeat;
     mask: url("../images/logo.png") center / contain no-repeat;
     pointer-events: none;
   }
-}
 
-[data-md-color-scheme="slate"] .md-header__button.md-logo,
-[data-md-color-scheme="slate"] .md-nav__button.md-logo {
-  background-color: #3b6ae8;
+  [data-md-color-scheme="slate"] .md-header__button.md-logo::after,
+  [data-md-color-scheme="slate"] .md-nav__button.md-logo::after {
+    background-color: #ffffff;
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -203,13 +207,18 @@
 
 .md-header__title {
   margin-left: 0;
-  line-height: 1.2;
+  line-height: 2.4rem;
+}
+
+/* Material's [dir=ltr] margin-left: 1rem outranks the rule above */
+[dir="ltr"] .md-header__title {
+  margin-left: 0;
 }
 
 .md-header__topic {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em;
+  font-size: 14.4px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.03em;
 }
 
 [data-md-color-scheme="default"] .md-header__topic {

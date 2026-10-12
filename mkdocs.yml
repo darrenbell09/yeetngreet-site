@@ -1,4 +1,4 @@
-site_name: YeetnGreet Docs
+site_name: YeetnGreet
 site_description: Onboard and offboard Microsoft 365 for MSPs and IT admins — from your technicians' PCs.
 site_url: https://yeetngreet.app/docs/
 site_author: YeetnGreet
@@ -8,6 +8,7 @@ copyright: Copyright &copy; YeetnGreet · <a href="https://yeetngreet.app/">yeet
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: assets/images/logo.png
   favicon: assets/images/favicon.png

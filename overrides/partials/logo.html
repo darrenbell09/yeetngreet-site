@@ -1,0 +1,9 @@
+{#-
+  Override Material logo alt (hardcoded "logo") → "YeetnGreet"
+-#}
+{% if config.theme.logo %}
+  <img src="{{ config.theme.logo | url }}" alt="YeetnGreet">
+{% else %}
+  {% set icon = config.theme.icon.logo or "material/library" %}
+  {% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
