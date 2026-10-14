@@ -1,6 +1,6 @@
 # Reports overview
 
-YeetnGreet reports help you see license waste and plan changes — from the same technician PC model as jobs. Full report detail is available on **Team**, **MSP**, and **Founding** plans; Community includes a limited license-report preview.
+YeetnGreet reports help you see license waste and plan changes — from the same PC as your jobs. Full report detail is available on **Team** and **Founding** plans; Community includes a limited license-report preview.
 
 ## Report types
 
@@ -13,7 +13,7 @@ YeetnGreet reports help you see license waste and plan changes — from the same
 
 ## How to run
 
-1. Sign into the customer tenant
+1. Sign into your tenant
 2. Open **Reports** and pick a report type
 3. Run on demand, or [schedule](../jobs/schedules.md) a recurring run
 4. Optionally send results via [Delivery](delivery.md) (email, Teams, Slack, webhooks)
@@ -22,7 +22,7 @@ YeetnGreet reports help you see license waste and plan changes — from the same
 *Placeholder — license audit summary in the app.*
 
 !!! note "Data path"
-    Report queries use Microsoft Graph from the technician PC. Results you export or send follow the delivery channel you configure — not a YeetnGreet-hosted data lake of customer content.
+    Report queries use Microsoft Graph from your PC. Results you export or send follow the delivery channel you configure — YeetnGreet does not host a copy of your tenant content.
 
 ## Related
 

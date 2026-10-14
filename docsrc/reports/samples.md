@@ -28,7 +28,7 @@ Anonymized examples of what paid-plan reports can look like. Your tenant names, 
 | leavers.hold@contoso-example.com | M365 E3 | Disabled + licensed | $36 |
 
 !!! note "Illustrative only"
-    Figures are fictional for documentation. Always validate in the customer tenant before reclaiming.
+    Figures are fictional for documentation. Always validate in your tenant before reclaiming.
 
 ## What-if (excerpt)
 
@@ -37,7 +37,7 @@ Scenario: Q4 reclaim wave
 - Remove 6× Microsoft 365 E3 (unused)
 - Move 10× E3 → Business Premium (dept B)
 Projected assigned E3: 142 → 126
-Projected monthly delta: about -$580 (list; customer price may differ)
+Projected monthly delta: about -$580 (list; your price may differ)
 ```
 
 ## Related

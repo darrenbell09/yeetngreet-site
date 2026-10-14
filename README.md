@@ -1,6 +1,6 @@
 # YeetnGreet site
 
-Marketing pages for [yeetngreet.app](https://yeetngreet.app/) plus customer **MkDocs Material** docs at [yeetngreet.app/docs/](https://yeetngreet.app/docs/).
+Marketing pages for [yeetngreet.app](https://yeetngreet.app/) plus customer **MkDocs Material** docs at [yeetngreet.app/docs/](https://yeetngreet.app/docs/). YeetnGreet is proprietary software © YeetnGreet LLC, built for internal IT teams running cloud-only Microsoft 365.
 
 ## Layout
 
@@ -33,8 +33,8 @@ touch docs/.nojekyll
 
 ## Screenshots
 
-`docsrc/assets/images/*.png` are **placeholders**. Replace with real captures from a technician PC (app UI / `%LOCALAPPDATA%\YeetnGreet`), then rebuild.
+`docsrc/assets/images/*.png` are **placeholders**. Replace with real captures from an admin PC (app UI / `%LOCALAPPDATA%\YeetnGreet`), then rebuild.
 
 ## Get early access
 
-Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [pricing page founding form](https://yeetngreet.app/pricing.html#founding) ($349/yr · 10 slots · 5 tenants).
+Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [pricing page founding form](https://yeetngreet.app/pricing.html#founding) ($349/yr · 10 slots · up to 5 tenants).

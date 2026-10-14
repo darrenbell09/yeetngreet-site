@@ -1,15 +1,15 @@
 # Report delivery
 
-Send report output to the channels your practice already uses.
+Send report output to the channels your team already uses.
 
 ## Supported channels
 
 | Channel | Notes |
 | --- | --- |
-| **Email** | Sent via **Microsoft Graph** from the technician context / tenant you configure |
+| **Email** | Sent via **Microsoft Graph** from the signed-in admin and tenant you configure |
 | **Microsoft Teams** | Incoming webhook or Teams workflow URL as configured in the app |
 | **Slack** | Incoming webhook URL |
-| **Webhooks** | Generic HTTPS endpoint for your RMM / automation |
+| **Webhooks** | Generic HTTPS endpoint for your ticketing or automation tools |
 
 ## Setup tips
 
@@ -18,7 +18,7 @@ Send report output to the channels your practice already uses.
 3. Run a small test report before attaching it to a [schedule](../jobs/schedules.md)
 
 !!! important "Credentials stay with you"
-    Webhook URLs and Graph mail send from the technician environment. Treat webhook URLs like secrets in your password vault.
+    Webhook URLs and Graph mail send from your own environment. Treat webhook URLs like secrets in your password vault.
 
 ## Related
 

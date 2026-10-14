@@ -6,11 +6,11 @@ See which Microsoft 365 licenses are assigned, with SKU detail and named users (
 
 - Quarterly license hygiene
 - Before a renewal or true-up
-- After a merger / tenant consolidation wave
+- After a merger, acquisition, or tenant consolidation
 
 ## Steps
 
-1. Select the customer tenant
+1. Select the tenant
 2. Open **Reports → License audit**
 3. Run the report
 4. Export or [deliver](delivery.md) as needed
@@ -18,7 +18,7 @@ See which Microsoft 365 licenses are assigned, with SKU detail and named users (
 See [Samples](samples.md) for anonymized SKU counts and named-user examples.
 
 !!! tip "Community preview"
-    Community includes a limited license-report preview (counts and savings range). Team / MSP / Founding unlock full SKU detail, named users, and exports.
+    Community includes a limited license-report preview (counts and savings range). Team and Founding unlock full SKU detail, named users, and exports.
 
 ## Related
 

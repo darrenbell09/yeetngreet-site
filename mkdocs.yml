@@ -1,10 +1,10 @@
 site_name: YeetnGreet
-site_description: Onboard and offboard Microsoft 365 for MSPs and IT admins — from your technicians' PCs.
+site_description: Microsoft 365 onboarding and offboarding for internal IT teams, run from your own PCs.
 site_url: https://yeetngreet.app/docs/
-site_author: YeetnGreet
+site_author: YeetnGreet LLC
 docs_dir: docsrc
 
-copyright: Copyright &copy; YeetnGreet · <a href="https://yeetngreet.app/">yeetngreet.app</a>
+copyright: Copyright &copy; YeetnGreet LLC · <a href="https://yeetngreet.app/">yeetngreet.app</a>
 
 theme:
   name: material
@@ -94,7 +94,6 @@ nav:
       - Samples: reports/samples.md
   - Tenants:
       - Multi-tenant: tenants/multi-tenant.md
-      - Hybrid AD: tenants/hybrid-ad.md
   - Pricing and licensing: pricing-and-licensing.md
   - Privacy: privacy.md
   - Support: support.md
