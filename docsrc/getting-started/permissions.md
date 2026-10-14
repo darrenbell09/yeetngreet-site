@@ -1,24 +1,24 @@
 # Admin permissions and consent
 
-YeetnGreet changes users, mailboxes, licenses, and devices in your **customer** Microsoft 365 tenants. Microsoft requires an administrator in **each customer tenant** to approve (grant **admin consent** for) the permissions below before YeetnGreet can run jobs there.
+YeetnGreet changes users, mailboxes, licenses, and devices in your Microsoft 365 tenant. Microsoft requires an administrator in **each tenant you manage** to approve (grant **admin consent** for) the permissions below before YeetnGreet can run jobs there.
 
-Use this page as the checklist for your customer's Global Administrator, or for your own change ticket.
+Use this page as the checklist for your Global Administrator, or for your own change ticket.
 
-!!! important "Admin consent is per customer tenant"
-    Consent granted in your MSP tenant, or in one customer, does **not** carry over to another customer. Repeat it for every tenant you add to YeetnGreet. Granting admin consent for Microsoft Graph application permissions needs a **Global Administrator** or **Privileged Role Administrator** in that tenant.
+!!! important "Admin consent is per tenant"
+    Consent granted in one tenant does **not** carry over to another. If you manage more than one tenant, repeat it for every tenant you add to YeetnGreet. Granting admin consent for Microsoft Graph application permissions needs a **Global Administrator** or **Privileged Role Administrator** in that tenant.
 
 ## How YeetnGreet signs in
 
-| Sign-in mode | What runs the job | What the customer admin approves |
+| Sign-in mode | What runs the job | What your admin approves |
 | --- | --- | --- |
-| **App-only** (recommended for MSPs) | The YeetnGreet multi-tenant app, with a certificate, with no technician account in the customer tenant | The **application permissions** and **directory roles** below |
-| **Interactive** | A technician signs in to the customer tenant in the browser | The **delegated permissions** below, plus admin roles on the technician's account |
+| **App-only** (recommended for unattended and scheduled jobs) | The YeetnGreet app, with a certificate, with no admin account signed in | The **application permissions** and **directory roles** below |
+| **Interactive** | An admin signs in to the tenant in the browser | The **delegated permissions** below, plus admin roles on the admin's account |
 
-Either way, tokens are requested for the **customer tenant you selected**. YeetnGreet refuses to run a job if Microsoft returns a token for a different tenant.
+Either way, tokens are requested for the **tenant you selected**. YeetnGreet refuses to run a job if Microsoft returns a token for a different tenant.
 
 ## App-only: application permissions
 
-Grant these in the customer tenant for the YeetnGreet app (Enterprise applications → YeetnGreet → **Permissions** → **Grant admin consent**). All are **Application** permissions.
+Grant these in your tenant for the YeetnGreet app (Enterprise applications → YeetnGreet → **Permissions** → **Grant admin consent**). All are **Application** permissions.
 
 ### Microsoft Graph
 
@@ -49,7 +49,7 @@ YeetnGreet does **not** request application `Mail.Send`. Report email delivery i
 
 ### Directory roles for the YeetnGreet app
 
-Microsoft requires an admin role on the app as well as the permissions above for some actions. In the customer tenant, assign these roles to the **YeetnGreet** enterprise application (Entra admin center → Roles & admins):
+Microsoft requires an admin role on the app as well as the permissions above for some actions. In your tenant, assign these roles to the **YeetnGreet** enterprise application (Entra admin center → Roles & admins):
 
 | Role | Why |
 | --- | --- |
@@ -61,15 +61,15 @@ Microsoft requires an admin role on the app as well as the permissions above for
 
 ## Interactive: delegated permissions
 
-When a technician signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions. They match the app-only Graph names above, plus `Directory.AccessAsUser.All` (act as the signed-in admin) and `Mail.Send` (report email):
+When an admin signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions. They match the app-only Graph names above, plus `Directory.AccessAsUser.All` (act as the signed-in admin) and `Mail.Send` (report email):
 
 `User.ReadWrite.All`, `User.EnableDisableAccount.All`, `User-PasswordProfile.ReadWrite.All`, `Directory.AccessAsUser.All`, `User.RevokeSessions.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All`, `MailboxSettings.ReadWrite`, `GroupMember.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`, `Directory.ReadWrite.All`, `Files.ReadWrite.All`, `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`, `Reports.Read.All`, `Mail.Send`
 
-Interactive sign-in uses Microsoft's **Microsoft Graph Command Line Tools** app. The first time, approve the consent prompt and tick **Consent on behalf of your organization**, or grant admin consent to that app in the customer tenant.
+Interactive sign-in uses Microsoft's **Microsoft Graph Command Line Tools** app. The first time, approve the consent prompt and tick **Consent on behalf of your organization**, or grant admin consent to that app in your tenant.
 
-Consent alone doesn't let a technician run the job. The technician's account needs an active admin role too:
+Consent alone doesn't let an admin run the job. The signed-in account needs an active admin role too:
 
-| Role on the technician account | Why |
+| Role on the signed-in account | Why |
 | --- | --- |
 | **User Administrator** (or Global Administrator / Privileged Role Administrator) | Required to disable accounts and reset passwords. YeetnGreet checks for it and stops before a Live job if it's missing. |
 | **Exchange Administrator** | Needed for the Exchange Online sign-in that runs the mailbox steps. |
@@ -79,15 +79,15 @@ Consent alone doesn't let a technician run the job. The technician's account nee
 
 ## What YeetnGreet does *not* need
 
-- **Your MSP tenant:** MSP sign-in to YeetnGreet itself (team and license features) only uses `User.Read` against your own work account. It never grants access to customer data.
-- **Hybrid AD:** on-premises Active Directory steps run against your domain from the technician PC, not through Microsoft Graph. See [Hybrid AD](../tenants/hybrid-ad.md).
+- **Access beyond your work account to use YeetnGreet itself:** signing in to YeetnGreet for team and license features only uses `User.Read` against your own work account. It never grants access to your tenant's data.
+- **On-premises Active Directory:** YeetnGreet works with cloud-only Microsoft 365 (Entra ID). On-premises and hybrid Active Directory aren't supported yet.
 - **Application `Mail.Send`:** not requested. Email reports are interactive-only (delegated `Mail.Send`).
 
-## Checklist per customer tenant
+## Checklist for each tenant
 
 1. Grant admin consent for every Microsoft Graph and Exchange Online permission above
 2. App-only: assign **Exchange Administrator** and **User Administrator** to the YeetnGreet enterprise app
-3. Interactive: confirm the technician account has **User Administrator** (or higher) and **Exchange Administrator**
+3. Interactive: confirm the signed-in admin account has **User Administrator** (or higher) and **Exchange Administrator**
 4. If you use **Retire Intune devices**: confirm admin consent for `DeviceManagementManagedDevices.PrivilegedOperations.All` (otherwise Retire stays greyed out)
 5. Run a **Preview** in [First run](first-run.md) before any Live job
 
