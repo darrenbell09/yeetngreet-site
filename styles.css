@@ -49,7 +49,7 @@
 
 html {
   background: var(--bg);
-  overflow-x: clip;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -57,7 +57,7 @@ body {
   margin: 0;
   min-height: 100vh;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.5;
@@ -97,7 +97,7 @@ a:hover { text-decoration: underline; }
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 0 3.5rem;
-  overflow-x: clip;
+  overflow: visible;
 }
 
 @media (min-width: 1600px) {
@@ -219,27 +219,26 @@ a:hover { text-decoration: underline; }
     grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.28fr);
     gap: 1.5rem 2rem;
     padding: 0.35rem 0 2.75rem;
-    /* Keep headline + CTAs pinned to the top of the first viewport */
     align-items: start;
   }
 
   .hero-copy {
     max-width: none;
-    position: sticky;
-    top: 1rem;
   }
 }
 
 .hero h1 {
   margin: 0 0 0.9rem;
+  padding: 0.12em 0 0.06em;
   font-family: var(--display);
   font-size: clamp(1.85rem, 4vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.12;
+  line-height: 1.22;
   color: var(--ink);
   max-width: 16ch;
-  overflow-wrap: anywhere;
+  overflow: visible;
+  overflow-wrap: break-word;
 }
 
 .lede {
@@ -559,11 +558,13 @@ a:hover { text-decoration: underline; }
 
 .section-heading {
   margin: 0 0 0.65rem;
+  padding: 0.1em 0 0.08em;
   font-family: var(--display);
   font-size: clamp(1.45rem, 3vw, 1.9rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.28;
+  overflow: visible;
 }
 
 .section-lede {
@@ -601,12 +602,14 @@ a:hover { text-decoration: underline; }
 
 .benefit-copy h2 {
   margin: 0 0 0.65rem;
+  padding: 0.08em 0;
   font-family: var(--display);
   font-size: clamp(1.25rem, 2.4vw, 1.55rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.28;
   max-width: 22ch;
+  overflow: visible;
 }
 
 .benefit-copy p {
@@ -657,11 +660,13 @@ a:hover { text-decoration: underline; }
 
 .audience h2 {
   margin: 0 0 0.65rem;
+  padding: 0.08em 0;
   font-family: var(--display);
   font-size: clamp(1.25rem, 2.4vw, 1.55rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.28;
+  overflow: visible;
 }
 
 .audience p:last-child {
@@ -796,8 +801,10 @@ footer {
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
     transition: opacity 0.55s ease, transform 0.55s ease;
+    /* Avoid ink clipping while translated */
+    will-change: opacity, transform;
   }
 
   .reveal.reveal-delay-1 { transition-delay: 0.08s; }
@@ -806,7 +813,8 @@ footer {
 
   .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
+    will-change: auto;
   }
 
   .kpi.highlight .kpi-value.savings {
