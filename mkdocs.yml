@@ -1,4 +1,4 @@
-site_name: YeetnGreet Docs
+site_name: YeetnGreet
 site_description: Onboard and offboard Microsoft 365 for MSPs and IT admins — from your technicians' PCs.
 site_url: https://yeetngreet.app/docs/
 site_author: YeetnGreet
@@ -40,6 +40,7 @@ theme:
     - toc.follow
 extra_css:
   - assets/styles/extra.css
+  - assets/styles/brand.css
 
 extra:
   generator: false
