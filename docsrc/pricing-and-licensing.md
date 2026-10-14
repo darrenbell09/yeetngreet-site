@@ -1,6 +1,6 @@
 # Pricing and licensing
 
-Pricing is **per managed tenant**, not per seat. Activate your plan in the app. Website checkout is coming; founding interest is collected on the [homepage form](https://yeetngreet.app/#founding) today.
+Pricing is **per managed tenant**, not per seat. Activate your plan in the app. Website checkout is coming; founding interest is collected on the [pricing page form](https://yeetngreet.app/pricing.html#founding) today.
 
 ## Plans
 
@@ -32,4 +32,4 @@ The following are **not** required to use YeetnGreet today and should not be ass
 ## Related
 
 - [Install](getting-started/install.md)
-- [Homepage pricing](https://yeetngreet.app/#pricing)
+- [Pricing page](https://yeetngreet.app/pricing.html)

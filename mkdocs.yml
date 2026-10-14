@@ -51,7 +51,7 @@ extra:
       link: https://yeetngreet.app/
       name: YeetnGreet home
     - icon: fontawesome/solid/handshake
-      link: https://yeetngreet.app/#founding
+      link: https://yeetngreet.app/pricing.html#founding
       name: Founding beta
 
 plugins:
