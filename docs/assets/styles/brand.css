@@ -1,0 +1,66 @@
+/* Docs header brand: match the marketing site topbar (yeetngreet.app).
+   Marketing: logo.png as a 28px mask in #171717 (white in dark), wordmark
+   "YeetnGreet" 1.05rem / 650 / -0.03em, header on the page background with a
+   1px bottom border. Loaded after extra.css to replace the old blue logo tile. */
+
+/* Remove the blue tile */
+.md-header__button.md-logo,
+.md-nav__button.md-logo,
+[data-md-color-scheme="default"] .md-header__button.md-logo,
+[data-md-color-scheme="slate"] .md-header__button.md-logo,
+[data-md-color-scheme="default"] .md-nav__button.md-logo,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  margin: 0 0.6rem 0 0;
+}
+
+/* Glyph fills the box, same ink as marketing brand mark */
+.md-header__button.md-logo::after,
+.md-nav__button.md-logo::after {
+  inset: 0 !important;
+  background-color: #171717 !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo::after,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo::after {
+  background-color: #ffffff !important;
+}
+
+/* Fallback when mask isn't supported: show the dark mark, not inverted white */
+.md-header__button.md-logo img,
+.md-nav__button.md-logo img {
+  width: 28px !important;
+  height: 28px !important;
+  filter: none !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Wordmark like marketing */
+.md-header__title .md-header__topic:first-child {
+  font-size: 1.05rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.03em;
+}
+
+/* Light header: page background + bottom border, like the marketing topbar */
+[data-md-color-scheme="default"] .md-header {
+  background-color: #f3f4f7 !important;
+  color: #111111;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+[data-md-color-scheme="default"] .md-header__title .md-header__topic:first-child {
+  color: #111111;
+}
+
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: #ffffff;
+}
