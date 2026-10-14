@@ -6,7 +6,7 @@ Marketing pages for [yeetngreet.app](https://yeetngreet.app/) plus customer **Mk
 
 | Path | Role |
 | --- | --- |
-| `index.html`, `privacy.html`, `styles.css`, `CNAME` | Marketing (keep intact) |
+| `index.html`, `pricing.html`, `privacy.html`, `styles.css`, `CNAME` | Marketing (keep intact) |
 | `docs.html` | Redirect → `/docs/` |
 | `docsrc/` | MkDocs **source** (Markdown — edit here) |
 | `docs/` | **Built** HTML published by GitHub Pages at `/docs/` |
@@ -37,4 +37,4 @@ touch docs/.nojekyll
 
 ## Get early access
 
-Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [homepage founding form](https://yeetngreet.app/#founding) ($349/yr · 10 slots · 5 tenants).
+Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [pricing page founding form](https://yeetngreet.app/pricing.html#founding) ($349/yr · 10 slots · 5 tenants).
