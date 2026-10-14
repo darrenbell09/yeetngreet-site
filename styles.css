@@ -430,3 +430,61 @@ footer {
   margin: 2rem 0 0;
   max-width: 52rem;
 }
+
+/* Homepage feature grid */
+.features-section { padding-top: 0.25rem; }
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 700px) {
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1100px) {
+  .features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.feature {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.2rem 1.3rem;
+  min-width: 0;
+}
+
+.feature.highlight { border-color: var(--accent); }
+
+.feature-stat {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.feature h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.feature p:not(.feature-stat) {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.early-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.early-section .cta { margin-top: 0.5rem; }
