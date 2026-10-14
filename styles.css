@@ -1,4 +1,4 @@
-/* YeetnGreet marketing — dark (default) / light */
+/* YeetnGreet marketing: dark (default) / light */
 
 :root {
   --bg: #12141a;
@@ -289,7 +289,7 @@ a:hover { text-decoration: underline; }
   transform: translateY(-1px);
 }
 
-/* License report product visual — contained in the hero composition */
+/* License report product visual: contained in the hero composition */
 .report-stage {
   --tilt-x: 0deg;
   --tilt-y: 0deg;
