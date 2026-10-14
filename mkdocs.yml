@@ -43,6 +43,8 @@ extra_css:
 
 extra:
   generator: false
+  # Header logo / site name link back to the marketing home page
+  homepage: https://yeetngreet.app/
   social:
     - icon: fontawesome/solid/globe
       link: https://yeetngreet.app/
@@ -72,6 +74,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
+  - "← Back to yeetngreet.app": https://yeetngreet.app/
   - Home: index.md
   - Getting started:
       - Install: getting-started/install.md
