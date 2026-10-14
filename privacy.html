@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy — YeetnGreet</title>
-  <meta name="yeetngreet-build" content="20261002f" />
-  <link rel="icon" href="favicon.ico?v=20261002f" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20261002f" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261002f" />
+  <meta name="yeetngreet-build" content="20261014d" />
+  <link rel="icon" href="favicon.ico?v=20261014d" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261014d" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261014d" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261002f" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261014d" />
 </head>
 <body>
   <div class="shell">
@@ -21,12 +21,9 @@
         <span>YeetnGreet</span>
       </a>
       <nav>
-        <a href="pricing.html">Pricing</a>
-        <a href="pricing.html#founding">Founding</a>
-        <a href="/docs/">Docs</a>
-        <a href="/docs/support/">Support</a>
+        <a href="index.html#pricing">Pricing</a>
         <a href="privacy.html" aria-current="page">Privacy</a>
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Dark</button>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
       </nav>
     </header>
 
@@ -38,14 +35,15 @@
       <p>Onboarding, offboarding, reporting, and Graph or Exchange actions run on the technician’s Windows PC. The app signs into the customer tenant you select and talks to Microsoft from that machine.</p>
 
       <h2>What we receive</h2>
-      <p>When cloud licensing is enabled, we store only what we need to run your YeetnGreet account: things like account email, plan, expiry, and managed-tenant limits.</p>
-      <p>We do not receive customer user profiles, mail, files, mailbox activity, or other tenant content.</p>
+      <p>When cloud licensing is enabled, we store what we need to run your YeetnGreet account: account email, plan, expiry, and managed-tenant limits.</p>
+      <p>For Team/MSP RBAC we also store MSP operational configuration you choose to sync: operator roster (MSP Microsoft account UPN/OID and admin/tech role) and company onboard/offboard templates (action presets and group/SKU references).</p>
+      <p>We do not receive customer user profiles, mail, files, mailbox activity, or other tenant content from Graph jobs.</p>
+
+      <h2>MSP identity vs customer Graph</h2>
+      <p>YeetnGreet roles bind to each technician’s MSP Microsoft work account. The Graph session used to change a customer directory is separate and stays between your PC and that customer tenant.</p>
 
       <h2>What stays on your side</h2>
-      <p>Templates, local logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else.</p>
-
-      <h2>Founding preregister</h2>
-      <p>If you reserve a founding slot on this site, the form is a Google Form. Your answers go to Google (Form / Sheet) and are emailed to us so we can follow up. That path is separate from the YeetnGreet desktop app and does not include customer Microsoft 365 tenant content.</p>
+      <p>Local template cache, logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else. Published company templates are mirrored to your license account so every tech PC can sync them.</p>
 
       <p class="privacy-back"><a href="index.html">← Back to YeetnGreet</a></p>
     </section>
