@@ -1,6 +1,6 @@
 # Schedules
 
-Schedule onboard, offboard, and report jobs to run later on the **same technician PC** where you created them.
+Schedule onboard, offboard, and report jobs to run later on the **same PC** where you created them.
 
 ## How scheduling works
 

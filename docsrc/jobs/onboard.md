@@ -5,7 +5,7 @@ Create or enable Microsoft 365 users, optionally assign licenses, groups, and a 
 ## Before you start
 
 - Correct [tenant](../tenants/multi-tenant.md) selected
-- Naming / UPN convention for this customer
+- Your naming / UPN convention
 - Which SKUs, groups, and manager apply (or a saved template)
 
 ## Steps
@@ -27,7 +27,7 @@ Create a new account or enable an existing one. You can require a **password cha
 
 ### 3. Templates and CSV
 
-- **Templates** — repeatable onboard defaults per customer
+- **Templates** — repeatable onboard defaults, so every new user gets the same properties
 - **CSV** — bulk create/enable with the same confirm path
 
 ### 4. CONFIRM

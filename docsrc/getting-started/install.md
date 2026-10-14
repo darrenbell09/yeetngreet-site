@@ -1,13 +1,13 @@
 # Install
 
-YeetnGreet is a **Windows single-file** app (`YeetnGreet.exe`) that uses **Microsoft Edge WebView2** for the UI. Install once on each technician PC that will run jobs.
+YeetnGreet is a **Windows single-file** app (`YeetnGreet.exe`) that uses **Microsoft Edge WebView2** for the UI. Install once on each IT admin PC that will run jobs.
 
 ## 1. Get the app
 
 Public Windows downloads are **not available yet**. YeetnGreet ships as a single-file **`YeetnGreet.exe`** with the release. Until then:
 
-1. [Reserve a founding slot](https://yeetngreet.app/pricing.html#founding) on the pricing page (Google Form — $349/yr · 10 slots · 5 tenants)
-2. When your build is ready, save **`YeetnGreet.exe`** somewhere durable (for example `C:\Tools\YeetnGreet\` or a shared tech folder)
+1. [Reserve a founding slot](https://yeetngreet.app/pricing.html#founding) on the pricing page (Google Form — $349/yr · 10 slots · up to 5 tenants)
+2. When your build is ready, save **`YeetnGreet.exe`** somewhere durable (for example `C:\Tools\YeetnGreet\` or a shared IT folder)
 
 !!! note "Coming with the release"
     Download links will appear here when the public release ships. Founding members get access through the preregister path first.
@@ -26,20 +26,20 @@ Most Windows 10/11 machines already have the **Evergreen WebView2 Runtime**. If 
 3. You should see the YeetnGreet shell ready for tenant sign-in
 
 ![Screenshot: Install — first launch](../assets/images/install-first-launch.png){ width="720" }
-*Placeholder UI — replace with a real capture from `%LOCALAPPDATA%\YeetnGreet` or the running app on a technician laptop.*
+*Placeholder UI — replace with a real capture from `%LOCALAPPDATA%\YeetnGreet` or the running app.*
 
 ## 4. Tenant sign-in
 
-Sign in with an account that can administer the **customer Microsoft 365 tenant** you are working in. Graph calls leave from **this PC** to Microsoft — not through YeetnGreet’s vendor cloud.
+Sign in with an account that can administer the **Microsoft 365 tenant** you are working in. Graph calls go from **this PC** to Microsoft — not through YeetnGreet’s cloud.
 
 !!! note "Admin consent first"
-    Each customer tenant needs an admin to grant consent for YeetnGreet's Microsoft Graph and Exchange Online permissions before the first job. See [Admin permissions and consent](permissions.md) for the full list.
+    Each tenant needs an admin to grant consent for YeetnGreet's Microsoft Graph and Exchange Online permissions before the first job. See [Admin permissions and consent](permissions.md) for the full list.
 
 ![Screenshot: Install — tenant sign-in](../assets/images/install-tenant-signin.png){ width="720" }
-*Placeholder — Microsoft sign-in happens on the technician PC.*
+*Placeholder — Microsoft sign-in happens on your PC.*
 
 !!! important "What our cloud sees"
-    License and billing metadata for your YeetnGreet account only. Not customer mail, files, or directory content used during jobs.
+    License and billing metadata for your YeetnGreet account only. Not your mail, files, or directory content used during jobs.
 
 ## Next
 

@@ -1,10 +1,10 @@
 # Offboard
 
-Offboard one person or many. Use templates for handoff, checklist, and shared settings. Preview what will run, confirm deliberately, then go — or [schedule](schedules.md) the job for later on the same PC.
+Offboard one person or many. Use templates for handoff, checklist, and shared settings so every departure follows the same procedure. Preview what will run, confirm deliberately, then go — or [schedule](schedules.md) the job for later on the same PC.
 
 ## Before you start
 
-- You are signed into the **correct customer tenant**
+- You are signed into the **correct tenant**
 - You have the leaver’s identity (UPN / email) or a CSV for batch
 - You know where mail / OneDrive / ownership should **hand off**
 
@@ -19,7 +19,7 @@ Choose a single user, multi-select from a list, or import a **CSV**.
 
 ### 2. Apply template, handoff, and checklist
 
-- **Templates** capture repeatable offboard settings for a customer
+- **Templates** capture your standard offboard settings
 - **Handoff** routes mailbox / content ownership as your process requires
 - **Checklist** items keep the human steps visible next to the automation
 
@@ -36,7 +36,7 @@ YeetnGreet asks for a deliberate confirmation (type-to-confirm) so Live offboard
 
 ### 5. Run now or schedule
 
-- **Run now** — executes on this technician PC
+- **Run now** — executes on this PC
 - **Schedule** — queues for a later time on **this same PC** (the machine must be on and signed in as required). See [Schedules](schedules.md).
 
 ## Batch tips
@@ -44,11 +44,11 @@ YeetnGreet asks for a deliberate confirmation (type-to-confirm) so Live offboard
 | Tip | Why |
 | --- | --- |
 | Validate CSV columns first | Bad UPNs fail loudly mid-batch |
-| Use one template per customer standard | Keeps handoff and checklist consistent |
+| Use one template per standard procedure | Keeps handoff and checklist consistent |
 | Preview a single row before full CSV | Catches tenant / license surprises early |
 
 !!! warning "Live means Live"
-    After confirm, Graph changes happen in the customer tenant from this PC. Double-check tenant and users.
+    After confirm, Graph changes happen in your tenant from this PC. Double-check tenant and users.
 
 ## Related
 
