@@ -10,8 +10,8 @@ After [install](install.md), walk through a low-risk path: pick a tenant, confir
 4. Open **Offboard** or **Onboard** and use **Preview** (or equivalent review step) before confirm
 5. Optionally save a **template** if this customer has a standard checklist
 
-!!! tip "MSP habit"
-    Say the customer name out loud before you confirm. Multi-tenant switch mistakes are expensive — YeetnGreet keeps work on the PC you are looking at, so the UI tenant switcher is your source of truth. See [Multi-tenant](../tenants/multi-tenant.md).
+!!! tip "Confirm the tenant"
+    Say the organization name out loud before you confirm. Multi-tenant switch mistakes are expensive — YeetnGreet keeps work on the PC you are looking at, so the UI tenant switcher is your source of truth. See [Multi-tenant](../tenants/multi-tenant.md).
 
 ## Suggested first job
 

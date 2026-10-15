@@ -37,7 +37,7 @@ Grant these in your tenant for the YeetnGreet app (Enterprise applications → Y
 | `Files.ReadWrite.All` | Share the leaver's OneDrive with their manager or the handoff person. |
 | `DeviceManagementManagedDevices.ReadWrite.All` | Find the leaver's Intune-managed devices. |
 | `DeviceManagementManagedDevices.PrivilegedOperations.All` | Retire those Intune devices. Requires **admin consent**. Without consent, the app greys out **Retire**. Only needed if you use **Retire Intune devices**. |
-| `Reports.Read.All` | Read Microsoft 365 mail activity for the **Unused seats** and **License audit** reports. |
+| `Reports.Read.All` | Read Microsoft 365 mail activity for the **Unused licenses** and **License audit** reports. |
 
 YeetnGreet does **not** request application `Mail.Send`. Report email delivery is interactive-only (see below).
 

@@ -1,5 +1,5 @@
 site_name: YeetnGreet
-site_description: Onboard and offboard Microsoft 365 for MSPs and IT admins — from your technicians' PCs.
+site_description: Onboard and offboard Microsoft 365 for IT admins — from your technicians' PCs.
 site_url: https://yeetngreet.app/docs/
 site_author: YeetnGreet
 docs_dir: docsrc
@@ -50,6 +50,9 @@ extra:
     - icon: fontawesome/solid/globe
       link: https://yeetngreet.app/
       name: YeetnGreet home
+    - icon: fontawesome/solid/tags
+      link: https://yeetngreet.app/pricing.html
+      name: Pricing
     - icon: fontawesome/solid/handshake
       link: https://yeetngreet.app/pricing.html#founding
       name: Founding beta
@@ -88,7 +91,7 @@ nav:
   - Reports:
       - Overview: reports/overview.md
       - License audit: reports/license-audit.md
-      - Unused seats: reports/unused-seats.md
+      - Unused licenses: reports/unused-licenses.md
       - What-if: reports/what-if.md
       - Delivery: reports/delivery.md
       - Samples: reports/samples.md

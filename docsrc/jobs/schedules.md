@@ -18,7 +18,7 @@ Schedule onboard, offboard, and report jobs to run later on the **same technicia
 
 - Friday evening offboards after payroll clears
 - Monday morning onboard batches
-- Weekly [license](../reports/license-audit.md) or [unused seats](../reports/unused-seats.md) reports with [delivery](../reports/delivery.md)
+- Weekly [license](../reports/license-audit.md) or [unused licenses](../reports/unused-licenses.md) reports with [delivery](../reports/delivery.md)
 
 ## Related
 

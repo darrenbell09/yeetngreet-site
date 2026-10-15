@@ -1,6 +1,6 @@
 # Sample report output
 
-Anonymized examples of what paid-plan reports can look like. Your tenant names, SKUs, and counts will differ.
+Anonymized examples of what reports can look like. Your tenant names, SKUs, and counts will differ.
 
 ## License audit (excerpt)
 
@@ -19,16 +19,17 @@ Anonymized examples of what paid-plan reports can look like. Your tenant names, 
 | Jordan Lee | jordan.lee@contoso-example.com | M365 E3; Power BI Pro |
 | Sam Okonkwo | sam.okonkwo@contoso-example.com | Exchange Online Plan 2 |
 
-## Unused seats (excerpt)
+## Unused licenses (excerpt)
 
 | UPN | SKU | Last signal | Est. monthly |
 | --- | --- | --- | ---: |
 | temp.contractor@contoso-example.com | M365 E3 | No sign-in 90d | $36 |
 | archive.bot@contoso-example.com | Power BI Pro | No activity 60d | $10 |
 | leavers.hold@contoso-example.com | M365 E3 | Disabled + licensed | $36 |
+| **Total** | | | **$82** |
 
 !!! note "Illustrative only"
-    Figures are fictional for documentation. Always validate in the customer tenant before reclaiming.
+    Figures are fictional for documentation. Always validate in the tenant before reclaiming. The monthly column sums to the total row ($36 + $10 + $36 = $82).
 
 ## What-if (excerpt)
 
@@ -43,5 +44,5 @@ Projected monthly delta: about -$580 (list; customer price may differ)
 ## Related
 
 - [License audit](license-audit.md)
-- [Unused seats](unused-seats.md)
+- [Unused licenses](unused-licenses.md)
 - [What-if](what-if.md)

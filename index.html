@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet: Stop wasting money on unused M365 licenses</title>
-  <meta name="description" content="YeetnGreet gives IT leaders visibility into Microsoft 365 licensing waste, then a fast, reliable, consistent way to onboard, offboard, and keep licenses clean, so you never pay for unused seats again." />
-  <meta name="yeetngreet-build" content="20261014m" />
-  <link rel="icon" href="favicon.ico?v=20261014m" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20261014m" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261014m" />
+  <meta name="description" content="YeetnGreet gives IT leaders visibility into Microsoft 365 licensing waste, then a fast, reliable, consistent way to onboard, offboard, and keep licenses clean, so you never pay for unused licenses again." />
+  <meta name="yeetngreet-build" content="20261015a" />
+  <link rel="icon" href="favicon.ico?v=20261015a" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261015a" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261014m" />
+  <link rel="stylesheet" href="styles.css?v=20261015a" />
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
@@ -24,8 +24,9 @@
       </a>
       <nav>
         <a href="#why">Why</a>
-        <a href="#pricing">Pricing</a>
+        <a href="pricing.html">Pricing</a>
         <a href="privacy.html">Privacy</a>
+        <a href="pricing.html#founding" class="nav-quiet">Founding beta</a>
         <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
       </nav>
     </header>
@@ -33,7 +34,7 @@
     <section class="hero">
       <div class="hero-copy">
         <h1 class="reveal">Stop paying for Microsoft 365 licenses nobody uses.</h1>
-        <p class="lede reveal reveal-delay-1">YeetnGreet is in prerelease. Join the waitlist for visibility into licensing waste, plus a fast, reliable, consistent way to remediate so you never pay for unused seats again.</p>
+        <p class="lede reveal reveal-delay-1">YeetnGreet is in prerelease. Join the waitlist for visibility into licensing waste, plus a fast, reliable, consistent way to remediate so you never pay for unused licenses again.</p>
         <div class="cta reveal reveal-delay-2">
           <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" target="_blank" rel="noopener noreferrer">Join the waitlist</a>
           <a class="btn ghost" href="#why">See how it works</a>
@@ -69,7 +70,7 @@
             </div>
             <div class="kpi highlight">
               <span class="kpi-label">Potential savings / mo</span>
-              <span class="kpi-value savings">USD 348</span>
+              <span class="kpi-value savings">USD 370.50</span>
             </div>
           </div>
 
@@ -114,7 +115,7 @@
 
             <div class="report-table-wrap report-users">
               <p class="report-table-label">Users needing attention</p>
-              <p class="report-table-hint">Disabled + licensed, and licensed accounts with no mail activity in 90 days: the idle seats that are hard to find.</p>
+              <p class="report-table-hint">Disabled + licensed, and licensed accounts with no mail activity in 90 days: the idle licenses that are hard to find.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -163,7 +164,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="report-footnote">Sample only. Live reports include unused seats, disabled-assigned licenses, and inactive licensed users with no mail send/receive/read in 90 days.</p>
+            <p class="report-footnote">Sample only. Live reports include unused licenses, disabled-assigned licenses, and inactive licensed users with no mail send/receive/read in 90 days.</p>
           </div>
         </div>
       </figure>
@@ -178,10 +179,10 @@
       <div class="benefit-copy reveal">
         <p class="benefit-label">License reporting</p>
         <h2>See the waste before you renew.</h2>
-        <p>License health reports surface unused prepaid seats, licenses on disabled accounts, and inactive licensed users with no mail activity: the waste that is hardest to spot in the admin center.</p>
+        <p>License health reports surface unused prepaid licenses, licenses on disabled accounts, and inactive licensed users with no mail activity: the waste that is hardest to spot in the admin center.</p>
       </div>
       <ul class="benefit-points reveal">
-        <li>Per-SKU unused seats and disabled-assigned counts</li>
+        <li>Per-SKU unused licenses and disabled-assigned counts</li>
         <li>Inactive licensed users (no mail send/receive/read in 90 days)</li>
         <li>Monthly savings from your unit costs, with named users to act on</li>
       </ul>
@@ -223,24 +224,12 @@
 
     <section id="pricing" class="pricing-section">
       <h2 class="section-label">Pricing</h2>
-      <p class="section-note">Billed per managed tenant, not per seat. Community is free forever for light use; Team and MSP unlock full reports.</p>
-      <div class="pricing">
-        <article class="plan">
-          <h3>Community</h3>
-          <p class="price">Free</p>
-          <p>1 managed tenant, 5 jobs/mo, one license-report preview (counts + savings range only).</p>
-        </article>
-        <article class="plan featured">
-          <h3>Team</h3>
-          <p class="price">$29<span>/mo</span></p>
-          <p>1 managed tenant, unlimited jobs, full reports, SKU detail, named users, and exports.</p>
-        </article>
-        <article class="plan">
-          <h3>MSP</h3>
-          <p class="price">$49<span>/mo</span></p>
-          <p>3 tenants included, then $15/tenant/mo, same full reports as Team.</p>
-        </article>
-      </div>
+      <p class="section-note">Plans are based on licensed users pooled across your account. Free covers 1–25 licensed users with license reports and one tenant; paid bands start at $19/mo. Pay yearly and save 20%.</p>
+      <p class="pricing-teaser">
+        <strong>Free → Enterprise</strong>
+        <span>From $0 to custom quote, by licensed-user band.</span>
+        <a class="btn ghost" href="pricing.html">Full pricing</a>
+      </p>
     </section>
 
     <footer>
