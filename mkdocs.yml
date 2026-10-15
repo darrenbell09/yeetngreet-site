@@ -53,6 +53,9 @@ extra:
     - icon: fontawesome/solid/tags
       link: https://yeetngreet.app/pricing.html
       name: Pricing
+    - icon: fontawesome/solid/handshake
+      link: https://yeetngreet.app/pricing.html#founding
+      name: Founding beta
 
 plugins:
   - search
