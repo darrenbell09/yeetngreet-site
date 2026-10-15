@@ -1,1 +1,26 @@
-PLACEHOLDER_LOAD_FROM_FILE
+/* YeetnGreet marketing: dark (default) / light */
+
+:root {
+  --bg: #12141a;
+  --bg-mid: #181b24;
+  --panel: #1c2030;
+  --ink: #eef0f6;
+  --ink-secondary: #9aa3c0;
+  --ink-tertiary: #6f7896;
+  --line: rgba(154, 163, 192, 0.14);
+  --accent: #7aa2f7;
+  --accent-soft: rgba(122, 162, 247, 0.14);
+  --cta: #7aa2f7;
+  --cta-ink: #0b1020;
+  --control: #252a3b;
+  --brand-mark: #ffffff;
+  --savings: #9ece6a;
+  --warn: #e0af68;
+  --danger: #f7768e;
+  --report-glow: rgba(122, 162, 247, 0.2);
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  /* Sora: expressive display with full ascenders/descenders (Syne reads as clipped) */
+  --display: "Sora", "IBM Plex Sans", sans-serif;
+  --radius: 10px;
+  color-scheme: dark;
+}
