@@ -12,7 +12,7 @@ theme:
   logo: assets/images/logo.png
   favicon: assets/images/favicon.png
   palette:
-    # Light first — first paint / no saved preference defaults to light
+    # Light first — default for all yeetngreet.app surfaces
     - scheme: default
       primary: custom
       accent: custom
@@ -26,8 +26,8 @@ theme:
         icon: material/brightness-7
         name: Switch to light mode
   font:
-    text: Inter
-    code: Roboto Mono
+    text: IBM Plex Sans
+    code: IBM Plex Mono
   features:
     - navigation.instant
     - navigation.tracking

@@ -1,0 +1,192 @@
+/* YeetnGreet docs — aligned with marketing site (yeetngreet.app) */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@600;700;800&display=swap");
+
+:root {
+  /* Marketing light tokens */
+  --yg-bg: #f3f4f7;
+  --yg-bg-mid: #e8eaef;
+  --yg-panel: #ffffff;
+  --yg-ink: #12141a;
+  --yg-ink-secondary: #4a5163;
+  --yg-ink-tertiary: #7a8296;
+  --yg-line: rgba(18, 20, 26, 0.1);
+  --yg-line-strong: rgba(18, 20, 26, 0.16);
+  --yg-accent: #3b6ae8;
+  --yg-accent-soft: rgba(59, 106, 232, 0.1);
+  --yg-cta: #1a1d27;
+  --yg-cta-ink: #ffffff;
+  --yg-control: #e4e6ec;
+  --yg-radius: 6px;
+  --yg-radius-lg: 10px;
+  --yg-font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --yg-display: "Sora", "IBM Plex Sans", sans-serif;
+  --md-header-height: 3.5rem;
+}
+
+/* Material custom primary / accent (light) */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: var(--yg-bg);
+  --md-default-bg-color--light: var(--yg-panel);
+  --md-default-bg-color--lighter: var(--yg-bg-mid);
+  --md-default-bg-color--lightest: #ffffff;
+  --md-default-fg-color: var(--yg-ink);
+  --md-default-fg-color--light: var(--yg-ink-secondary);
+  --md-default-fg-color--lighter: var(--yg-ink-tertiary);
+  --md-default-fg-color--lightest: var(--yg-line);
+
+  --md-primary-fg-color: var(--yg-accent);
+  --md-primary-fg-color--light: #5b84f0;
+  --md-primary-fg-color--dark: #2f56c7;
+  --md-primary-bg-color: var(--yg-panel);
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  --md-accent-fg-color: var(--yg-accent);
+  --md-accent-fg-color--transparent: var(--yg-accent-soft);
+  --md-accent-bg-color: var(--yg-panel);
+  --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  --md-typeset-a-color: var(--yg-accent);
+  --md-typeset-color: var(--yg-ink);
+  --md-footer-bg-color: var(--yg-bg-mid);
+  --md-footer-bg-color--dark: #dde0e7;
+  --md-footer-fg-color: var(--yg-ink-secondary);
+  --md-footer-fg-color--light: var(--yg-ink-secondary);
+  --md-footer-fg-color--lighter: var(--yg-ink-tertiary);
+  --md-code-bg-color: var(--yg-accent-soft);
+  --md-code-fg-color: var(--yg-ink);
+}
+
+/* Marketing dark tokens (match styles.css :root) */
+[data-md-color-scheme="slate"] {
+  --yg-bg: #12141a;
+  --yg-bg-mid: #181b24;
+  --yg-panel: #1c2030;
+  --yg-ink: #eef0f6;
+  --yg-ink-secondary: #9aa3c0;
+  --yg-ink-tertiary: #6f7896;
+  --yg-line: rgba(154, 163, 192, 0.14);
+  --yg-line-strong: rgba(154, 163, 192, 0.22);
+  --yg-accent: #7aa2f7;
+  --yg-accent-soft: rgba(122, 162, 247, 0.14);
+  --yg-cta: #7aa2f7;
+  --yg-cta-ink: #0b1020;
+  --yg-control: #252a3b;
+
+  --md-default-bg-color: #12141a;
+  --md-default-bg-color--light: #1c2030;
+  --md-default-bg-color--lighter: #252a3b;
+  --md-default-bg-color--lightest: #2a3145;
+  --md-default-fg-color: #eef0f6;
+  --md-default-fg-color--light: #9aa3c0;
+  --md-default-fg-color--lighter: #6f7896;
+  --md-default-fg-color--lightest: rgba(154, 163, 192, 0.22);
+
+  --md-primary-fg-color: #7aa2f7;
+  --md-primary-fg-color--light: #9bb8f9;
+  --md-primary-fg-color--dark: #5b88e8;
+  --md-primary-bg-color: #12141a;
+  --md-primary-bg-color--light: rgba(18, 20, 26, 0.7);
+
+  --md-accent-fg-color: #7aa2f7;
+  --md-accent-fg-color--transparent: rgba(122, 162, 247, 0.14);
+  --md-accent-bg-color: #12141a;
+  --md-accent-bg-color--light: rgba(18, 20, 26, 0.7);
+
+  --md-typeset-a-color: #7aa2f7;
+  --md-footer-bg-color: #181b24;
+  --md-footer-bg-color--dark: #12141a;
+  --md-code-bg-color: rgba(122, 162, 247, 0.12);
+}
+
+/* Typography — marketing stacks */
+.md-typeset,
+.md-nav,
+.md-header,
+.md-footer,
+.md-search {
+  font-family: var(--yg-font);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--yg-display);
+}
+
+/* Atmosphere — same radial wash as marketing .atmosphere */
+body {
+  position: relative;
+  background-color: var(--yg-bg);
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(122, 162, 247, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 88% 8%, rgba(158, 206, 106, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--yg-bg-mid) 0%, var(--yg-bg) 42%, var(--yg-bg) 100%);
+}
+
+[data-md-color-scheme="default"] body::before {
+  background:
+    radial-gradient(ellipse 90% 55% at 10% -8%, rgba(59, 106, 232, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 92% 6%, rgba(63, 125, 46, 0.07), transparent 50%),
+    linear-gradient(180deg, #f7f8fb 0%, var(--yg-bg) 40%, var(--yg-bg) 100%);
+}
+
+.md-header,
+.md-container,
+.md-main,
+.md-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Logo: transparent tile; brand.css finishes mask / wordmark          */
+/* ------------------------------------------------------------------ */
+.md-header__button.md-logo,
+.md-nav__button.md-logo {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0;
+  margin: 0 0.6rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg,
+.md-nav__button.md-logo img,
+.md-nav__button.md-logo svg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 1;
+  border-radius: 0;
+}
+
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) {
+  .md-header__button.md-logo img,
+  .md-nav__button.md-logo img {
+    opacity: 0;
+    filter: none;
+  }
+
+  .md-header__button.md-logo,
+  .md-nav__button.md-logo {
+    -webkit-mask-image: none;
+    mask-image: none;
+    position: relative;
+  }
+

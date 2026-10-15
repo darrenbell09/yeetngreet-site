@@ -1,9 +1,9 @@
 /* Docs header brand: match the marketing site topbar (yeetngreet.app).
-   Marketing: logo.png as a 28px mask in #171717 (white in dark), wordmark
-   "YeetnGreet" 1.05rem / 650 / -0.03em, header on the page background with a
-   1px bottom border. Loaded after extra.css to replace the old blue logo tile. */
+   Marketing: logo.png as a 28px mask (white in dark, #3a3f4b in light),
+   wordmark "YeetnGreet" 1.05rem / 700 / -0.03em Sora, header on the page
+   background with a 1px bottom border. Loaded after extra.css. */
 
-/* Remove the blue tile */
+/* Remove any tile; size matches marketing .brand .brand-mark */
 .md-header__button.md-logo,
 .md-nav__button.md-logo,
 [data-md-color-scheme="default"] .md-header__button.md-logo,
@@ -18,11 +18,11 @@
   margin: 0 0.6rem 0 0;
 }
 
-/* Glyph fills the box, same ink as marketing brand mark */
+/* Glyph fills the box — marketing --brand-mark */
 .md-header__button.md-logo::after,
 .md-nav__button.md-logo::after {
   inset: 0 !important;
-  background-color: #171717 !important;
+  background-color: #3a3f4b !important;
 }
 
 [data-md-color-scheme="slate"] .md-header__button.md-logo::after,
@@ -30,7 +30,7 @@
   background-color: #ffffff !important;
 }
 
-/* Fallback when mask isn't supported: show the dark mark, not inverted white */
+/* Fallback when mask isn't supported */
 .md-header__button.md-logo img,
 .md-nav__button.md-logo img {
   width: 28px !important;
@@ -43,24 +43,39 @@
   filter: brightness(0) invert(1) !important;
 }
 
-/* Wordmark like marketing */
+/* Wordmark like marketing .brand */
 .md-header__title .md-header__topic:first-child {
+  font-family: "Sora", "IBM Plex Sans", sans-serif !important;
   font-size: 1.05rem !important;
-  font-weight: 650 !important;
+  font-weight: 700 !important;
   letter-spacing: -0.03em;
 }
 
-/* Light header: page background + bottom border, like the marketing topbar */
+/* Header sits on page background + bottom border (marketing topbar) */
 [data-md-color-scheme="default"] .md-header {
   background-color: #f3f4f7 !important;
-  color: #111111;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+  color: #12141a;
+  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
 }
 
 [data-md-color-scheme="default"] .md-header__title .md-header__topic:first-child {
-  color: #111111;
+  color: #12141a;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #12141a !important;
+  color: #eef0f6;
+  border-bottom: 1px solid rgba(154, 163, 192, 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-header__title .md-header__topic:first-child {
+  color: #eef0f6;
 }
 
 [data-md-color-scheme="default"] .md-search__form {
   background-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #252a3b;
 }
