@@ -16,7 +16,7 @@ Find licenses that appear unused so you can reclaim spend — before the renewal
 4. Export or [deliver](delivery.md)
 
 ![Screenshot: Reports — unused licenses](../assets/images/reports-unused-licenses.png){ width="720" }
-*Placeholder — idle licenses and savings range. Image file rename to `reports-unused-licenses.png` is staged locally; binary push pending.*
+*Placeholder — idle licenses and savings range.*
 
 !!! warning "Validate before reclaim"
     “Unused” signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs.
