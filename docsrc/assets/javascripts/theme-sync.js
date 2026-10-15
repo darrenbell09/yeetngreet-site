@@ -14,7 +14,7 @@
   }
 
   var saved = localStorage.getItem(STORAGE);
-  apply(saved === "light" || saved === "dark" ? saved : "light");
+  apply(saved === "dark" || saved === "light" ? saved : "light");
 
   function bind() {
     var btn = document.getElementById("themeToggle");
