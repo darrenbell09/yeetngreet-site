@@ -1,6 +1,6 @@
 # License audit
 
-See which Microsoft 365 licenses are assigned, with SKU detail and named users (on paid plans).
+See which Microsoft 365 licenses are assigned, with SKU detail and named users.
 
 ## When to use it
 
@@ -10,18 +10,18 @@ See which Microsoft 365 licenses are assigned, with SKU detail and named users (
 
 ## Steps
 
-1. Select the customer tenant
+1. Select the tenant
 2. Open **Reports → License audit**
 3. Run the report
 4. Export or [deliver](delivery.md) as needed
 
 See [Samples](samples.md) for anonymized SKU counts and named-user examples.
 
-!!! tip "Community preview"
-    Community includes a limited license-report preview (counts and savings range). Team / MSP / Founding unlock full SKU detail, named users, and exports.
+!!! tip "Included on Free"
+    Free includes license reports for one tenant. Paid plans cover licensed users pooled across the tenants on your account. See [Pricing and licensing](../pricing-and-licensing.md).
 
 ## Related
 
-- [Unused seats](unused-seats.md)
+- [Unused licenses](unused-licenses.md)
 - [What-if](what-if.md)
 - [Samples](samples.md)

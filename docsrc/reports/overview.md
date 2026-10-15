@@ -1,19 +1,19 @@
 # Reports overview
 
-YeetnGreet reports help you see license waste and plan changes — from the same technician PC model as jobs. Full report detail is available on **Team**, **MSP**, and **Founding** plans; Community includes a limited license-report preview.
+YeetnGreet reports help you see license waste and plan changes — from the same technician PC model as jobs. License reports are included on **Free** (1 tenant) and on all paid plans.
 
 ## Report types
 
 | Report | Purpose |
 | --- | --- |
 | [License audit](license-audit.md) | What is assigned, by SKU and user |
-| [Unused seats](unused-seats.md) | Licenses that look idle / reclaimable |
+| [Unused licenses](unused-licenses.md) | Licenses that look idle / reclaimable |
 | [What-if](what-if.md) | Model license changes before you buy or cut |
 | [Samples](samples.md) | Anonymized example output |
 
 ## How to run
 
-1. Sign into the customer tenant
+1. Sign into the tenant
 2. Open **Reports** and pick a report type
 3. Run on demand, or [schedule](../jobs/schedules.md) a recurring run
 4. Optionally send results via [Delivery](delivery.md) (email, Teams, Slack, webhooks)
