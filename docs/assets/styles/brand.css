@@ -1,81 +1,21 @@
-/* Docs header brand: match the marketing site topbar (yeetngreet.app).
-   Marketing: logo.png as a 28px mask (white in dark, #3a3f4b in light),
-   wordmark "YeetnGreet" 1.05rem / 700 / -0.03em Sora, header on the page
-   background with a 1px bottom border. Loaded after extra.css. */
+/* Brand logo + wordmark for Material docs (pairs with extra.css) */
 
-/* Remove any tile; size matches marketing .brand .brand-mark */
-.md-header__button.md-logo,
-.md-nav__button.md-logo,
-[data-md-color-scheme="default"] .md-header__button.md-logo,
-[data-md-color-scheme="slate"] .md-header__button.md-logo,
-[data-md-color-scheme="default"] .md-nav__button.md-logo,
-[data-md-color-scheme="slate"] .md-nav__button.md-logo {
-  background-color: transparent !important;
-  border-radius: 0 !important;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  margin: 0 0.6rem 0 0;
+.md-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
-/* Glyph fills the box — marketing --brand-mark */
-.md-header__button.md-logo::after,
-.md-nav__button.md-logo::after {
-  inset: 0 !important;
-  background-color: #3a3f4b !important;
+.md-header__title .md-header__topic:first-child::before {
+  content: "YeetnGreet";
+  font-family: var(--yg-display, "Sora", sans-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  color: inherit;
+  margin-right: 0.35rem;
 }
 
-[data-md-color-scheme="slate"] .md-header__button.md-logo::after,
-[data-md-color-scheme="slate"] .md-nav__button.md-logo::after {
-  background-color: #ffffff !important;
-}
-
-/* Fallback when mask isn't supported */
-.md-header__button.md-logo img,
-.md-nav__button.md-logo img {
-  width: 28px !important;
-  height: 28px !important;
-  filter: none !important;
-}
-
-[data-md-color-scheme="slate"] .md-header__button.md-logo img,
-[data-md-color-scheme="slate"] .md-nav__button.md-logo img {
-  filter: brightness(0) invert(1) !important;
-}
-
-/* Wordmark like marketing .brand */
-.md-header__title .md-header__topic:first-child {
-  font-family: "Sora", "IBM Plex Sans", sans-serif !important;
-  font-size: 1.05rem !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.03em;
-}
-
-/* Header sits on page background + bottom border (marketing topbar) */
-[data-md-color-scheme="default"] .md-header {
-  background-color: #f3f4f7 !important;
-  color: #12141a;
-  border-bottom: 1px solid rgba(18, 20, 26, 0.1);
-}
-
-[data-md-color-scheme="default"] .md-header__title .md-header__topic:first-child {
-  color: #12141a;
-}
-
-[data-md-color-scheme="slate"] .md-header {
-  background-color: #12141a !important;
-  color: #eef0f6;
-  border-bottom: 1px solid rgba(154, 163, 192, 0.14);
-}
-
-[data-md-color-scheme="slate"] .md-header__title .md-header__topic:first-child {
-  color: #eef0f6;
-}
-
-[data-md-color-scheme="default"] .md-search__form {
-  background-color: #ffffff;
-}
-
-[data-md-color-scheme="slate"] .md-search__form {
-  background-color: #252a3b;
+.md-header__title .md-header__topic:first-child .md-ellipsis {
+  /* keep product name from mkdocs site_name if needed */
 }
