@@ -200,6 +200,25 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
+/* Quiet secondary nav (Founding beta): discoverable, not a hero CTA */
+.topbar a.nav-quiet {
+  color: var(--ink-tertiary, var(--ink-secondary));
+  font-weight: 400;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+.topbar a.nav-quiet:hover {
+  opacity: 1;
+}
+
+.founding-quiet {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line, rgba(127, 127, 127, 0.25));
+}
+.founding-quiet .cta {
+  margin-top: 0.75rem;
+}
+
 .hero {
   display: grid;
   gap: 1.5rem;
