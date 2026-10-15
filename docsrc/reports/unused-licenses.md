@@ -16,10 +16,10 @@ Find licenses that appear unused so you can reclaim spend — before the renewal
 4. Export or [deliver](delivery.md)
 
 ![Screenshot: Reports — unused licenses](../assets/images/reports-unused-licenses.png){ width="720" }
-*Placeholder — idle licenses and savings range.*
+*Example screenshot — idle licenses with per-SKU savings. Homepage sample numbers are synthetic and checked so row math totals correctly.*
 
 !!! warning "Validate before reclaim"
-    “Unused” signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs.
+    “Unused” signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs. Sample savings on the marketing site are **examples only — not a guarantee**.
 
 ## Related
 
