@@ -1,31 +1,6 @@
-/* YeetnGreet marketing: dark (default) / light */
+/* YeetnGreet marketing: light (default) / dark */
 
 :root {
-  --bg: #12141a;
-  --bg-mid: #181b24;
-  --panel: #1c2030;
-  --ink: #eef0f6;
-  --ink-secondary: #9aa3c0;
-  --ink-tertiary: #6f7896;
-  --line: rgba(154, 163, 192, 0.14);
-  --accent: #7aa2f7;
-  --accent-soft: rgba(122, 162, 247, 0.14);
-  --cta: #7aa2f7;
-  --cta-ink: #0b1020;
-  --control: #252a3b;
-  --brand-mark: #ffffff;
-  --savings: #9ece6a;
-  --warn: #e0af68;
-  --danger: #f7768e;
-  --report-glow: rgba(122, 162, 247, 0.2);
-  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
-  /* Sora: expressive display with full ascenders/descenders (Syne reads as clipped) */
-  --display: "Sora", "IBM Plex Sans", sans-serif;
-  --radius: 10px;
-  color-scheme: dark;
-}
-
-:root[data-theme="light"] {
   --bg: #f3f4f7;
   --bg-mid: #e8eaef;
   --panel: #ffffff;
@@ -43,7 +18,32 @@
   --warn: #b7791f;
   --danger: #c2410c;
   --report-glow: rgba(59, 106, 232, 0.12);
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  /* Sora: expressive display with full ascenders/descenders (Syne reads as clipped) */
+  --display: "Sora", "IBM Plex Sans", sans-serif;
+  --radius: 10px;
   color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12141a;
+  --bg-mid: #181b24;
+  --panel: #1c2030;
+  --ink: #eef0f6;
+  --ink-secondary: #9aa3c0;
+  --ink-tertiary: #6f7896;
+  --line: rgba(154, 163, 192, 0.14);
+  --accent: #7aa2f7;
+  --accent-soft: rgba(122, 162, 247, 0.14);
+  --cta: #7aa2f7;
+  --cta-ink: #0b1020;
+  --control: #252a3b;
+  --brand-mark: #ffffff;
+  --savings: #9ece6a;
+  --warn: #e0af68;
+  --danger: #f7768e;
+  --report-glow: rgba(122, 162, 247, 0.2);
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -72,17 +72,17 @@ body {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(122, 162, 247, 0.16), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 88% 8%, rgba(158, 206, 106, 0.08), transparent 50%),
-    linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 42%, var(--bg) 100%);
-  opacity: 1;
-}
-
-:root[data-theme="light"] .atmosphere {
-  background:
     radial-gradient(ellipse 90% 55% at 10% -8%, rgba(59, 106, 232, 0.12), transparent 55%),
     radial-gradient(ellipse 70% 45% at 92% 6%, rgba(63, 125, 46, 0.07), transparent 50%),
     linear-gradient(180deg, #f7f8fb 0%, var(--bg) 40%, var(--bg) 100%);
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .atmosphere {
+  background:
+    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(122, 162, 247, 0.16), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 88% 8%, rgba(158, 206, 106, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 42%, var(--bg) 100%);
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -418,22 +418,22 @@ a:hover { text-decoration: underline; }
 
 .issue.danger {
   color: var(--danger);
-  background: rgba(247, 118, 142, 0.14);
+  background: rgba(194, 65, 12, 0.1);
 }
 
 .issue.warn {
   color: var(--warn);
-  background: rgba(224, 175, 104, 0.14);
-}
-
-:root[data-theme="light"] .issue.danger {
-  color: var(--danger);
-  background: rgba(194, 65, 12, 0.1);
-}
-
-:root[data-theme="light"] .issue.warn {
-  color: var(--warn);
   background: rgba(183, 121, 31, 0.1);
+}
+
+:root[data-theme="dark"] .issue.danger {
+  color: var(--danger);
+  background: rgba(247, 118, 142, 0.14);
+}
+
+:root[data-theme="dark"] .issue.warn {
+  color: var(--warn);
+  background: rgba(224, 175, 104, 0.14);
 }
 
 .report-users .report-table td:nth-child(n+4),

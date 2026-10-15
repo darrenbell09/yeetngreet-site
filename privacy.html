@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy: YeetnGreet</title>
-  <meta name="yeetngreet-build" content="20261015c" />
-  <link rel="icon" href="favicon.ico?v=20261015c" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20261015c" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015c" />
+  <meta name="yeetngreet-build" content="20261015f" />
+  <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261015c" />
+  <link rel="stylesheet" href="styles.css?v=20261015f" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("yeetngreet-site-theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        t === "dark" || t === "light" ? t : "light"
+      );
+    })();
+  </script>
 </head>
 <body>
   <div class="shell">
@@ -26,7 +35,7 @@
         <a href="pricing.html">Pricing</a>
         <a href="/docs/support/">Support</a>
         <a href="privacy.html" aria-current="page">Privacy</a>
-        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Light</button>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Dark</button>
       </nav>
     </header>
 
@@ -55,22 +64,6 @@
       <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
     </footer>
   </div>
-  <script>
-    const root = document.documentElement;
-    const btn = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("yeetngreet-site-theme");
-    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
-    function sync() {
-      const light = root.getAttribute("data-theme") === "light";
-      btn.textContent = light ? "Dark" : "Light";
-    }
-    sync();
-    btn.addEventListener("click", () => {
-      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("yeetngreet-site-theme", next);
-      sync();
-    });
-  </script>
+  <script src="theme.js?v=20261015f"></script>
 </body>
 </html>

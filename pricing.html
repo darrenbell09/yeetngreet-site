@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pricing: YeetnGreet</title>
   <meta name="description" content="YeetnGreet pricing by licensed Microsoft 365 users. Free for up to 25 licensed users; paid bands from Starter to Enterprise. Annual billing saves 20%." />
-  <meta name="yeetngreet-build" content="20261015a" />
-  <link rel="icon" href="favicon.ico?v=20261015a" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20261015a" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015a" />
+  <meta name="yeetngreet-build" content="20261015f" />
+  <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261015a" />
+  <link rel="stylesheet" href="styles.css?v=20261015f" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("yeetngreet-site-theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        t === "dark" || t === "light" ? t : "light"
+      );
+    })();
+  </script>
 </head>
 <body>
   <div class="shell">
@@ -103,22 +112,6 @@
       <p>© YeetnGreet LLC, <a href="pricing.html">Pricing</a>, <a href="/docs/">Docs</a>, <a href="privacy.html">Privacy</a></p>
     </footer>
   </div>
-  <script>
-    const root = document.documentElement;
-    const btn = document.getElementById("themeToggle");
-    const saved = localStorage.getItem("yeetngreet-site-theme");
-    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
-    function sync() {
-      const light = root.getAttribute("data-theme") === "light";
-      btn.textContent = light ? "Dark" : "Light";
-    }
-    sync();
-    btn.addEventListener("click", () => {
-      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("yeetngreet-site-theme", next);
-      sync();
-    });
-  </script>
+  <script src="theme.js?v=20261015f"></script>
 </body>
 </html>
