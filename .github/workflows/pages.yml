@@ -6,9 +6,7 @@ name: Rebuild docs for Pages
 
 on:
   push:
-    branches:
-      - main
-      - cursor/site-visual-consistency-fda4
+    branches: [main]
     paths:
       - "docsrc/**"
       - "mkdocs.yml"
@@ -49,6 +47,6 @@ jobs:
       - name: Commit published docs/
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Rebuild docs HTML with dark-first Material theme"
+          commit_message: "chore(docs): rebuild MkDocs site"
           file_pattern: docs/
           disable_globbing: true
