@@ -1,32 +1,51 @@
 # Pricing and licensing
 
-Pricing is **per managed tenant**, not per seat. Activate your plan in the app. Website checkout is coming; founding interest is collected on the [pricing page form](https://yeetngreet.app/pricing.html#founding) today.
+Pricing is based on **licensed users** pooled across every tenant on your YeetnGreet account — not per tenant. Prices are monthly; pay a year up front and save **20%**. Activate your plan in the app when checkout is live. Until then, join the [waitlist](https://yeetngreet.app/pricing.html).
 
 ## Plans
 
-| Plan | Price | What you get |
-| --- | --- | --- |
-| **Community** | Free | 1 managed tenant · 5 jobs/mo · license-report preview (counts + savings range) |
-| **Team** | **$39/mo** or **$390/yr** | 1 managed tenant · unlimited jobs · full reports, SKU detail, named users, exports |
-| **MSP** | **$69/mo** or **$690/yr** | 5 tenants included · then **$12 / tenant / mo** · same full reports as Team |
-| **Founding beta** | **$349/yr** | MSP features · 5 tenants · limited slots · founding renewal lock · hybrid AD free for this cohort when it ships |
+| Plan | Licensed users | Monthly | Annual (20% off) |
+| --- | ---: | ---: | ---: |
+| **Free** | 1–25 | **$0** | — |
+| **Starter** | 26–50 | **$19** | **$182/yr** |
+| **Growth** | 51–100 | **$49** | **$470/yr** |
+| **Business** | 101–300 | **$99** | **$950/yr** |
+| **Scale** | 301–500 | **$149** | **$1,430/yr** |
+| **Large** | 501–700 | **$249** | **$2,390/yr** |
+| **Enterprise** | 701+ | Quote | Quote |
 
-Prefer annual billing when you can — yearly prices are listed above.
+Annual amounts are 20% off twelve months of the monthly rate, rounded to the nearest dollar.
 
-## What “managed tenant” means
+### Free includes
 
-A customer Microsoft 365 tenant you connect and run jobs/reports against. Switching between tenants is covered in [Multi-tenant](tenants/multi-tenant.md).
+- License reports
+- 1 tenant
+- No credit card
+
+### Paid plans
+
+Paid bands unlock the full product for your licensed-user count. Licensed users are pooled across all tenants on the account. For 701+ licensed users, [contact support](mailto:support@yeetngreet.app) for an Enterprise quote.
+
+## What counts as a licensed user
+
+A **licensed user** is an **enabled** account that has **at least one paid Microsoft 365 license**.
+
+**Do not count:**
+
+- Trial, developer, or free licenses
+- Disabled accounts
+- Shared mailboxes
 
 ## Reports and plans
 
-- **Community** — limited license-report preview
-- **Team / MSP / Founding** — full [reports](reports/overview.md)
+- **Free** — license reports included (1 tenant)
+- **Paid plans** — full [reports](reports/overview.md) across the tenants on your account
 
 ## Not claimed yet
 
 The following are **not** required to use YeetnGreet today and should not be assumed from marketing pages:
 
-- Website self-serve checkout (founding uses the preregister form until checkout is live)
+- Website self-serve checkout (waitlist / preregister until checkout is live)
 - Code-signed binaries as a completed guarantee
 
 ## Related
