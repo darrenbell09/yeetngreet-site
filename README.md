@@ -2,6 +2,8 @@
 
 Marketing pages for [yeetngreet.app](https://yeetngreet.app/) plus customer **MkDocs Material** docs at [yeetngreet.app/docs/](https://yeetngreet.app/docs/).
 
+YeetnGreet is proprietary software.
+
 ## Layout
 
 | Path | Role |
@@ -37,4 +39,4 @@ touch docs/.nojekyll
 
 ## Get early access
 
-Public Windows downloads are not linked from this site yet. Founding beta interest is collected on the [pricing page founding form](https://yeetngreet.app/pricing.html#founding) ($349/yr · 10 slots · 5 tenants).
+Public Windows downloads are not linked from this site yet. Join the [waitlist on the pricing page](https://yeetngreet.app/pricing.html). Plans are licensed-user bands from Free (1–25) through Enterprise (701+).
