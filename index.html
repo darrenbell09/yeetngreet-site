@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet: Stop wasting money on unused M365 licenses</title>
   <meta name="description" content="YeetnGreet gives IT leaders visibility into Microsoft 365 licensing waste, then a fast, reliable, consistent way to onboard, offboard, and keep licenses clean, so you never pay for unused licenses again." />
-  <meta name="yeetngreet-build" content="20261015a" />
-  <link rel="icon" href="favicon.ico?v=20261015a" sizes="any" />
-  <link rel="icon" href="favicon-32.png?v=20261015a" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015a" />
+  <meta name="yeetngreet-build" content="20261015b" />
+  <link rel="icon" href="favicon.ico?v=20261015b" sizes="any" />
+  <link rel="icon" href="favicon-32.png?v=20261015b" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015b" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261015a" />
+  <link rel="stylesheet" href="styles.css?v=20261015b" />
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
@@ -53,31 +53,31 @@
 
           <div class="report-kpis">
             <div class="kpi">
-              <span class="kpi-label">Total users</span>
-              <span class="kpi-value">320</span>
-            </div>
-            <div class="kpi">
               <span class="kpi-label">Licensed (active)</span>
               <span class="kpi-value">280</span>
             </div>
             <div class="kpi">
-              <span class="kpi-label">Est. license cost / mo</span>
-              <span class="kpi-value">USD 6,160</span>
+              <span class="kpi-label">Unused licenses</span>
+              <span class="kpi-value warn">12</span>
             </div>
             <div class="kpi">
               <span class="kpi-label">Licensed + disabled</span>
               <span class="kpi-value warn">41</span>
             </div>
+            <div class="kpi">
+              <span class="kpi-label">No mail (90d)</span>
+              <span class="kpi-value warn">18</span>
+            </div>
             <div class="kpi highlight">
               <span class="kpi-label">Potential savings / mo</span>
-              <span class="kpi-value savings">USD 1,166</span>
+              <span class="kpi-value savings">USD 1,323.50</span>
             </div>
           </div>
 
           <div class="report-body">
             <div class="report-table-wrap">
               <p class="report-table-label">Cost-saving opportunities</p>
-              <p class="report-table-hint">Savings / mo = (Unused + Disabled) × Unit. 280 Business Premium × $22 = $6,160 estimated monthly spend. Savings = (Unused + Disabled) × Unit.</p>
+              <p class="report-table-hint">The report finds three waste types: unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail activity in 90 days. Savings / mo below = (Unused + Disabled) × Unit. Est. spend for 280 licensed users: 180×Business Premium ($22) + 60×E3 ($36) + 40×Business Standard ($12.50) = <strong>USD 6,620</strong>/mo.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -91,17 +91,31 @@
                 <tbody>
                   <tr>
                     <td>Microsoft 365 Business Premium</td>
-                    <td>12</td>
-                    <td>41</td>
+                    <td>6</td>
+                    <td>24</td>
                     <td>22.00</td>
-                    <td class="savings-cell">1,166.00</td>
+                    <td class="savings-cell">660.00</td>
+                  </tr>
+                  <tr>
+                    <td>Microsoft 365 E3</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td>36.00</td>
+                    <td class="savings-cell">576.00</td>
+                  </tr>
+                  <tr>
+                    <td>Microsoft 365 Business Standard</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>12.50</td>
+                    <td class="savings-cell">87.50</td>
                   </tr>
                   <tr class="report-total-row">
                     <td>Total</td>
                     <td>12</td>
                     <td>41</td>
                     <td></td>
-                    <td class="savings-cell">1,166.00</td>
+                    <td class="savings-cell">1,323.50</td>
                   </tr>
                 </tbody>
               </table>
@@ -109,7 +123,7 @@
 
             <div class="report-table-wrap report-users">
               <p class="report-table-label">Users needing attention</p>
-              <p class="report-table-hint">Disabled + licensed, and licensed accounts with no mail activity in 90 days: the idle licenses that are hard to find.</p>
+              <p class="report-table-hint">Named examples of every user-level finding: disabled + licensed, and no mail send/receive/read in 90 days (across SKUs). Unused capacity is inventory, so it appears in the table above rather than as a user row.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -135,6 +149,17 @@
                   </tr>
                   <tr>
                     <td>
+                      <span class="user-name">Alex Morgan</span>
+                      <span class="user-upn">alex.morgan@northshore.example</span>
+                    </td>
+                    <td><span class="issue danger">Disabled + licensed</span></td>
+                    <td>Microsoft 365 E3</td>
+                    <td>3</td>
+                    <td>41</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>
                       <span class="user-name">Sam Rivera</span>
                       <span class="user-upn">sam.rivera@northshore.example</span>
                     </td>
@@ -150,7 +175,18 @@
                       <span class="user-upn">casey.nguyen@northshore.example</span>
                     </td>
                     <td><span class="issue warn">No mail activity</span></td>
-                    <td>Microsoft 365 Business Premium</td>
+                    <td>Microsoft 365 Business Standard</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="user-name">Riley Chen</span>
+                      <span class="user-upn">riley.chen@northshore.example</span>
+                    </td>
+                    <td><span class="issue warn">No mail activity</span></td>
+                    <td>Microsoft 365 E3</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -158,7 +194,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="report-footnote">Example only — not a guarantee. Synthetic demo: 280 Business Premium users at $22/mo = $6,160 estimated spend; 12 unused + 41 disabled+licensed = 53 × $22 = $1,166/mo potential savings. Live reports use your unit costs.</p>
+            <p class="report-footnote">Example only — not a guarantee. Synthetic demo showcasing unused licenses (12), disabled+licensed (41), and no-mail users (18). Row check: (6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50. Est. spend 6,620. Live reports use your unit costs.</p>
           </div>
         </div>
       </figure>
