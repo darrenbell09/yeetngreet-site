@@ -1,1 +1,3 @@
-LOAD_FROM_FILE:/tmp/yeetngreet-site-work/docs/assets/styles/extra.css
+/* YeetnGreet docs — aligned with marketing site (yeetngreet.app) */
+/* Inlined via @import from same-branch docsrc until full file push completes. */
+@import url("https://cdn.jsdelivr.net/gh/darrenbell09/yeetngreet-site@cursor/site-visual-consistency-fda4/docsrc/assets/styles/extra.css");
