@@ -54,29 +54,30 @@
           <div class="report-kpis">
             <div class="kpi">
               <span class="kpi-label">Total users</span>
-              <span class="kpi-value">420</span>
+              <span class="kpi-value">1,180</span>
             </div>
             <div class="kpi">
               <span class="kpi-label">Licensed (active)</span>
-              <span class="kpi-value">286</span>
+              <span class="kpi-value">940</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-label">Est. license cost / mo</span>
+              <span class="kpi-value">USD 28,200</span>
             </div>
             <div class="kpi">
               <span class="kpi-label">Licensed + disabled</span>
-              <span class="kpi-value warn">8</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-label">No mail (90d)</span>
-              <span class="kpi-value warn">14</span>
+              <span class="kpi-value warn">58</span>
             </div>
             <div class="kpi highlight">
-              <span class="kpi-label">Potential savings / mo</span>
-              <span class="kpi-value savings">USD 370.50</span>
+              <span class="kpi-label">Potential savings / mo (~30%)</span>
+              <span class="kpi-value savings">USD 8,460</span>
             </div>
           </div>
 
           <div class="report-body">
             <div class="report-table-wrap">
               <p class="report-table-label">Cost-saving opportunities</p>
+              <p class="report-table-hint">Savings / mo = (Unused + Disabled) × Unit. Rows sum to the potential savings above.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -89,25 +90,46 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Microsoft 365 Business Basic</td>
-                    <td>31</td>
-                    <td>6</td>
-                    <td>6.00</td>
-                    <td class="savings-cell">222.00</td>
+                    <td>Microsoft 365 E3</td>
+                    <td>140</td>
+                    <td>30</td>
+                    <td>36.00</td>
+                    <td class="savings-cell">6,120.00</td>
                   </tr>
                   <tr>
-                    <td>Microsoft 365 Business Standard</td>
-                    <td>7</td>
-                    <td>2</td>
-                    <td>12.50</td>
-                    <td class="savings-cell">112.50</td>
+                    <td>Microsoft 365 Business Premium</td>
+                    <td>40</td>
+                    <td>10</td>
+                    <td>22.00</td>
+                    <td class="savings-cell">1,100.00</td>
                   </tr>
                   <tr>
-                    <td>Exchange Online (Plan 1)</td>
+                    <td>Power BI Pro</td>
+                    <td>55</td>
                     <td>9</td>
-                    <td>0</td>
-                    <td>4.00</td>
-                    <td class="savings-cell">36.00</td>
+                    <td>10.00</td>
+                    <td class="savings-cell">640.00</td>
+                  </tr>
+                  <tr>
+                    <td>Exchange Online (Plan 2)</td>
+                    <td>25</td>
+                    <td>5</td>
+                    <td>8.00</td>
+                    <td class="savings-cell">240.00</td>
+                  </tr>
+                  <tr>
+                    <td>Visio Plan 2</td>
+                    <td>20</td>
+                    <td>4</td>
+                    <td>15.00</td>
+                    <td class="savings-cell">360.00</td>
+                  </tr>
+                  <tr class="report-total-row">
+                    <td>Total</td>
+                    <td>280</td>
+                    <td>58</td>
+                    <td></td>
+                    <td class="savings-cell">8,460.00</td>
                   </tr>
                 </tbody>
               </table>
@@ -115,7 +137,7 @@
 
             <div class="report-table-wrap report-users">
               <p class="report-table-label">Users needing attention</p>
-              <p class="report-table-hint">Disabled + licensed, and licensed accounts with no mail activity in 90 days: the idle licenses that are hard to find.</p>
+              <p class="report-table-hint">Examples of disabled + licensed accounts, and licensed accounts with no mail activity in 90 days — the idle licenses that are hard to find in the admin center.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -134,7 +156,7 @@
                       <span class="user-upn">jordan.blake@northshore.example</span>
                     </td>
                     <td><span class="issue danger">Disabled + licensed</span></td>
-                    <td>Microsoft 365 Business Basic</td>
+                    <td>Microsoft 365 E3</td>
                     <td>12</td>
                     <td>84</td>
                     <td>19</td>
@@ -145,7 +167,7 @@
                       <span class="user-upn">sam.rivera@northshore.example</span>
                     </td>
                     <td><span class="issue warn">No mail activity</span></td>
-                    <td>Microsoft 365 Business Standard</td>
+                    <td>Microsoft 365 Business Premium</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -156,7 +178,7 @@
                       <span class="user-upn">casey.nguyen@northshore.example</span>
                     </td>
                     <td><span class="issue warn">No mail activity</span></td>
-                    <td>Exchange Online (Plan 1)</td>
+                    <td>Power BI Pro</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -164,7 +186,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="report-footnote">Sample only. Live reports include unused licenses, disabled-assigned licenses, and inactive licensed users with no mail send/receive/read in 90 days.</p>
+            <p class="report-footnote">Example only — not a guarantee. Synthetic demo: 940 licensed users estimated at USD 28,200/mo; reclaimable unused + disabled licenses total USD 8,460/mo (exactly 30%). Live reports use your unit costs and include unused licenses, disabled-assigned licenses, and inactive licensed users with no mail send/receive/read in 90 days.</p>
           </div>
         </div>
       </figure>
