@@ -6,7 +6,9 @@ name: Rebuild docs for Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - cursor/site-visual-consistency-fda4
     paths:
       - "docsrc/**"
       - "mkdocs.yml"
@@ -18,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: rebuild-docs
+  group: rebuild-docs-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -47,6 +49,6 @@ jobs:
       - name: Commit published docs/
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(docs): rebuild MkDocs site"
+          commit_message: "chore(docs): rebuild MkDocs site (light theme default)"
           file_pattern: docs/
           disable_globbing: true
