@@ -1,1 +1,5 @@
-@FILE:/workspace/.mcp-push/create_docs_extra.json
+/* YeetnGreet docs theme — composed parts (dark-first + IBM Plex/Sora) */
+@import url("./yg-a.css");
+@import url("./yg-b.css");
+@import url("./yg-c.css");
+@import url("./yg-d.css");

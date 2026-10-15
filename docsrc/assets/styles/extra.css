@@ -1,1 +1,5 @@
-FILE:/tmp/yeetngreet-site-work/docsrc/assets/styles/extra.css
+/* YeetnGreet docs theme — composed parts (dark-first + IBM Plex/Sora) */
+@import url("./yg-a.css");
+@import url("./yg-b.css");
+@import url("./yg-c.css");
+@import url("./yg-d.css");
