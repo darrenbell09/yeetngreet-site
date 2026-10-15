@@ -374,12 +374,23 @@ a:hover { text-decoration: underline; }
   -webkit-overflow-scrolling: touch;
 }
 
-.report-users .report-table-hint {
+.report-table-hint {
   margin: 0 0 0.55rem;
   font-size: 0.78rem;
   color: var(--ink-tertiary);
   line-height: 1.4;
   max-width: 46rem;
+}
+
+.report-total-row td {
+  border-bottom: none;
+  font-weight: 650;
+  color: var(--ink);
+  padding-top: 0.65rem;
+}
+
+.report-total-row td:first-child {
+  font-weight: 650;
 }
 
 .user-name {

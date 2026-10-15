@@ -54,29 +54,30 @@
           <div class="report-kpis">
             <div class="kpi">
               <span class="kpi-label">Total users</span>
-              <span class="kpi-value">420</span>
+              <span class="kpi-value">320</span>
             </div>
             <div class="kpi">
               <span class="kpi-label">Licensed (active)</span>
-              <span class="kpi-value">286</span>
+              <span class="kpi-value">280</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-label">Est. license cost / mo</span>
+              <span class="kpi-value">USD 6,160</span>
             </div>
             <div class="kpi">
               <span class="kpi-label">Licensed + disabled</span>
-              <span class="kpi-value warn">8</span>
-            </div>
-            <div class="kpi">
-              <span class="kpi-label">No mail (90d)</span>
-              <span class="kpi-value warn">14</span>
+              <span class="kpi-value warn">41</span>
             </div>
             <div class="kpi highlight">
               <span class="kpi-label">Potential savings / mo</span>
-              <span class="kpi-value savings">USD 370.50</span>
+              <span class="kpi-value savings">USD 1,166</span>
             </div>
           </div>
 
           <div class="report-body">
             <div class="report-table-wrap">
               <p class="report-table-label">Cost-saving opportunities</p>
+              <p class="report-table-hint">Savings / mo = (Unused + Disabled) × Unit. 280 Business Premium × $22 = $6,160 estimated monthly spend. Savings = (Unused + Disabled) × Unit.</p>
               <table class="report-table">
                 <thead>
                   <tr>
@@ -89,25 +90,18 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Microsoft 365 Business Basic</td>
-                    <td>31</td>
-                    <td>6</td>
-                    <td>6.00</td>
-                    <td class="savings-cell">222.00</td>
+                    <td>Microsoft 365 Business Premium</td>
+                    <td>12</td>
+                    <td>41</td>
+                    <td>22.00</td>
+                    <td class="savings-cell">1,166.00</td>
                   </tr>
-                  <tr>
-                    <td>Microsoft 365 Business Standard</td>
-                    <td>7</td>
-                    <td>2</td>
-                    <td>12.50</td>
-                    <td class="savings-cell">112.50</td>
-                  </tr>
-                  <tr>
-                    <td>Exchange Online (Plan 1)</td>
-                    <td>9</td>
-                    <td>0</td>
-                    <td>4.00</td>
-                    <td class="savings-cell">36.00</td>
+                  <tr class="report-total-row">
+                    <td>Total</td>
+                    <td>12</td>
+                    <td>41</td>
+                    <td></td>
+                    <td class="savings-cell">1,166.00</td>
                   </tr>
                 </tbody>
               </table>
@@ -134,7 +128,7 @@
                       <span class="user-upn">jordan.blake@northshore.example</span>
                     </td>
                     <td><span class="issue danger">Disabled + licensed</span></td>
-                    <td>Microsoft 365 Business Basic</td>
+                    <td>Microsoft 365 Business Premium</td>
                     <td>12</td>
                     <td>84</td>
                     <td>19</td>
@@ -145,7 +139,7 @@
                       <span class="user-upn">sam.rivera@northshore.example</span>
                     </td>
                     <td><span class="issue warn">No mail activity</span></td>
-                    <td>Microsoft 365 Business Standard</td>
+                    <td>Microsoft 365 Business Premium</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -156,7 +150,7 @@
                       <span class="user-upn">casey.nguyen@northshore.example</span>
                     </td>
                     <td><span class="issue warn">No mail activity</span></td>
-                    <td>Exchange Online (Plan 1)</td>
+                    <td>Microsoft 365 Business Premium</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
@@ -164,7 +158,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="report-footnote">Sample only. Live reports include unused licenses, disabled-assigned licenses, and inactive licensed users with no mail send/receive/read in 90 days.</p>
+            <p class="report-footnote">Example only — not a guarantee. Synthetic demo: 280 Business Premium users at $22/mo = $6,160 estimated spend; 12 unused + 41 disabled+licensed = 53 × $22 = $1,166/mo potential savings. Live reports use your unit costs.</p>
           </div>
         </div>
       </figure>
