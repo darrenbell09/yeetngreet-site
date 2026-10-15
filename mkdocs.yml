@@ -12,19 +12,19 @@ theme:
   logo: assets/images/logo.png
   favicon: assets/images/favicon.png
   palette:
-    # Dark first — match marketing site (yeetngreet.app) default
-    - scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-7
-        name: Switch to light mode
+    # Light first — default for all yeetngreet.app surfaces
     - scheme: default
       primary: custom
       accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
