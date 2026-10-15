@@ -4,15 +4,16 @@ site_url: https://yeetngreet.app/docs/
 site_author: YeetnGreet
 docs_dir: docsrc
 
-copyright: Copyright &copy; YeetnGreet · <a href="https://yeetngreet.app/">yeetngreet.app</a>
+copyright: Copyright &copy; YeetnGreet
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: assets/images/logo.png
   favicon: assets/images/favicon.png
   palette:
-    # Light first — first paint / no saved preference defaults to light
+    # Light first — match marketing site default
     - scheme: default
       primary: custom
       accent: custom
@@ -25,37 +26,35 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to light mode
-  font:
-    text: Inter
-    code: Roboto Mono
+  font: false
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
     - navigation.expand
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.code.copy
     - toc.follow
+
+hooks:
+  - hooks.py
+
 extra_css:
   - assets/styles/extra.css
-  - assets/styles/brand.css
+
+extra_javascript:
+  - assets/javascripts/theme-sync.js
 
 extra:
   generator: false
-  # Header logo / site name link back to the marketing home page
   homepage: https://yeetngreet.app/
-  social:
-    - icon: fontawesome/solid/globe
-      link: https://yeetngreet.app/
-      name: YeetnGreet home
-    - icon: fontawesome/solid/tags
-      link: https://yeetngreet.app/pricing.html
-      name: Pricing
-    - icon: fontawesome/solid/handshake
-      link: https://yeetngreet.app/pricing.html#founding
-      name: Founding beta
+  docs_home: https://yeetngreet.app/docs/
+  pricing: https://yeetngreet.app/pricing.html
+  privacy: https://yeetngreet.app/privacy.html
+  founding: https://yeetngreet.app/pricing.html#founding
 
 plugins:
   - search
@@ -78,7 +77,6 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
-  - "← Back to yeetngreet.app": https://yeetngreet.app/
   - Home: index.md
   - Getting started:
       - Install: getting-started/install.md
