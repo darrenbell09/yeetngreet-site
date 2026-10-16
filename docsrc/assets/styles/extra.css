@@ -239,44 +239,106 @@ body {
   background: transparent;
 }
 
+/*
+ * Left rail: quiet editorial nav (not Material pills).
+ * Sized in px so Material's 125% root does not inflate it.
+ */
 .md-sidebar--primary {
   border-right: 1px solid var(--line);
 }
 
-.md-sidebar--secondary {
-  border-left: 1px solid var(--line);
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.md-sidebar--primary .md-nav {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.md-sidebar--primary .md-nav__list {
+  padding: 0 0 8px;
+}
+
+.md-sidebar--primary .md-nav__item {
+  padding: 0;
+  margin: 0;
 }
 
 .md-nav--primary .md-nav__link {
   color: var(--ink-secondary);
-  border-radius: 8px;
-  margin: 0.15rem 0.5rem;
-  padding: 0.45rem 0.55rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 5px 0 5px 12px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
 }
 
 .md-nav--primary .md-nav__link:hover,
 .md-nav--primary .md-nav__link:focus {
-  color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--ink);
+  background: transparent;
 }
 
+/* Section labels — match marketing .section-label */
 .md-nav--primary .md-nav__item--section > .md-nav__link,
 .md-nav--primary .md-nav__item--section > label.md-nav__link {
-  color: var(--ink-secondary);
-  font-size: 12px;
-  font-weight: 600;
+  color: var(--ink-tertiary);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   background: transparent;
-  margin-top: 0.75rem;
+  margin: 18px 0 4px;
+  padding: 0 0 0 12px;
+  pointer-events: none;
 }
 
+.md-nav--primary .md-nav__item--section:first-child > .md-nav__link,
+.md-nav--primary .md-nav__item--section:first-child > label.md-nav__link {
+  margin-top: 4px;
+}
+
+/* Active page: ink + weight + thin rule — no pill fill */
 .md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
 .md-nav--primary a.md-nav__link--active {
-  color: var(--accent);
-  background: var(--accent-soft);
+  color: var(--ink);
+  background: transparent;
   font-weight: 600;
-  box-shadow: inset 3px 0 0 var(--accent);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Nested section pages sit slightly indented */
+.md-nav--primary .md-nav__item--section > .md-nav .md-nav__link {
+  padding-left: 12px;
+}
+
+/* Hide in-page TOC under the current page — right rail already has it */
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav {
+  display: none;
+}
+
+/* Quiet Material expand chevrons */
+.md-nav--primary .md-nav__icon {
+  opacity: 0.35;
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
+.md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
+  display: none;
+}
+
+/* Right TOC — same quiet language as left rail */
+.md-sidebar--secondary {
+  border-left: 1px solid var(--line);
 }
 
 .md-nav--secondary .md-nav__title {
@@ -284,18 +346,36 @@ body {
   background: transparent;
   box-shadow: none;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0 0 8px;
+  height: auto;
+  line-height: 1.3;
 }
 
 .md-nav--secondary .md-nav__link {
   color: var(--ink-secondary);
-  font-size: 13px;
-  border-radius: 8px;
+  font-size: 12.5px;
+  border-radius: 0;
+  margin: 0;
+  padding: 4px 0 4px 10px;
+  background: transparent;
+  box-shadow: none;
+  border-left: 1px solid transparent;
+}
+
+.md-nav--secondary .md-nav__link:hover,
+.md-nav--secondary .md-nav__link:focus {
+  color: var(--ink);
+  background: transparent;
 }
 
 .md-nav--secondary .md-nav__link--active {
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 600;
+  background: transparent;
+  border-left-color: var(--accent);
 }
 
 .md-content__inner {
