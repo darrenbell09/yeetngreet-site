@@ -66,6 +66,13 @@ body {
   z-index: 1;
 }
 
+/* Docs article must sit above the fixed atmosphere. Scoped to .md-content
+   (a sibling of the sidebars) so the phone drawer stacking is unaffected. */
+.md-content {
+  position: relative;
+  z-index: 1;
+}
+
 body {
   background: transparent;
 }
