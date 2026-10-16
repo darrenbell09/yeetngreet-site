@@ -58,10 +58,9 @@ body {
   font-weight: 700;
 }
 
-/* Docs sit above the atmosphere wash */
-.md-container,
-.md-main,
-.yg-docs-topbar,
+/* Atmosphere is fixed at z-index 0. Do not create stacking contexts on
+   .md-container / .md-main — they trap the mobile drawer under .md-overlay
+   so taps close the menu instead of navigating. */
 .yg-site-footer {
   position: relative;
   z-index: 1;
@@ -90,11 +89,28 @@ body {
   padding: 13.6px 0;
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: transparent;
+  /* Below Material overlay/drawer (5) so the open menu receives taps */
+  z-index: 3;
+  /* Opaque so scrolling docs don't bleed through the sticky chrome */
+  background: var(--bg);
   backdrop-filter: none;
   box-shadow: none;
   border-bottom: 1px solid var(--line);
+}
+
+/* Full-bleed opaque strip (bar itself is max-width constrained) */
+.yg-docs-topbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -1px; /* cover border-bottom seam */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  z-index: -1;
+  pointer-events: none;
 }
 
 @media (min-width: 1600px) {
@@ -242,14 +258,22 @@ body {
 /*
  * Left rail: quiet editorial nav (not Material pills).
  * Sized in px so Material's 125% root does not inflate it.
+ * Material's sidebar box is only ~header-tall; a border there looks like a
+ * short stub. Draw the divider on the absolute scrollwrap (full column).
  */
 .md-sidebar--primary {
-  border-right: 1px solid var(--line);
+  border-right: none !important;
 }
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
+}
+
+@media screen and (min-width: 1220px) {
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    border-right: 1px solid var(--line);
+  }
 }
 
 .md-sidebar--primary .md-nav {
@@ -296,7 +320,6 @@ body {
   background: transparent;
   margin: 18px 0 4px;
   padding: 0 0 0 12px;
-  pointer-events: none;
 }
 
 .md-nav--primary .md-nav__item--section:first-child > .md-nav__link,
@@ -323,24 +346,47 @@ body {
   display: none;
 }
 
-/* Quiet Material expand chevrons */
-.md-nav--primary .md-nav__icon {
-  opacity: 0.35;
-  width: 12px;
-  height: 12px;
-  margin-right: 2px;
+/* Desktop: section labels are non-interactive (always expanded); hide chevrons.
+   Phone drawer: keep arrows + pointer events so nested sections drill in. */
+@media screen and (min-width: 1220px) {
+  .md-nav--primary .md-nav__item--section > .md-nav__link,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link {
+    pointer-events: none;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
+    display: none;
+  }
 }
 
-.md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
-.md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
-  display: none;
+.md-nav--primary .md-nav__icon {
+  opacity: 0.45;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  margin-right: 4px;
+  color: var(--ink-tertiary);
 }
 
 /* Right TOC — same quiet language as left rail */
 .md-sidebar--secondary {
-  border-left: 1px solid var(--line);
+  border-left: 0 !important;
 }
 
+/*
+ * Material: [dir=ltr] .md-nav--secondary .md-nav__list { padding-left: .6rem }
+ * Zero that so the label and top-level items share one left edge.
+ */
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary > .md-nav__list,
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary .md-nav__list,
+.md-sidebar--secondary .md-nav--secondary > .md-nav__list,
+.md-sidebar--secondary .md-nav--secondary .md-nav__list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.md-sidebar--secondary .md-nav--secondary > .md-nav__title,
 .md-nav--secondary .md-nav__title {
   color: var(--ink-tertiary);
   background: transparent;
@@ -349,20 +395,31 @@ body {
   font-weight: 650;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 0 0 8px;
+  /* Shared --yg-toc-inset with top-level links */
+  --yg-toc-inset: 12px;
+  padding: 0 0 8px var(--yg-toc-inset);
   height: auto;
   line-height: 1.3;
+  display: block;
 }
 
+.md-sidebar--secondary .md-nav--secondary > .md-nav__title .md-nav__icon,
+.md-nav--secondary .md-nav__title .md-nav__icon {
+  display: none !important;
+}
+
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link,
+.md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link,
 .md-nav--secondary .md-nav__link {
   color: var(--ink-secondary);
   font-size: 12.5px;
   border-radius: 0;
   margin: 0;
-  padding: 4px 0 4px 10px;
+  --yg-toc-inset: 12px;
+  padding: 4px 0 4px var(--yg-toc-inset);
   background: transparent;
   box-shadow: none;
-  border-left: 1px solid transparent;
+  border-left: 0 !important;
 }
 
 .md-nav--secondary .md-nav__link:hover,
@@ -375,7 +432,118 @@ body {
   color: var(--ink);
   font-weight: 600;
   background: transparent;
-  border-left-color: var(--accent);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Nested TOC levels keep a clear step without shifting the label */
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary .md-nav .md-nav__link {
+  padding-left: calc(var(--yg-toc-inset, 12px) + 10px);
+}
+
+/*
+ * Phone drawer: solid panel on top of the dimming layer; title bar matches site
+ * (not Material primary blue). Use px breakpoint — Material's em root is 125%.
+ */
+@media screen and (max-width: 1219px) {
+  .md-overlay {
+    z-index: 5;
+  }
+
+  .md-sidebar--primary {
+    background-color: var(--bg) !important;
+    z-index: 6;
+    border-right: 1px solid var(--line);
+  }
+
+  /* Material paints [for=__drawer] with --md-primary-fg-color (blue) */
+  .md-nav--primary .md-nav__title,
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--line);
+    height: auto;
+    min-height: 52px;
+    line-height: 1.3;
+    padding: 14px 12px;
+    font-family: var(--display);
+    font-size: 14.4px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Nested level titles keep Material back-arrow layout */
+  .md-nav--primary .md-nav__title:not([for="__drawer"]) {
+    padding: 14px 12px 14px 40px;
+  }
+
+  .md-nav--primary .md-nav__title:not([for="__drawer"]) .md-nav__icon {
+    display: block;
+    color: var(--ink-secondary);
+  }
+
+  /* Material absolute-positions a huge logo over the title — shrink to site mark */
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo {
+    position: static;
+    display: block;
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo img,
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo svg {
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+  }
+
+  /*
+   * Nested drill-in panels stay opacity:0 when closed but still hit-test.
+   * That steals taps from the root menu (and can leave scrollwrap scrolled).
+   */
+  .md-nav--primary .md-nav__item--nested > .md-nav {
+    pointer-events: none;
+  }
+
+  .md-nav--primary .md-nav__item--nested > input:checked ~ .md-nav {
+    pointer-events: auto;
+  }
+
+  /* Section rows in the drawer: tappable with visible arrows */
+  .md-nav--primary .md-nav__item--section > .md-nav__link,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 2px;
+    padding: 8px 8px 8px 12px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .md-nav--primary .md-nav__link {
+    padding: 8px 12px;
+  }
 }
 
 .md-content__inner {
