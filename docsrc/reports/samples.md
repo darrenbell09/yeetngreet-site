@@ -39,17 +39,26 @@ Estimated monthly spend for **280** licensed users (180×$22 + 60×$36 + 40×$12
 
 ## What-if scenario (excerpt)
 
-Example plan: remove all unused Business Premium licenses, remove disabled-assigned E3, move **10** licenses E3 → Business Premium.
+Same reclaim baseline: BP enabled **186** / consumed **180** / disabled-assigned **24** at **$22**; E3 enabled **64** / consumed **60** / disabled-assigned **12** at **$36**.
 
-Baseline prepaid enabled: BP 186, E3 64 (illustrative — enabled includes unused).
+Example plan (app math):
+
+1. **Remove unused** on Business Premium (all 6)
+2. **Remove disabled-assigned** on E3 (all 12) — drops enabled and consumed together
+3. **Move 10** licenses E3 → Business Premium
 
 | License | Before | After | Unit | Price source | Δ / mo | Δ / yr |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
 | Microsoft 365 Business Premium | 186 | 190 | 22.00 | saved tenant price | +88.00 | +1,056.00 |
-| Microsoft 365 E3 | 64 | 50 | 36.00 | list-price estimate | −504.00 | −6,048.00 |
-| **Net** | | | | | **−416.00** | **−4,992.00** |
+| Microsoft 365 E3 | 64 | 42 | 36.00 | list-price estimate | −792.00 | −9,504.00 |
+| **Net** | | | | | **−704.00** | **−8,448.00** |
 
-**Check:** BP reclaim unused (−6) then +10 from move → net +4 × $22 = +88. E3 remove 4 unused + 12 disabled path simplified in this demo to −14 × $36 = −504. Net −416 / mo.
+**Check:**
+
+- Before: `186×22 + 64×36 = 4,092 + 2,304 = 6,396`
+- After step 1: BP enabled 180. After step 2: E3 enabled 52 / consumed 48. After move 10: BP 190, E3 42.
+- After: `190×22 + 42×36 = 4,180 + 1,512 = 5,692`
+- Delta: `5,692 − 6,396 = −704` / mo (`−8,448` / yr)
 
 Scenarios stay read-only: export HTML/CSV/PDF or deliver like other reports; Graph license assignments are unchanged.
 

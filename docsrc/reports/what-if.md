@@ -38,11 +38,13 @@ Start from the tenant’s current licenses (from the latest full report) and bui
 
 | Step | What it models |
 | --- | --- |
-| **Remove unused licenses** | Drop prepaid capacity that is not assigned (blank quantity = all) |
-| **Remove disabled-assigned licenses** | Unassign licenses from blocked accounts |
-| **Move licenses (SKU → SKU)** | Move N users/licenses from one SKU to another (for example E3 → Business Premium) |
-| **Add licenses (planned hires)** | Increase prepaid + assigned for upcoming headcount |
-| **Remove licenses (planned cuts)** | Reduce prepaid + assigned for planned reductions |
+| **Remove unused licenses** | Drop prepaid capacity that is not assigned (blank quantity = all unused on that SKU) |
+| **Remove disabled-assigned licenses** | Reduce **enabled**, **consumed**, and **disabled-assigned** together for licenses still sitting on blocked accounts (blank quantity = all disabled-assigned on that SKU) |
+| **Move licenses (SKU → SKU)** | Move N assigned licenses from one SKU to another (for example E3 → Business Premium). **To** can be a SKU the tenant does not own yet, picked from the built-in price list |
+| **Add licenses (planned hires)** | Increase enabled + consumed for upcoming headcount |
+| **Remove licenses (planned cuts)** | Reduce enabled (and consumed) for planned reductions |
+
+Every subscribed SKU gets a unit cost (list-price estimate by default) with an editable cost field — including fully used SKUs. If a step asks for more licenses than exist, the app applies what is available and shows the amount applied. Totals warn when any SKU still has no price.
 
 For each scenario the app shows:
 
@@ -64,14 +66,14 @@ Scenarios are saved **per managed tenant**, can be reopened later, and export or
 
 ## Steps
 
-1. Select the managed tenant and **sign in** (customer Graph token).
+1. Select the managed tenant and **sign in**.
 2. Open **Reports** → **Run license report**.
 3. On **What-if savings**:
-   - Review reclaim **Unused**, **Disabled**, **Unit / mo**, and **Savings / mo**
-   - Edit unit costs if needed; click **Save costs** for a saved tenant price
+   - Review reclaim **Unused**, **Disabled**, **Unit / mo**, and **Savings / mo** for every SKU
+   - Edit unit costs if needed; click **Save costs** to store only the prices you entered as a saved tenant price
 4. In **Scenario planner**:
    - Name the scenario and add steps
-   - Review before/after counts and monthly/annual deltas
+   - Review before/after counts and monthly/annual deltas (and any quantity or missing-price warnings)
    - **Save** to store on this tenant, or **Open** a saved scenario
 5. Optionally **Export** / **Export PDF**, or [deliver](delivery.md) via the tenant’s report channels
 

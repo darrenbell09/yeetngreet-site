@@ -9,7 +9,7 @@ In the app this is the **User licensing** card on **Reports** after you run a li
 - Quarterly license hygiene
 - Before a renewal or true-up
 - After a merger / tenant consolidation wave
-- Finding named users to reclaim before you cut prepaid seats
+- Finding named users to reclaim before you cut prepaid licenses
 
 ## Steps
 
