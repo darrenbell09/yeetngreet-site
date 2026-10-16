@@ -1,16 +1,16 @@
 # Unused licenses
 
-Find prepaid seats that are not assigned, and licenses still stuck on **disabled** accounts — before the renewal meeting.
+Find prepaid licenses that are not assigned, and licenses still stuck on **disabled** accounts — before the renewal meeting.
 
-In the app this is the **Unused** / **Disabled** columns on the license report’s **What-if savings** table (not a separate Reports submenu).
+In the app this is the **Unused** / **Disabled** columns on the license report’s **What-if** table (not a separate Reports submenu).
 
 ## Signals
 
 | Signal | Meaning |
 | --- | --- |
-| **Unused** | Prepaid enabled seats minus consumed (available capacity you are still paying for) |
+| **Unused** | Prepaid enabled licenses minus consumed (available capacity you are still paying for) |
 | **Disabled** | License assignments on accounts with sign-in blocked |
-| **No mail (90d)** | Enabled licensed users with no send/receive/read in the mail activity window — shown under **User licensing** for review, not as unused inventory |
+| **No mail (90d)** | Enabled licensed users with no send/receive/read in the mail activity window — shown under **User licensing** for review. Not priced as reclaim because inactive is not confirmed waste. |
 
 ## When to use it
 
@@ -22,7 +22,7 @@ In the app this is the **Unused** / **Disabled** columns on the license report�
 
 1. Select the tenant and sign in
 2. Open **Reports** → **Run license report**
-3. On **What-if savings**, review Unused and Disabled per SKU
+3. On **What-if**, review Unused and Disabled per SKU
 4. Open **User licensing** for named disabled+licensed and no-mail users
 5. Validate in the Microsoft 365 admin center before you remove SKUs or reduce quantities
 6. Export or [deliver](delivery.md) if needed
@@ -35,10 +35,10 @@ In the app this is the **Unused** / **Disabled** columns on the license report�
 
 ## Pricing the reclaim
 
-Pair this view with [What-if savings](what-if.md): set unit costs, then read **Savings / mo** = `(Unused + Disabled) × Unit` per SKU.
+Pair this view with [What-if](what-if.md): set unit costs, then read **Savings / mo** = `(Unused + Disabled) × Unit` per SKU. Use the scenario planner on the same card to model reclaim steps without changing the tenant.
 
 ## Related
 
-- [What-if savings](what-if.md)
+- [What-if](what-if.md)
 - [License audit](license-audit.md)
 - [Samples](samples.md)
