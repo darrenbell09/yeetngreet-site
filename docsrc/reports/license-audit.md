@@ -16,7 +16,7 @@ In the app this is the **User licensing** card on **Reports** after you run a li
 1. Select the tenant and sign in
 2. Open **Reports** → **Run license report**
 3. Review the **User licensing** summary and table (filter by name, UPN, or license)
-4. Pair with [What-if savings](what-if.md) for priced unused / disabled reclaim
+4. Pair with [What-if](what-if.md) for priced reclaim and scenario planning
 5. Export or [deliver](delivery.md) as needed
 
 See [Samples](samples.md) for anonymized SKU counts and named-user examples.
@@ -30,5 +30,5 @@ See [Samples](samples.md) for anonymized SKU counts and named-user examples.
 ## Related
 
 - [Unused licenses](unused-licenses.md)
-- [What-if savings](what-if.md)
+- [What-if](what-if.md)
 - [Samples](samples.md)

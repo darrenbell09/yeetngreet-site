@@ -90,7 +90,7 @@ nav:
       - Overview: reports/overview.md
       - License audit: reports/license-audit.md
       - Unused licenses: reports/unused-licenses.md
-      - What-if savings: reports/what-if.md
+      - What-if: reports/what-if.md
       - Delivery: reports/delivery.md
       - Samples: reports/samples.md
   - Tenants:
