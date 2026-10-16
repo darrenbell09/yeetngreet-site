@@ -1,28 +1,44 @@
 # Unused licenses
 
-Find licenses that appear unused so you can reclaim spend — before the renewal meeting.
+Find prepaid licenses that are not assigned, and licenses still stuck on **disabled** accounts — before the renewal meeting.
+
+In the app this is the **Unused** / **Disabled** columns on the license report’s **What-if** table (not a separate Reports submenu).
+
+## Signals
+
+| Signal | Meaning |
+| --- | --- |
+| **Unused** | Prepaid enabled licenses minus consumed (available capacity you are still paying for) |
+| **Disabled** | License assignments on accounts with sign-in blocked |
+| **No mail (90d)** | Enabled licensed users with no send/receive/read in the mail activity window — shown under **User licensing** for review. Not priced as reclaim because inactive is not confirmed waste. |
 
 ## When to use it
 
 - Monthly license hygiene
-- After offboard waves (catch stragglers)
+- After offboard waves (catch stragglers still licensed while disabled)
 - When finance asks “where can we cut?”
 
 ## Steps
 
-1. Select the tenant
-2. Open **Reports → Unused licenses**
-3. Review candidates and validate in the tenant before removing licenses
-4. Export or [deliver](delivery.md)
+1. Select the tenant and sign in
+2. Open **Reports** → **Run license report**
+3. On **What-if**, review Unused and Disabled per SKU
+4. Open **User licensing** for named disabled+licensed and no-mail users
+5. Validate in the Microsoft 365 admin center before you remove SKUs or reduce quantities
+6. Export or [deliver](delivery.md) if needed
 
 ![Screenshot: Reports — unused licenses](../assets/images/reports-unused-licenses.png){ width="720" }
-*Placeholder — idle licenses and savings range.*
+*Example screenshot — idle licenses with per-SKU savings. Marketing sample numbers are synthetic and checked so row math totals correctly.*
 
 !!! warning "Validate before reclaim"
-    “Unused” signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs.
+    Unused and disabled signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs. Sample savings on the marketing site are **examples only — not a guarantee**.
+
+## Pricing the reclaim
+
+Pair this view with [What-if](what-if.md): set unit costs, then read **Savings / mo** = `(Unused + Disabled) × Unit` per SKU. Use the scenario planner on the same card to model reclaim steps without changing the tenant.
 
 ## Related
 
-- [License audit](license-audit.md)
 - [What-if](what-if.md)
+- [License audit](license-audit.md)
 - [Samples](samples.md)
