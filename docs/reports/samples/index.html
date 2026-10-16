@@ -797,10 +797,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unused-licenses-excerpt" class="md-nav__link">
+  <a href="#what-if-reclaim-savings-excerpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unused licenses (excerpt)
+        What-if reclaim savings (excerpt)
       
     </span>
   </a>
@@ -808,10 +808,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-if-excerpt" class="md-nav__link">
+  <a href="#what-if-scenario-excerpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What-if (excerpt)
+        What-if scenario (excerpt)
       
     </span>
   </a>
@@ -1081,10 +1081,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unused-licenses-excerpt" class="md-nav__link">
+  <a href="#what-if-reclaim-savings-excerpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unused licenses (excerpt)
+        What-if reclaim savings (excerpt)
       
     </span>
   </a>
@@ -1092,10 +1092,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-if-excerpt" class="md-nav__link">
+  <a href="#what-if-scenario-excerpt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What-if (excerpt)
+        What-if scenario (excerpt)
       
     </span>
   </a>
@@ -1132,6 +1132,10 @@
 
 <h1 id="sample-report-output">Sample report output<a class="headerlink" href="#sample-report-output" title="Permanent link">&para;</a></h1>
 <p>Anonymized examples of what reports can look like. Your tenant names, SKUs, and counts will differ.</p>
+<div class="admonition note">
+<p class="admonition-title">Example only — not a guarantee</p>
+<p>Figures below are synthetic demos for documentation. Always validate in the tenant before reclaiming. Savings shown here are illustrative, not promised results.</p>
+</div>
 <h2 id="license-audit-excerpt">License audit (excerpt)<a class="headerlink" href="#license-audit-excerpt" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1144,106 +1148,170 @@
 </thead>
 <tbody>
 <tr>
+<td>Microsoft 365 Business Premium</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">6</td>
+<td>Field + branch</td>
+</tr>
+<tr>
 <td>Microsoft 365 E3</td>
-<td style="text-align: right;">142</td>
-<td style="text-align: right;">8</td>
-<td>Core productivity</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">4</td>
+<td>Leadership / HQ</td>
 </tr>
 <tr>
-<td>Exchange Online Plan 2</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
-<td>Shared / legacy</td>
-</tr>
-<tr>
-<td>Power BI Pro</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">5</td>
-<td>Finance + ops</td>
-</tr>
-<tr>
-<td>Microsoft Defender for Office 365 P2</td>
-<td style="text-align: right;">142</td>
-<td style="text-align: right;">0</td>
-<td>Bundled with E3 wave</td>
+<td>Microsoft 365 Business Standard</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">2</td>
+<td>Light roles</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Named users (sample rows)</strong></p>
+<p><strong>Attention rows (sample)</strong></p>
 <table>
 <thead>
 <tr>
 <th>Display name</th>
 <th>UPN</th>
+<th>Issue</th>
 <th>SKUs</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Alex Rivera</td>
-<td>alex.rivera@contoso-example.com</td>
-<td>M365 E3</td>
+<td>Jordan Blake</td>
+<td>jordan.blake@northshore.example</td>
+<td>Disabled + licensed</td>
+<td>Business Premium</td>
 </tr>
 <tr>
-<td>Jordan Lee</td>
-<td>jordan.lee@contoso-example.com</td>
-<td>M365 E3; Power BI Pro</td>
+<td>Alex Morgan</td>
+<td>alex.morgan@northshore.example</td>
+<td>Disabled + licensed</td>
+<td>E3</td>
 </tr>
 <tr>
-<td>Sam Okonkwo</td>
-<td>sam.okonkwo@contoso-example.com</td>
-<td>Exchange Online Plan 2</td>
+<td>Sam Rivera</td>
+<td>sam.rivera@northshore.example</td>
+<td>No mail activity (90d)</td>
+<td>Business Premium</td>
+</tr>
+<tr>
+<td>Casey Nguyen</td>
+<td>casey.nguyen@northshore.example</td>
+<td>No mail activity (90d)</td>
+<td>Business Standard</td>
 </tr>
 </tbody>
 </table>
-<h2 id="unused-licenses-excerpt">Unused licenses (excerpt)<a class="headerlink" href="#unused-licenses-excerpt" title="Permanent link">&para;</a></h2>
+<h2 id="what-if-reclaim-savings-excerpt">What-if reclaim savings (excerpt)<a class="headerlink" href="#what-if-reclaim-savings-excerpt" title="Permanent link">&para;</a></h2>
+<p>Savings / mo = <code>(Unused + Disabled) × Unit</code>. Inactive (no-mail) users are <strong>not</strong> priced here — inactive is not confirmed waste.</p>
 <table>
 <thead>
 <tr>
-<th>UPN</th>
-<th>SKU</th>
-<th>Last signal</th>
-<th style="text-align: right;">Est. monthly</th>
+<th>License</th>
+<th style="text-align: right;">Unused</th>
+<th style="text-align: right;">Disabled</th>
+<th style="text-align: right;">Unit</th>
+<th>Price source</th>
+<th style="text-align: right;">Savings / mo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>temp.contractor@contoso-example.com</td>
-<td>M365 E3</td>
-<td>No sign-in 90d</td>
-<td style="text-align: right;">$36</td>
+<td>Microsoft 365 Business Premium</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">22.00</td>
+<td>saved tenant price</td>
+<td style="text-align: right;">660.00</td>
 </tr>
 <tr>
-<td>archive.bot@contoso-example.com</td>
-<td>Power BI Pro</td>
-<td>No activity 60d</td>
-<td style="text-align: right;">$10</td>
+<td>Microsoft 365 E3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">36.00</td>
+<td>list-price estimate</td>
+<td style="text-align: right;">576.00</td>
 </tr>
 <tr>
-<td>leavers.hold@contoso-example.com</td>
-<td>M365 E3</td>
-<td>Disabled + licensed</td>
-<td style="text-align: right;">$36</td>
+<td>Microsoft 365 Business Standard</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12.50</td>
+<td>enter cost</td>
+<td style="text-align: right;">87.50</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>12</strong></td>
+<td style="text-align: right;"><strong>41</strong></td>
+<td style="text-align: right;"></td>
 <td></td>
-<td></td>
-<td style="text-align: right;"><strong>$82</strong></td>
+<td style="text-align: right;"><strong>1,323.50</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Illustrative only</p>
-<p>Figures are fictional for documentation. Always validate in the tenant before reclaiming. The monthly column sums to the total row ($36 + $10 + $36 = $82).</p>
-</div>
-<h2 id="what-if-excerpt">What-if (excerpt)<a class="headerlink" href="#what-if-excerpt" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Scenario: Q4 reclaim wave
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- Remove 6× Microsoft 365 E3 (unused)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- Move 10× E3 → Business Premium (dept B)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Projected assigned E3: 142 → 126
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Projected monthly delta: about -$580 (list; customer price may differ)
-</code></pre></div>
+<p><strong>Check:</strong> <code>(6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50</code>.</p>
+<p>Estimated monthly spend for <strong>280</strong> licensed users (180×$22 + 60×$36 + 40×$12.50) = <strong>USD 6,620</strong>.</p>
+<h2 id="what-if-scenario-excerpt">What-if scenario (excerpt)<a class="headerlink" href="#what-if-scenario-excerpt" title="Permanent link">&para;</a></h2>
+<p>Same reclaim baseline: BP enabled <strong>186</strong> / consumed <strong>180</strong> / disabled-assigned <strong>24</strong> at <strong>$22</strong>; E3 enabled <strong>64</strong> / consumed <strong>60</strong> / disabled-assigned <strong>12</strong> at <strong>$36</strong>.</p>
+<p>Example plan (app math):</p>
+<ol>
+<li><strong>Remove unused</strong> on Business Premium (all 6)</li>
+<li><strong>Remove disabled-assigned</strong> on E3 (all 12) — drops enabled and consumed together</li>
+<li><strong>Move 10</strong> licenses E3 → Business Premium</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>License</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+<th style="text-align: right;">Unit</th>
+<th>Price source</th>
+<th style="text-align: right;">Δ / mo</th>
+<th style="text-align: right;">Δ / yr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft 365 Business Premium</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">22.00</td>
+<td>saved tenant price</td>
+<td style="text-align: right;">+88.00</td>
+<td style="text-align: right;">+1,056.00</td>
+</tr>
+<tr>
+<td>Microsoft 365 E3</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">36.00</td>
+<td>list-price estimate</td>
+<td style="text-align: right;">−792.00</td>
+<td style="text-align: right;">−9,504.00</td>
+</tr>
+<tr>
+<td><strong>Net</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td></td>
+<td style="text-align: right;"><strong>−704.00</strong></td>
+<td style="text-align: right;"><strong>−8,448.00</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check:</strong></p>
+<ul>
+<li>Before: <code>186×22 + 64×36 = 4,092 + 2,304 = 6,396</code></li>
+<li>After step 1: BP enabled 180. After step 2: E3 enabled 52 / consumed 48. After move 10: BP 190, E3 42.</li>
+<li>After: <code>190×22 + 42×36 = 4,180 + 1,512 = 5,692</code></li>
+<li>Delta: <code>5,692 − 6,396 = −704</code> / mo (<code>−8,448</code> / yr)</li>
+</ul>
+<p>Scenarios stay read-only: export HTML/CSV/PDF or deliver like other reports; Graph license assignments are unchanged.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../license-audit/">License audit</a></li>

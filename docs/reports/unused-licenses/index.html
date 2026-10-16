@@ -702,6 +702,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -717,6 +728,17 @@
     <span class="md-ellipsis">
       
         Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-the-reclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pricing the reclaim
       
     </span>
   </a>
@@ -1059,6 +1081,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1074,6 +1107,17 @@
     <span class="md-ellipsis">
       
         Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-the-reclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pricing the reclaim
       
     </span>
   </a>
@@ -1109,30 +1153,58 @@
 
 
 <h1 id="unused-licenses">Unused licenses<a class="headerlink" href="#unused-licenses" title="Permanent link">&para;</a></h1>
-<p>Find licenses that appear unused so you can reclaim spend — before the renewal meeting.</p>
+<p>Find prepaid licenses that are not assigned, and licenses still stuck on <strong>disabled</strong> accounts — before the renewal meeting.</p>
+<p>In the app this is the <strong>Unused</strong> / <strong>Disabled</strong> columns on the license report’s <strong>What-if</strong> table (not a separate Reports submenu).</p>
+<h2 id="signals">Signals<a class="headerlink" href="#signals" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unused</strong></td>
+<td>Prepaid enabled licenses minus consumed (available capacity you are still paying for)</td>
+</tr>
+<tr>
+<td><strong>Disabled</strong></td>
+<td>License assignments on accounts with sign-in blocked</td>
+</tr>
+<tr>
+<td><strong>No mail (90d)</strong></td>
+<td>Enabled licensed users with no send/receive/read in the mail activity window — shown under <strong>User licensing</strong> for review. Not priced as reclaim because inactive is not confirmed waste.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Monthly license hygiene</li>
-<li>After offboard waves (catch stragglers)</li>
+<li>After offboard waves (catch stragglers still licensed while disabled)</li>
 <li>When finance asks “where can we cut?”</li>
 </ul>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select the tenant</li>
-<li>Open <strong>Reports → Unused licenses</strong></li>
-<li>Review candidates and validate in the tenant before removing licenses</li>
-<li>Export or <a href="../delivery/">deliver</a></li>
+<li>Select the tenant and sign in</li>
+<li>Open <strong>Reports</strong> → <strong>Run license report</strong></li>
+<li>On <strong>What-if</strong>, review Unused and Disabled per SKU</li>
+<li>Open <strong>User licensing</strong> for named disabled+licensed and no-mail users</li>
+<li>Validate in the Microsoft 365 admin center before you remove SKUs or reduce quantities</li>
+<li>Export or <a href="../delivery/">deliver</a> if needed</li>
 </ol>
 <p><img alt="Screenshot: Reports — unused licenses" src="../../assets/images/reports-unused-licenses.png" width="720" />
-<em>Placeholder — idle licenses and savings range.</em></p>
+<em>Example screenshot — idle licenses with per-SKU savings. Marketing sample numbers are synthetic and checked so row math totals correctly.</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Validate before reclaim</p>
-<p>“Unused” signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs.</p>
+<p>Unused and disabled signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs. Sample savings on the marketing site are <strong>examples only — not a guarantee</strong>.</p>
 </div>
+<h2 id="pricing-the-reclaim">Pricing the reclaim<a class="headerlink" href="#pricing-the-reclaim" title="Permanent link">&para;</a></h2>
+<p>Pair this view with <a href="../what-if/">What-if</a>: set unit costs, then read <strong>Savings / mo</strong> = <code>(Unused + Disabled) × Unit</code> per SKU. Use the scenario planner on the same card to model reclaim steps without changing the tenant.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../license-audit/">License audit</a></li>
 <li><a href="../what-if/">What-if</a></li>
+<li><a href="../license-audit/">License audit</a></li>
 <li><a href="../samples/">Samples</a></li>
 </ul>
 

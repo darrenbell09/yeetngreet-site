@@ -730,6 +730,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#price-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Price sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reclaim-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reclaim savings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reclaim savings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-not-priced-in-reclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is not priced in reclaim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario planner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1059,6 +1109,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#price-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Price sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reclaim-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reclaim savings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reclaim savings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-not-priced-in-reclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is not priced in reclaim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario planner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1109,28 +1209,132 @@
 
 
 <h1 id="what-if">What-if<a class="headerlink" href="#what-if" title="Permanent link">&para;</a></h1>
-<p>Model license changes before you buy or cut — useful for quoting and renewal planning.</p>
+<p>Plan license changes <strong>before</strong> you touch the admin center. What-if lives on the <strong>Reports</strong> page after you run a license report. It is <strong>read-only</strong> — nothing in the tenant changes.</p>
+<p>The same card has two layers:</p>
+<ol>
+<li><strong>Reclaim savings</strong> — price unused prepaid licenses and licenses on disabled accounts</li>
+<li><strong>Scenario planner</strong> — name a plan, stack steps, see before/after counts and cost deltas</li>
+</ol>
+<h2 id="price-sources">Price sources<a class="headerlink" href="#price-sources" title="Permanent link">&para;</a></h2>
+<p>Unit costs power both reclaim and scenarios. Graph does not expose your invoice price. Each SKU shows where the number came from:</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>list-price estimate</strong></td>
+<td>US direct-purchase list fallback until you save</td>
+</tr>
+<tr>
+<td><strong>enter cost</strong></td>
+<td>You edited the unit cost but have not saved yet</td>
+</tr>
+<tr>
+<td><strong>saved tenant price</strong></td>
+<td>Stored on this managed tenant after <strong>Save costs</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Always validate against your Microsoft bill before committing to a cut or buy.</p>
+<h2 id="reclaim-savings">Reclaim savings<a class="headerlink" href="#reclaim-savings" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Meaning</th>
+<th>How it is priced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unused prepaid licenses</strong></td>
+<td>Enabled licenses you pay for that are not assigned (<code>enabled − consumed</code>)</td>
+<td>Unused count × unit cost / mo</td>
+</tr>
+<tr>
+<td><strong>Disabled + licensed</strong></td>
+<td>Licenses still assigned to <strong>blocked</strong> accounts</td>
+<td>Disabled-assigned count × unit cost / mo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Potential monthly savings</strong> = unused cost + disabled-assigned cost, summed across SKUs.</p>
+<h3 id="what-is-not-priced-in-reclaim">What is <em>not</em> priced in reclaim<a class="headerlink" href="#what-is-not-priced-in-reclaim" title="Permanent link">&para;</a></h3>
+<p><strong>Inactive licensed users</strong> (enabled, but no mail send/receive/read in the last 90 days) appear under <strong>User licensing</strong> so you can review them. They are <strong>not</strong> added into reclaim dollars because inactive is <strong>not confirmed waste</strong> — someone may still need that license.</p>
+<h2 id="scenario-planner">Scenario planner<a class="headerlink" href="#scenario-planner" title="Permanent link">&para;</a></h2>
+<p>Start from the tenant’s current licenses (from the latest full report) and build a named scenario:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What it models</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Remove unused licenses</strong></td>
+<td>Drop prepaid capacity that is not assigned (blank quantity = all unused on that SKU)</td>
+</tr>
+<tr>
+<td><strong>Remove disabled-assigned licenses</strong></td>
+<td>Reduce <strong>enabled</strong>, <strong>consumed</strong>, and <strong>disabled-assigned</strong> together for licenses still sitting on blocked accounts (blank quantity = all disabled-assigned on that SKU)</td>
+</tr>
+<tr>
+<td><strong>Move licenses (SKU → SKU)</strong></td>
+<td>Move N assigned licenses from one SKU to another (for example E3 → Business Premium). <strong>To</strong> can be a SKU the tenant does not own yet, picked from the built-in price list</td>
+</tr>
+<tr>
+<td><strong>Add licenses (planned hires)</strong></td>
+<td>Increase enabled + consumed for upcoming headcount</td>
+</tr>
+<tr>
+<td><strong>Remove licenses (planned cuts)</strong></td>
+<td>Reduce enabled (and consumed) for planned reductions</td>
+</tr>
+</tbody>
+</table>
+<p>Every subscribed SKU gets a unit cost (list-price estimate by default) with an editable cost field — including fully used SKUs. If a step asks for more licenses than exist, the app applies what is available and shows the amount applied. Totals warn when any SKU still has no price.</p>
+<p>For each scenario the app shows:</p>
+<ul>
+<li>Before / after <strong>prepaid enabled</strong> license counts per SKU</li>
+<li>Unit cost with its <strong>price source</strong> label</li>
+<li>Monthly and annual <strong>cost difference</strong> (after − before)</li>
+</ul>
+<p>Scenarios are saved <strong>per managed tenant</strong>, can be reopened later, and export or <a href="../delivery/">deliver</a> like other reports (HTML, CSV, optional PDF). Delivery uses the tenant’s existing channels.</p>
+<div class="admonition tip">
+<p class="admonition-title">Keep scenarios named</p>
+<p>Use clear names (“Q4 reclaim + E3→Business Premium”) so the next tech on the account can reuse them.</p>
+</div>
 <h2 id="when-to-use-it">When to use it<a class="headerlink" href="#when-to-use-it" title="Permanent link">&para;</a></h2>
 <ul>
-<li>“What if we move these users to SKU B?”</li>
-<li>Comparing licensed-user counts after a department change</li>
-<li>Pairing with <a href="../unused-licenses/">unused licenses</a> for a reclaim + right-size story</li>
+<li>Renewal or true-up prep — reclaim unused and disabled licenses</li>
+<li>Quote a right-size move (E3 → Business Premium) before you buy</li>
+<li>Model planned hires or cuts without changing Graph</li>
+<li>Pair with <a href="../unused-licenses/">unused licenses</a> and the <a href="../license-audit/">license audit</a></li>
 </ul>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select the tenant</li>
-<li>Open <strong>Reports → What-if</strong></li>
-<li>Set the scenario you want to compare</li>
-<li>Review the projected outcome; export or <a href="../delivery/">deliver</a> if needed</li>
+<li>Select the managed tenant and <strong>sign in</strong>.</li>
+<li>Open <strong>Reports</strong> → <strong>Run license report</strong>.</li>
+<li>On <strong>What-if savings</strong>:</li>
+<li>Review reclaim <strong>Unused</strong>, <strong>Disabled</strong>, <strong>Unit / mo</strong>, and <strong>Savings / mo</strong> for every SKU</li>
+<li>Edit unit costs if needed; click <strong>Save costs</strong> to store only the prices you entered as a saved tenant price</li>
+<li>In <strong>Scenario planner</strong>:</li>
+<li>Name the scenario and add steps</li>
+<li>Review before/after counts and monthly/annual deltas (and any quantity or missing-price warnings)</li>
+<li><strong>Save</strong> to store on this tenant, or <strong>Open</strong> a saved scenario</li>
+<li>Optionally <strong>Export</strong> / <strong>Export PDF</strong>, or <a href="../delivery/">deliver</a> via the tenant’s report channels</li>
 </ol>
-<div class="admonition tip">
-<p class="admonition-title">Keep scenarios named</p>
-<p>Save clear names (“Q4 reclaim + E3→E1 wave”) so the next tech on the account can reuse them.</p>
-</div>
+<p>Community / Free preview shows a <strong>savings bucket</strong> without SKU-level dollars, named users, or scenario export — upgrade for full detail.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../license-audit/">License audit</a></li>
-<li><a href="../samples/">Samples</a></li>
+<li><a href="../unused-licenses/">Unused licenses</a> — how unused and disabled signals are found</li>
+<li><a href="../license-audit/">License audit</a> — assigned users, including no-mail attention rows</li>
+<li><a href="../samples/">Samples</a> — anonymized numbers with checked arithmetic</li>
 <li><a href="../../pricing-and-licensing/">Pricing and licensing</a></li>
 </ul>
 

@@ -1109,7 +1109,7 @@
 
 
 <h1 id="reports-overview">Reports overview<a class="headerlink" href="#reports-overview" title="Permanent link">&para;</a></h1>
-<p>YeetnGreet reports help you see license waste and plan changes — from the same technician PC model as jobs. License reports are included on <strong>Free</strong> (1 tenant) and on all paid plans.</p>
+<p>YeetnGreet reports help you see Microsoft 365 license waste from the same technician PC model as onboard/offboard jobs. You run Graph queries locally, then export or deliver results yourself.</p>
 <h2 id="report-types">Report types<a class="headerlink" href="#report-types" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1121,15 +1121,15 @@
 <tbody>
 <tr>
 <td><a href="../license-audit/">License audit</a></td>
-<td>What is assigned, by SKU and user</td>
+<td>Who is licensed, mail activity (90d), disabled+licensed and no-mail attention rows</td>
 </tr>
 <tr>
 <td><a href="../unused-licenses/">Unused licenses</a></td>
-<td>Licenses that look idle / reclaimable</td>
+<td>Unused prepaid licenses and licenses on disabled accounts</td>
 </tr>
 <tr>
 <td><a href="../what-if/">What-if</a></td>
-<td>Model license changes before you buy or cut</td>
+<td>Reclaim savings plus named scenario planning (moves, hires, cuts)</td>
 </tr>
 <tr>
 <td><a href="../samples/">Samples</a></td>
@@ -1137,18 +1137,24 @@
 </tr>
 </tbody>
 </table>
+<p>In the app these appear together on <strong>Reports</strong> after you run a <strong>license report</strong> — not as separate menu items.</p>
 <h2 id="how-to-run">How to run<a class="headerlink" href="#how-to-run" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Sign into the tenant</li>
-<li>Open <strong>Reports</strong> and pick a report type</li>
-<li>Run on demand, or <a href="../../jobs/schedules/">schedule</a> a recurring run</li>
-<li>Optionally send results via <a href="../delivery/">Delivery</a> (email, Teams, Slack, webhooks)</li>
+<li>Select the managed tenant and <strong>sign in</strong></li>
+<li>Open <strong>Reports</strong> → <strong>Run license report</strong></li>
+<li>Review <strong>User licensing</strong> (audit) and <strong>What-if</strong> (reclaim + scenario planner)</li>
+<li>Edit unit costs on the what-if card and <strong>Save costs</strong> for a saved tenant price</li>
+<li>Optionally build a named scenario, then export HTML/PDF, <a href="../../jobs/schedules/">schedule</a> a recurring run, or send via <a href="../delivery/">Delivery</a></li>
 </ol>
 <p><img alt="Screenshot: Reports — license audit" src="../../assets/images/reports-license-audit.png" width="720" />
 <em>Placeholder — license audit summary in the app.</em></p>
 <div class="admonition note">
+<p class="admonition-title">Plans</p>
+<p><strong>Free</strong> includes a limited license-report <strong>preview</strong> (bucketed savings, no SKU/$ detail or named users). Full SKU tables, exact savings, named users, scenario export, and deliveries are on paid plans. See <a href="../../pricing-and-licensing/">Pricing and licensing</a>.</p>
+</div>
+<div class="admonition note">
 <p class="admonition-title">Data path</p>
-<p>Report queries use Microsoft Graph from the technician PC. Results you export or send follow the delivery channel you configure — not a YeetnGreet-hosted data lake of customer content.</p>
+<p>Report queries use Microsoft Graph from the technician PC (<code>Reports.Read.All</code> for mail activity). Exports and delivery stay under your control — YeetnGreet does not host a data lake of customer report content. What-if scenarios are projections only; they never change licenses in the tenant.</p>
 </div>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
