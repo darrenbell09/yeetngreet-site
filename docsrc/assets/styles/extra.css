@@ -82,7 +82,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px 12px;
-  width: min(1280px, calc(100% - 2rem));
+  /* 32px = 2rem @ marketing 16px root (not Material's 20px rem) */
+  width: min(1280px, calc(100% - 32px));
   max-width: 1280px;
   min-height: 64px;
   margin: 0 auto 24px;
@@ -98,7 +99,7 @@ body {
 
 @media (min-width: 1600px) {
   .yg-docs-topbar {
-    width: min(1440px, calc(100% - 3rem));
+    width: min(1440px, calc(100% - 48px));
     max-width: 1440px;
   }
 }
@@ -106,7 +107,9 @@ body {
 .yg-docs-topbar .brand {
   flex: 0 0 auto;
   gap: 9.6px;
-  font-size: 16.8px;
+  /* Match marketing computed size: .topbar a wins over .brand (0.9rem @ 16px) */
+  font-size: 14.4px;
+  padding: 6.4px 10.4px;
 }
 
 .yg-docs-topbar .brand .brand-mark {
@@ -166,10 +169,22 @@ body {
   align-items: center;
   gap: 4px;
   flex: 0 0 auto;
+  height: 32px;
+  max-height: 32px;
 }
 
 .yg-docs-tools .md-header__button {
   color: var(--ink-secondary);
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.yg-docs-tools .md-search,
+.yg-docs-tools .md-search__inner {
+  height: 32px;
+  max-height: 32px;
 }
 
 .yg-docs-tools .md-search__form {
@@ -358,13 +373,20 @@ body {
 }
 
 .yg-site-footer {
-  width: min(1280px, calc(100% - 2rem));
+  width: min(1280px, calc(100% - 32px));
   max-width: 1280px;
   margin: 32px auto 0;
   padding: 20px 0 40px;
   border-top: 1px solid var(--line);
   color: var(--ink-tertiary);
   font-size: 14.08px;
+}
+
+@media (min-width: 1600px) {
+  .yg-site-footer {
+    width: min(1440px, calc(100% - 48px));
+    max-width: 1440px;
+  }
 }
 
 .yg-site-footer .yg-docs-pager {
