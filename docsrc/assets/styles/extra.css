@@ -351,6 +351,12 @@ body {
   border-left: 0;
 }
 
+/* Material pads the TOC list; keep title/links on one left edge */
+.md-nav--secondary .md-nav__list {
+  padding-left: 0;
+  margin-left: 0;
+}
+
 .md-nav--secondary .md-nav__title {
   color: var(--ink-tertiary);
   background: transparent;
@@ -359,7 +365,7 @@ body {
   font-weight: 650;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  /* Same inset as link text (no border-left on links) */
+  /* Same inset as link text */
   padding: 0 0 8px 12px;
   height: auto;
   line-height: 1.3;
