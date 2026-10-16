@@ -14,8 +14,8 @@ Create or enable Microsoft 365 users, optionally assign licenses, groups, and a 
 
 Create a new account or enable an existing one. You can require a **password change** on first sign-in when your process calls for it.
 
-![Screenshot: Onboard — create user](../assets/images/onboard-create-user.png){ width="720" }
-*Placeholder — create/enable user with optional licenses, groups, and manager.*
+![Onboard page with a new hire's identity, job details, manager, groups, and license filled from a template](../assets/images/onboard-create-user.png){ width="720" }
+*A template fills groups, licenses, and required fields; you add the person's name, UPN, and manager.*
 
 ### 2. Optional assignments
 

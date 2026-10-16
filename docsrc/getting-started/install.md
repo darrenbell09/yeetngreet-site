@@ -25,8 +25,8 @@ Most Windows 10/11 machines already have the **Evergreen WebView2 Runtime**. If 
 2. Allow Windows SmartScreen / firewall prompts if your environment shows them
 3. You should see the YeetnGreet shell ready for tenant sign-in
 
-![Screenshot: Install — first launch](../assets/images/install-first-launch.png){ width="720" }
-*Placeholder UI — replace with a real capture from `%LOCALAPPDATA%\YeetnGreet` or the running app on a technician laptop.*
+![YeetnGreet on first launch, before signing in, with the Offboard page open](../assets/images/install-first-launch.png){ width="720" }
+*First launch: the app opens on Offboard. Sign in to your YeetnGreet profile from the account menu, then pick a tenant.*
 
 ## 4. Tenant sign-in
 
@@ -35,8 +35,8 @@ Sign in with an account that can administer the **customer Microsoft 365 tenant*
 !!! note "Admin consent first"
     Each customer tenant needs an admin to grant consent for YeetnGreet's Microsoft Graph and Exchange Online permissions before the first job. See [Admin permissions and consent](permissions.md) for the full list.
 
-![Screenshot: Install — tenant sign-in](../assets/images/install-tenant-signin.png){ width="720" }
-*Placeholder — Microsoft sign-in happens on the technician PC.*
+![Tenants page showing a successful Microsoft 365 sign-in to the Contoso tenant](../assets/images/install-tenant-signin.png){ width="720" }
+*After Microsoft sign-in on this PC, the Tenants page confirms which tenant and account you are signed in to.*
 
 !!! important "What our cloud sees"
     License and billing metadata for your YeetnGreet account only. Not customer mail, files, or directory content used during jobs.

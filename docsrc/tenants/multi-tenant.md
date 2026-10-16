@@ -9,8 +9,8 @@ Switch between the Microsoft 365 tenants on your account without mixing up conte
 3. Confirm domain / display name matches the ticket
 4. Continue with onboard, offboard, or reports
 
-![Screenshot: Tenants — switcher](../assets/images/multi-tenant.png){ width="720" }
-*Placeholder — multi-tenant switcher.*
+![Tenant switcher open over the Tenants page, listing five managed tenants with Contoso selected](../assets/images/multi-tenant.png){ width="720" }
+*The tenant switcher in the left rail. Every job and report runs against the tenant shown here.*
 
 !!! danger "Wrong-tenant rule"
     Preview and type-to-confirm protect actions, but they do not fix picking the wrong organization. Habit: read the tenant name before every confirm.

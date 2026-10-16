@@ -21,8 +21,8 @@ In the app these appear together on **Reports** after you run a **license report
 4. Edit unit costs on the what-if card and **Save costs** for a saved tenant price
 5. Optionally build a named scenario, then export HTML/PDF, [schedule](../jobs/schedules.md) a recurring run, or send via [Delivery](delivery.md)
 
-![Screenshot: Reports — license audit](../assets/images/reports-license-audit.png){ width="720" }
-*Placeholder — license audit summary in the app.*
+![Reports page after a license report, showing the user licensing summary and audit table](../assets/images/reports-license-audit.png){ width="720" }
+*License audit: tenant totals up top, then every licensed user who needs attention — disabled + licensed or no mail in 90 days.*
 
 !!! note "Plans"
     **Free** includes a limited license-report **preview** (bucketed savings, no SKU/$ detail or named users). Full SKU tables, exact savings, named users, scenario export, and deliveries are on paid plans. See [Pricing and licensing](../pricing-and-licensing.md).
