@@ -96,6 +96,7 @@ nav:
   - Tenants:
       - Multi-tenant: tenants/multi-tenant.md
       - Hybrid AD: tenants/hybrid-ad.md
-  - Pricing and licensing: pricing-and-licensing.md
-  - Privacy: privacy.md
-  - Support: support.md
+  - More:
+      - Pricing and licensing: pricing-and-licensing.md
+      - Privacy: privacy.md
+      - Support: support.md
