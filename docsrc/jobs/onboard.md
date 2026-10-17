@@ -27,7 +27,7 @@ Create a new account or enable an existing one. You can require a **password cha
 
 ### 3. Templates and CSV
 
-- **Templates** — repeatable onboard defaults per customer
+- **Templates** — repeatable onboard defaults per tenant. See [Templates](templates.md)
 - **CSV** — bulk create/enable with the same confirm path
 
 ### 4. CONFIRM
@@ -44,5 +44,6 @@ Same model as offboard: run immediately on this PC, or [schedule](schedules.md) 
 ## Related
 
 - [Offboard](offboard.md)
+- [Templates](templates.md)
 - [Schedules](schedules.md)
 - [Pricing and licensing](../pricing-and-licensing.md)

@@ -1,0 +1,6 @@
+# SAMPLE DATA: fictional Contoso tenant (contoso-example.com). Created with YeetnGreet 0.5.116 for documentation.
+DisplayName,SkuPartNumber,SkuId,Enabled,Consumed,Available,UnusedSeats,DisabledAssigned,UnitCost,Currency,Billing,UnusedSeatMonthlyCost,DisabledAssignedMonthlyCost,PotentialMonthlySavings
+"Microsoft 365 Business Premium","SPB",sku-spb,150,143,7,7,4,22,USD,month,154,88,242
+"Microsoft 365 E3","SPE_E3",sku-e3,40,38,2,2,1,36,USD,month,72,36,108
+"Microsoft 365 Business Basic","O365_BUSINESS_ESSENTIALS",sku-bb,25,21,4,4,2,6,USD,month,24,12,36
+"Power BI Pro","POWER_BI_PRO",sku-pbi,12,9,3,3,0,14,USD,month,42,0,42

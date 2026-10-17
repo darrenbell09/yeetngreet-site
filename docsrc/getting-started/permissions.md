@@ -4,6 +4,9 @@ YeetnGreet changes users, mailboxes, licenses, and devices in your Microsoft 365
 
 Use this page as the checklist for your Global Administrator, or for your own change ticket.
 
+!!! note "Not the same as YeetnGreet roles"
+    This page is about Microsoft 365 permissions in each tenant. Who can edit templates and tenants inside YeetnGreet is set by YeetnGreet's own [Admin and Tech roles](roles.md).
+
 !!! important "Admin consent is per tenant"
     Consent granted in one tenant does **not** carry over to another. If you manage more than one tenant, repeat it for every tenant you add to YeetnGreet. Granting admin consent for Microsoft Graph application permissions needs a **Global Administrator** or **Privileged Role Administrator** in that tenant.
 
@@ -95,5 +98,6 @@ Consent alone doesn't let an admin run the job. The signed-in account needs an a
 
 - [Install](install.md)
 - [First run](first-run.md)
+- [Roles: admin and tech](roles.md)
 - [Multi-tenant](../tenants/multi-tenant.md)
 - [Report delivery](../reports/delivery.md)

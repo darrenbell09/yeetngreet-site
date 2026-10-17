@@ -81,10 +81,12 @@ nav:
   - Getting started:
       - Install: getting-started/install.md
       - Admin permissions: getting-started/permissions.md
+      - Roles (admin and tech): getting-started/roles.md
       - First run: getting-started/first-run.md
   - Jobs:
       - Offboard: jobs/offboard.md
       - Onboard: jobs/onboard.md
+      - Templates: jobs/templates.md
       - Schedules: jobs/schedules.md
   - Reports:
       - Overview: reports/overview.md
@@ -92,7 +94,7 @@ nav:
       - Unused licenses: reports/unused-licenses.md
       - What-if: reports/what-if.md
       - Delivery: reports/delivery.md
-      - Samples: reports/samples.md
+      - Sample reports: reports/samples.md
   - Tenants:
       - Multi-tenant: tenants/multi-tenant.md
       - Hybrid AD: tenants/hybrid-ad.md

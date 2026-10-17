@@ -1,69 +1,49 @@
-# Sample report output
+# Sample reports
 
-Anonymized examples of what reports can look like. Your tenant names, SKUs, and counts will differ.
+These are real YeetnGreet exports, made with the app's own report templates from a **fictional** tenant. Download them to see exactly what you get. Your tenant names, licenses, and counts will differ.
 
-!!! note "Example only — not a guarantee"
-    Figures below are synthetic demos for documentation. Always validate in the tenant before reclaiming. Savings shown here are illustrative, not promised results.
+!!! note "Sample data only"
+    Contoso, every person, and every address on `contoso-example.com` are made up. Each file carries a "Sample" label. The figures are a demo, not a promise of savings. Always check in your tenant before you remove licenses.
 
-## License audit (excerpt)
+## License health report
 
-| SKU | Assigned | Available | Notes |
-| --- | ---: | ---: | --- |
-| Microsoft 365 Business Premium | 180 | 6 | Field + branch |
-| Microsoft 365 E3 | 60 | 4 | Leadership / HQ |
-| Microsoft 365 Business Standard | 40 | 2 | Light roles |
+The report you get from **Reports** → **Run license report**. It shows potential monthly savings, the license counts that matter, cost-saving opportunities for each license, and the named users who need attention.
 
-**Attention rows (sample)**
+![Sample License Health Report for Contoso showing USD 428 potential monthly savings, 236 users, 205 licensed and active, 7 licensed but disabled, 5 with no mail in 90 days, a cost-saving table for four licenses, and a list of users needing attention](../assets/images/sample-license-report.png){ width="720" }
+*Sample license health report: $428 a month in unused licenses and licenses on disabled accounts.*
 
-| Display name | UPN | Issue | SKUs |
-| --- | --- | --- | --- |
-| Jordan Blake | jordan.blake@northshore.example | Disabled + licensed | Business Premium |
-| Alex Morgan | alex.morgan@northshore.example | Disabled + licensed | E3 |
-| Sam Rivera | sam.rivera@northshore.example | No mail activity (90d) | Business Premium |
-| Casey Nguyen | casey.nguyen@northshore.example | No mail activity (90d) | Business Standard |
+Download the sample:
 
-## What-if reclaim savings (excerpt)
+- [License health report (PDF)](../assets/samples/yeetngreet-sample-license-report.pdf)
+- [License health report (HTML)](../assets/samples/yeetngreet-sample-license-report.html)
+- [Unused licenses (CSV)](../assets/samples/yeetngreet-sample-license-report-unused.csv): one row per license with unused and disabled counts and the monthly savings
+- [Users needing attention (CSV)](../assets/samples/yeetngreet-sample-license-report-audit.csv): disabled but still licensed, or no mail in 90 days
 
-Savings / mo = `(Unused + Disabled) × Unit`. Inactive (no-mail) users are **not** priced here — inactive is not confirmed waste.
+What to look for:
 
-| License | Unused | Disabled | Unit | Price source | Savings / mo |
-| --- | ---: | ---: | ---: | --- | ---: |
-| Microsoft 365 Business Premium | 6 | 24 | 22.00 | saved tenant price | 660.00 |
-| Microsoft 365 E3 | 4 | 12 | 36.00 | list-price estimate | 576.00 |
-| Microsoft 365 Business Standard | 2 | 5 | 12.50 | enter cost | 87.50 |
-| **Total** | **12** | **41** | | | **1,323.50** |
+- **Potential savings** counts unused licenses and licenses on disabled accounts, times your unit price.
+- **No mail (90d)** users are listed for review but not counted in savings, because inactive doesn't always mean the license isn't needed.
 
-**Check:** `(6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50`.
+## What-if scenario export
 
-Estimated monthly spend for **280** licensed users (180×$22 + 60×$36 + 40×$12.50) = **USD 6,620**.
+What you get when you click **Export** or **Export PDF** in the [What-if](what-if.md) scenario planner. This sample is the three-step plan from the What-if page: remove 7 unused Business Premium, move 10 people from E3 to Business Premium, and remove unused Business Basic (4 of the 10 asked for were unused).
 
-## What-if scenario (excerpt)
+![Sample What-if scenario export for Contoso named Q4 reclaim plus E3 to Business Premium, showing a monthly cost change of minus 318 dollars, the three steps, and before and after license counts with unit prices and price sources](../assets/images/sample-whatif-export.png){ width="720" }
+*Sample What-if export: −$318 a month (−$3,816 a year), and nothing changes in the tenant.*
 
-Same reclaim baseline: BP enabled **186** / consumed **180** / disabled-assigned **24** at **$22**; E3 enabled **64** / consumed **60** / disabled-assigned **12** at **$36**.
+Download the sample:
 
-Example plan (app math):
+- [What-if scenario (PDF)](../assets/samples/yeetngreet-sample-whatif-scenario.pdf)
+- [What-if scenario (HTML)](../assets/samples/yeetngreet-sample-whatif-scenario.html)
+- [What-if scenario (CSV)](../assets/samples/yeetngreet-sample-whatif-scenario.csv): before and after counts and the monthly and yearly cost change for each license
 
-1. **Remove unused** on Business Premium (all 6)
-2. **Remove disabled-assigned** on E3 (all 12) — drops enabled and consumed together
-3. **Move 10** licenses E3 → Business Premium
+The step list shows the quantity you asked for. The counts and costs use what actually applied.
 
-| License | Before | After | Unit | Price source | Δ / mo | Δ / yr |
-| --- | ---: | ---: | ---: | --- | ---: | ---: |
-| Microsoft 365 Business Premium | 186 | 190 | 22.00 | saved tenant price | +88.00 | +1,056.00 |
-| Microsoft 365 E3 | 64 | 42 | 36.00 | list-price estimate | −792.00 | −9,504.00 |
-| **Net** | | | | | **−704.00** | **−8,448.00** |
-
-**Check:**
-
-- Before: `186×22 + 64×36 = 4,092 + 2,304 = 6,396`
-- After step 1: BP enabled 180. After step 2: E3 enabled 52 / consumed 48. After move 10: BP 190, E3 42.
-- After: `190×22 + 42×36 = 4,180 + 1,512 = 5,692`
-- Delta: `5,692 − 6,396 = −704` / mo (`−8,448` / yr)
-
-Scenarios stay read-only: export HTML/CSV/PDF or deliver like other reports; Graph license assignments are unchanged.
+Scenario exports are saved on this PC only, in `Documents\YeetnGreet\reports`. They are never emailed or posted, and license assignments in the tenant stay the same.
 
 ## Related
 
 - [License audit](license-audit.md)
 - [Unused licenses](unused-licenses.md)
 - [What-if](what-if.md)
+- [Report delivery](delivery.md)

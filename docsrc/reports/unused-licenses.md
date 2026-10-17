@@ -27,18 +27,21 @@ In the app this is the **Unused** / **Disabled** columns on the license report�
 5. Validate in the Microsoft 365 admin center before you remove SKUs or reduce quantities
 6. Export or [deliver](delivery.md) if needed
 
-![Screenshot: Reports — unused licenses](../assets/images/reports-unused-licenses.png){ width="720" }
-*Example screenshot — idle licenses with per-SKU savings. Marketing sample numbers are synthetic and checked so row math totals correctly.*
+![What-if savings table for Contoso listing each license with its unused and disabled counts, unit price, and monthly savings](../assets/images/whatif-savings.png){ width="720" }
+*Unused and Disabled columns per license, with the monthly savings for each.*
+
+![User licensing table for Contoso listing seven disabled accounts that still hold licenses and one enabled user with no mail activity, each with their sign-in status, mail counts, and licenses](../assets/images/reports-unused-licenses.png){ width="720" }
+*User licensing names the people behind the numbers: disabled but still licensed, or no mail in 90 days.*
 
 !!! warning "Validate before reclaim"
     Unused and disabled signals are a starting point. Confirm with your process (shared mailboxes, break-glass accounts, seasonal staff) before you remove SKUs. Sample savings on the marketing site are **examples only — not a guarantee**.
 
 ## Pricing the reclaim
 
-Pair this view with [What-if](what-if.md): set unit costs, then read **Savings / mo** = `(Unused + Disabled) × Unit` per SKU. Use the scenario planner on the same card to model reclaim steps without changing the tenant.
+Pair this view with [What-if](what-if.md): set unit costs, then read **Savings / mo** for each license (unused plus disabled licenses, times the unit price). Use the scenario planner on the same card to model reclaim steps without changing the tenant.
 
 ## Related
 
 - [What-if](what-if.md)
 - [License audit](license-audit.md)
-- [Samples](samples.md)
+- [Sample reports](samples.md)
