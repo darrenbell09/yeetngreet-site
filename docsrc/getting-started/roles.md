@@ -62,7 +62,7 @@ Open the account menu and click **Admin**. The **Operators** card lists everyone
 | Remove someone | Click **Remove** next to their name. This also revokes their access to your YeetnGreet org. To let them back in, invite them again. |
 | See the latest list | Click **Refresh**. |
 
-Your org always keeps at least one admin, so **Make tech** and **Remove** are greyed out for the last admin. Invites count toward your plan's licensed users. When the org is full, the invite is refused until you remove someone or move to a larger plan.
+Your org always keeps at least one admin, so **Make tech** and **Remove** are greyed out for the last admin. Invites count toward your plan's licensed users. When the org is full, YeetnGreet refuses the invite, or a role change that needs another licensed user, and tells you the plan's licensed users are full. Remove someone or move to a larger plan first.
 
 ![Admin page with the Central logs card and the Operators card listing four people at contoso-example.com, each with Make tech or Make admin and Remove buttons, plus Refresh and Invite buttons](../assets/images/rbac-admin-operators.png){ width="720" }
 *The Admin page. Operators lists your admins and Techs; one invite is waiting for its first sign-in.*
@@ -81,15 +81,15 @@ On paid plans, a Tech's jobs always follow a company template. A Tech fills in w
 | **Mover** | The person who is moving, plus any new-position field the template leaves blank | The actions, the groups, the licenses, and every new-position field the template sets |
 
 - **A template is required.** Offboard, Onboard, and Mover show **Template (required)**. **Preview** and **Run** stay locked until a template is applied.
-- **Fields the template sets are locked.** When a template sets a field, such as an onboard department of Sales, the job uses that value and a Tech can't change it. Hover over the field to see **Set by company template**.
+- **Fields the template sets are locked.** When a template sets a field, such as an onboard department of Sales, the job uses that value and a Tech can't change it. The field is greyed out with a dashed border, and its label ends in **· template**. Hover over it to see **Set by company template**. This includes the usage location when the template sets one.
 - **Fields the template leaves blank are yours.** A Tech can fill in a field the template doesn't set, such as a job title, and the job keeps that value.
 - **Required fields must be filled.** If the template marks a field as required, the job won't run until it's filled in.
 - **Groups and licenses come only from the template.** A Tech can't add groups or licenses, or remove the ones the template adds.
 - **The lock is checked again when the job runs.** YeetnGreet applies the template's actions, groups, and licenses again when it runs the job, so changes made outside the job page don't carry through. Scheduled jobs are checked when you schedule them.
 - **Techs can't change templates.** They can review a template on **Templates** and apply it to a job. Only admins create, edit, publish, or set defaults.
 
-![Onboard page as a Tech: Template (required) with the New hire — Sales (Seattle) template applied, a job title of Account Executive typed by the Tech, the department Sales set by the template, greyed-out actions, and the template's groups with no remove buttons](../assets/images/rbac-tech-onboard.png){ width="720" }
-*A Tech fills in who the new hire is, including the job title this template leaves blank. The department, actions, groups, and license come from the template.*
+![Onboard page as a Tech: Template (required) with the New hire — Sales (Seattle) template applied, a job title of Account Executive typed by the Tech, the usage location US and department Sales greyed out and labelled template, greyed-out actions, and the template's groups with no remove buttons](../assets/images/rbac-tech-onboard.png){ width="720" }
+*A Tech fills in who the new hire is, including the job title this template leaves blank. Fields marked **· template**, the actions, the groups, and the license come from the template.*
 
 ![Templates page as a Tech: a note that templates come from the admin, greyed-out offboard actions, and only an Apply to job button](../assets/images/rbac-tech-templates.png){ width="720" }
 *A Tech can review a template and apply it, but not change it.*
