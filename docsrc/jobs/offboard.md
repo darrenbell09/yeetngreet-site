@@ -14,8 +14,8 @@ Offboard one person or many. Use templates for handoff, checklist, and shared se
 
 Choose a single user, multi-select from a list, or import a **CSV**.
 
-![Screenshot: Offboard — select users](../assets/images/offboard-select-users.png){ width="720" }
-*Placeholder — select users for single or batch offboard.*
+![Offboard page with two users in the batch, a handoff recipient, and the user search open](../assets/images/offboard-select-users.png){ width="720" }
+*Search by name or UPN to add people to the batch; the applied template sets the actions.*
 
 ### 2. Apply template, handoff, and checklist
 
@@ -27,8 +27,8 @@ Choose a single user, multi-select from a list, or import a **CSV**.
 
 Review the planned actions. Fix anything wrong *before* confirm.
 
-![Screenshot: Offboard — preview & confirm](../assets/images/offboard-preview.png){ width="720" }
-*Placeholder — preview actions, then type-to-confirm.*
+![Offboard preview dialog listing the users and every planned action, with nothing changed yet](../assets/images/offboard-preview.png){ width="720" }
+*Preview is a dry run: it lists the planned actions for the batch and changes nothing. Type CONFIRM, then run.*
 
 ### 4. Type-to-confirm
 

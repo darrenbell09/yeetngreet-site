@@ -8,8 +8,8 @@ Schedule onboard, offboard, and report jobs to run later on the **same technicia
 2. Choose a future run time instead of Run now
 3. Leave the PC able to run YeetnGreet at that time (powered on, user session / auth as your process requires)
 
-![Screenshot: Jobs — schedules](../assets/images/schedules-jobs.png){ width="720" }
-*Placeholder — schedule a job for later on this PC.*
+![Scheduled jobs table with upcoming offboard, onboard, and recurring report runs](../assets/images/schedules-jobs.png){ width="720" }
+*Scheduled jobs on this PC: one-time offboard and onboard runs plus recurring license reports, each with Run now and Cancel.*
 
 !!! important "Schedules are local to the PC"
     A scheduled job does not run in YeetnGreet’s cloud. If the PC is off or YeetnGreet cannot run, the job will not execute until conditions allow — plan cutovers accordingly.
