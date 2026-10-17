@@ -37,7 +37,7 @@ Download the sample:
 - [What-if scenario (HTML)](../assets/samples/yeetngreet-sample-whatif-scenario.html)
 - [What-if scenario (CSV)](../assets/samples/yeetngreet-sample-whatif-scenario.csv): before and after counts and the monthly and yearly cost change for each license
 
-The step list shows the quantity you asked for. The counts and costs use what actually applied.
+The step list, the counts, and the costs all use what actually applied, so the export matches what you saw in the app. When a step was capped, the step shows both numbers, such as **4 of 10**. A step that couldn't apply is marked as skipped, with the reason.
 
 Scenario exports are saved on this PC only, in `Documents\YeetnGreet\reports`. They are never emailed or posted, and license assignments in the tenant stay the same.
 

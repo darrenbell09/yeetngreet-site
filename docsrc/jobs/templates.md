@@ -13,7 +13,7 @@ There are three kinds:
 Templates belong to the tenant selected in the left rail. A template you save for Contoso doesn't show up for Fabrikam.
 
 !!! note "Who can edit templates"
-    Admins create, edit, delete, and publish templates. Techs can open a template to review it and apply it to a job, but they can't change it. See [Roles: admin and tech](../getting-started/roles.md).
+    Admins create, edit, delete, and publish templates and set defaults. Techs can open a template to review it and apply it to a job, but they can't change it. On a Tech's job page the template's actions, groups, and licenses are locked, and the Tech fills in who the job is for. See [The Tech template lock](../getting-started/roles.md#the-tech-template-lock).
 
 ## Before you start
 
@@ -95,7 +95,12 @@ When the label reads **Template (required)**, you have to apply a template befor
 
 ## Set a default for the tenant
 
-Select an offboard or onboard template and click **Set as default**. The list then shows **Default for tenant** under its name, and jobs for that tenant start with it selected. Click **Clear default** to remove it. Each tenant can have one default offboard template and one default onboard template.
+Select a template and click **Set as default**. The list then shows **Default for tenant** under its name, and jobs for that tenant start with it selected. Click **Clear default** to remove it.
+
+Each tenant has its own default for each kind: one offboard, one onboard, and one mover template. Setting a mover default doesn't change the onboard default. When you're signed in to your YeetnGreet profile as an admin, the default is also shared with your techs.
+
+![Templates page on the Mover tab with Move to Sales selected and marked Default for tenant, a Clear default button, mover actions, the default new position, and the Sales Team and CRM Users groups](../assets/images/templates-mover-default.png){ width="720" }
+*A mover default. Mover jobs for Contoso start with Move to Sales selected.*
 
 ## Publish a template to your team
 
@@ -116,7 +121,7 @@ Publishing copies the template's settings to your YeetnGreet account: the action
 | Standard leaver | Offboard | Every action except Retire Intune devices. Auto-reply points to the manager. |
 | Immediate termination | Offboard | Same actions, but no auto-reply. |
 | New hire — Sales | Onboard | Business Premium, groups "All Staff" and "Sales Team". Job title, department, and manager required. |
-| Department change | Mover | Update job profile and add to the new team's group. |
+| Move to Sales | Mover | Update the job profile to Account Manager in Sales, and add the Sales Team and CRM Users groups. |
 
 ## Gotchas
 

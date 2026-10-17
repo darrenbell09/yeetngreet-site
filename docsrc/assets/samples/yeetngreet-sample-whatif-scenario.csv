@@ -1,4 +1,4 @@
-# SAMPLE DATA: fictional Contoso tenant (contoso-example.com). Created with YeetnGreet 0.5.116 for documentation.
+# SAMPLE DATA: fictional Contoso tenant (contoso-example.com). Created with YeetnGreet 0.5.117 for documentation.
 DisplayName,SkuPartNumber,SkuId,BeforeEnabled,AfterEnabled,BeforeConsumed,AfterConsumed,UnitCost,CostSource,Currency,BeforeMonthly,AfterMonthly,DeltaMonthly,DeltaAnnual
 "Exchange Online (Plan 1)","EXCHANGESTANDARD",sku-exo,10,10,10,10,4,"list-price estimate",USD,40,40,0,0
 "Microsoft 365 Business Basic","O365_BUSINESS_ESSENTIALS",sku-bb,25,21,21,21,6,"list-price estimate",USD,150,126,-24,-288

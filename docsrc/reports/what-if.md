@@ -90,6 +90,7 @@ Example: Business Premium at $22 and E3 at $36. The plan removes 5 unused Busine
 - **Export** saves an HTML report and a CSV. **Export PDF** also saves a PDF.
 - Files go to `Documents\YeetnGreet\reports` on this PC, and the HTML report opens in your browser.
 - Exporting never emails or posts the scenario, even if the tenant has [report delivery](delivery.md) set up. Share the files yourself.
+- The export lists each step with the quantity that applied. A capped step shows both numbers, such as **4 of 10**.
 - Fix or remove any skipped step before you export.
 - See a [sample What-if export](samples.md#what-if-scenario-export) (PDF, HTML, and CSV).
 
