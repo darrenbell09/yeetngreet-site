@@ -19,7 +19,10 @@ In the app this is the **User licensing** card on **Reports** after you run a li
 4. Pair with [What-if](what-if.md) for priced reclaim and scenario planning
 5. Export or [deliver](delivery.md) as needed
 
-See [Samples](samples.md) for anonymized SKU counts and named-user examples.
+![User licensing card for Contoso after a license report, with the summary line of 236 users, 205 licensed and active, 7 licensed but disabled, and 5 with no mail, above a table of named users with their status, mail counts, and licenses](../assets/images/reports-license-audit.png){ width="720" }
+*The User licensing card lists the people who need attention, with their mail activity and licenses.*
+
+To see the exported report, download the [sample license health report](samples.md#license-health-report) (PDF, HTML, and CSV, made with fictional data).
 
 !!! tip "Plans"
     Free includes a limited license-report **preview**. Full named-user audit, exact savings, and exports are on paid plans. See [Pricing and licensing](../pricing-and-licensing.md).
@@ -31,4 +34,4 @@ See [Samples](samples.md) for anonymized SKU counts and named-user examples.
 
 - [Unused licenses](unused-licenses.md)
 - [What-if](what-if.md)
-- [Samples](samples.md)
+- [Sample reports](samples.md)

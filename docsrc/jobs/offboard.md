@@ -19,7 +19,7 @@ Choose a single user, multi-select from a list, or import a **CSV**.
 
 ### 2. Apply template, handoff, and checklist
 
-- **Templates** capture repeatable offboard settings for a customer
+- **Templates** capture repeatable offboard settings for a tenant. See [Templates](templates.md)
 - **Handoff** routes mailbox / content ownership as your process requires
 - **Checklist** items keep the human steps visible next to the automation
 
@@ -53,5 +53,6 @@ YeetnGreet asks for a deliberate confirmation (type-to-confirm) so Live offboard
 ## Related
 
 - [Onboard](onboard.md)
+- [Templates](templates.md)
 - [Schedules](schedules.md)
 - [Multi-tenant](../tenants/multi-tenant.md)

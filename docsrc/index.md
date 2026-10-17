@@ -46,8 +46,9 @@ Microsoft Graph runs on your technicians’ machines. We only use the cloud for 
 
 | Area | What it covers |
 | --- | --- |
-| [Jobs](jobs/offboard.md) | Offboard, onboard, and [scheduled runs](jobs/schedules.md) on the same PC |
+| [Jobs](jobs/offboard.md) | Offboard, onboard, [templates](jobs/templates.md), and [scheduled runs](jobs/schedules.md) on the same PC |
 | [Reports](reports/overview.md) | License audit, unused licenses, what-if — plus [delivery](reports/delivery.md) |
+| [Roles](getting-started/roles.md) | Admin and Tech roles: who can edit templates and tenants |
 | [Tenants](tenants/multi-tenant.md) | Switch tenants; optional [hybrid AD](tenants/hybrid-ad.md) per tenant |
 | [Pricing](pricing-and-licensing.md) | Licensed-user bands from Free through Enterprise |
 
