@@ -59,10 +59,10 @@ Open the account menu and click **Admin**. The **Operators** card lists everyone
 | Invite someone | Click **Invite…**, enter their work Microsoft UPN, pick **tech** or **admin**, and click **Invite**. They get the role the first time they sign in to the YeetnGreet profile. |
 | Make a Tech an admin | Click **Make admin** next to their name. |
 | Make an admin a Tech | Click **Make tech** next to their name. |
-| Remove someone | Click **Remove** next to their name. |
+| Remove someone | Click **Remove** next to their name. This also revokes their access to your YeetnGreet org. To let them back in, invite them again. |
 | See the latest list | Click **Refresh**. |
 
-Your org always keeps at least one admin, so **Make tech** and **Remove** are greyed out for the last admin.
+Your org always keeps at least one admin, so **Make tech** and **Remove** are greyed out for the last admin. Invites count toward your plan's licensed users. When the org is full, the invite is refused until you remove someone or move to a larger plan.
 
 ![Admin page with the Central logs card and the Operators card listing four people at contoso-example.com, each with Make tech or Make admin and Remove buttons, plus Refresh and Invite buttons](../assets/images/rbac-admin-operators.png){ width="720" }
 *The Admin page. Operators lists your admins and Techs; one invite is waiting for its first sign-in.*
@@ -77,16 +77,19 @@ On paid plans, a Tech's jobs always follow a company template. A Tech fills in w
 | Job | A Tech can fill in | Locked to the template |
 | --- | --- | --- |
 | **Offboard** | The people leaving, the handoff recipient, and the manager | Every action and the auto-reply text |
-| **Onboard** | Name, UPN, usage location, job title, department, manager, and the other identity and contact fields | The actions, the groups, and the licenses |
-| **Mover** | The person who is moving, and their new position and manager | The actions, the groups, and the licenses |
+| **Onboard** | Name, UPN, and manager, plus any job, organization, or contact field the template leaves blank | The actions, the groups, the licenses, and every field the template sets, such as a department |
+| **Mover** | The person who is moving, plus any new-position field the template leaves blank | The actions, the groups, the licenses, and every new-position field the template sets |
 
 - **A template is required.** Offboard, Onboard, and Mover show **Template (required)**. **Preview** and **Run** stay locked until a template is applied.
-- **The template's values come first.** When a template sets a field, such as an onboard department, that value fills the job. A Tech fills in only what the template leaves blank or asks for.
+- **Fields the template sets are locked.** When a template sets a field, such as an onboard department of Sales, the job uses that value and a Tech can't change it. Hover over the field to see **Set by company template**.
+- **Fields the template leaves blank are yours.** A Tech can fill in a field the template doesn't set, such as a job title, and the job keeps that value.
+- **Required fields must be filled.** If the template marks a field as required, the job won't run until it's filled in.
+- **Groups and licenses come only from the template.** A Tech can't add groups or licenses, or remove the ones the template adds.
 - **The lock is checked again when the job runs.** YeetnGreet applies the template's actions, groups, and licenses again when it runs the job, so changes made outside the job page don't carry through. Scheduled jobs are checked when you schedule them.
 - **Techs can't change templates.** They can review a template on **Templates** and apply it to a job. Only admins create, edit, publish, or set defaults.
 
-![Onboard page as a Tech: Template (required) with the New hire — Sales (Seattle) template applied, editable name, UPN, job title, department, and manager fields, and greyed-out actions and group search](../assets/images/rbac-tech-onboard.png){ width="720" }
-*A Tech fills in who the new hire is. The actions, groups, and license come from the template.*
+![Onboard page as a Tech: Template (required) with the New hire — Sales (Seattle) template applied, a job title of Account Executive typed by the Tech, the department Sales set by the template, greyed-out actions, and the template's groups with no remove buttons](../assets/images/rbac-tech-onboard.png){ width="720" }
+*A Tech fills in who the new hire is, including the job title this template leaves blank. The department, actions, groups, and license come from the template.*
 
 ![Templates page as a Tech: a note that templates come from the admin, greyed-out offboard actions, and only an Apply to job button](../assets/images/rbac-tech-templates.png){ width="720" }
 *A Tech can review a template and apply it, but not change it.*
