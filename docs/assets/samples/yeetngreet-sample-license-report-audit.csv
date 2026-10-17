@@ -1,0 +1,14 @@
+# SAMPLE DATA: fictional Contoso tenant (contoso-example.com). Created with YeetnGreet 0.5.116 for documentation.
+DisplayName,UPN,AccountEnabled,Issue,LicenseCount,Licenses,MailSend90d,MailReceive90d,MailRead90d,MailLastActivity,MailMatched
+"Jordan Ellis","jordan.ellis@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Premium",0,214,0,"",true
+"Maya Patel","maya.patel@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Premium",0,187,0,"",true
+"Tomás Reyes","tomas.reyes@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Premium",0,96,0,"",true
+"Hannah Brooks","hannah.brooks@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Premium",0,143,0,"",true
+"Daniel Kim","daniel.kim@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 E3",0,61,0,"",true
+"Olivia Grant","olivia.grant@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Basic",0,38,0,"",true
+"Ethan Walsh","ethan.walsh@contoso-example.com",false,"Disabled+licensed",1,"Microsoft 365 Business Basic",0,22,0,"",true
+"Priya Nair","priya.nair@contoso-example.com",true,"No mail activity",1,"Microsoft 365 Business Premium",0,0,0,"",true
+"Marcus Holt","marcus.holt@contoso-example.com",true,"No mail activity",2,"Microsoft 365 Business Premium; Power BI Pro",0,0,0,"",true
+"Sofia Lindqvist","sofia.lindqvist@contoso-example.com",true,"No mail activity",1,"Microsoft 365 E3",0,0,0,"",true
+"Ben Carter","ben.carter@contoso-example.com",true,"No mail activity",1,"Microsoft 365 Business Basic",0,0,0,"",true
+"Grace Liu","grace.liu@contoso-example.com",true,"No mail activity",1,"Microsoft 365 Business Premium",0,0,0,"",true

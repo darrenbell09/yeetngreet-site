@@ -1,0 +1,1654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <meta name="description" content="Onboard and offboard Microsoft 365 for IT admins — from your technicians' PCs.">
+  
+  
+    <meta name="author" content="YeetnGreet">
+  
+  
+    <link rel="canonical" href="https://yeetngreet.app/docs/getting-started/roles/">
+  
+  
+    <link rel="prev" href="../permissions/">
+  
+  
+    <link rel="next" href="../first-run/">
+  
+  
+  <link rel="icon" href="/favicon.ico?v=20261015f" sizes="any" />
+  <link rel="icon" href="/favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261015f" />
+
+    
+      
+        <title>Roles (admin and tech) - YeetnGreet</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+  
+  <link rel="stylesheet" href="../../styles.css" />
+
+    
+      
+    
+    
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --md-text-font: "IBM Plex Sans", "Segoe UI", sans-serif;
+      --md-code-font: "IBM Plex Mono", ui-monospace, monospace;
+    }
+  </style>
+
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script>
+    (function () {
+      var t = localStorage.getItem("yeetngreet-site-theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        t === "dark" || t === "light" ? t : "light"
+      );
+    })();
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roles-admin-and-tech" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+<header class="topbar yg-docs-topbar" data-md-component="header">
+  <a class="brand" href="https://yeetngreet.app/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>YeetnGreet</span>
+  </a>
+
+  <label class="yg-docs-drawer md-header__button md-icon" for="__drawer" aria-label="Open docs menu" title="Menu">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+  </label>
+
+  <nav class="yg-site-nav" aria-label="Site">
+    <a href="https://yeetngreet.app/#why">Why</a>
+    <a href="https://yeetngreet.app/docs/" aria-current="page">Docs</a>
+    <a href="https://yeetngreet.app/pricing.html">Pricing</a>
+    <a href="../../support/">Support</a>
+    <a href="https://yeetngreet.app/privacy.html">Privacy</a>
+    <a href="https://yeetngreet.app/pricing.html#founding" class="nav-quiet">Founding beta</a>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Dark</button>
+  </nav>
+
+  <div class="yg-docs-tools">
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" title="Share">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+  </div>
+</header>
+<div class="atmosphere" aria-hidden="true"></div>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://yeetngreet.app/" title="YeetnGreet" class="md-nav__button md-logo" aria-label="YeetnGreet" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    YeetnGreet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roles (admin and tech)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roles (admin and tech)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-different-sign-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two different sign-ins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-role-can-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What each role can do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-gets-which-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who gets which role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invite-operators-and-change-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invite operators and change roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tech-template-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Tech template lock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-tech-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Tech sees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gotchas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First run
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jobs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jobs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/offboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Offboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/onboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/schedules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schedules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/license-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/unused-licenses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unused licenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/what-if/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What-if
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/delivery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tenants
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tenants
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tenants/multi-tenant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-tenant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tenants/hybrid-ad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid AD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    More
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pricing-and-licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing and licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-different-sign-ins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two different sign-ins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-role-can-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What each role can do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-gets-which-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who gets which role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#invite-operators-and-change-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invite operators and change roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tech-template-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Tech template lock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-tech-sees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Tech sees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gotchas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="roles-admin-and-tech">Roles: admin and tech<a class="headerlink" href="#roles-admin-and-tech" title="Permanent link">&para;</a></h1>
+<p>YeetnGreet has two roles for the people who use the app: <strong>Admin</strong> and <strong>Tech</strong>. Your role decides what you can change in YeetnGreet itself, such as templates, the tenant list, and where logs go.</p>
+<div class="admonition info">
+<p class="admonition-title">Roles are not Microsoft 365 admin permissions</p>
+<p>This page covers YeetnGreet's own roles. They don't give anyone rights in a Microsoft 365 tenant. What a job can change in a tenant still depends on the admin consent and the Entra roles described in <a href="../permissions/">Admin permissions and consent</a>. A Tech still signs in to the tenant with an account that has the right Microsoft roles.</p>
+</div>
+<h2 id="two-different-sign-ins">Two different sign-ins<a class="headerlink" href="#two-different-sign-ins" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sign-in</th>
+<th>Where</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>YeetnGreet profile</strong></td>
+<td>Account menu at the bottom of the left rail, or <strong>Settings</strong> → <strong>Profile</strong></td>
+<td>Your plan, your role, and your company's shared tenants and templates. Uses only <code>User.Read</code> on your own work account.</td>
+</tr>
+<tr>
+<td><strong>Tenant sign-in</strong></td>
+<td><strong>Tenants</strong> page</td>
+<td>Running jobs and reports in a Microsoft 365 tenant.</td>
+</tr>
+</tbody>
+</table>
+<p>Your role comes from your YeetnGreet profile, so sign in to the profile to get it.</p>
+<h2 id="what-each-role-can-do">What each role can do<a class="headerlink" href="#what-each-role-can-do" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align: center;">Admin</th>
+<th style="text-align: center;">Tech</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run offboard, onboard, and mover jobs</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes, with an applied template</td>
+</tr>
+<tr>
+<td>Schedule jobs</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes, with an applied template</td>
+</tr>
+<tr>
+<td>Run license reports and use What-if</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td>Review templates and apply them to jobs</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td>Create, update, delete, and publish templates</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td>Set or clear a tenant's default templates</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td>Add, edit, or remove tenants</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td>Invite operators and change their role on the <strong>Admin</strong> page</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td>Set the central logs folder on the <strong>Admin</strong> page</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<p>Your role shows under your name in the account menu: <strong>Admin</strong> or <strong>Tech</strong>. Click <strong>Sign Out</strong> in the same menu to sign out of your YeetnGreet profile.</p>
+<p><img alt="Two account menus side by side: Riley Morgan with the Admin role, Sign Out, Admin, and Settings; Jamie Chen with the Tech role, Sign Out, and Settings" src="../../assets/images/rbac-account-menus.png" width="560" />
+<em>Left: an admin's account menu, with the Admin page one click away. Right: a Tech's menu, with no Admin entry.</em></p>
+<h2 id="who-gets-which-role">Who gets which role<a class="headerlink" href="#who-gets-which-role" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The license owner is the first admin.</strong> Only the person who signs in with the email on your license becomes an admin automatically. Being the first person to sign in doesn't make you an admin.</li>
+<li><strong>Everyone else joins as Tech.</strong> A coworker who signs in to the YeetnGreet profile with a work account on your company's email domain joins as a Tech, as long as the org has room for another licensed user.</li>
+<li><strong>Admins invite operators and set roles.</strong> An admin can invite people and promote or demote them on the <strong>Admin</strong> page. See <a href="#invite-operators-and-change-roles">Invite operators and change roles</a>.</li>
+</ul>
+<p>On the <strong>Free</strong> plan there are no roles. Whoever uses the app on that PC can do everything, and templates are optional.</p>
+<h2 id="set-up-roles">Set up roles<a class="headerlink" href="#set-up-roles" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Owner signs in first.</strong> On the PC of the person whose email is on the license, open the account menu and click <strong>Sign in</strong>. Use the license email. The account menu then shows <strong>Admin</strong> under the name.</li>
+<li><strong>Add the tenants.</strong> On <strong>Tenants</strong>, add each tenant your team works in. Admins can change this list.</li>
+<li><strong>Build and publish templates.</strong> On <strong>Templates</strong>, create the offboard, onboard, and mover templates for each tenant, then click <strong>Publish</strong> on each one. Optionally click <strong>Set as default</strong>. See <a href="../../jobs/templates/">Templates</a>.</li>
+<li><strong>Invite your team (optional).</strong> Open the account menu, click <strong>Admin</strong>, and invite each Tech under <strong>Operators</strong>. See below.</li>
+<li><strong>Set the logs folder (optional).</strong> On the <strong>Admin</strong> page, enter a shared folder or UNC path under <strong>Central logs</strong>, then click <strong>Save logs path</strong>. Techs write their logs there and can't change it.</li>
+<li><strong>Techs sign in.</strong> Each Tech installs YeetnGreet, opens the account menu, and signs in to the YeetnGreet profile with their work account. Their PC pulls your tenants and published templates automatically.</li>
+</ol>
+<h2 id="invite-operators-and-change-roles">Invite operators and change roles<a class="headerlink" href="#invite-operators-and-change-roles" title="Permanent link">&para;</a></h2>
+<p>Open the account menu and click <strong>Admin</strong>. The <strong>Operators</strong> card lists everyone who can use YeetnGreet for your company, with their role. Invited people who haven't signed in yet are marked <strong>invited</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>To</th>
+<th>Do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invite someone</td>
+<td>Click <strong>Invite…</strong>, enter their work Microsoft UPN, pick <strong>tech</strong> or <strong>admin</strong>, and click <strong>Invite</strong>. They get the role the first time they sign in to the YeetnGreet profile.</td>
+</tr>
+<tr>
+<td>Make a Tech an admin</td>
+<td>Click <strong>Make admin</strong> next to their name.</td>
+</tr>
+<tr>
+<td>Make an admin a Tech</td>
+<td>Click <strong>Make tech</strong> next to their name.</td>
+</tr>
+<tr>
+<td>Remove someone</td>
+<td>Click <strong>Remove</strong> next to their name. This also revokes their access to your YeetnGreet org. To let them back in, invite them again.</td>
+</tr>
+<tr>
+<td>See the latest list</td>
+<td>Click <strong>Refresh</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p>Your org always keeps at least one admin, so <strong>Make tech</strong> and <strong>Remove</strong> are greyed out for the last admin. Invites count toward your plan's licensed users. When the org is full, YeetnGreet refuses the invite, or a role change that needs another licensed user, and tells you the plan's licensed users are full. Remove someone or move to a larger plan first.</p>
+<p><img alt="Admin page with the Central logs card and the Operators card listing four people at contoso-example.com, each with Make tech or Make admin and Remove buttons, plus Refresh and Invite buttons" src="../../assets/images/rbac-admin-operators.png" width="720" />
+<em>The Admin page. Operators lists your admins and Techs; one invite is waiting for its first sign-in.</em></p>
+<p><img alt="Invite operator dialog with a work Microsoft UPN of morgan.blake@contoso-example.com and the tech role selected" src="../../assets/images/rbac-invite-operator.png" width="720" />
+<em>Invite with the person's own work account, not the account they use to sign in to a customer tenant.</em></p>
+<h2 id="the-tech-template-lock">The Tech template lock<a class="headerlink" href="#the-tech-template-lock" title="Permanent link">&para;</a></h2>
+<p>On paid plans, a Tech's jobs always follow a company template. A Tech fills in who the job is for. The template decides what the job does.</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>A Tech can fill in</th>
+<th>Locked to the template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Offboard</strong></td>
+<td>The people leaving, the handoff recipient, and the manager</td>
+<td>Every action and the auto-reply text</td>
+</tr>
+<tr>
+<td><strong>Onboard</strong></td>
+<td>Name, UPN, and manager, plus any job, organization, or contact field the template leaves blank</td>
+<td>The actions, the groups, the licenses, and every field the template sets, such as a department</td>
+</tr>
+<tr>
+<td><strong>Mover</strong></td>
+<td>The person who is moving, plus any new-position field the template leaves blank</td>
+<td>The actions, the groups, the licenses, and every new-position field the template sets</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>A template is required.</strong> Offboard, Onboard, and Mover show <strong>Template (required)</strong>. <strong>Preview</strong> and <strong>Run</strong> stay locked until a template is applied.</li>
+<li><strong>Fields the template sets are locked.</strong> When a template sets a field, such as an onboard department of Sales, the job uses that value and a Tech can't change it. The field is greyed out with a dashed border, and its label ends in <strong>· template</strong>. Hover over it to see <strong>Set by company template</strong>. This includes the usage location when the template sets one.</li>
+<li><strong>Fields the template leaves blank are yours.</strong> A Tech can fill in a field the template doesn't set, such as a job title, and the job keeps that value.</li>
+<li><strong>Required fields must be filled.</strong> If the template marks a field as required, the job won't run until it's filled in.</li>
+<li><strong>Groups and licenses come only from the template.</strong> A Tech can't add groups or licenses, or remove the ones the template adds.</li>
+<li><strong>The lock is checked again when the job runs.</strong> YeetnGreet applies the template's actions, groups, and licenses again when it runs the job, so changes made outside the job page don't carry through. Scheduled jobs are checked when you schedule them.</li>
+<li><strong>Techs can't change templates.</strong> They can review a template on <strong>Templates</strong> and apply it to a job. Only admins create, edit, publish, or set defaults.</li>
+</ul>
+<p><img alt="Onboard page as a Tech: Template (required) with the New hire — Sales (Seattle) template applied, a job title of Account Executive typed by the Tech, the usage location US and department Sales greyed out and labelled template, greyed-out actions, and the template's groups with no remove buttons" src="../../assets/images/rbac-tech-onboard.png" width="720" />
+<em>A Tech fills in who the new hire is, including the job title this template leaves blank. Fields marked <strong>· template</strong>, the actions, the groups, and the license come from the template.</em></p>
+<p><img alt="Templates page as a Tech: a note that templates come from the admin, greyed-out offboard actions, and only an Apply to job button" src="../../assets/images/rbac-tech-templates.png" width="720" />
+<em>A Tech can review a template and apply it, but not change it.</em></p>
+<p><img alt="Offboard page as a Tech with Template (required) and the Standard leaver template ready to apply" src="../../assets/images/rbac-tech-offboard.png" width="720" />
+<em>Techs apply a template before they can preview or run an offboard.</em></p>
+<h2 id="what-a-tech-sees">What a Tech sees<a class="headerlink" href="#what-a-tech-sees" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Templates</strong> is review-only. A note at the top says templates come from your admin. The editor is greyed out, and only <strong>Apply to job</strong> is available.</li>
+<li><strong>Offboard</strong>, <strong>Onboard</strong>, and <strong>Mover</strong> show <strong>Template (required)</strong>, and the locked settings are greyed out.</li>
+<li><strong>Tenants</strong> lists your company's tenants, but adding or editing them is locked.</li>
+<li>The account menu shows <strong>Tech</strong> under your name and has no <strong>Admin</strong> entry.</li>
+</ul>
+<h2 id="gotchas">Gotchas<a class="headerlink" href="#gotchas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Sign in to the YeetnGreet profile first.</strong> On paid plans, tenant names stay hidden until you're signed in to the profile.</li>
+<li><strong>Owner signs in first.</strong> Only the license email becomes an admin on its own. Until the owner signs in, nobody can invite operators or change roles.</li>
+<li><strong>Invite the work account.</strong> Use the person's own work Microsoft account, not a customer tenant admin account.</li>
+<li><strong>Techs need a published template.</strong> If a template exists only on the admin's PC, the Tech gets "Template not found locally." Publish it, then the Tech can open <strong>Settings</strong> → <strong>Profile</strong> → <strong>Refresh company catalog</strong>.</li>
+<li><strong>Role changes apply at the next sign-in.</strong> After you change someone's role, they see it the next time they sign in to the YeetnGreet profile.</li>
+<li><strong>Role isn't access to the tenant.</strong> An admin in YeetnGreet still needs the right Microsoft 365 roles to sign in to a tenant and run a job.</li>
+</ul>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../permissions/">Admin permissions and consent</a></li>
+<li><a href="../../jobs/templates/">Templates</a></li>
+<li><a href="../../tenants/multi-tenant/">Multi-tenant</a></li>
+<li><a href="../../pricing-and-licensing/">Pricing and licensing</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="yg-site-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid yg-docs-pager" aria-label="Footer" >
+        
+          
+          <a href="../permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Admin permissions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">Previous</span>
+              <div class="md-ellipsis">Admin permissions</div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../first-run/" class="md-footer__link md-footer__link--next" aria-label="Next: First run">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">Next</span>
+              <div class="md-ellipsis">First run</div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/javascripts/theme-sync.js"></script>
+      
+    
+  </body>
+</html>

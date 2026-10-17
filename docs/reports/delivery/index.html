@@ -352,6 +352,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../getting-started/roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roles (admin and tech)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started/first-run/" class="md-nav__link">
         
   
@@ -477,6 +505,34 @@
     
   
     Onboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jobs/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
   
 
     
@@ -758,10 +814,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#supported-channels" class="md-nav__link">
+  <a href="#channels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported channels
+        Channels
       
     </span>
   </a>
@@ -769,10 +825,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-tips" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup tips
+        Setup
       
     </span>
   </a>
@@ -813,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Samples
+    Sample reports
   
 
     
@@ -1123,10 +1179,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#supported-channels" class="md-nav__link">
+  <a href="#channels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported channels
+        Channels
       
     </span>
   </a>
@@ -1134,10 +1190,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-tips" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup tips
+        Setup
       
     </span>
   </a>
@@ -1173,49 +1229,59 @@
 
 
 <h1 id="report-delivery">Report delivery<a class="headerlink" href="#report-delivery" title="Permanent link">&para;</a></h1>
-<p>Send report output to the channels your practice already uses.</p>
-<h2 id="supported-channels">Supported channels<a class="headerlink" href="#supported-channels" title="Permanent link">&para;</a></h2>
+<p>Send license reports to the places your team already works: email, Teams, Slack, or your own automation.</p>
+<p>Set it up in <strong>Reports</strong> → <strong>Report settings</strong> → <strong>Report delivery</strong>. Delivery settings are saved per tenant, and every channel is optional.</p>
+<p><img alt="Report settings panel with Report delivery open: email delivery turned on for two contoso-example.com recipients with a 3 MB attachment limit, and a Teams notification turned on with an incoming webhook URL" src="../../assets/images/reports-delivery-settings.png" width="720" />
+<em>Turn on the channels you want, then click Save delivery config.</em></p>
+<h2 id="channels">Channels<a class="headerlink" href="#channels" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Channel</th>
-<th>Notes</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Email</strong></td>
-<td>Sent via <strong>Microsoft Graph</strong> from the technician context / tenant you configure</td>
+<td><strong>Email (Microsoft Graph)</strong></td>
+<td>Sends the report files to the recipients you list. Needs an interactive sign-in. Not available in app-only mode.</td>
 </tr>
 <tr>
-<td><strong>Microsoft Teams</strong></td>
-<td>Incoming webhook or Teams workflow URL as configured in the app</td>
+<td><strong>Microsoft Teams webhook</strong></td>
+<td>Posts a notification to a Teams channel through an incoming webhook URL.</td>
 </tr>
 <tr>
-<td><strong>Slack</strong></td>
-<td>Incoming webhook URL</td>
+<td><strong>Slack webhook</strong></td>
+<td>Posts a notification to Slack through an incoming webhook URL.</td>
 </tr>
 <tr>
-<td><strong>Webhooks</strong></td>
-<td>Generic HTTPS endpoint for your RMM / automation</td>
+<td><strong>Generic webhook</strong></td>
+<td>Sends a JSON payload to your HTTPS endpoint: <code>{tenant, reportType, timestamp, status, files}</code>.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="setup-tips">Setup tips<a class="headerlink" href="#setup-tips" title="Permanent link">&para;</a></h2>
+<p>Email sends several files as one ZIP. If the ZIP is bigger than the <strong>Max attachment size</strong> (3 MB by default, up to 10 MB), the email lists the local reports folder instead of attaching the files.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Create the destination (mailbox, Teams workflow, Slack app webhook, or HTTPS listener)</li>
-<li>Paste the destination into YeetnGreet report delivery settings</li>
-<li>Run a small test report before attaching it to a <a href="../../jobs/schedules/">schedule</a></li>
+<li>Create the destination: a mailbox or distribution list, a Teams incoming webhook, a Slack incoming webhook, or an HTTPS listener.</li>
+<li>Open <strong>Reports</strong> → <strong>Report settings</strong>, expand the channel, tick <strong>Enable</strong>, and paste the address or URL.</li>
+<li>Click <strong>Save delivery config</strong>.</li>
+<li>Run a report once to check that it arrives, then add it to a <a href="../../jobs/schedules/">schedule</a>.</li>
 </ol>
 <div class="admonition important">
-<p class="admonition-title">Credentials stay with you</p>
-<p>Webhook URLs and Graph mail send from the technician environment. Treat webhook URLs like secrets in your password vault.</p>
+<p class="admonition-title">Keep webhook URLs private</p>
+<p>Delivery settings stay on this PC. Anyone with a webhook URL can post to that channel, so store it like a password.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">What-if exports are never delivered</p>
+<p><a href="../what-if/">What-if</a> scenario exports are saved on this PC only. They are never emailed or posted, even when delivery is set up.</p>
+</div>
+<p>To see what gets delivered, download the <a href="../samples/">sample reports</a>.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../overview/">Reports overview</a></li>
 <li><a href="../../jobs/schedules/">Schedules</a></li>
-<li><a href="../samples/">Samples</a></li>
+<li><a href="../samples/">Sample reports</a></li>
 </ul>
 
 
@@ -1265,10 +1331,10 @@
         
         
           
-          <a href="../samples/" class="md-footer__link md-footer__link--next" aria-label="Next: Samples">
+          <a href="../samples/" class="md-footer__link md-footer__link--next" aria-label="Next: Sample reports">
             <div class="md-footer__title">
               <span class="md-footer__direction">Next</span>
-              <div class="md-ellipsis">Samples</div>
+              <div class="md-ellipsis">Sample reports</div>
             </div>
             <div class="md-footer__button md-icon">
               
