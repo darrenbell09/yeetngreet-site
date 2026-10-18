@@ -20,14 +20,14 @@
   <meta name="twitter:description" content="How YeetnGreet handles data: Microsoft 365 work runs on your technicians’ PCs, what our license service stores, and what this website collects." />
   <meta name="twitter:image" content="https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" />
   <meta name="twitter:image:alt" content="YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." />
-  <meta name="yeetngreet-build" content="20261018g" />
+  <meta name="yeetngreet-build" content="20261018h" />
   <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
   <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261018g" />
+  <link rel="stylesheet" href="styles.css?v=20261018h" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
@@ -37,7 +37,7 @@
       );
     })();
   </script>
-  <script src="analytics.js?v=20261018g" defer></script>
+  <script src="analytics.js?v=20261018h" defer></script>
 </head>
 <body>
   <div class="shell">
@@ -72,6 +72,7 @@
       <p>When cloud licensing is enabled, we store what we need to run your YeetnGreet account: account email, plan, expiry, and licensed-user limits.</p>
       <p>When you use account roles and shared company templates, we also store the operational configuration you choose to sync: operator roster (Microsoft account UPN/OID and admin/tech role) and company onboard/offboard templates (action presets and group/SKU references).</p>
       <p>We do not receive user profiles, mail, files, mailbox activity, or other tenant content from Graph jobs.</p>
+      <p>When checkout opens, payments are processed by Paddle, our Merchant of Record. Paddle collects your payment details; we never receive your card number. See <a href="https://www.paddle.com/legal/privacy">Paddle’s privacy policy</a>.</p>
 
       <h2>Account identity vs tenant Graph</h2>
       <p>YeetnGreet roles bind to each technician’s Microsoft work account on your YeetnGreet account. The Graph session used to change a directory is separate and stays between your PC and that tenant.</p>
@@ -97,9 +98,14 @@
     </main>
 
     <footer>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="terms.html">Terms</a>
+        <a href="refunds.html">Refunds</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
       <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
     </footer>
   </div>
-  <script src="theme.js?v=20261018g"></script>
+  <script src="theme.js?v=20261018h"></script>
 </body>
 </html>
