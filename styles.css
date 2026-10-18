@@ -391,4 +391,59 @@ a:hover { text-decoration: underline; }
   border-radius: 12px;
   padding: 1rem 1rem 1.05rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transform: rotateX(var(--tilt-x)) ro
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+@media (min-width: 1080px) {
+  .report-stage {
+    max-height: calc(100vh - 6.5rem);
+  }
+
+  .report-panel {
+    padding: 1rem 1.1rem 1.05rem;
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.report-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--savings));
+  opacity: 0.95;
+}
+
+.report-body {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.report-table-wrap {
+  margin-bottom: 0.75rem;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.report-table-hint {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  color: var(--ink-tertiary);
+  line-height: 1.4;
+  max-width: 46rem;
+}
+
+.report-total-row td {
+  border-bottom: none;
+  font-weight: 650;
+  color: var(--ink);
+  paddi
