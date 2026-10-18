@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261018a" />
+  <link rel="stylesheet" href="styles.css?v=20261018b" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
@@ -92,14 +92,17 @@
             <div class="report-table-wrap">
               <p class="report-table-label">Cost-saving opportunities</p>
               <p class="report-table-hint">The report finds three waste types: unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail activity in 90 days. Savings / mo below = (Unused + Disabled) × Unit. Est. spend for 280 licensed users: 180×Business Premium ($22) + 60×E3 ($36) + 40×Business Standard ($12.50) = <strong>USD 6,620</strong>/mo.</p>
-              <table class="report-table">
+              <table class="report-table report-cost-table">
                 <thead>
                   <tr>
                     <th>License</th>
-                    <th>Unused</th>
-                    <th>Disabled</th>
-                    <th>Unit</th>
-                    <th>Savings / mo</th>
+                    <th><abbr title="Unused">Unused</abbr></th>
+                    <th><abbr title="Disabled">Disabled</abbr></th>
+                    <th><abbr title="Unit price">Unit</abbr></th>
+                    <th>
+                      <span class="th-long">Savings / mo</span>
+                      <abbr class="th-short" title="Savings per month">Save/mo</abbr>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -222,7 +225,7 @@
             <img class="app-shot-img" src="assets/app/hero-offboard-confirm.png" width="1440" height="900" decoding="async" alt="YeetnGreet desktop app confirming a two-user offboard for the Contoso tenant: the dialog lists both users and every planned action, from resetting the password and revoking sessions to converting the mailbox to shared and removing licenses, with Cancel and Run 2 offboards buttons." />
           </picture>
         </a>
-        <figcaption>Offboarding: preview every action for the batch, then confirm before anything changes. Tap the image on a phone for full size.</figcaption>
+        <figcaption>Offboarding: preview every action for the batch, then confirm before anything changes.<span class="app-shot-tap-hint"> Tap the image on a phone for full size.</span></figcaption>
       </figure>
       <figure class="app-shot reveal">
         <a class="app-shot-link" href="assets/app/hero-whatif.png" target="_blank" rel="noopener noreferrer">
@@ -231,7 +234,7 @@
             <img class="app-shot-img" src="assets/app/hero-whatif.png" width="1440" height="900" loading="lazy" decoding="async" alt="YeetnGreet What-if scenario planner for the Contoso tenant: three steps that remove 7 unused Business Premium licenses, move 10 licenses from E3 to Business Premium, and remove 4 unused Business Basic licenses, with a before and after table showing a saving of $318 a month." />
           </picture>
         </a>
-        <figcaption>What-if: plan license changes and see the monthly cost change before you touch the tenant. Tap the image on a phone for full size.</figcaption>
+        <figcaption>What-if: plan license changes and see the monthly cost change before you touch the tenant.<span class="app-shot-tap-hint"> Tap the image on a phone for full size.</span></figcaption>
       </figure>
     </section>
 
@@ -301,7 +304,7 @@
       <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
     </footer>
   </div>
-  <script src="theme.js?v=20261018a"></script>
+  <script src="theme.js?v=20261018b"></script>
   <script>
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduceMotion) {
