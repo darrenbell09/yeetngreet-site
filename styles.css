@@ -446,4 +446,61 @@ a:hover { text-decoration: underline; }
   border-bottom: none;
   font-weight: 650;
   color: var(--ink);
-  paddi
+  padding-top: 0.65rem;
+}
+
+.report-total-row td:first-child {
+  font-weight: 650;
+}
+
+.user-name {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.user-upn {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--ink-tertiary);
+  margin-top: 0.12rem;
+}
+
+.issue {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.issue.danger {
+  color: var(--danger);
+  background: rgba(194, 65, 12, 0.1);
+}
+
+.issue.warn {
+  color: var(--warn);
+  background: rgba(183, 121, 31, 0.1);
+}
+
+:root[data-theme="dark"] .issue.danger {
+  color: var(--danger);
+  background: rgba(247, 118, 142, 0.14);
+}
+
+:root[data-theme="dark"] .issue.warn {
+  color: var(--warn);
+  background: rgba(224, 175, 104, 0.14);
+}
+
+.report-users .report-table td:nth-child(n+4),
+.report-users .report-table th:nth-child(n+4) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.report-head {
+  display: flex;
