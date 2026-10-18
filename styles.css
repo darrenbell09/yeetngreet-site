@@ -6,9 +6,10 @@
   --panel: #ffffff;
   --ink: #12141a;
   --ink-secondary: #4a5163;
-  --ink-tertiary: #7a8296;
+  --ink-tertiary: #5c6478; /* 5.4:1 on --bg (WCAG AA) */
   --line: rgba(18, 20, 26, 0.1);
   --accent: #3b6ae8;
+  --link: #2b57c9; /* text links: 5.8:1 on --bg, 6.4:1 on --panel */
   --accent-soft: rgba(59, 106, 232, 0.1);
   --cta: #1a1d27;
   --cta-ink: #ffffff;
@@ -31,9 +32,10 @@
   --panel: #1c2030;
   --ink: #eef0f6;
   --ink-secondary: #9aa3c0;
-  --ink-tertiary: #6f7896;
+  --ink-tertiary: #8f98b5; /* 6.4:1 on dark --bg */
   --line: rgba(154, 163, 192, 0.14);
   --accent: #7aa2f7;
+  --link: #7aa2f7;
   --accent-soft: rgba(122, 162, 247, 0.14);
   --cta: #7aa2f7;
   --cta-ink: #0b1020;
@@ -85,8 +87,17 @@ body {
     linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 42%, var(--bg) 100%);
 }
 
-a { color: var(--accent); text-decoration: none; }
+a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* In-text links are underlined so they don't rely on color alone (WCAG 1.4.1). */
+.shell p a:not(.btn),
+.shell li a:not(.btn),
+.shell td a:not(.btn) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
 
 .shell {
   position: relative;
@@ -265,10 +276,9 @@ a:hover { text-decoration: underline; }
   color: var(--ink-tertiary, var(--ink-secondary));
   font-weight: 400;
   font-size: 0.82rem;
-  opacity: 0.85;
 }
 .topbar a.nav-quiet:hover {
-  opacity: 1;
+  color: var(--ink-secondary);
 }
 
 .founding-quiet {
@@ -704,7 +714,7 @@ a:hover { text-decoration: underline; }
   font-weight: 650;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--link);
 }
 
 .benefit-copy h2 {
@@ -924,6 +934,22 @@ footer {
   font-size: 1.05rem;
   line-height: 1.6;
   max-width: 52rem;
+}
+
+.page ul {
+  margin: 0 0 0.95rem;
+  padding-left: 1.25rem;
+  max-width: 52rem;
+  color: var(--ink-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.page li { margin: 0 0 0.6rem; }
+
+.page .privacy-updated {
+  color: var(--ink-tertiary);
+  font-size: 0.95rem;
 }
 
 .privacy-back {
@@ -1357,7 +1383,7 @@ footer {
   font-weight: 650;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--link);
 }
 
 .hero-lifecycle .lede {
@@ -1392,7 +1418,7 @@ footer {
   font-weight: 700;
   font-size: 0.98rem;
   letter-spacing: -0.02em;
-  color: var(--accent);
+  color: var(--link);
 }
 
 .lc-what {
