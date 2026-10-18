@@ -902,6 +902,18 @@ footer {
   font-size: 0.88rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 0.6rem;
+}
+
+.footer-links a {
+  color: var(--link);
+  font-weight: 500;
+}
+
 /* Privacy / secondary pages */
 .page h1 {
   margin: 0 0 0.85rem;
