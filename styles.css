@@ -162,7 +162,7 @@ a:hover { text-decoration: underline; }
   height: 28px;
 }
 
-.topbar nav {
+.site-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -172,10 +172,64 @@ a:hover { text-decoration: underline; }
 }
 
 @media (min-width: 480px) {
-  .topbar nav {
+  .site-nav {
     width: auto;
     justify-content: flex-end;
   }
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  flex: 0 0 auto;
+}
+
+.nav-toggle:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  content: "";
+}
+
+.nav-toggle-bars {
+  position: relative;
+}
+
+.nav-toggle-bars::before {
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.nav-toggle-bars::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
 }
 
 .topbar a,
@@ -198,6 +252,12 @@ a:hover { text-decoration: underline; }
   color: var(--ink);
   background: var(--accent-soft);
   text-decoration: none;
+}
+
+.topbar a:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Quiet secondary nav (Founding beta): discoverable, not a hero CTA */
@@ -567,6 +627,19 @@ a:hover { text-decoration: underline; }
   color: var(--ink-tertiary);
 }
 
+/* Short header labels and phone-only hints: shown only in the phone media query */
+.th-short,
+.app-shot-tap-hint {
+  display: none;
+}
+
+/* Header abbr tags carry titles only; no dotted underline (matches plain th text) */
+.report-cost-table th abbr {
+  text-decoration: none;
+  border-bottom: 0;
+  cursor: inherit;
+}
+
 .report-table td { color: var(--ink-secondary); }
 .report-table td:first-child { color: var(--ink); font-weight: 500; }
 
@@ -929,5 +1002,331 @@ footer {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
     align-items: start;
     gap: 2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * Mobile layout (max-width 640 / 479) — keep desktop (>=1080) identical.
+ * Scoped here to ease rebase against PR #23 (styles.css rewrite).
+ * -------------------------------------------------------------------------- */
+
+.app-shot-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shot-link:hover {
+  text-decoration: none;
+}
+
+.app-shot-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: calc(100% - 1rem);
+    max-width: none;
+    padding-bottom: 2.5rem;
+  }
+
+  .topbar {
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    min-height: 56px;
+    max-height: 64px;
+    height: 56px;
+    padding: 0.35rem 0;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .topbar .brand {
+    min-width: 0;
+    font-size: 1rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15rem;
+    padding: 0.65rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px -16px rgba(18, 20, 26, 0.35);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a,
+  .site-nav .theme-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 0.7rem 0.75rem;
+    white-space: normal;
+  }
+
+  .report-panel {
+    padding: 0.75rem 0.55rem 0.85rem;
+  }
+
+  .report-table-wrap {
+    margin-left: -0.1rem;
+    margin-right: -0.1rem;
+    padding-bottom: 0.15rem;
+    position: relative;
+  }
+
+  .report-table-wrap::after {
+    content: "";
+    position: absolute;
+    top: 1.6rem;
+    right: 0;
+    bottom: 0;
+    width: 1.5rem;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--panel));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .report-table-wrap.is-scrollable::after {
+    opacity: 1;
+  }
+
+  .th-long {
+    display: none;
+  }
+
+  .th-short {
+    display: inline;
+  }
+
+  .app-shot-tap-hint {
+    display: inline;
+  }
+
+  .report-table {
+    font-size: 0.74rem;
+    min-width: 100%;
+  }
+
+  .report-table th,
+  .report-table td {
+    padding: 0.4rem 0.28rem;
+  }
+
+  .report-table th:last-child,
+  .report-table td:last-child {
+    padding-right: 0.45rem;
+    white-space: nowrap;
+  }
+
+  /* Cost-savings: keep Savings / mo readable at 360px */
+  .report-body > .report-table-wrap:first-child .report-table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .report-cost-table th {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .report-cost-table th:nth-child(1),
+  .report-cost-table td:nth-child(1) {
+    width: 33%;
+    word-break: break-word;
+  }
+
+  .report-cost-table th:nth-child(2),
+  .report-cost-table td:nth-child(2) {
+    width: 15%;
+  }
+
+  .report-cost-table th:nth-child(3),
+  .report-cost-table td:nth-child(3) {
+    width: 17%;
+  }
+
+  .report-cost-table th:nth-child(4),
+  .report-cost-table td:nth-child(4) {
+    width: 14%;
+  }
+
+  .report-cost-table th:nth-child(5),
+  .report-cost-table td:nth-child(5) {
+    width: 21%;
+  }
+
+  /* Users table: stacked cards on phones */
+  .report-users .report-table {
+    min-width: 0;
+  }
+
+  .report-users .report-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .report-users .report-table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.5rem;
+    padding: 0.75rem 0.15rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .report-users .report-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .report-users .report-table td {
+    border: none;
+    padding: 0;
+    text-align: left !important;
+  }
+
+  .report-users .report-table td:nth-child(1) {
+    flex: 1 1 100%;
+  }
+
+  .report-users .report-table td:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  .report-users .report-table td:nth-child(3) {
+    flex: 1 1 100%;
+    font-size: 0.8rem;
+  }
+
+  .report-users .report-table td:nth-child(4),
+  .report-users .report-table td:nth-child(5),
+  .report-users .report-table td:nth-child(6) {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    color: var(--ink-tertiary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .report-users .report-table td:nth-child(4)::before {
+    content: "Sent ";
+    font-weight: 600;
+    color: var(--ink-secondary);
+  }
+
+  .report-users .report-table td:nth-child(5)::before {
+    content: "Recv ";
+    font-weight: 600;
+    color: var(--ink-secondary);
+  }
+
+  .report-users .report-table td:nth-child(6)::before {
+    content: "Read ";
+    font-weight: 600;
+    color: var(--ink-secondary);
+  }
+
+  .report-users.report-table-wrap::after,
+  .report-users .report-table-wrap::after,
+  .report-users.report-table-wrap::after {
+    opacity: 0;
+  }
+
+  .report-table-wrap.report-users::after {
+    opacity: 0;
+  }
+
+  .kpi-value {
+    font-size: 1.05rem;
+  }
+
+  .pricing + .section-note {
+    margin-top: 1.35rem;
+  }
+
+  .app-shot img {
+    border-radius: 8px;
+  }
+
+  .app-shot-img {
+    aspect-ratio: 9 / 7;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center 10%;
+  }
+}
+
+@media (max-width: 479px) {
+  .shell {
+    width: calc(100% - 0.75rem);
+  }
+
+  .report-panel {
+    padding: 0.65rem 0.4rem 0.75rem;
+    border-radius: 10px;
+  }
+
+  .report-body > .report-table-wrap:first-child .report-table {
+    font-size: 0.7rem;
+  }
+
+  .report-cost-table th {
+    font-size: 0.56rem;
+  }
+
+  .report-cost-table th,
+  .report-cost-table td {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+
+  .topbar {
+    height: 56px;
+    max-height: 64px;
+  }
+}
+
+@media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  .hero,
+  .report-stage,
+  .report-panel,
+  .app-shots {
+    max-width: 100%;
+    min-width: 0;
   }
 }
