@@ -59,7 +59,7 @@ To remove YeetnGreet from a PC:
 
 1. Open **Windows Settings → Apps**, or use the **Uninstall YeetnGreet** Start menu shortcut
 2. Follow the uninstall prompts
-3. Optionally remove local logs if you no longer need them (typically under AppData)
+3. The uninstaller asks whether to also delete logs and reports in `Documents\YeetnGreet`. Shared/central log folders are never deleted. Tenant settings in `%LOCALAPPDATA%\YeetnGreet` are kept unless you remove that folder.
 
 ## Next
 
