@@ -26,6 +26,8 @@ Annual plans are billed at the yearly prices above, about 20% off twelve months 
 
 Paid bands unlock the full product for your licensed-user count. Licensed users are pooled across all tenants on the account. For 701+ licensed users, [contact support](mailto:support@yeetngreet.app) for an Enterprise quote.
 
+When checkout opens, payments are processed by Paddle, our Merchant of Record. First purchases have a 30-day money-back guarantee. See the [Terms of Service](https://yeetngreet.app/terms.html) and [Refund Policy](https://yeetngreet.app/refunds.html).
+
 ## What counts as a licensed user
 
 A **licensed user** is an **enabled** account that has **at least one paid Microsoft 365 license**.
