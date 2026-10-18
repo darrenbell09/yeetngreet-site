@@ -1646,3 +1646,34 @@ footer {
     font-size: 0.6rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+ * Mobile touch-scroll fix (2026-10-18f).
+ * The in-frame report panel kept `overscroll-behavior: contain` when the
+ * layout stacks. With `overflow: hidden` it is still a scroll container, so
+ * a swipe that started on the report latched onto it and never chained to
+ * the page: vertical scrolling stopped at the report on phones.
+ * Stacked layout: no nested scroll container, scroll always chains to the page.
+ * -------------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  .shot-frame-report .report-panel {
+    overflow: clip;
+    overscroll-behavior: auto;
+  }
+}
+
+/* Touch devices at desktop widths (tablets): let the framed report hand the
+   swipe back to the page at its ends. Mouse/trackpad desktop is unchanged. */
+@media (pointer: coarse) {
+  .shot-frame-report .report-panel {
+    overscroll-behavior: auto;
+  }
+}
+
+/* Horizontal table scroll (if a table is ever wider than the phone) must
+   never swallow vertical swipes */
+.report-table-wrap {
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+}
