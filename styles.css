@@ -1623,3 +1623,26 @@ footer {
   .shot-frame-report .report-panel { border-radius: 10px; }
   .flow, .pains, .flow-row, .shot-frame { max-width: 100%; min-width: 0; }
 }
+
+/* Mobile polish for the lifecycle homepage (2026-10-18e) */
+@media (max-width: 640px) {
+  .hero-lifecycle .btn,
+  .pricing-teaser .btn {
+    min-height: 44px;
+  }
+
+  /* Screenshots are small on phones: say they open full size */
+  .flow-row:not(:has(.shot-frame-report))::after {
+    content: "Tap the screenshot to open it full size.";
+    order: 3;
+    margin-top: -0.35rem;
+    font-size: 0.8rem;
+    color: var(--ink-tertiary);
+  }
+}
+
+@media (max-width: 479px) {
+  .report-cost-table th {
+    font-size: 0.6rem;
+  }
+}

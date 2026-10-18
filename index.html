@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses</title>
   <meta name="description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
-  <meta name="yeetngreet-build" content="20261018d" />
+  <meta name="yeetngreet-build" content="20261018e" />
   <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
   <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261018d" />
+  <link rel="stylesheet" href="styles.css?v=20261018e" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
@@ -81,7 +81,7 @@
         <article class="pain reveal reveal-delay-2">
           <p class="pain-num">03</p>
           <h3>Licenses stay on inactive users</h3>
-          <p>Disabled accounts keep their licenses, prepaid licenses sit unassigned, and licensed users with no mail activity go unnoticed until renewal.</p>
+          <p>Disabled accounts keep their licenses, prepaid licenses sit unassigned, and nobody checks which licensed users have stopped sending, receiving, or reading mail in the last 90 days.</p>
         </article>
       </div>
     </section>
@@ -159,11 +159,11 @@
         <div class="flow-copy">
           <p class="benefit-label">License health report</p>
           <h3>Licenses nobody uses add up.</h3>
-          <p>See unused licenses per SKU, accounts that are disabled but still licensed, and licensed users with no mail sent, received, or read in 90 days. Savings use your unit costs.</p>
+          <p>See unused licenses per SKU, accounts that are disabled but still licensed, and each licensed user&rsquo;s mail sent, received, and read over the last 90 days. Savings use your unit costs.</p>
           <ul class="benefit-points">
             <li>Unused prepaid licenses</li>
             <li>Disabled but still licensed</li>
-            <li>No mail activity (90 days), with named users to act on</li>
+            <li>Mail sent, received, and read per user (90 days), with named users to act on</li>
           </ul>
         </div>
           <figure class="report-stage shot-frame shot-frame-report" aria-label="Sample YeetnGreet license health report with synthetic data">
@@ -190,7 +190,7 @@
                   <span class="kpi-value warn">41</span>
                 </div>
                 <div class="kpi">
-                  <span class="kpi-label">No mail (90d)</span>
+                  <span class="kpi-label">No sent/recv/read (90d)</span>
                   <span class="kpi-value warn">18</span>
                 </div>
                 <div class="kpi highlight">
@@ -202,7 +202,7 @@
               <div class="report-body">
                 <div class="report-table-wrap">
                   <p class="report-table-label">Cost-saving opportunities</p>
-                  <p class="report-table-hint">The report finds three waste types: unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail activity in 90 days. Savings / mo below = (Unused + Disabled) × Unit. Est. spend for 280 licensed users: 180×Business Premium ($22) + 60×E3 ($36) + 40×Business Standard ($12.50) = <strong>USD 6,620</strong>/mo.</p>
+                  <p class="report-table-hint">The report finds three waste types: unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail sent, received, or read in 90 days. Savings / mo below = (Unused + Disabled) × Unit. Est. spend for 280 licensed users: 180×Business Premium ($22) + 60×E3 ($36) + 40×Business Standard ($12.50) = <strong>USD 6,620</strong>/mo.</p>
                   <table class="report-table report-cost-table">
                     <thead>
                       <tr>
@@ -291,7 +291,7 @@
                           <span class="user-name">Sam Rivera</span>
                           <span class="user-upn">sam.rivera@northshore.example</span>
                         </td>
-                        <td><span class="issue warn">No mail activity</span></td>
+                        <td><span class="issue warn">No sent, recv, or read</span></td>
                         <td>Microsoft 365 Business Premium</td>
                         <td>0</td>
                         <td>0</td>
@@ -302,7 +302,7 @@
                           <span class="user-name">Casey Nguyen</span>
                           <span class="user-upn">casey.nguyen@northshore.example</span>
                         </td>
-                        <td><span class="issue warn">No mail activity</span></td>
+                        <td><span class="issue warn">No sent, recv, or read</span></td>
                         <td>Microsoft 365 Business Standard</td>
                         <td>0</td>
                         <td>0</td>
@@ -313,7 +313,7 @@
                           <span class="user-name">Riley Chen</span>
                           <span class="user-upn">riley.chen@northshore.example</span>
                         </td>
-                        <td><span class="issue warn">No mail activity</span></td>
+                        <td><span class="issue warn">No sent, recv, or read</span></td>
                         <td>Microsoft 365 E3</td>
                         <td>0</td>
                         <td>0</td>
@@ -322,7 +322,7 @@
                     </tbody>
                   </table>
                 </div>
-                <p class="report-footnote">Example only — not a guarantee. Synthetic demo showcasing unused licenses (12), disabled+licensed (41), and no-mail users (18). Row check: (6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50. Est. spend 6,620. Live reports use your unit costs. <a href="/docs/reports/samples/">See a full sample report</a>.</p>
+                <p class="report-footnote">Example only — not a guarantee. Synthetic demo showcasing unused licenses (12), disabled+licensed (41), and users with no mail sent, received, or read in 90 days (18). Row check: (6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50. Est. spend 6,620. Live reports use your unit costs. <a href="/docs/reports/samples/">See a full sample report</a>.</p>
               </div>
             </div>
           </figure>
