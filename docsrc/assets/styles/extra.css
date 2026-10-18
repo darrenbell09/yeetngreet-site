@@ -484,4 +484,163 @@ body {
 .md-nav--secondary .md-nav__link--active {
   color: var(--ink);
   font-weight: 600;
-  background: tra
+  background: transparent;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Nested TOC levels keep a clear step without shifting the label */
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary .md-nav .md-nav__link {
+  padding-left: calc(var(--yg-toc-inset, 12px) + 10px);
+}
+
+/*
+ * Phone drawer: solid panel on top of the dimming layer; title bar matches site
+ * (not Material primary blue). Use px breakpoint — Material's em root is 125%.
+ */
+@media screen and (max-width: 1219px) {
+  .md-overlay {
+    z-index: 5;
+  }
+
+  .md-sidebar--primary {
+    background-color: var(--bg) !important;
+    z-index: 6;
+    border-right: 1px solid var(--line);
+  }
+
+  /* Material paints [for=__drawer] with --md-primary-fg-color (blue) */
+  .md-nav--primary .md-nav__title,
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background-color: var(--bg) !important;
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--line);
+    height: auto;
+    min-height: 52px;
+    line-height: 1.3;
+    padding: 14px 12px;
+    font-family: var(--display);
+    font-size: 14.4px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  /* Nested level titles keep Material back-arrow layout */
+  .md-nav--primary .md-nav__title:not([for="__drawer"]) {
+    padding: 14px 12px 14px 40px;
+  }
+
+  .md-nav--primary .md-nav__title:not([for="__drawer"]) .md-nav__icon {
+    display: block;
+    color: var(--ink-secondary);
+  }
+
+  /* Material absolute-positions a huge logo over the title — shrink to site mark */
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo {
+    position: static;
+    display: block;
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo img,
+  .md-nav--primary .md-nav__title[for="__drawer"] .md-logo svg {
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+  }
+
+  /*
+   * Nested drill-in panels stay opacity:0 when closed but still hit-test.
+   * That steals taps from the root menu (and can leave scrollwrap scrolled).
+   */
+  .md-nav--primary .md-nav__item--nested > .md-nav {
+    pointer-events: none;
+  }
+
+  .md-nav--primary .md-nav__item--nested > input:checked ~ .md-nav {
+    pointer-events: auto;
+  }
+
+  /* Section rows in the drawer: tappable with visible arrows */
+  .md-nav--primary .md-nav__item--section > .md-nav__link,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 2px;
+    padding: 8px 8px 8px 12px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .md-nav--primary .md-nav__link {
+    padding: 8px 12px;
+  }
+}
+
+.md-content__inner {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.35rem 1.6rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: none;
+}
+
+.md-typeset h1 {
+  color: var(--ink);
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  box-shadow: none;
+}
+
+.md-typeset .md-button {
+  border-radius: var(--radius);
+  border-color: var(--line);
+  background: var(--control);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary {
+  background: var(--cta);
+  border-color: var(--cta);
+  color: var(--cta-ink);
+}
+
+.md-typeset img {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+/* Screenshots sit on their own line s
