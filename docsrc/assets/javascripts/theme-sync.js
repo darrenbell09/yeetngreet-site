@@ -42,9 +42,27 @@
     });
   }
 
+
+  function closeDocsDrawer() {
+    var drawer = document.getElementById("__drawer");
+    if (drawer && drawer.checked) {
+      drawer.checked = false;
+      drawer.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }
+
+  function bindDrawerEscape() {
+    if (document.documentElement.dataset.ygDrawerEsc) return;
+    document.documentElement.dataset.ygDrawerEsc = "1";
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeDocsDrawer();
+    });
+  }
+
   function bind() {
     bindTheme();
     bindImageZoom();
+    bindDrawerEscape();
   }
 
   if (document.readyState === "loading") {
