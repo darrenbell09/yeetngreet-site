@@ -9,22 +9,42 @@
     if (document.body) {
       document.body.setAttribute("data-md-color-scheme", light ? "default" : "slate");
     }
-    var btn = document.getElementById("themeToggle");
-    if (btn) btn.textContent = light ? "Dark" : "Light";
+    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+      btn.textContent = light ? "Dark" : "Light";
+    });
   }
 
   var saved = localStorage.getItem(STORAGE);
   apply(saved === "dark" || saved === "light" ? saved : "light");
 
-  function bind() {
-    var btn = document.getElementById("themeToggle");
-    if (!btn || btn.dataset.ygBound) return;
-    btn.dataset.ygBound = "1";
-    btn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-      localStorage.setItem(STORAGE, next);
-      apply(next);
+  function bindTheme() {
+    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+      if (btn.dataset.ygBound) return;
+      btn.dataset.ygBound = "1";
+      btn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        localStorage.setItem(STORAGE, next);
+        apply(next);
+      });
     });
+  }
+
+  function bindImageZoom() {
+    if (window.matchMedia("(max-width: 640px)").matches === false) return;
+    document.querySelectorAll(".md-typeset img").forEach(function (img) {
+      if (img.dataset.ygZoomBound) return;
+      if (img.closest("a")) return;
+      img.dataset.ygZoomBound = "1";
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", function () {
+        window.open(img.currentSrc || img.src, "_blank", "noopener,noreferrer");
+      });
+    });
+  }
+
+  function bind() {
+    bindTheme();
+    bindImageZoom();
   }
 
   if (document.readyState === "loading") {
