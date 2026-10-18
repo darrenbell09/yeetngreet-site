@@ -1,1 +1,193 @@
-$file:/workspace/agent-tools-extra.css
+/* Docs layout only — colors/fonts/chrome come from marketing styles.css */
+
+/* Map Material tokens onto marketing CSS variables */
+[data-md-color-scheme="default"],
+:root {
+  --md-default-bg-color: var(--bg);
+  --md-default-bg-color--light: var(--panel);
+  --md-default-bg-color--lighter: var(--bg-mid);
+  --md-default-bg-color--lightest: var(--panel);
+  --md-default-fg-color: var(--ink);
+  --md-default-fg-color--light: var(--ink-secondary);
+  --md-default-fg-color--lighter: var(--ink-tertiary);
+  --md-default-fg-color--lightest: var(--line);
+  --md-primary-fg-color: var(--accent);
+  --md-primary-bg-color: var(--panel);
+  --md-accent-fg-color: var(--accent);
+  --md-accent-fg-color--transparent: var(--accent-soft);
+  --md-typeset-a-color: var(--accent);
+  --md-typeset-color: var(--ink);
+  --md-footer-bg-color: transparent;
+  --md-footer-bg-color--dark: transparent;
+  --md-code-bg-color: var(--accent-soft);
+  --md-code-fg-color: var(--ink);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: var(--bg);
+  --md-default-bg-color--light: var(--panel);
+  --md-default-bg-color--lighter: var(--control);
+  --md-default-bg-color--lightest: var(--control);
+  --md-default-fg-color: var(--ink);
+  --md-default-fg-color--light: var(--ink-secondary);
+  --md-default-fg-color--lighter: var(--ink-tertiary);
+  --md-default-fg-color--lightest: var(--line);
+  --md-primary-fg-color: var(--accent);
+  --md-primary-bg-color: var(--bg);
+  --md-accent-fg-color: var(--accent);
+  --md-accent-fg-color--transparent: var(--accent-soft);
+  --md-typeset-a-color: var(--accent);
+  --md-code-bg-color: var(--accent-soft);
+}
+
+/* Brand mark: styles.css points at logo.png beside the stylesheet (hooks copy it) */
+.md-typeset,
+.md-nav,
+.md-header,
+.md-footer,
+.md-search,
+body {
+  font-family: var(--font);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--display);
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+/* Atmosphere is fixed at z-index 0. Do not create stacking contexts on
+   .md-container / .md-main — they trap the mobile drawer under .md-overlay
+   so taps close the menu instead of navigating. */
+.yg-site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Docs article must sit above the fixed atmosphere. Scoped to .md-content
+   (a sibling of the sidebars) so the phone drawer stacking is unaffected. */
+.md-content {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background: transparent;
+}
+
+/*
+ * Material sets html { font-size: 125% }, so rem from styles.css is ~25% large.
+ * Chrome uses px sized to the marketing 16px root (index.html / styles.css).
+ * Scoped to .yg-docs-* so marketing pages are unchanged.
+ */
+.yg-docs-topbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  /* 32px = 2rem @ marketing 16px root (not Material's 20px rem) */
+  width: min(1280px, calc(100% - 32px));
+  max-width: 1280px;
+  min-height: 64px;
+  margin: 0 auto 24px;
+  padding: 13.6px 0;
+  position: sticky;
+  top: 0;
+  /* Below Material overlay/drawer (5) so the open menu receives taps */
+  z-index: 3;
+  /* Opaque so scrolling docs don't bleed through the sticky chrome */
+  background: var(--bg);
+  backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Full-bleed opaque strip (bar itself is max-width constrained) */
+.yg-docs-topbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -1px; /* cover border-bottom seam */
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 1600px) {
+  .yg-docs-topbar {
+    width: min(1440px, calc(100% - 48px));
+    max-width: 1440px;
+  }
+}
+
+.yg-docs-topbar .brand {
+  flex: 0 0 auto;
+  gap: 9.6px;
+  /* Match marketing computed size: .topbar a wins over .brand (0.9rem @ 16px) */
+  font-size: 14.4px;
+  padding: 6.4px 10.4px;
+}
+
+.yg-docs-topbar .brand .brand-mark {
+  width: 28px;
+  height: 28px;
+}
+
+.yg-docs-topbar .yg-site-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 2.4px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+  width: auto;
+}
+
+.yg-docs-topbar .yg-site-nav a,
+.yg-docs-topbar .theme-toggle {
+  color: var(--ink-secondary);
+  font-size: 14.4px;
+  font-weight: 500;
+  padding: 6.4px 10.4px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.yg-docs-topbar .yg-site-nav a:hover,
+.yg-docs-topbar .yg-site-nav a[aria-current="page"],
+.yg-docs-topbar .theme-toggle:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+.yg-docs-topbar .yg-site-nav a.nav-quiet {
+  color: var(--ink-tertiary);
+  font-weight: 400;
+  font-size: 13.12px;
+  opacity: 0.85;
+}
+
+.yg-docs-topbar .yg-site-nav a.nav-quiet:hover {
+  opacity: 1;
+}
+
+.yg-docs-drawer {
+  color: var(--ink-secondary);
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.yg-docs-tools {
+  display: flex;
+  align-items: center;
+  gap: 
