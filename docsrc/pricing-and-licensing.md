@@ -1,10 +1,10 @@
 # Pricing and licensing
 
-Pricing is based on **licensed users** pooled across every tenant on your YeetnGreet account — not per tenant. Prices are monthly; pay a year up front and save **20%**. Activate your plan in the app when checkout is live. Until then, join the [waitlist](https://yeetngreet.app/pricing.html).
+Pricing is based on **licensed users** pooled across every tenant on your YeetnGreet account — not per tenant. Prices are monthly; pay a year up front and save **about 20%**. Activate your plan in the app when checkout is live. Until then, join the [waitlist](https://yeetngreet.app/pricing.html).
 
 ## Plans
 
-| Plan | Licensed users | Monthly | Annual (20% off) |
+| Plan | Licensed users | Monthly | Annual (about 20% off) |
 | --- | ---: | ---: | ---: |
 | **Free** | 1–25 | **$0** | — |
 | **Starter** | 26–50 | **$19** | **$182/yr** |
@@ -14,7 +14,7 @@ Pricing is based on **licensed users** pooled across every tenant on your YeetnG
 | **Large** | 501–700 | **$249** | **$2,390/yr** |
 | **Enterprise** | 701+ | Quote | Quote |
 
-Annual amounts are 20% off twelve months of the monthly rate, rounded to the nearest dollar.
+Annual plans are billed at the yearly prices above, about 20% off twelve months of the monthly rate.
 
 ### Free includes
 
