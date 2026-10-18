@@ -627,6 +627,19 @@ a:hover { text-decoration: underline; }
   color: var(--ink-tertiary);
 }
 
+/* Short header labels and phone-only hints: shown only in the phone media query */
+.th-short,
+.app-shot-tap-hint {
+  display: none;
+}
+
+/* Header abbr tags carry titles only; no dotted underline (matches plain th text) */
+.report-cost-table th abbr {
+  text-decoration: none;
+  border-bottom: 0;
+  cursor: inherit;
+}
+
 .report-table td { color: var(--ink-secondary); }
 .report-table td:first-child { color: var(--ink); font-weight: 500; }
 
@@ -1095,9 +1108,20 @@ footer {
     transition: opacity 0.2s ease;
   }
 
-  .report-table-wrap.is-scrollable::after,
-  .report-table-wrap:not(.report-users)::after {
+  .report-table-wrap.is-scrollable::after {
     opacity: 1;
+  }
+
+  .th-long {
+    display: none;
+  }
+
+  .th-short {
+    display: inline;
+  }
+
+  .app-shot-tap-hint {
+    display: inline;
   }
 
   .report-table {
@@ -1122,29 +1146,36 @@ footer {
     width: 100%;
   }
 
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(1),
-  .report-body > .report-table-wrap:first-child .report-table td:nth-child(1) {
-    width: 38%;
+  .report-cost-table th {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .report-cost-table th:nth-child(1),
+  .report-cost-table td:nth-child(1) {
+    width: 33%;
     word-break: break-word;
   }
 
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(2),
-  .report-body > .report-table-wrap:first-child .report-table td:nth-child(2),
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(3),
-  .report-body > .report-table-wrap:first-child .report-table td:nth-child(3),
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(4),
-  .report-body > .report-table-wrap:first-child .report-table td:nth-child(4) {
-    width: 12%;
+  .report-cost-table th:nth-child(2),
+  .report-cost-table td:nth-child(2) {
+    width: 15%;
   }
 
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(5),
-  .report-body > .report-table-wrap:first-child .report-table td:nth-child(5) {
-    width: 26%;
+  .report-cost-table th:nth-child(3),
+  .report-cost-table td:nth-child(3) {
+    width: 17%;
   }
 
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(5) {
-    font-size: 0.62rem;
-    letter-spacing: 0.02em;
+  .report-cost-table th:nth-child(4),
+  .report-cost-table td:nth-child(4) {
+    width: 14%;
+  }
+
+  .report-cost-table th:nth-child(5),
+  .report-cost-table td:nth-child(5) {
+    width: 21%;
   }
 
   /* Users table: stacked cards on phones */
@@ -1268,8 +1299,14 @@ footer {
     font-size: 0.7rem;
   }
 
-  .report-body > .report-table-wrap:first-child .report-table th:nth-child(5) {
-    font-size: 0.58rem;
+  .report-cost-table th {
+    font-size: 0.56rem;
+  }
+
+  .report-cost-table th,
+  .report-cost-table td {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
   }
 
   .topbar {
