@@ -1330,3 +1330,319 @@ footer {
     min-width: 0;
   }
 }
+
+/* --------------------------------------------------------------------------
+ * Homepage lifecycle narrative (2026-10-18): pains -> Admin control -> reports.
+ * One frame treatment for every product visual: 16:10, same column width per
+ * row, rows on one grid so every screenshot lines up on desktop.
+ * -------------------------------------------------------------------------- */
+
+.hero.hero-lifecycle {
+  display: block;
+  padding: 2.5rem 0 3rem;
+}
+
+.hero-lifecycle .hero-copy {
+  max-width: 46rem;
+}
+
+.hero-lifecycle h1 {
+  max-width: 20ch;
+  font-size: clamp(1.95rem, 4.6vw, 3.25rem);
+}
+
+.hero-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero-lifecycle .lede {
+  max-width: 40rem;
+  font-size: 1.12rem;
+}
+
+.lifecycle-card {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0.5rem 1.25rem;
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px -24px var(--report-glow), 0 2px 6px rgba(18, 20, 26, 0.06);
+}
+
+.lifecycle-card li {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.lifecycle-card li:last-child { border-bottom: 0; }
+
+.lc-stage {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.lc-what {
+  color: var(--ink-secondary);
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 1080px) {
+  .hero.hero-lifecycle {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .lifecycle-card { margin-top: 0; }
+}
+
+@media (max-width: 479px) {
+  .lifecycle-card { padding: 0.25rem 0.9rem; }
+  .lifecycle-card li { grid-template-columns: 1fr; padding: 0.8rem 0; }
+}
+
+.hero-note {
+  margin: 0.85rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-tertiary);
+}
+
+.pains {
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.pains .section-lede {
+  max-width: 40rem;
+}
+
+.pain-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 800px) {
+  .pain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.pain {
+  min-width: 0;
+  padding: 1.25rem 1.25rem 1.35rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.pain-num {
+  margin: 0 0 0.5rem;
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--danger);
+}
+
+.pain h3,
+.flow-copy h3 {
+  margin: 0 0 0.55rem;
+  padding: 0.1em 0.02em;
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.pain h3 { font-size: 1.12rem; }
+
+.pain p:last-child {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.flow {
+  padding: 2.5rem 0 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.flow-head {
+  max-width: 44rem;
+  margin-bottom: 0.5rem;
+}
+
+.flow-row {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem 0;
+  min-width: 0;
+}
+
+.flow-copy {
+  min-width: 0;
+}
+
+.flow-copy h3 {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+}
+
+.flow-copy > p:not(.benefit-label) {
+  margin: 0 0 1rem;
+  color: var(--ink-secondary);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+/* The single frame used for every product visual */
+.shot-frame {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: 0 18px 48px -24px var(--report-glow), 0 2px 6px rgba(18, 20, 26, 0.06);
+}
+
+.shot-frame .app-shot-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shot-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+:root[data-theme="dark"] .shot-frame {
+  border-color: rgba(154, 163, 192, 0.22);
+  box-shadow: 0 18px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+/* Sample report inside the same frame: scrolls within it */
+.shot-frame.report-stage {
+  max-height: none;
+  perspective: none;
+}
+
+.shot-frame-report .report-panel {
+  height: 100%;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: none;
+}
+
+@media (min-width: 900px) {
+  .flow-row {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 3rem;
+    align-items: center;
+    padding: 2.75rem 0;
+  }
+
+  .flow-row > .shot-frame {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .flow-row > .flow-copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .flow-row.reverse {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .flow-row.reverse > .shot-frame { grid-column: 1; }
+  .flow-row.reverse > .flow-copy { grid-column: 2; }
+}
+
+/* Inside the narrower report frame use the compact report layout */
+@media (min-width: 900px) {
+  .shot-frame-report .report-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .shot-frame-report .kpi-value { font-size: 1.15rem; }
+  .shot-frame-report .report-table { font-size: 0.74rem; }
+}
+
+@media (max-width: 899px) {
+  /* Stacked: the report flows at full height instead of scrolling in a frame */
+  .shot-frame-report {
+    aspect-ratio: auto;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .shot-frame-report .report-panel {
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .flow-row > .flow-copy { order: 1; }
+  .flow-row > .shot-frame { order: 2; }
+}
+
+@media (max-width: 640px) {
+  .hero.hero-lifecycle { padding: 1rem 0 2rem; }
+  .pains, .flow { padding-top: 2rem; }
+  .flow-row { padding: 1.5rem 0; gap: 1rem; }
+  .shot-frame { border-radius: 8px; }
+  .shot-frame-report .report-panel { border-radius: 10px; }
+  .flow, .pains, .flow-row, .shot-frame { max-width: 100%; min-width: 0; }
+}
+
+/* Mobile polish for the lifecycle homepage (2026-10-18e) */
+@media (max-width: 640px) {
+  .hero-lifecycle .btn,
+  .pricing-teaser .btn {
+    min-height: 44px;
+  }
+
+  /* Screenshots are small on phones: say they open full size */
+  .flow-row:not(:has(.shot-frame-report))::after {
+    content: "Tap the screenshot to open it full size.";
+    order: 3;
+    margin-top: -0.35rem;
+    font-size: 0.8rem;
+    color: var(--ink-tertiary);
+  }
+}
+
+@media (max-width: 479px) {
+  .report-cost-table th {
+    font-size: 0.6rem;
+  }
+}
