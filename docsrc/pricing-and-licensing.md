@@ -18,7 +18,7 @@ Annual amounts are 20% off twelve months of the monthly rate, rounded to the nea
 
 ### Free includes
 
-- License reports
+- A limited license-report preview
 - 1 tenant
 - No credit card
 
@@ -38,7 +38,7 @@ A **licensed user** is an **enabled** account that has **at least one paid Micro
 
 ## Reports and plans
 
-- **Free** — license reports included (1 tenant)
+- **Free** — a limited license-report preview (1 tenant)
 - **Paid plans** — full [reports](reports/overview.md) across the tenants on your account
 
 ## Not claimed yet

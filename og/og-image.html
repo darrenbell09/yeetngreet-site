@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  Source for the 1200x630 link-preview image (Open Graph / Twitter card).
+  The Pages build renders it with tools/render_og.py to
+  docs/assets/social/yeetngreet-og.png. Edit this file, not the PNG.
+  Copy comes from the live homepage only (no new claims).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+    color: #12141a;
+    background:
+      radial-gradient(ellipse 70% 60% at 8% -10%, rgba(59, 106, 232, 0.16), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 100% 110%, rgba(63, 125, 46, 0.10), transparent 60%),
+      linear-gradient(180deg, #e8eaef 0%, #f3f4f7 55%);
+    position: relative;
+  }
+  .copy { position: absolute; left: 72px; top: 64px; width: 520px; }
+  .brand { display: flex; align-items: center; gap: 14px; font-family: "Sora", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.02em; }
+  /* logo.png is a white mark on transparent; darken it to the site's --brand-mark tone. */
+  .mark { width: 44px; height: 44px; display: block; filter: brightness(0) opacity(0.8); }
+  .eyebrow { margin-top: 64px; font-size: 18px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #2b57c9; }
+  h1 { margin-top: 18px; font-family: "Sora", sans-serif; font-weight: 800; font-size: 58px; line-height: 1.08; letter-spacing: -0.035em; }
+  .sub { margin-top: 26px; font-size: 22px; line-height: 1.45; color: #4a5163; }
+  .url { position: absolute; left: 72px; bottom: 52px; font-size: 20px; font-weight: 500; color: #5c6478; }
+  .shot {
+    position: absolute; left: 640px; top: 92px; width: 640px; height: 400px;
+    border-radius: 14px; overflow: hidden; background: #fff;
+    box-shadow: 0 30px 60px rgba(18, 20, 26, 0.18), 0 0 0 1px rgba(18, 20, 26, 0.08);
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+  .shot.back { left: 700px; top: 250px; width: 560px; height: 350px; opacity: 1; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <div class="brand"><img class="mark" src="../logo.png" alt="" /><span>YeetnGreet</span></div>
+    <p class="eyebrow">Identity lifecycle for Microsoft 365</p>
+    <h1>Onboard. Offboard. Stop wasting licenses.</h1>
+    <p class="sub">Admins set the policy. Technicians run it.</p>
+  </div>
+  <p class="url">yeetngreet.app</p>
+  <div class="shot back"><img src="../assets/app/hero-whatif.png" alt="" /></div>
+  <div class="shot"><img src="../docsrc/assets/images/onboard-create-user.png" alt="" /></div>
+</body>
+</html>
