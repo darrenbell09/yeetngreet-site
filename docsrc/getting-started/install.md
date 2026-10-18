@@ -17,7 +17,7 @@ Public Windows downloads are **not available yet**. When your access is ready:
 1. Double-click **`YeetnGreet-Setup.exe`**
 2. Allow Windows SmartScreen / firewall prompts if your environment shows them
 3. The setup installs for the **current user** — no admin rights required
-4. Files go under `%LOCALAPPDATA%\\Programs\\YeetnGreet`
+4. Files go under `%LOCALAPPDATA%\Programs\YeetnGreet`
 5. Windows gets a **Start menu** shortcut and an **uninstall** entry in Settings
 6. You can delete the setup file after install
 
