@@ -190,4 +190,160 @@ body {
 .yg-docs-tools {
   display: flex;
   align-items: center;
-  gap: 
+  gap: 4px;
+  flex: 0 0 auto;
+  height: 32px;
+  max-height: 32px;
+}
+
+.yg-docs-tools .md-header__button {
+  color: var(--ink-secondary);
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.yg-docs-tools .md-search,
+.yg-docs-tools .md-search__inner {
+  height: 32px;
+  max-height: 32px;
+}
+
+.yg-docs-tools .md-search__form {
+  height: 32px;
+  border-radius: 8px;
+  background: var(--control);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.yg-docs-tools .md-search__input {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.yg-docs-tools .md-search__input::placeholder,
+.md-search__input::placeholder {
+  color: var(--ink-tertiary);
+  opacity: 1;
+}
+
+@media screen and (min-width: 60em) {
+  .yg-docs-tools .md-search__form {
+    width: 9.5rem;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .yg-docs-drawer {
+    display: none !important;
+  }
+}
+
+/* Under 1100px: site links live in the Material drawer (see nav.html), not a second topbar row */
+@media screen and (max-width: 1100px) {
+  .yg-docs-topbar {
+    flex-wrap: nowrap;
+    min-height: 56px;
+    max-height: 64px;
+    height: 56px;
+    padding: 6px 0;
+    gap: 8px;
+  }
+
+  .yg-docs-topbar .yg-site-nav {
+    display: none !important;
+  }
+
+  .yg-docs-topbar .brand {
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  .yg-docs-drawer {
+    margin-left: auto;
+  }
+
+  .yg-drawer-site {
+    display: block;
+    margin: 0 0 12px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .yg-drawer-site .md-nav__link {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .yg-drawer-site .theme-toggle.md-nav__link {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink-secondary);
+  }
+
+  .yg-drawer-site .theme-toggle.md-nav__link:hover,
+  .yg-drawer-site .theme-toggle.md-nav__link:focus-visible {
+    color: var(--ink);
+    background: var(--accent-soft);
+  }
+}
+
+@media screen and (min-width: 1101px) {
+  .yg-drawer-site {
+    display: none !important;
+  }
+}
+
+.md-main {
+  background: transparent;
+}
+
+.md-sidebar {
+  background: transparent;
+}
+
+/*
+ * Left rail: quiet editorial nav (not Material pills).
+ * Sized in px so Material's 125% root does not inflate it.
+ * Material's sidebar box is only ~header-tall; a border there looks like a
+ * short stub. Draw the divider on the absolute scrollwrap (full column).
+ */
+.md-sidebar--primary {
+  border-right: none !important;
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+@media screen and (min-width: 1220px) {
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    border-right: 1px solid var(--line);
+  }
+}
+
+.md-sidebar--primary .md-nav {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.md-sidebar--primary .md-nav__list {
+  padding: 0 0 8px;
+}
+
+.md-sidebar--primary .md-nav__item {
+  padding: 0;
+  margin: 0;
+}
+
+.md-nav--primary .md-nav__link {
+  color: var(--ink-secondary);
+  background: transparent;
+  border-
