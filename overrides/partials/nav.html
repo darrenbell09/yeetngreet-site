@@ -1,0 +1,52 @@
+{#- Primary nav with marketing site links in the phone drawer -#}
+{% import "partials/nav-item.html" as item with context %}
+{% set class = "md-nav md-nav--primary" %}
+{% if "navigation.tabs" in features %}
+  {% set class = class ~ " md-nav--lifted" %}
+{% endif %}
+{% if "toc.integrate" in features %}
+  {% set class = class ~ " md-nav--integrated" %}
+{% endif %}
+{% set is_support = page and page.file and page.file.src_uri == "support.md" %}
+<nav class="{{ class }}" aria-label="{{ lang.t('nav') }}" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    {{ config.site_name }}
+  </label>
+  {% if config.repo_url %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+  <ul class="md-nav__list yg-drawer-site" aria-label="Site">
+    <li class="md-nav__item">
+      <a href="{{ config.extra.homepage | d('/') }}#why" class="md-nav__link">Why</a>
+    </li>
+    <li class="md-nav__item">
+      <a href="{{ config.extra.docs_home | d('/docs/') }}" class="md-nav__link"{% if not is_support %} aria-current="page"{% endif %}>Docs</a>
+    </li>
+    <li class="md-nav__item">
+      <a href="{{ config.extra.pricing | d('/pricing.html') }}" class="md-nav__link">Pricing</a>
+    </li>
+    <li class="md-nav__item">
+      <a href="{{ 'support/' | url }}" class="md-nav__link"{% if is_support %} aria-current="page"{% endif %}>Support</a>
+    </li>
+    <li class="md-nav__item">
+      <a href="{{ config.extra.privacy | d('/privacy.html') }}" class="md-nav__link">Privacy</a>
+    </li>
+    <li class="md-nav__item">
+      <a href="{{ config.extra.founding | d('/pricing.html#founding') }}" class="md-nav__link nav-quiet">Founding beta</a>
+    </li>
+    <li class="md-nav__item yg-drawer-theme">
+      <button type="button" class="theme-toggle md-nav__link" id="themeToggleDrawer" aria-label="Toggle theme">Dark</button>
+    </li>
+  </ul>
+  <ul class="md-nav__list" data-md-scrollfix>
+    {% for nav_item in nav.items %}
+      {% set path = "__nav_" ~ loop.index %}
+      {{ item.render(nav_item, path, 1) }}
+    {% endfor %}
+  </ul>
+</nav>
