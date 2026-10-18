@@ -15,6 +15,9 @@ on:
       - "logo.png"
       - "mkdocs.yml"
       - "requirements.txt"
+      - "og/**"
+      - "tools/render_og.py"
+      - "assets/app/hero-whatif.png"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -47,6 +50,16 @@ jobs:
           set -euo pipefail
           mkdocs build --strict -d docs
           touch docs/.nojekyll
+
+      # Link-preview image (Open Graph / Twitter card), rendered from og/og-image.html.
+      # Best effort: a failure here must not block publishing the docs.
+      - name: Render social preview image
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          pip install "playwright>=1.47,<2"
+          python -m playwright install --with-deps chromium
+          python tools/render_og.py docs/assets/social/yeetngreet-og.png
 
       - name: Commit published docs/
         uses: stefanzweifel/git-auto-commit-action@v5
