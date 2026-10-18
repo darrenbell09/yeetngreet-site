@@ -74,9 +74,22 @@
     });
   }
 
+  function syncTableScrollHints() {
+    document.querySelectorAll(".report-table-wrap").forEach(function (wrap) {
+      var scrollable = wrap.scrollWidth > wrap.clientWidth + 1;
+      wrap.classList.toggle("is-scrollable", scrollable);
+    });
+  }
+
+  function bindTableScrollHints() {
+    syncTableScrollHints();
+    window.addEventListener("resize", syncTableScrollHints);
+  }
+
   function bind() {
     bindTheme();
     bindNav();
+    bindTableScrollHints();
   }
 
   if (document.readyState === "loading") {
