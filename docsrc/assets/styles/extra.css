@@ -346,4 +346,142 @@ body {
 .md-nav--primary .md-nav__link {
   color: var(--ink-secondary);
   background: transparent;
-  border-
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 5px 0 5px 12px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+.md-nav--primary .md-nav__link:hover,
+.md-nav--primary .md-nav__link:focus {
+  color: var(--ink);
+  background: transparent;
+}
+
+/* Section labels — match marketing .section-label */
+.md-nav--primary .md-nav__item--section > .md-nav__link,
+.md-nav--primary .md-nav__item--section > label.md-nav__link {
+  color: var(--ink-tertiary);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: transparent;
+  margin: 18px 0 4px;
+  padding: 0 0 0 12px;
+}
+
+.md-nav--primary .md-nav__item--section:first-child > .md-nav__link,
+.md-nav--primary .md-nav__item--section:first-child > label.md-nav__link {
+  margin-top: 4px;
+}
+
+/* Active page: ink + weight + thin rule — no pill fill */
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav__link,
+.md-nav--primary a.md-nav__link--active {
+  color: var(--ink);
+  background: transparent;
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+/* Nested section pages sit slightly indented */
+.md-nav--primary .md-nav__item--section > .md-nav .md-nav__link {
+  padding-left: 12px;
+}
+
+/* Hide in-page TOC under the current page — right rail already has it */
+.md-nav--primary .md-nav__item--active:not(.md-nav__item--section) > .md-nav {
+  display: none;
+}
+
+/* Desktop: section labels are non-interactive (always expanded); hide chevrons.
+   Phone drawer: keep arrows + pointer events so nested sections drill in. */
+@media screen and (min-width: 1220px) {
+  .md-nav--primary .md-nav__item--section > .md-nav__link,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link {
+    pointer-events: none;
+  }
+
+  .md-nav--primary .md-nav__item--section > .md-nav__link .md-nav__icon,
+  .md-nav--primary .md-nav__item--section > label.md-nav__link .md-nav__icon {
+    display: none;
+  }
+}
+
+.md-nav--primary .md-nav__icon {
+  opacity: 0.45;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  margin-right: 4px;
+  color: var(--ink-tertiary);
+}
+
+/* Right TOC — same quiet language as left rail */
+.md-sidebar--secondary {
+  border-left: 0 !important;
+}
+
+/*
+ * Material: [dir=ltr] .md-nav--secondary .md-nav__list { padding-left: .6rem }
+ * Zero that so the label and top-level items share one left edge.
+ */
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary > .md-nav__list,
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary .md-nav__list,
+.md-sidebar--secondary .md-nav--secondary > .md-nav__list,
+.md-sidebar--secondary .md-nav--secondary .md-nav__list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.md-sidebar--secondary .md-nav--secondary > .md-nav__title,
+.md-nav--secondary .md-nav__title {
+  color: var(--ink-tertiary);
+  background: transparent;
+  box-shadow: none;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* Shared --yg-toc-inset with top-level links */
+  --yg-toc-inset: 12px;
+  padding: 0 0 8px var(--yg-toc-inset);
+  height: auto;
+  line-height: 1.3;
+  display: block;
+}
+
+.md-sidebar--secondary .md-nav--secondary > .md-nav__title .md-nav__icon,
+.md-nav--secondary .md-nav__title .md-nav__icon {
+  display: none !important;
+}
+
+[dir=ltr] .md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link,
+.md-sidebar--secondary .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link,
+.md-nav--secondary .md-nav__link {
+  color: var(--ink-secondary);
+  font-size: 12.5px;
+  border-radius: 0;
+  margin: 0;
+  --yg-toc-inset: 12px;
+  padding: 4px 0 4px var(--yg-toc-inset);
+  background: transparent;
+  box-shadow: none;
+  border-left: 0 !important;
+}
+
+.md-nav--secondary .md-nav__link:hover,
+.md-nav--secondary .md-nav__link:focus {
+  color: var(--ink);
+  background: transparent;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  color: var(--ink);
+  font-weight: 600;
+  background: tra
