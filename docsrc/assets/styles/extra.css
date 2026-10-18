@@ -15,7 +15,7 @@
   --md-primary-bg-color: var(--panel);
   --md-accent-fg-color: var(--accent);
   --md-accent-fg-color--transparent: var(--accent-soft);
-  --md-typeset-a-color: var(--accent);
+  --md-typeset-a-color: var(--link, var(--accent));
   --md-typeset-color: var(--ink);
   --md-footer-bg-color: transparent;
   --md-footer-bg-color--dark: transparent;
@@ -36,7 +36,7 @@
   --md-primary-bg-color: var(--bg);
   --md-accent-fg-color: var(--accent);
   --md-accent-fg-color--transparent: var(--accent-soft);
-  --md-typeset-a-color: var(--accent);
+  --md-typeset-a-color: var(--link, var(--accent));
   --md-code-bg-color: var(--accent-soft);
 }
 
@@ -701,7 +701,7 @@ body {
 }
 
 .yg-site-footer a {
-  color: var(--accent);
+  color: var(--link, var(--accent));
 }
 
 .md-footer {
@@ -826,4 +826,32 @@ body {
   .yg-docs-topbar {
     width: calc(100% - 12px);
   }
+}
+
+/* Accessibility: in-text links are underlined (WCAG 1.4.1), screen-reader-only labels */
+.md-typeset p a:not(.md-button),
+.md-typeset li a:not(.md-button),
+.md-typeset td a:not(.md-button),
+.yg-site-footer p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.yg-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Pager "Previous / Next" labels: full-opacity tertiary ink for AA contrast */
+.yg-docs-pager .md-footer__direction {
+  color: var(--ink-tertiary);
+  opacity: 1;
 }
