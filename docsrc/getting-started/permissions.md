@@ -34,15 +34,18 @@ Grant these in your tenant for the YeetnGreet app (Enterprise applications → Y
 | `UserAuthenticationMethod.ReadWrite.All` | Remove the leaver's MFA methods: Authenticator, phone, FIDO2, Windows Hello, software OATH, and email. |
 | `LicenseAssignment.ReadWrite.All` | Assign licenses at onboard, remove them at offboard, and read license SKUs for the license audit. |
 | `GroupMember.ReadWrite.All` | Add new hires to groups and remove leavers from groups. |
-| `RoleManagement.ReadWrite.Directory` | Remove Entra admin role assignments from leavers. |
-| `Directory.ReadWrite.All` | Read tenant details, memberships, and direct reports, and update directory links the narrower permissions above don't cover. |
+| `RoleManagement.ReadWrite.Directory` | **Optional.** Remove Entra admin role assignments from leavers. Only needed if you use **Remove Entra directory roles**. Without it, the app greys out that action and the job reports the step as **Skipped**. |
+| `Directory.Read.All` | Read-only: tenant details, verified domains, and group and role memberships. YeetnGreet never writes with this permission. |
 | `MailboxSettings.ReadWrite` | Set the leaver's out-of-office auto-reply. |
 | `Files.ReadWrite.All` | Share the leaver's OneDrive with their manager or the handoff person. |
-| `DeviceManagementManagedDevices.ReadWrite.All` | Find the leaver's Intune-managed devices. |
-| `DeviceManagementManagedDevices.PrivilegedOperations.All` | Retire those Intune devices. Requires **admin consent**. Without consent, the app greys out **Retire**. Only needed if you use **Retire Intune devices**. |
+| `DeviceManagementManagedDevices.Read.All` | Find the leaver's Intune-managed devices (read only). Only needed if you use **Retire Intune devices**. |
+| `DeviceManagementManagedDevices.PrivilegedOperations.All` | **Optional.** Retire those Intune devices. Requires **admin consent**. Without consent, the app greys out **Retire**. Only needed if you use **Retire Intune devices**. |
 | `Reports.Read.All` | Read Microsoft 365 mail activity for the **Unused licenses** and **License audit** reports. |
 
 YeetnGreet does **not** request application `Mail.Send`. Report email delivery is interactive-only (see below).
+
+!!! tip "Why role removal is optional"
+    `RoleManagement.ReadWrite.Directory` can assign any Entra role, including Global Administrator. YeetnGreet only uses it to **remove** admin roles from leavers, so you can leave it out. If it isn't granted, **Remove Entra directory roles** is greyed out with a short explanation, and offboarding jobs (including scheduled and batch jobs) skip that step and report it as **Skipped**, not failed. Remove the leaver's admin roles in the Entra admin center instead.
 
 ### Office 365 Exchange Online
 
@@ -64,9 +67,21 @@ Microsoft requires an admin role on the app as well as the permissions above for
 
 ## Interactive: delegated permissions
 
-When an admin signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions. They match the app-only Graph names above, plus `Directory.AccessAsUser.All` (act as the signed-in admin) and `Mail.Send` (report email):
+When an admin signs in, YeetnGreet requests these **delegated** Microsoft Graph permissions.
 
-`User.ReadWrite.All`, `User.EnableDisableAccount.All`, `User-PasswordProfile.ReadWrite.All`, `Directory.AccessAsUser.All`, `User.RevokeSessions.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All`, `MailboxSettings.ReadWrite`, `GroupMember.ReadWrite.All`, `RoleManagement.ReadWrite.Directory`, `Directory.ReadWrite.All`, `Files.ReadWrite.All`, `DeviceManagementManagedDevices.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`, `Reports.Read.All`, `Mail.Send`
+**Required:**
+
+`User.ReadWrite.All`, `User.EnableDisableAccount.All`, `User-PasswordProfile.ReadWrite.All`, `User.Read` (your organization's verified domains), `User.RevokeSessions.All`, `LicenseAssignment.ReadWrite.All`, `UserAuthenticationMethod.ReadWrite.All`, `MailboxSettings.ReadWrite`, `GroupMember.ReadWrite.All`, `Files.ReadWrite.All`, `Reports.Read.All`
+
+**Optional** (each turns on one feature; without it, sign-in still works and that feature is greyed out):
+
+| Permission | Feature |
+| --- | --- |
+| `DeviceManagementManagedDevices.Read.All` and `DeviceManagementManagedDevices.PrivilegedOperations.All` | **Retire Intune devices** |
+| `Mail.Send` | Report email delivery |
+| `RoleManagement.ReadWrite.Directory` | **Remove Entra directory roles** from leavers |
+
+If your tenant hasn't consented to the optional permissions, YeetnGreet signs in with the required ones only and shows one note listing what's missing.
 
 Interactive sign-in uses Microsoft's **Microsoft Graph Command Line Tools** app. The first time, approve the consent prompt and tick **Consent on behalf of your organization**, or grant admin consent to that app in your tenant.
 
@@ -74,7 +89,7 @@ Consent alone doesn't let an admin run the job. The signed-in account needs an a
 
 | Role on the signed-in account | Why |
 | --- | --- |
-| **User Administrator** (or Global Administrator / Privileged Role Administrator) | Required to disable accounts and reset passwords. YeetnGreet checks for it and stops before a Live job if it's missing. |
+| **User Administrator** (or Global Administrator / Privileged Role Administrator) | Required to disable accounts and reset passwords. YeetnGreet checks for it when it can read your roles and stops before a Live job if it's missing. |
 | **Exchange Administrator** | Needed for the Exchange Online sign-in that runs the mailbox steps. |
 
 !!! note "Report email delivery"
@@ -82,6 +97,7 @@ Consent alone doesn't let an admin run the job. The signed-in account needs an a
 
 ## What YeetnGreet does *not* need
 
+- **Broad directory write or site-wide access:** YeetnGreet doesn't request `Directory.ReadWrite.All`, `Directory.AccessAsUser.All`, `Sites.FullControl.All`, or `DeviceManagementManagedDevices.ReadWrite.All`. Each step uses the narrowest permission Microsoft offers for it.
 - **Access beyond your work account to use YeetnGreet itself:** signing in to YeetnGreet for team and license features only uses `User.Read` against your own work account. It never grants access to your tenant's data.
 - **On-premises Active Directory:** YeetnGreet works with cloud-only Microsoft 365 (Entra ID). On-premises and hybrid Active Directory aren't supported yet.
 - **Application `Mail.Send`:** not requested. Email reports are interactive-only (delegated `Mail.Send`).
@@ -91,8 +107,12 @@ Consent alone doesn't let an admin run the job. The signed-in account needs an a
 1. Grant admin consent for every Microsoft Graph and Exchange Online permission above
 2. App-only: assign **Exchange Administrator** and **User Administrator** to the YeetnGreet enterprise app
 3. Interactive: confirm the signed-in admin account has **User Administrator** (or higher) and **Exchange Administrator**
-4. If you use **Retire Intune devices**: confirm admin consent for `DeviceManagementManagedDevices.PrivilegedOperations.All` (otherwise Retire stays greyed out)
-5. Run a **Preview** in [First run](first-run.md) before any Live job
+4. If you use **Retire Intune devices**: confirm admin consent for `DeviceManagementManagedDevices.Read.All` and `DeviceManagementManagedDevices.PrivilegedOperations.All` (otherwise Retire stays greyed out)
+5. If you use **Remove Entra directory roles**: confirm admin consent for `RoleManagement.ReadWrite.Directory` (otherwise that action stays greyed out and is skipped)
+6. Run a **Preview** in [First run](first-run.md) before any Live job
+
+!!! note "Updating from an earlier version"
+    Grant consent for the new permissions first (`Directory.Read.All` and `DeviceManagementManagedDevices.Read.All` for app-only; `User.Read` and `DeviceManagementManagedDevices.Read.All` for interactive), then remove the old ones. Removing a permission from the app doesn't take back consent your tenant already gave, so remove `Directory.ReadWrite.All`, `Sites.FullControl.All`, `Directory.AccessAsUser.All`, and `DeviceManagementManagedDevices.ReadWrite.All` in Enterprise applications → YeetnGreet → **Permissions** once the new set works.
 
 ## Related
 
