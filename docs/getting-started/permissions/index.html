@@ -419,6 +419,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#app-only-your-own-app-in-each-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        App-only: your own app in each tenant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#app-only-application-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -453,10 +464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directory-roles-for-the-yeetngreet-app" class="md-nav__link">
+  <a href="#roles-for-your-app-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directory roles for the YeetnGreet app
+        Roles for your app registration
       
     </span>
   </a>
@@ -465,6 +476,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-app-only-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping app-only safe
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1286,6 +1308,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#app-only-your-own-app-in-each-tenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        App-only: your own app in each tenant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#app-only-application-permissions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1320,10 +1353,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directory-roles-for-the-yeetngreet-app" class="md-nav__link">
+  <a href="#roles-for-your-app-registration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directory roles for the YeetnGreet app
+        Roles for your app registration
       
     </span>
   </a>
@@ -1332,6 +1365,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-app-only-safe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping app-only safe
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1418,9 +1462,9 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>App-only</strong> (recommended for unattended and scheduled jobs)</td>
-<td>The YeetnGreet app, with a certificate, with no admin account signed in</td>
-<td>The <strong>application permissions</strong> and <strong>directory roles</strong> below</td>
+<td><strong>App-only</strong> (needed for scheduled jobs)</td>
+<td><strong>Your own app registration in this tenant</strong>, signing in with a certificate key that stays on the technician's PC. No admin account is signed in.</td>
+<td>The <strong>application permissions</strong> and <strong>roles</strong> below, on your app registration</td>
 </tr>
 <tr>
 <td><strong>Interactive</strong></td>
@@ -1430,8 +1474,32 @@
 </tbody>
 </table>
 <p>Either way, tokens are requested for the <strong>tenant you selected</strong>. YeetnGreet refuses to run a job if Microsoft returns a token for a different tenant.</p>
+<h2 id="app-only-your-own-app-in-each-tenant">App-only: your own app in each tenant<a class="headerlink" href="#app-only-your-own-app-in-each-tenant" title="Permanent link">&para;</a></h2>
+<p>YeetnGreet LLC doesn't own an app or hold a key for your tenant, and there's no shared YeetnGreet app to consent to. For app-only, each tenant gets <strong>its own single-tenant app registration</strong>, created in that tenant, and the technician's PC holds <strong>its own certificate key</strong> for it. One key can only ever open one tenant.</p>
+<ol>
+<li>In the tenant: Entra admin center → <strong>App registrations</strong> → <strong>New registration</strong>. Supported account types: <strong>Accounts in this organizational directory only (Single tenant)</strong>. No redirect URI and no client secret.</li>
+<li>Add the <strong>application permissions</strong> below and grant admin consent. Add the <strong>roles</strong> below.</li>
+<li>In YeetnGreet: <strong>Tenants</strong> → select the tenant → <strong>App-only for scheduled jobs</strong> → paste the app's Application (client) ID → <strong>Create key on this PC</strong>.</li>
+<li>Upload the <code>.cer</code> file YeetnGreet saved to the app registration (<strong>Certificates &amp; secrets</strong> → <strong>Certificates</strong> → <strong>Upload certificate</strong>), then click <strong>Save</strong> in YeetnGreet.</li>
+</ol>
+<p>About the key:</p>
+<ul>
+<li>It's created on the technician's PC and <strong>can't be exported</strong>: in the PC's TPM chip when it has one, otherwise in Windows key storage with export turned off. Only the public certificate (<code>.cer</code>) leaves the PC.</li>
+<li>It's valid for <strong>12 months</strong> at most. YeetnGreet warns <strong>30 days</strong> before it expires.</li>
+<li><strong>Any other key is blocked, not just flagged.</strong> If a certificate's private key can be exported, or the certificate is valid for more than 12 months, YeetnGreet won't save it and scheduled jobs won't sign in with it. The Tenants page shows the key as <strong>Blocked</strong>. Create a new key with <strong>Create key on this PC</strong>, upload its <code>.cer</code>, and click <strong>Save</strong>. The 30-day expiry notice is only a warning: jobs keep running until the key expires.</li>
+<li><strong>Client secrets and PFX files aren't supported.</strong> Each PC that runs scheduled jobs creates its own key.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Rotating the key</p>
+<ol>
+<li><strong>Create new key</strong> on the Tenants page and upload the new <code>.cer</code> to the same app registration (keep the old one for now).</li>
+<li>Click <strong>Save</strong> in YeetnGreet to switch to the new key, and check the next job signs in.</li>
+<li>Delete the old certificate from the app registration, then <strong>Delete old key</strong> in YeetnGreet.</li>
+</ol>
+<p>If a PC is lost, delete its certificate from the app registration straight away. That alone stops the key working.</p>
+</div>
 <h2 id="app-only-application-permissions">App-only: application permissions<a class="headerlink" href="#app-only-application-permissions" title="Permanent link">&para;</a></h2>
-<p>Grant these in your tenant for the YeetnGreet app (Enterprise applications → YeetnGreet → <strong>Permissions</strong> → <strong>Grant admin consent</strong>). All are <strong>Application</strong> permissions.</p>
+<p>Grant these on <strong>your app registration in this tenant</strong> (App registrations → your app → <strong>API permissions</strong> → <strong>Grant admin consent</strong>). All are <strong>Application</strong> permissions.</p>
 <h3 id="microsoft-graph">Microsoft Graph<a class="headerlink" href="#microsoft-graph" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1471,11 +1539,11 @@
 </tr>
 <tr>
 <td><code>RoleManagement.ReadWrite.Directory</code></td>
-<td>Remove Entra admin role assignments from leavers.</td>
+<td><strong>Optional — leave it out unless you need it.</strong> Remove Entra admin role assignments from leavers. Only needed if you use <strong>Remove Entra directory roles</strong>. Without it, the app greys out that action and the job reports the step as <strong>Skipped</strong>.</td>
 </tr>
 <tr>
-<td><code>Directory.ReadWrite.All</code></td>
-<td>Read tenant details, memberships, and direct reports, and update directory links the narrower permissions above don't cover.</td>
+<td><code>Directory.Read.All</code></td>
+<td>Read-only: tenant details, verified domains, and group and role memberships. YeetnGreet never writes with this permission.</td>
 </tr>
 <tr>
 <td><code>MailboxSettings.ReadWrite</code></td>
@@ -1486,12 +1554,12 @@
 <td>Share the leaver's OneDrive with their manager or the handoff person.</td>
 </tr>
 <tr>
-<td><code>DeviceManagementManagedDevices.ReadWrite.All</code></td>
-<td>Find the leaver's Intune-managed devices.</td>
+<td><code>DeviceManagementManagedDevices.Read.All</code></td>
+<td>Find the leaver's Intune-managed devices (read only). Only needed if you use <strong>Retire Intune devices</strong>.</td>
 </tr>
 <tr>
 <td><code>DeviceManagementManagedDevices.PrivilegedOperations.All</code></td>
-<td>Retire those Intune devices. Requires <strong>admin consent</strong>. Without consent, the app greys out <strong>Retire</strong>. Only needed if you use <strong>Retire Intune devices</strong>.</td>
+<td><strong>Optional.</strong> Retire those Intune devices. Requires <strong>admin consent</strong>. Without consent, the app greys out <strong>Retire</strong>. Only needed if you use <strong>Retire Intune devices</strong>.</td>
 </tr>
 <tr>
 <td><code>Reports.Read.All</code></td>
@@ -1500,6 +1568,10 @@
 </tbody>
 </table>
 <p>YeetnGreet does <strong>not</strong> request application <code>Mail.Send</code>. Report email delivery is interactive-only (see below).</p>
+<div class="admonition tip">
+<p class="admonition-title">Why role removal is optional</p>
+<p><code>RoleManagement.ReadWrite.Directory</code> can assign any Entra role, including Global Administrator. YeetnGreet only uses it to <strong>remove</strong> admin roles from leavers, so you can leave it out. If it isn't granted, <strong>Remove Entra directory roles</strong> is greyed out with a short explanation, and offboarding jobs (including scheduled and batch jobs) skip that step and report it as <strong>Skipped</strong>, not failed. Remove the leaver's admin roles in the Entra admin center instead.</p>
+</div>
 <h3 id="office-365-exchange-online">Office 365 Exchange Online<a class="headerlink" href="#office-365-exchange-online" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1515,8 +1587,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="directory-roles-for-the-yeetngreet-app">Directory roles for the YeetnGreet app<a class="headerlink" href="#directory-roles-for-the-yeetngreet-app" title="Permanent link">&para;</a></h3>
-<p>Microsoft requires an admin role on the app as well as the permissions above for some actions. In your tenant, assign these roles to the <strong>YeetnGreet</strong> enterprise application (Entra admin center → Roles &amp; admins):</p>
+<h3 id="roles-for-your-app-registration">Roles for your app registration<a class="headerlink" href="#roles-for-your-app-registration" title="Permanent link">&para;</a></h3>
+<p>Microsoft requires a role on the app as well as the permissions above for some actions. Give it the smallest ones:</p>
 <table>
 <thead>
 <tr>
@@ -1526,22 +1598,55 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Exchange Administrator</strong></td>
-<td>Exchange Online only accepts <code>Exchange.ManageAsApp</code> when the app also holds an Exchange admin role. Needed for the mailbox steps.</td>
+<td><strong>User Administrator</strong> (Entra role)</td>
+<td>Microsoft requires at least this role for an app to reset passwords. Assign it in Entra admin center → <strong>Roles &amp; admins</strong> → User Administrator → <strong>Add assignments</strong> → your app.</td>
 </tr>
 <tr>
-<td><strong>User Administrator</strong></td>
-<td>Microsoft requires at least this role for an app to reset passwords.</td>
+<td><strong>A custom Exchange role group</strong> with <code>Mail Recipients</code>, <code>Distribution Groups</code> and <code>Security Group Creation and Membership</code> (recommended), <strong>or</strong> the <strong>Exchange Recipient Administrator</strong> Entra role</td>
+<td>Exchange Online only accepts <code>Exchange.ManageAsApp</code> when the app also holds an Exchange role. These cover the mailbox steps: convert to shared, Full Access, hide from the address list, and remove the leaver from distribution lists. A custom role group can also be limited to some mailboxes.</td>
 </tr>
 </tbody>
 </table>
+<p>Don't give the app <strong>Exchange Administrator</strong> or <strong>Global Administrator</strong>. Neither is needed.</p>
 <div class="admonition warning">
 <p class="admonition-title">Offboarding an admin</p>
 <p>Microsoft blocks lower-privileged roles from disabling, resetting, or removing MFA for <strong>other administrators</strong>. If you offboard someone who holds an admin role, the app may need <strong>Privileged Authentication Administrator</strong>. Otherwise, do those steps in the Entra admin center.</p>
 </div>
+<h2 id="keeping-app-only-safe">Keeping app-only safe<a class="headerlink" href="#keeping-app-only-safe" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Limit where the app can sign in from.</strong> Conditional Access for workload identities can block the app's sign-ins from anywhere except your technicians' office IP addresses. It needs Microsoft Entra Workload ID Premium, and it works for single-tenant apps like this one.</li>
+<li><strong>Watch its sign-ins.</strong> Entra admin center → <strong>Sign-in logs</strong> → <strong>Service principal sign-ins</strong>, filtered by the app's client ID. Alert on sign-ins from IP addresses you don't know.</li>
+<li><strong>Alert on changes.</strong> Watch the audit log for new certificates or secrets on the app, new API permissions or consent, and the app being added to a role. If you didn't plan the change, treat it as an incident.</li>
+<li><strong>Turn it off fast.</strong> Entra admin center → <strong>Enterprise applications</strong> → your app → <strong>Properties</strong> → <strong>Enabled for users to sign in?</strong> → <strong>No</strong>. That stops new sign-ins at once. Then delete its certificate from the app registration.</li>
+</ul>
 <h2 id="interactive-delegated-permissions">Interactive: delegated permissions<a class="headerlink" href="#interactive-delegated-permissions" title="Permanent link">&para;</a></h2>
-<p>When an admin signs in, YeetnGreet requests these <strong>delegated</strong> Microsoft Graph permissions. They match the app-only Graph names above, plus <code>Directory.AccessAsUser.All</code> (act as the signed-in admin) and <code>Mail.Send</code> (report email):</p>
-<p><code>User.ReadWrite.All</code>, <code>User.EnableDisableAccount.All</code>, <code>User-PasswordProfile.ReadWrite.All</code>, <code>Directory.AccessAsUser.All</code>, <code>User.RevokeSessions.All</code>, <code>LicenseAssignment.ReadWrite.All</code>, <code>UserAuthenticationMethod.ReadWrite.All</code>, <code>MailboxSettings.ReadWrite</code>, <code>GroupMember.ReadWrite.All</code>, <code>RoleManagement.ReadWrite.Directory</code>, <code>Directory.ReadWrite.All</code>, <code>Files.ReadWrite.All</code>, <code>DeviceManagementManagedDevices.ReadWrite.All</code>, <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code>, <code>Reports.Read.All</code>, <code>Mail.Send</code></p>
+<p>When an admin signs in, YeetnGreet requests these <strong>delegated</strong> Microsoft Graph permissions.</p>
+<p><strong>Required:</strong></p>
+<p><code>User.ReadWrite.All</code>, <code>User.EnableDisableAccount.All</code>, <code>User-PasswordProfile.ReadWrite.All</code>, <code>User.Read</code> (your organization's verified domains), <code>User.RevokeSessions.All</code>, <code>LicenseAssignment.ReadWrite.All</code>, <code>UserAuthenticationMethod.ReadWrite.All</code>, <code>MailboxSettings.ReadWrite</code>, <code>GroupMember.ReadWrite.All</code>, <code>Files.ReadWrite.All</code>, <code>Reports.Read.All</code></p>
+<p><strong>Optional</strong> (each turns on one feature; without it, sign-in still works and that feature is greyed out):</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DeviceManagementManagedDevices.Read.All</code> and <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code></td>
+<td><strong>Retire Intune devices</strong></td>
+</tr>
+<tr>
+<td><code>Mail.Send</code></td>
+<td>Report email delivery</td>
+</tr>
+<tr>
+<td><code>RoleManagement.ReadWrite.Directory</code></td>
+<td><strong>Remove Entra directory roles</strong> from leavers</td>
+</tr>
+</tbody>
+</table>
+<p>If your tenant hasn't consented to the optional permissions, YeetnGreet signs in with the required ones only and shows one note listing what's missing.</p>
 <p>Interactive sign-in uses Microsoft's <strong>Microsoft Graph Command Line Tools</strong> app. The first time, approve the consent prompt and tick <strong>Consent on behalf of your organization</strong>, or grant admin consent to that app in your tenant.</p>
 <p>Consent alone doesn't let an admin run the job. The signed-in account needs an active admin role too:</p>
 <table>
@@ -1554,7 +1659,7 @@
 <tbody>
 <tr>
 <td><strong>User Administrator</strong> (or Global Administrator / Privileged Role Administrator)</td>
-<td>Required to disable accounts and reset passwords. YeetnGreet checks for it and stops before a Live job if it's missing.</td>
+<td>Required to disable accounts and reset passwords. YeetnGreet checks for it when it can read your roles and stops before a Live job if it's missing.</td>
 </tr>
 <tr>
 <td><strong>Exchange Administrator</strong></td>
@@ -1568,6 +1673,7 @@
 </div>
 <h2 id="what-yeetngreet-does-not-need">What YeetnGreet does <em>not</em> need<a class="headerlink" href="#what-yeetngreet-does-not-need" title="Permanent link">&para;</a></h2>
 <ul>
+<li><strong>Broad directory write or site-wide access:</strong> YeetnGreet doesn't request <code>Directory.ReadWrite.All</code>, <code>Directory.AccessAsUser.All</code>, <code>Sites.FullControl.All</code>, or <code>DeviceManagementManagedDevices.ReadWrite.All</code>. Each step uses the narrowest permission Microsoft offers for it.</li>
 <li><strong>Access beyond your work account to use YeetnGreet itself:</strong> signing in to YeetnGreet for team and license features only uses <code>User.Read</code> against your own work account. It never grants access to your tenant's data.</li>
 <li><strong>On-premises Active Directory:</strong> YeetnGreet works with cloud-only Microsoft 365 (Entra ID). On-premises and hybrid Active Directory aren't supported yet.</li>
 <li><strong>Application <code>Mail.Send</code>:</strong> not requested. Email reports are interactive-only (delegated <code>Mail.Send</code>).</li>
@@ -1575,11 +1681,16 @@
 <h2 id="checklist-for-each-tenant">Checklist for each tenant<a class="headerlink" href="#checklist-for-each-tenant" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Grant admin consent for every Microsoft Graph and Exchange Online permission above</li>
-<li>App-only: assign <strong>Exchange Administrator</strong> and <strong>User Administrator</strong> to the YeetnGreet enterprise app</li>
+<li>App-only: create a <strong>single-tenant app registration</strong> in the tenant, give it <strong>User Administrator</strong> and the Exchange role group (or <strong>Exchange Recipient Administrator</strong>), then create its key in YeetnGreet and upload the <code>.cer</code></li>
 <li>Interactive: confirm the signed-in admin account has <strong>User Administrator</strong> (or higher) and <strong>Exchange Administrator</strong></li>
-<li>If you use <strong>Retire Intune devices</strong>: confirm admin consent for <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code> (otherwise Retire stays greyed out)</li>
+<li>If you use <strong>Retire Intune devices</strong>: confirm admin consent for <code>DeviceManagementManagedDevices.Read.All</code> and <code>DeviceManagementManagedDevices.PrivilegedOperations.All</code> (otherwise Retire stays greyed out)</li>
+<li>If you use <strong>Remove Entra directory roles</strong>: confirm admin consent for <code>RoleManagement.ReadWrite.Directory</code> (otherwise that action stays greyed out and is skipped)</li>
 <li>Run a <strong>Preview</strong> in <a href="../first-run/">First run</a> before any Live job</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Updating from an earlier version</p>
+<p>Grant consent for the new permissions first (<code>Directory.Read.All</code> and <code>DeviceManagementManagedDevices.Read.All</code> for app-only; <code>User.Read</code> and <code>DeviceManagementManagedDevices.Read.All</code> for interactive), then remove the old ones. Removing a permission from the app doesn't take back consent your tenant already gave, so remove <code>Directory.ReadWrite.All</code>, <code>Sites.FullControl.All</code>, <code>Directory.AccessAsUser.All</code>, and <code>DeviceManagementManagedDevices.ReadWrite.All</code> in Enterprise applications → <strong>Permissions</strong> (on your app-only app registration, and on Microsoft Graph Command Line Tools for interactive) once the new set works. If you set up app-only with an earlier version, move to one single-tenant app per tenant with a key created in YeetnGreet, remove the <strong>Exchange Administrator</strong> role from the app, and delete any old client secrets and certificates from it.</p>
+</div>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../install/">Install</a></li>
