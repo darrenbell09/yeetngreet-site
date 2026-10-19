@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reserve a founding beta slot: YeetnGreet</title>
+  <meta name="description" content="Opening the YeetnGreet waitlist form (Google Forms)." />
+  <meta name="robots" content="noindex, follow" />
+  <meta http-equiv="refresh" content="3;url=https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" />
+  <link rel="canonical" href="https://yeetngreet.app/go/founding/" />
+  <link rel="icon" href="/favicon.ico?v=20261015f" sizes="any" />
+  <link rel="stylesheet" href="/styles.css?v=20261018h" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("yeetngreet-site-theme");
+      document.documentElement.setAttribute("data-theme", t === "dark" || t === "light" ? t : "light");
+    })();
+  </script>
+  <script src="/analytics.js?v=20261018h"></script>
+</head>
+<body>
+  <div class="shell">
+    <main id="main" class="page">
+      <h1>Reserve a founding beta slot</h1>
+      <p class="lede">Taking you to the sign-up form on Google Forms…</p>
+      <p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform">Continue to the form</a></p>
+      <p class="privacy-back"><a href="/">Back to YeetnGreet</a></p>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var form = "https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform";
+      var gone = false;
+      function go() { if (!gone) { gone = true; window.location.replace(form); } }
+      // Give the cookie-free analytics beacon a moment to load (when enabled), then forward.
+      (window.ygAnalyticsReady || Promise.resolve(false)).then(function (on) {
+        setTimeout(go, on ? 600 : 0);
+      });
+      setTimeout(go, 1500);
+    })();
+  </script>
+</body>
+</html>

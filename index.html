@@ -5,14 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses</title>
   <meta name="description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
-  <meta name="yeetngreet-build" content="20261018f" />
+  <link rel="canonical" href="https://yeetngreet.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="YeetnGreet" />
+  <meta property="og:url" content="https://yeetngreet.app/" />
+  <meta property="og:title" content="YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses" />
+  <meta property="og:description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
+  <meta property="og:image" content="https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses" />
+  <meta name="twitter:description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
+  <meta name="twitter:image" content="https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" />
+  <meta name="twitter:image:alt" content="YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." />
+  <meta name="yeetngreet-build" content="20261018h" />
   <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
   <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261018f" />
+  <link rel="stylesheet" href="styles.css?v=20261018h" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
@@ -22,6 +37,7 @@
       );
     })();
   </script>
+  <script src="analytics.js?v=20261018h" defer></script>
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
@@ -45,14 +61,15 @@
       </nav>
     </header>
 
+    <main id="main">
     <section class="hero hero-lifecycle">
       <div class="hero-copy">
         <p class="hero-eyebrow reveal">Identity lifecycle for Microsoft 365</p>
         <h1 class="reveal">Onboard. Offboard. Stop wasting licenses.</h1>
         <p class="lede reveal reveal-delay-1">YeetnGreet runs joiners, movers, and leavers from templates your Admins set once. Technicians run them the same way every time, and license reports show what to reclaim when people leave. One tenant or many.</p>
         <div class="cta reveal reveal-delay-2">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" target="_blank" rel="noopener noreferrer">Join the pre-release waitlist</a>
-          <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" target="_blank" rel="noopener noreferrer">Founding beta</a>
+          <a class="btn primary" href="/go/waitlist/" target="_blank" rel="noopener">Join the pre-release waitlist</a>
+          <a class="btn ghost" href="/go/founding/" target="_blank" rel="noopener">Founding beta</a>
         </div>
         <p class="hero-note reveal reveal-delay-2">Now in prerelease. Founding beta has limited early slots: same form, mention founding when you sign up.</p>
       </div>
@@ -357,19 +374,25 @@
 
     <section id="pricing" class="pricing-section">
       <h2 class="section-label">Pricing</h2>
-      <p class="section-note">Plans are based on licensed users pooled across your account. Free covers 1–25 licensed users with license reports and one tenant; paid bands start at $19/mo. Pay yearly and save 20%.</p>
+      <p class="section-note">Plans are based on licensed users pooled across your account. Free covers 1–25 licensed users with a limited license-report preview and one tenant; paid bands start at $19/mo. Pay yearly and save about 20%.</p>
       <p class="pricing-teaser">
         <strong>Free → Enterprise</strong>
         <span>From $0 to custom quote, by licensed-user band.</span>
         <a class="btn ghost" href="pricing.html">Full pricing</a>
       </p>
     </section>
+    </main>
 
     <footer>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="terms.html">Terms</a>
+        <a href="refunds.html">Refunds</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
       <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
     </footer>
   </div>
-  <script src="theme.js?v=20261018c"></script>
+  <script src="theme.js?v=20261018h"></script>
   <script>
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduceMotion) {

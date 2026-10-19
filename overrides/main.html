@@ -28,7 +28,42 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261015f" />
 {% endblock %}
 
+{% block htmltitle %}
+  {% if page and page.is_homepage %}
+    <title>YeetnGreet docs: Microsoft 365 onboarding, offboarding, and license reports</title>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
 {% block extrahead %}
+  {#- Link previews (LinkedIn, X, Slack). Image is rendered by the Pages build from og/og-image.html. -#}
+  {% set yg_og_image = "https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" %}
+  {% set yg_og_alt = "YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." %}
+  {% if page and page.is_homepage %}
+    {% set yg_title = "YeetnGreet docs: Microsoft 365 onboarding, offboarding, and license reports" %}
+  {% elif page and page.title %}
+    {% set yg_title = (page.title | striptags) ~ " - YeetnGreet docs" %}
+  {% else %}
+    {% set yg_title = config.site_name %}
+  {% endif %}
+  {% set yg_desc = (page.meta.description if page and page.meta and page.meta.description else config.site_description) %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="YeetnGreet">
+  {% if page and page.canonical_url %}<meta property="og:url" content="{{ page.canonical_url }}">{% endif %}
+  <meta property="og:title" content="{{ yg_title | e }}">
+  <meta property="og:description" content="{{ yg_desc | e }}">
+  <meta property="og:image" content="{{ yg_og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ yg_og_alt }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ yg_title | e }}">
+  <meta name="twitter:description" content="{{ yg_desc | e }}">
+  <meta name="twitter:image" content="{{ yg_og_image }}">
+  <meta name="twitter:image:alt" content="{{ yg_og_alt }}">
+  {#- Cookie-free Cloudflare Web Analytics; token lives in /analytics.js (off while empty). -#}
+  <script src="/analytics.js?v=20261018h" defer></script>
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");

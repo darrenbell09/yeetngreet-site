@@ -1,3 +1,7 @@
+---
+description: YeetnGreet docs for IT admins. Install the Windows app, onboard and offboard Microsoft 365 users from admin-set templates, and run license reports to reclaim unused licenses.
+---
+
 # YeetnGreet docs
 
 YeetnGreet helps **IT admins** onboard and offboard Microsoft 365 users from a Windows PC — without putting tenant data in our cloud.

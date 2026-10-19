@@ -6,7 +6,8 @@
     <span>YeetnGreet</span>
   </a>
 
-  <label class="yg-docs-drawer md-header__button md-icon" for="__drawer" aria-label="Open docs menu" title="Menu">
+  <label class="yg-docs-drawer md-header__button md-icon" for="__drawer" title="Menu">
+    <span class="yg-sr-only">Open docs menu</span>
     {% set icon = config.theme.icon.menu or "material/menu" %}
     {% include ".icons/" ~ icon ~ ".svg" %}
   </label>
