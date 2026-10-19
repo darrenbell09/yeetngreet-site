@@ -32,6 +32,7 @@ About the key:
 
 - It's created on the technician's PC and **can't be exported**: in the PC's TPM chip when it has one, otherwise in Windows key storage with export turned off. Only the public certificate (`.cer`) leaves the PC.
 - It's valid for **12 months** at most. YeetnGreet warns **30 days** before it expires.
+- **Any other key is blocked, not just flagged.** If a certificate's private key can be exported, or the certificate is valid for more than 12 months, YeetnGreet won't save it and scheduled jobs won't sign in with it. The Tenants page shows the key as **Blocked**. Create a new key with **Create key on this PC**, upload its `.cer`, and click **Save**. The 30-day expiry notice is only a warning: jobs keep running until the key expires.
 - **Client secrets and PFX files aren't supported.** Each PC that runs scheduled jobs creates its own key.
 
 !!! tip "Rotating the key"
