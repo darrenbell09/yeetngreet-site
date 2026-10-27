@@ -35,10 +35,14 @@
       </nav>
     {% endif %}
   {% endif %}
-  <nav class="footer-links" aria-label="Legal">
+  <nav class="footer-links" aria-label="Footer">
+    <a href="{{ config.extra.product | d('/product.html') }}">Product</a>
+    <a href="{{ config.extra.docs_home | d('/docs/') }}">Docs</a>
+    <a href="{{ config.extra.pricing | d('/pricing.html') }}">Pricing</a>
     <a href="{{ config.extra.terms | d('/terms.html') }}">Terms</a>
     <a href="{{ config.extra.refunds | d('/refunds.html') }}">Refunds</a>
     <a href="{{ config.extra.privacy | d('/privacy.html') }}">Privacy</a>
+    <a href="mailto:support@yeetngreet.app">support@yeetngreet.app</a>
   </nav>
   <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
 </footer>

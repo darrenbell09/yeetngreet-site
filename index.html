@@ -4,30 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses</title>
-  <meta name="description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
+  <meta name="description" content="YeetnGreet runs joiners and leavers from Admin templates. Technicians apply them the same way every time. License reports show what to reclaim." />
   <link rel="canonical" href="https://yeetngreet.app/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="YeetnGreet" />
   <meta property="og:url" content="https://yeetngreet.app/" />
   <meta property="og:title" content="YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses" />
-  <meta property="og:description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
+  <meta property="og:description" content="YeetnGreet runs joiners and leavers from Admin templates. Technicians apply them the same way every time. License reports show what to reclaim." />
   <meta property="og:image" content="https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="YeetnGreet: Microsoft 365 onboarding and offboarding, without wasted licenses" />
-  <meta name="twitter:description" content="YeetnGreet is an identity lifecycle app for Microsoft 365. Admins set onboarding and offboarding templates, Technicians run them the same way every time, and license reports show what to reclaim from inactive users." />
+  <meta name="twitter:description" content="YeetnGreet runs joiners and leavers from Admin templates. Technicians apply them the same way every time. License reports show what to reclaim." />
   <meta name="twitter:image" content="https://yeetngreet.app/docs/assets/social/yeetngreet-og.png" />
   <meta name="twitter:image:alt" content="YeetnGreet: Onboard. Offboard. Stop wasting licenses. Identity lifecycle for Microsoft 365." />
-  <meta name="yeetngreet-build" content="20261018h" />
+  <meta name="yeetngreet-build" content="20261027a" />
   <link rel="icon" href="favicon.ico?v=20261015f" sizes="any" />
   <link rel="icon" href="favicon-32.png?v=20261015f" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=20261015f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261018h" />
+  <link rel="stylesheet" href="styles.css?v=20261027a" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
@@ -52,6 +52,7 @@
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Site">
         <a href="#why">Why</a>
+        <a href="product.html">Product</a>
         <a href="/docs/">Docs</a>
         <a href="pricing.html">Pricing</a>
         <a href="/docs/support/">Support</a>
@@ -62,332 +63,178 @@
     </header>
 
     <main id="main">
-    <section class="hero hero-lifecycle">
+    <section class="hero hero-lean">
       <div class="hero-copy">
-        <p class="hero-eyebrow reveal">Identity lifecycle for Microsoft 365</p>
+        <p class="hero-eyebrow reveal">Now in prerelease · 14-day trial on paid plans</p>
         <h1 class="reveal">Onboard. Offboard. Stop wasting licenses.</h1>
-        <p class="lede reveal reveal-delay-1">YeetnGreet runs joiners, movers, and leavers from templates your Admins set once. Technicians run them the same way every time, and license reports show what to reclaim when people leave. One tenant or many.</p>
+        <p class="lede reveal reveal-delay-1">YeetnGreet runs joiners and leavers from Admin templates. Technicians apply them the same way every time. License reports show what to reclaim.</p>
         <div class="cta reveal reveal-delay-2">
-          <a class="btn primary" href="/go/waitlist/" target="_blank" rel="noopener">Join the pre-release waitlist</a>
-          <a class="btn ghost" href="/go/founding/" target="_blank" rel="noopener">Founding beta</a>
+          <a class="btn primary" href="/go/founding/" target="_blank" rel="noopener">Request founding beta</a>
+          <a class="btn ghost" href="pricing.html">See pricing</a>
         </div>
-        <p class="hero-note reveal reveal-delay-2">Now in prerelease. Founding beta has limited early slots: same form, mention founding when you sign up.</p>
       </div>
-      <ol class="lifecycle-card reveal reveal-delay-2" aria-label="The YeetnGreet user lifecycle">
-        <li><span class="lc-stage">Joiner</span><span class="lc-what">Onboard from an Admin template, required fields enforced</span></li>
-        <li><span class="lc-stage">Mover</span><span class="lc-what">Apply a mover template for the new job title, department, groups, and licenses</span></li>
-        <li><span class="lc-stage">Leaver</span><span class="lc-what">Offboard with a locked checklist: preview, type CONFIRM, run</span></li>
-        <li><span class="lc-stage">Reclaim</span><span class="lc-what">License reports show licenses left on disabled and inactive users</span></li>
-      </ol>
     </section>
 
     <section id="why" class="pains" aria-labelledby="pains-heading">
-      <h2 id="pains-heading" class="section-heading reveal">Where user lifecycle goes wrong</h2>
-      <p class="section-lede reveal">When every technician improvises, the same three problems show up in every Microsoft 365 tenant.</p>
+      <p class="benefit-label reveal">The problem</p>
+      <h2 id="pains-heading" class="section-heading reveal">Where Microsoft 365 lifecycle breaks</h2>
       <div class="pain-grid">
         <article class="pain reveal">
           <p class="pain-num">01</p>
-          <h3>Offboarding skips company policy</h3>
-          <p>A busy tech blocks sign-in and moves on. Sessions stay live, the mailbox isn&rsquo;t converted or handed off, groups and roles stay put, and nobody can say which steps actually ran.</p>
+          <h3>Offboarding skips policy</h3>
+          <p>Sign-in gets blocked; mailbox, groups, and licenses often don&rsquo;t.</p>
         </article>
         <article class="pain reveal reveal-delay-1">
           <p class="pain-num">02</p>
-          <h3>Onboarding misses user properties</h3>
-          <p>New accounts land without a manager, department, job title, or usage location. Groups and licenses depend on who made the account that day.</p>
+          <h3>Onboarding misses properties</h3>
+          <p>Manager, department, usage location, and groups depend on who built the account.</p>
         </article>
         <article class="pain reveal reveal-delay-2">
           <p class="pain-num">03</p>
-          <h3>Licenses stay on inactive users</h3>
-          <p>Disabled accounts keep their licenses, prepaid licenses sit unassigned, and nobody checks which licensed users have stopped sending, receiving, or reading mail in the last 90 days.</p>
+          <h3>Licenses linger</h3>
+          <p>Disabled and inactive users keep licenses until someone looks.</p>
         </article>
       </div>
     </section>
 
-    <section class="flow" aria-labelledby="control-heading">
-      <header class="flow-head">
-        <p class="benefit-label reveal">Admin control</p>
-        <h2 id="control-heading" class="section-heading reveal">Admins set the policy. Technicians run it.</h2>
-        <p class="section-lede reveal">Admins create the onboarding and offboarding templates. Technicians apply them to a job and fill in who it&rsquo;s for. They can&rsquo;t change the steps, so nobody makes up policy on the fly.</p>
-      </header>
-
-      <div class="flow-row reveal">
-        <div class="flow-copy">
-          <p class="benefit-label">Onboarding</p>
-          <h3>Same onboarding, every time.</h3>
-          <p>Pick the template, then fill in the user. Required fields are enforced before the job can run, and the template sets the groups and licenses.</p>
-          <ul class="benefit-points">
-            <li>Apply an Admin-made template</li>
-            <li>Required fields enforced: display name, UPN, and usage location, plus any the Admin adds, like manager</li>
-            <li>Groups and licenses come from the template, not memory</li>
-          </ul>
-        </div>
-          <figure class="shot-frame">
-            <a class="app-shot-link" href="docs/assets/images/onboard-create-user.png" target="_blank" rel="noopener noreferrer">
-              <img class="shot-img" src="docs/assets/images/onboard-create-user.png" width="1440" height="900" decoding="async" alt="YeetnGreet Onboard page for the Contoso tenant with the New hire Sales (Seattle) template applied: required display name, UPN, usage location, domain, job title, department, and manager fields filled in for Avery Collins, with assign licenses and add to groups ticked and the All Staff, Sales Team, and Seattle Office groups selected." />
-            </a>
-          </figure>
+    <section class="steps" aria-labelledby="how-heading">
+      <p class="benefit-label reveal">How it works</p>
+      <h2 id="how-heading" class="section-heading reveal">Admins set the policy. Technicians run it.</h2>
+      <div class="step-grid">
+        <article class="step reveal">
+          <p class="step-num">01</p>
+          <h3>Admin builds the template</h3>
+          <p>Steps, required fields, groups, and licenses.</p>
+        </article>
+        <article class="step reveal reveal-delay-1">
+          <p class="step-num">02</p>
+          <h3>Technician applies it</h3>
+          <p>Fill in who it&rsquo;s for; steps stay locked.</p>
+        </article>
+        <article class="step reveal reveal-delay-2">
+          <p class="step-num">03</p>
+          <h3>Confirm and run</h3>
+          <p>Preview the plan, type CONFIRM, or schedule it.</p>
+        </article>
       </div>
-
-      <div class="flow-row reverse reveal">
-        <div class="flow-copy">
-          <p class="benefit-label">Offboarding templates</p>
-          <h3>Technicians can&rsquo;t change the steps.</h3>
-          <p>On a Technician&rsquo;s screen, company templates are review-only. The offboard actions are locked to what the Admin decided, from blocking sign-in to removing licenses last.</p>
-          <ul class="benefit-points">
-            <li>Locked for Technicians: review and apply only</li>
-            <li>Every leaver gets the same checklist</li>
-            <li>Admins create, edit, and set the default per tenant</li>
-          </ul>
-        </div>
-          <figure class="shot-frame">
-            <a class="app-shot-link" href="docs/assets/images/rbac-tech-templates.png" target="_blank" rel="noopener noreferrer">
-              <img class="shot-img" src="docs/assets/images/rbac-tech-templates.png" width="1440" height="900" loading="lazy" decoding="async" alt="YeetnGreet Templates page as seen by a Technician: a banner says company templates come from your admin and local template editing is locked. The Standard leaver offboard template is review-only, with locked actions including block sign-in, hide from GAL, mailbox auto-reply, convert mailbox to shared, remove group memberships, remove Entra directory roles, and remove licenses last." />
-            </a>
-          </figure>
-      </div>
-
-      <div class="flow-row reveal">
-        <div class="flow-copy">
-          <p class="benefit-label">Offboarding</p>
-          <h3>Offboard with a checklist.</h3>
-          <p>Select one leaver or many, apply the template, preview the plan, then type CONFIRM to run it, or schedule it for later.</p>
-          <ul class="benefit-points">
-            <li>Select users and apply a template</li>
-            <li>Preview every action before anything changes</li>
-            <li>Type CONFIRM, then run</li>
-          </ul>
-        </div>
-          <figure class="shot-frame">
-            <a class="app-shot-link" href="docs/assets/images/offboard-select-users.png" target="_blank" rel="noopener noreferrer">
-              <img class="shot-img" src="docs/assets/images/offboard-select-users.png" width="1440" height="900" loading="lazy" decoding="async" alt="YeetnGreet Offboard page for the Contoso tenant with the Standard leaver template applied, Jordan Fisher and Liam Foster selected, a user search open, and a panel that says 2 selected, type CONFIRM to unlock, with Preview and Run offboarding buttons." />
-            </a>
-          </figure>
-      </div>
+      <p class="section-more reveal"><a href="product.html">See the workflows</a></p>
     </section>
 
-    <section class="flow flow-reports" aria-labelledby="reports-heading">
-      <header class="flow-head">
-        <p class="benefit-label reveal">License reports</p>
-        <h2 id="reports-heading" class="section-heading reveal">Reclaim license spend when people leave.</h2>
-        <p class="section-lede reveal">License health reports find licenses still assigned to disabled and inactive users, plus prepaid licenses nobody is using, so you can act on them before renewal.</p>
-      </header>
+    <section class="proof" aria-labelledby="proof-heading">
+      <p class="benefit-label reveal">License health</p>
+      <h2 id="proof-heading" class="section-heading reveal">Reclaim license spend</h2>
+      <p class="section-lede reveal">License health finds unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail sent, received, or read in 90 days.</p>
 
-      <div class="flow-row reverse reveal">
-        <div class="flow-copy">
-          <p class="benefit-label">License health report</p>
-          <h3>Licenses nobody uses add up.</h3>
-          <p>See unused licenses per SKU, accounts that are disabled but still licensed, and each licensed user&rsquo;s mail sent, received, and read over the last 90 days. Savings use your unit costs.</p>
-          <ul class="benefit-points">
-            <li>Unused prepaid licenses</li>
-            <li>Disabled but still licensed</li>
-            <li>Mail sent, received, and read per user (90 days), with named users to act on</li>
-          </ul>
-        </div>
-          <figure class="report-stage shot-frame shot-frame-report" aria-label="Sample YeetnGreet license health report with synthetic data">
-            <div class="report-panel">
-              <header class="report-head">
-                <div>
-                  <p class="report-kicker">YG License health report (sample)</p>
-                  <h2 class="report-title">Northshore Logistics</h2>
-                </div>
-                <p class="report-meta">Synthetic demo data. Mail window: last 90 days</p>
-              </header>
-
-              <div class="report-kpis">
-                <div class="kpi">
-                  <span class="kpi-label">Licensed (active)</span>
-                  <span class="kpi-value">280</span>
-                </div>
-                <div class="kpi">
-                  <span class="kpi-label">Unused licenses</span>
-                  <span class="kpi-value warn">12</span>
-                </div>
-                <div class="kpi">
-                  <span class="kpi-label">Licensed + disabled</span>
-                  <span class="kpi-value warn">41</span>
-                </div>
-                <div class="kpi">
-                  <span class="kpi-label">No sent/recv/read (90d)</span>
-                  <span class="kpi-value warn">18</span>
-                </div>
-                <div class="kpi highlight">
-                  <span class="kpi-label">Potential savings / mo</span>
-                  <span class="kpi-value savings">USD 1,323.50</span>
-                </div>
-              </div>
-
-              <div class="report-body">
-                <div class="report-table-wrap">
-                  <p class="report-table-label">Cost-saving opportunities</p>
-                  <p class="report-table-hint">The report finds three waste types: unused prepaid licenses, licenses on disabled accounts, and licensed users with no mail sent, received, or read in 90 days. Savings / mo below = (Unused + Disabled) × Unit. Est. spend for 280 licensed users: 180×Business Premium ($22) + 60×E3 ($36) + 40×Business Standard ($12.50) = <strong>USD 6,620</strong>/mo.</p>
-                  <table class="report-table report-cost-table">
-                    <thead>
-                      <tr>
-                        <th>License</th>
-                        <th><abbr title="Unused">Unused</abbr></th>
-                        <th><abbr title="Disabled">Disabled</abbr></th>
-                        <th><abbr title="Unit price">Unit</abbr></th>
-                        <th>
-                          <span class="th-long">Savings / mo</span>
-                          <abbr class="th-short" title="Savings per month">Save/mo</abbr>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Microsoft 365 Business Premium</td>
-                        <td>6</td>
-                        <td>24</td>
-                        <td>22.00</td>
-                        <td class="savings-cell">660.00</td>
-                      </tr>
-                      <tr>
-                        <td>Microsoft 365 E3</td>
-                        <td>4</td>
-                        <td>12</td>
-                        <td>36.00</td>
-                        <td class="savings-cell">576.00</td>
-                      </tr>
-                      <tr>
-                        <td>Microsoft 365 Business Standard</td>
-                        <td>2</td>
-                        <td>5</td>
-                        <td>12.50</td>
-                        <td class="savings-cell">87.50</td>
-                      </tr>
-                      <tr class="report-total-row">
-                        <td>Total</td>
-                        <td>12</td>
-                        <td>41</td>
-                        <td></td>
-                        <td class="savings-cell">1,323.50</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div class="report-table-wrap report-users">
-                  <p class="report-table-label">Users needing attention</p>
-                  <p class="report-table-hint">Named examples of every user-level finding: disabled + licensed, and no mail send/receive/read in 90 days (across SKUs). Unused capacity is inventory, so it appears in the table above rather than as a user row.</p>
-                  <table class="report-table">
-                    <thead>
-                      <tr>
-                        <th>User</th>
-                        <th>Issue</th>
-                        <th>Licenses</th>
-                        <th>Sent</th>
-                        <th>Recv</th>
-                        <th>Read</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <span class="user-name">Jordan Blake</span>
-                          <span class="user-upn">jordan.blake@northshore.example</span>
-                        </td>
-                        <td><span class="issue danger">Disabled + licensed</span></td>
-                        <td>Microsoft 365 Business Premium</td>
-                        <td>12</td>
-                        <td>84</td>
-                        <td>19</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="user-name">Alex Morgan</span>
-                          <span class="user-upn">alex.morgan@northshore.example</span>
-                        </td>
-                        <td><span class="issue danger">Disabled + licensed</span></td>
-                        <td>Microsoft 365 E3</td>
-                        <td>3</td>
-                        <td>41</td>
-                        <td>8</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="user-name">Sam Rivera</span>
-                          <span class="user-upn">sam.rivera@northshore.example</span>
-                        </td>
-                        <td><span class="issue warn">No sent, recv, or read</span></td>
-                        <td>Microsoft 365 Business Premium</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="user-name">Casey Nguyen</span>
-                          <span class="user-upn">casey.nguyen@northshore.example</span>
-                        </td>
-                        <td><span class="issue warn">No sent, recv, or read</span></td>
-                        <td>Microsoft 365 Business Standard</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span class="user-name">Riley Chen</span>
-                          <span class="user-upn">riley.chen@northshore.example</span>
-                        </td>
-                        <td><span class="issue warn">No sent, recv, or read</span></td>
-                        <td>Microsoft 365 E3</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="report-footnote">Example only — not a guarantee. Synthetic demo showcasing unused licenses (12), disabled+licensed (41), and users with no mail sent, received, or read in 90 days (18). Row check: (6+24)×22 + (4+12)×36 + (2+5)×12.50 = 660 + 576 + 87.50 = 1,323.50. Est. spend 6,620. Live reports use your unit costs. <a href="/docs/reports/samples/">See a full sample report</a>.</p>
-              </div>
+      <figure class="report-stage report-compact reveal" aria-label="Sample YeetnGreet license health report with synthetic data">
+        <div class="report-panel">
+          <header class="report-head">
+            <div>
+              <p class="report-kicker">Northshore Logistics — sample report</p>
+              <h3 class="report-title">License health</h3>
             </div>
-          </figure>
-      </div>
+            <p class="report-meta">Synthetic demo data. Mail window: last 90 days</p>
+          </header>
 
-      <div class="flow-row reveal">
-        <div class="flow-copy">
-          <p class="benefit-label">What-if planning</p>
-          <h3>Price a plan before you buy.</h3>
-          <p>Build a read-only scenario from the tenant&rsquo;s current licenses: reclaim unused licenses, move licenses between SKUs, and see the monthly cost change. Nothing changes in the tenant.</p>
-          <ul class="benefit-points">
-            <li>Name the scenario</li>
-            <li>Add each change</li>
-            <li>See the cost change, then save it</li>
-          </ul>
+          <div class="report-kpis">
+            <div class="kpi">
+              <span class="kpi-label">Licensed (active)</span>
+              <span class="kpi-value">280</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-label">Unused licenses</span>
+              <span class="kpi-value warn">12</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-label">Licensed + disabled</span>
+              <span class="kpi-value warn">41</span>
+            </div>
+            <div class="kpi">
+              <span class="kpi-label">No sent/recv/read (90d)</span>
+              <span class="kpi-value warn">18</span>
+            </div>
+            <div class="kpi highlight">
+              <span class="kpi-label">Potential savings / mo</span>
+              <span class="kpi-value savings">$1,323.50</span>
+            </div>
+          </div>
+
+          <div class="report-body">
+            <div class="report-table-wrap">
+              <table class="report-table report-cost-table">
+                <thead>
+                  <tr>
+                    <th>License</th>
+                    <th><abbr title="Unused">Unused</abbr></th>
+                    <th><abbr title="Disabled">Disabled</abbr></th>
+                    <th>
+                      <span class="th-long">Savings / mo</span>
+                      <abbr class="th-short" title="Savings per month">Save/mo</abbr>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Microsoft 365 Business Premium</td>
+                    <td>6</td>
+                    <td>24</td>
+                    <td class="savings-cell">$660.00</td>
+                  </tr>
+                  <tr>
+                    <td>Microsoft 365 E3</td>
+                    <td>4</td>
+                    <td>12</td>
+                    <td class="savings-cell">$576.00</td>
+                  </tr>
+                  <tr>
+                    <td>Microsoft 365 Business Standard</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td class="savings-cell">$87.50</td>
+                  </tr>
+                  <tr class="report-total-row">
+                    <td>Total</td>
+                    <td>12</td>
+                    <td>41</td>
+                    <td class="savings-cell">$1,323.50</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="report-footnote">Example only. Live reports use your unit costs. <a href="/docs/reports/samples/">Full sample report</a>.</p>
+          </div>
         </div>
-          <figure class="shot-frame">
-            <a class="app-shot-link" href="assets/app/hero-whatif.png" target="_blank" rel="noopener noreferrer">
-              <img class="shot-img" src="assets/app/hero-whatif.png" width="1440" height="900" loading="lazy" decoding="async" alt="YeetnGreet What-if scenario planner for the Contoso tenant: three steps that remove unused Business Premium licenses, move licenses from E3 to Business Premium, and remove unused Business Basic licenses, with a before and after table showing the monthly cost change." />
-            </a>
-          </figure>
-      </div>
+      </figure>
     </section>
 
     <section class="audience">
-      <div class="audience-inner reveal">
-        <p class="benefit-label">Built for</p>
-        <h2>IT teams running Microsoft 365. One tenant or many.</h2>
-        <p>First release is cloud-only Microsoft 365 / Entra. Manage one organization or several tenants from the same desktop app, installed per user with YeetnGreet-Setup.exe.</p>
+      <div class="audience-inner audience-card reveal">
+        <p class="benefit-label">Who it&rsquo;s for</p>
+        <h2>IT teams running cloud Microsoft 365 / Entra.</h2>
+        <p>One tenant or many. Desktop app per technician PC.</p>
       </div>
     </section>
 
     <section id="pricing" class="pricing-section">
-      <h2 class="section-label">Pricing</h2>
-      <p class="section-note">Plans are based on licensed users pooled across your account. Free covers 1–25 licensed users with a limited license-report preview and one tenant; paid bands start at $19/mo. Pay yearly and save about 20%.</p>
-      <p class="pricing-teaser">
-        <strong>Free → Enterprise</strong>
-        <span>From $0 to custom quote, by licensed-user band.</span>
-        <a class="btn ghost" href="pricing.html">Full pricing</a>
-      </p>
+      <div class="pricing-teaser-card reveal">
+        <div>
+          <p class="benefit-label">Pricing</p>
+          <h2 class="section-heading">Plans by licensed users pooled across your account.</h2>
+          <p class="section-note">Free: 1–25 licensed users. Paid from $19/mo. Yearly ~20% off. 14-day trial.</p>
+        </div>
+        <a class="btn primary" href="pricing.html">See full pricing</a>
+      </div>
     </section>
     </main>
 
     <footer>
-      <nav class="footer-links" aria-label="Legal">
+      <nav class="footer-links" aria-label="Footer">
+        <a href="product.html">Product</a>
+        <a href="/docs/">Docs</a>
+        <a href="pricing.html">Pricing</a>
         <a href="terms.html">Terms</a>
         <a href="refunds.html">Refunds</a>
         <a href="privacy.html">Privacy</a>
+        <a href="mailto:support@yeetngreet.app">support@yeetngreet.app</a>
       </nav>
       <p>yeetngreet.app, <a href="https://darrenbell.net">darrenbell.net</a></p>
     </footer>
@@ -412,21 +259,6 @@
         reveals.forEach((el) => io.observe(el));
       } else {
         reveals.forEach((el) => el.classList.add("is-visible"));
-      }
-
-      const stage = document.querySelector(".report-stage");
-      if (stage) {
-        stage.addEventListener("pointermove", (event) => {
-          const rect = stage.getBoundingClientRect();
-          const x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-          const y = ((event.clientY - rect.top) / rect.height - 0.5) * 6;
-          stage.style.setProperty("--tilt-x", `${(-y).toFixed(2)}deg`);
-          stage.style.setProperty("--tilt-y", `${x.toFixed(2)}deg`);
-        });
-        stage.addEventListener("pointerleave", () => {
-          stage.style.setProperty("--tilt-x", "0deg");
-          stage.style.setProperty("--tilt-y", "0deg");
-        });
       }
     } else {
       document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));

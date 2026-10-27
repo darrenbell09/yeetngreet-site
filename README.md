@@ -8,7 +8,7 @@ YeetnGreet is proprietary software.
 
 | Path | Role |
 | --- | --- |
-| `index.html`, `pricing.html`, `privacy.html`, `styles.css`, `CNAME` | Marketing (keep intact) |
+| `index.html`, `product.html`, `pricing.html`, `privacy.html`, `styles.css`, `CNAME` | Marketing (keep intact) |
 | `docs.html` | Redirect → `/docs/` |
 | `docsrc/` | MkDocs **source** (Markdown — edit here) |
 | `docs/` | **Built** HTML published by GitHub Pages at `/docs/` |

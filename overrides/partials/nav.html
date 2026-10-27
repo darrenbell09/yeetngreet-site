@@ -25,6 +25,9 @@
       <a href="{{ config.extra.homepage | d('/') }}#why" class="md-nav__link">Why</a>
     </li>
     <li class="md-nav__item">
+      <a href="{{ config.extra.product | d('/product.html') }}" class="md-nav__link">Product</a>
+    </li>
+    <li class="md-nav__item">
       <a href="{{ config.extra.docs_home | d('/docs/') }}" class="md-nav__link"{% if not is_support %} aria-current="page"{% endif %}>Docs</a>
     </li>
     <li class="md-nav__item">
