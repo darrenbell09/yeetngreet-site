@@ -1727,12 +1727,12 @@ footer {
 }
 
 .hero-lean .hero-copy {
-  max-width: 42rem;
+  max-width: 60rem;
 }
 
 .hero-lean h1 {
-  max-width: 18ch;
-  font-size: clamp(2rem, 5vw, 3.35rem);
+  max-width: none;
+  font-size: clamp(2rem, 5vw, 3.15rem);
 }
 
 .hero-lean .lede {
