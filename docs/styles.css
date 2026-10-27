@@ -971,25 +971,15 @@ footer {
   max-width: 52rem;
 }
 
-/* Motion: opacity only — transforms create containing blocks that clip Syne ink */
-.reveal {
+/* Lean marketing: never hide section content behind scroll observers.
+   Hiding .reveal until IntersectionObserver added is-visible left How it
+   works / proof / pricing as a blank gap on first paint and full-page shots. */
+.reveal,
+.reveal.is-visible {
   opacity: 1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transition: opacity 0.55s ease;
-  }
-
-  .reveal.reveal-delay-1 { transition-delay: 0.08s; }
-  .reveal.reveal-delay-2 { transition-delay: 0.16s; }
-  .reveal.reveal-delay-3 { transition-delay: 0.24s; }
-
-  .reveal.is-visible {
-    opacity: 1;
-  }
-
   .kpi.highlight .kpi-value.savings {
     animation: savings-pulse 2.8s ease-in-out infinite;
   }
@@ -1714,4 +1704,169 @@ footer {
   touch-action: pan-x pan-y;
   overscroll-behavior-x: contain;
   overscroll-behavior-y: auto;
+}
+
+/* --------------------------------------------------------------------------
+ * Lean marketing home + product (2026-10-27).
+ * Layout only — tokens stay the live :root / [data-theme="dark"] set.
+ * -------------------------------------------------------------------------- */
+
+.hero.hero-lean {
+  display: block;
+  padding: 2.25rem 0 3rem;
+}
+
+.hero-lean .hero-copy {
+  max-width: 60rem;
+}
+
+.hero-lean h1 {
+  max-width: none;
+  font-size: clamp(2rem, 5vw, 3.15rem);
+}
+
+.hero-lean .lede {
+  max-width: 38rem;
+}
+
+@media (min-width: 800px) {
+  .hero-lean {
+    text-align: center;
+    padding: 3.25rem 0 3.75rem;
+  }
+
+  .hero-lean .hero-copy {
+    margin: 0 auto;
+  }
+
+  .hero-lean h1,
+  .hero-lean .lede,
+  .hero-lean .hero-eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-lean .cta {
+    justify-content: center;
+  }
+}
+
+.steps,
+.proof {
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.step-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 800px) {
+  .step-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.step {
+  min-width: 0;
+  padding: 1.25rem 1.25rem 1.35rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.step-num {
+  margin: 0 0 0.5rem;
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--link);
+}
+
+.step h3,
+.flow-copy h2 {
+  margin: 0 0 0.55rem;
+  padding: 0.1em 0.02em;
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.step p {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.section-more {
+  margin: 1.35rem 0 0;
+}
+
+.report-compact {
+  margin: 1.75rem 0 0;
+  perspective: none;
+}
+
+.report-compact .report-panel {
+  transform: none;
+}
+
+.report-compact .report-title {
+  font-size: 1.15rem;
+}
+
+.audience-card {
+  width: 100%;
+  max-width: none;
+  padding: 2rem 1.5rem;
+  background: var(--bg-mid);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 800px) {
+  .audience-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+  }
+
+  .audience-card .benefit-label,
+  .audience-card h2,
+  .audience-card p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.pricing-teaser-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 1.75rem;
+  padding: 1.5rem 1.5rem 1.6rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.pricing-teaser-card .section-heading {
+  margin-bottom: 0.4rem;
+}
+
+.pricing-teaser-card .section-note {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .hero.hero-lean { padding: 1.15rem 0 2rem; }
+  .steps, .proof { padding-top: 2rem; }
+  .audience-card { padding: 1.5rem 1.15rem; }
+  .pricing-teaser-card .btn { min-height: 44px; }
 }
