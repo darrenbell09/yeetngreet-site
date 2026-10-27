@@ -52,6 +52,7 @@ extra:
   generator: false
   homepage: https://yeetngreet.app/
   docs_home: https://yeetngreet.app/docs/
+  product: https://yeetngreet.app/product.html
   pricing: https://yeetngreet.app/pricing.html
   privacy: https://yeetngreet.app/privacy.html
   founding: https://yeetngreet.app/pricing.html#founding

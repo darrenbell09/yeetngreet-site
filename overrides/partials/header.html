@@ -14,6 +14,7 @@
 
   <nav class="yg-site-nav" aria-label="Site">
     <a href="{{ config.extra.homepage | d('/') }}#why">Why</a>
+    <a href="{{ config.extra.product | d('/product.html') }}">Product</a>
     <a href="{{ config.extra.docs_home | d('/docs/') }}"{% if not is_support %} aria-current="page"{% endif %}>Docs</a>
     <a href="{{ config.extra.pricing | d('/pricing.html') }}">Pricing</a>
     <a href="{{ 'support/' | url }}"{% if is_support %} aria-current="page"{% endif %}>Support</a>
