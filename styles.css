@@ -971,25 +971,15 @@ footer {
   max-width: 52rem;
 }
 
-/* Motion: opacity only — transforms create containing blocks that clip Syne ink */
-.reveal {
+/* Lean marketing: never hide section content behind scroll observers.
+   Hiding .reveal until IntersectionObserver added is-visible left How it
+   works / proof / pricing as a blank gap on first paint and full-page shots. */
+.reveal,
+.reveal.is-visible {
   opacity: 1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transition: opacity 0.55s ease;
-  }
-
-  .reveal.reveal-delay-1 { transition-delay: 0.08s; }
-  .reveal.reveal-delay-2 { transition-delay: 0.16s; }
-  .reveal.reveal-delay-3 { transition-delay: 0.24s; }
-
-  .reveal.is-visible {
-    opacity: 1;
-  }
-
   .kpi.highlight .kpi-value.savings {
     animation: savings-pulse 2.8s ease-in-out infinite;
   }

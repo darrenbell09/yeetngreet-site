@@ -252,6 +252,24 @@ class LeanMarketingTests(unittest.TestCase):
         self.assertIn("Escape", theme)
         self.assertIn("yeetngreet-site-theme", theme)
 
+    def test_lean_sections_are_visible_without_observer(self) -> None:
+        """Below-the-fold copy must not start at opacity 0 waiting on scroll IO."""
+        self.assertNotIn("IntersectionObserver", INDEX)
+        self.assertNotIn("IntersectionObserver", PRODUCT)
+        self.assertNotRegex(INDEX, r'\bclass="[^"]*\breveal\b')
+        self.assertNotRegex(PRODUCT, r'\bclass="[^"]*\breveal\b')
+        hide_rule = re.search(
+            r"@media\s*\(prefers-reduced-motion:\s*no-preference\)\s*\{[^}]*\.reveal\s*\{[^}]*opacity:\s*0",
+            STYLES,
+            re.DOTALL,
+        )
+        self.assertIsNone(hide_rule)
+        self.assertIn(".reveal,\n.reveal.is-visible {\n  opacity: 1;\n}", STYLES)
+        self.assertIn("theme.js", INDEX)
+        self.assertIn("theme.js", PRODUCT)
+        self.assertIn('class="nav-toggle"', INDEX)
+        self.assertIn('class="nav-toggle"', PRODUCT)
+
     def test_cname_and_docs_product_link(self) -> None:
         self.assertEqual((ROOT / "CNAME").read_text(encoding="utf-8").strip(), "yeetngreet.app")
         mkdocs = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
