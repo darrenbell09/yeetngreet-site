@@ -24,7 +24,7 @@ Annual plans are billed at the yearly prices above, about 20% off twelve months 
 
 ### Paid plans
 
-Paid bands unlock the full product for your licensed-user count. Licensed users are pooled across all tenants on the account. For 701+ licensed users, [contact support](mailto:support@yeetngreet.app) for an Enterprise quote.
+Paid bands unlock the full product for your licensed-user count. Licensed users are pooled across all tenants on the account. Paid plans include a **14-day free trial**. For 701+ licensed users, [contact support](mailto:support@yeetngreet.app) for an Enterprise quote.
 
 When checkout opens, payments are processed by Paddle, our Merchant of Record. First purchases have a 30-day money-back guarantee. See the [Terms of Service](https://yeetngreet.app/terms.html) and [Refund Policy](https://yeetngreet.app/refunds.html).
 
