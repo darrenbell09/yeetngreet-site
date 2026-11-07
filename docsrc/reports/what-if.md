@@ -1,3 +1,8 @@
+---
+description: 'What-if license planning in YeetnGreet: read-only savings scenarios
+  after you run a license report.'
+---
+
 # What-if
 
 Plan license changes before you make them in the admin center. What-if is on the **Reports** page, below **User licensing**, after you run a license report. It's read-only: nothing in the tenant changes.

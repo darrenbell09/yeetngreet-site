@@ -1,3 +1,8 @@
+---
+description: 'License audit report: assigned Microsoft 365 licenses, mail activity,
+  and attention rows for reclaim.'
+---
+
 # License audit
 
 See which Microsoft 365 licenses are assigned — with SKU detail, mail activity (last 90 days), and attention rows for **disabled + licensed** and **no mail** users.

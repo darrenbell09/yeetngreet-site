@@ -1,3 +1,8 @@
+---
+description: 'Onboard Microsoft 365 users from Admin templates: create or enable accounts,
+  assign licenses and groups, then CONFIRM.'
+---
+
 # Onboard
 
 Create or enable Microsoft 365 users, optionally assign licenses, groups, and a manager, then unlock Live work with an explicit **CONFIRM**.

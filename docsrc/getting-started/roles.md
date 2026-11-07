@@ -1,3 +1,8 @@
+---
+description: 'YeetnGreet Admin and Tech roles: who can change templates, tenants,
+  and logs in the Windows app.'
+---
+
 # Roles: admin and tech
 
 YeetnGreet has two roles for the people who use the app: **Admin** and **Tech**. Your role decides what you can change in YeetnGreet itself, such as templates, the tenant list, and where logs go.

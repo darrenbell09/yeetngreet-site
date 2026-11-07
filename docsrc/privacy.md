@@ -1,3 +1,8 @@
+---
+description: 'YeetnGreet privacy: Microsoft 365 work stays on technician PCs; cloud
+  holds license and billing data.'
+---
+
 # Privacy
 
 YeetnGreet is built so customer Microsoft 365 data stays between your technicians and the tenant they are working in — not in our cloud.

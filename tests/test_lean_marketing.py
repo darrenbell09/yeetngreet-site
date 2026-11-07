@@ -180,7 +180,7 @@ class LeanMarketingTests(unittest.TestCase):
             self.assertTrue(any("theme.js" in src for src in page.scripts), name)
             self.assertTrue(any("analytics.js" in src for src in page.scripts), name)
             self.assertTrue(any("styles.css" in href for href in page.stylesheets), name)
-            self.assertIn("#why" if name == "index" else "index.html#why", page.nav_hrefs)
+            self.assertIn("/#why", page.nav_hrefs)
             self.assertIn("product.html", page.nav_hrefs)
             self.assertIn("/docs/", page.nav_hrefs)
             self.assertIn("pricing.html", page.nav_hrefs)
