@@ -1,3 +1,8 @@
+---
+description: Offboard Microsoft 365 users with Admin templates, preview, CONFIRM,
+  or schedule on the same technician PC.
+---
+
 # Offboard
 
 Offboard one person or many. Use templates for handoff, checklist, and shared settings. Preview what will run, confirm deliberately, then go — or [schedule](schedules.md) the job for later on the same PC.

@@ -1,3 +1,8 @@
+---
+description: Admin permissions YeetnGreet needs in each Microsoft 365 tenant, with
+  admin consent before technicians can run jobs.
+---
+
 # Admin permissions and consent
 
 YeetnGreet changes users, mailboxes, licenses, and devices in your Microsoft 365 tenant. Microsoft requires an administrator in **each tenant you manage** to approve (grant **admin consent** for) the permissions below before YeetnGreet can run jobs there.

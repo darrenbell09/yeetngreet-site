@@ -1,3 +1,8 @@
+---
+description: Admin templates keep technicians on the same onboarding and offboarding
+  checklist for each Microsoft 365 tenant.
+---
+
 # Templates
 
 A template is a saved set of job settings for one tenant. You pick it on **Offboard**, **Onboard**, or **Mover**, click **Apply**, and the job uses those settings. Templates keep every technician on the same checklist for that tenant.

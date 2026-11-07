@@ -9,13 +9,28 @@ YeetnGreet is proprietary software.
 | Path | Role |
 | --- | --- |
 | `index.html`, `product.html`, `pricing.html`, `privacy.html`, `styles.css`, `CNAME` | Marketing (keep intact) |
-| `docs.html` | Redirect → `/docs/` |
+| `robots.txt`, `sitemap.xml`, `sitemap-pages.xml` | Crawl hints (`sitemap.xml` indexes marketing + `/docs/sitemap.xml`) |
 | `docsrc/` | MkDocs **source** (Markdown — edit here) |
 | `docs/` | **Built** HTML published by GitHub Pages at `/docs/` |
 | `mkdocs.yml`, `requirements.txt` | Docs config (`docs_dir: docsrc`) |
 | `.github/workflows/pages.yml` | Rebuilds `docs/` on changes to `docsrc/` |
 
 GitHub Pages is configured as **legacy**: branch `main`, folder `/` (root). That keeps the marketing homepage at `/` and serves the built site from the `docs/` directory at `/docs/`.
+
+Do **not** add a root `docs.html`: on GitHub Pages, `/docs` would serve that file instead of redirecting into the `docs/` folder. Prefer links to `/docs/`.
+
+## Favicons (Google Search)
+
+Root icons are published with the marketing site:
+
+| Path | Role |
+| --- | --- |
+| `favicon-96.png` | Square PNG ≥96px for Search / modern browsers (`rel=icon`) |
+| `favicon-32.png` | Small PNG fallback |
+| `favicon.ico` | Multi-size ICO fallback (16 / 32 / 48) |
+| `apple-touch-icon.png` | 256px touch icon (also a valid Google `rel` value) |
+
+Homepage `<head>` links use stable root-absolute URLs. `robots.txt` allows `/` so Googlebot / Googlebot-Image can crawl the page and icon files. Eligibility does not guarantee Search will show the icon; after merge, request homepage indexing in Search Console when ready.
 
 ## Local docs preview
 

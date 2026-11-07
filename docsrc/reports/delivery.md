@@ -1,3 +1,8 @@
+---
+description: Deliver YeetnGreet license reports by email, Teams, Slack, or your own
+  automation per tenant.
+---
+
 # Report delivery
 
 Send license reports to the places your team already works: email, Teams, Slack, or your own automation.

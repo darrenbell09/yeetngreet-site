@@ -1,3 +1,8 @@
+---
+description: 'First run for YeetnGreet: pick a Microsoft 365 tenant, confirm it, and
+  preview before Live work.'
+---
+
 # First run
 
 After [install](install.md), walk through a low-risk path: pick a tenant, confirm it's the right one, then preview before anything runs.

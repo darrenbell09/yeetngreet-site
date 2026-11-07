@@ -1,3 +1,8 @@
+---
+description: Manage multiple Microsoft 365 tenants in YeetnGreet without mixing context;
+  licensed users pool for billing.
+---
+
 # Multi-tenant
 
 Switch between the Microsoft 365 tenants on your account without mixing up context — as long as you confirm the active tenant before Live work. Licensed users are pooled across all tenants on the account for billing.

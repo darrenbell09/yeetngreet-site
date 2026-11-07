@@ -1,3 +1,8 @@
+---
+description: Sample YeetnGreet license and what-if report exports from a fictional
+  tenant.
+---
+
 # Sample reports
 
 These are real YeetnGreet exports, made with the app's own report templates from a **fictional** tenant. Download them to see exactly what you get. Your tenant names, licenses, and counts will differ.

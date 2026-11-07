@@ -1,3 +1,8 @@
+---
+description: YeetnGreet license reports run Microsoft Graph locally on the technician
+  PC to find license waste.
+---
+
 # Reports overview
 
 YeetnGreet reports help you see Microsoft 365 license waste from the same technician PC model as onboard/offboard jobs. You run Graph queries locally, then export or deliver results yourself.

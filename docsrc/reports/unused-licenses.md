@@ -1,3 +1,8 @@
+---
+description: Find unused prepaid Microsoft 365 licenses and licenses still on disabled
+  accounts before renewal.
+---
+
 # Unused licenses
 
 Find prepaid licenses that are not assigned, and licenses still stuck on **disabled** accounts — before the renewal meeting.

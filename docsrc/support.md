@@ -1,3 +1,8 @@
+---
+description: 'Email-only support for IT admins running YeetnGreet: contact support@yeetngreet.app
+  after checking the docs.'
+---
+
 # Support
 
 Need help with YeetnGreet? Start with the docs, then email us. This page is for **IT admins** running the Windows app against Microsoft 365 tenants.

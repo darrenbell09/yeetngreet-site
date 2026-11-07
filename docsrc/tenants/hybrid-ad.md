@@ -1,3 +1,8 @@
+---
+description: Optional hybrid Active Directory support per tenant alongside Entra ID
+  in YeetnGreet.
+---
+
 # Hybrid AD
 
 Optional **hybrid Active Directory** support can be enabled **per tenant** when an organization needs on-prem identity alongside Entra ID.

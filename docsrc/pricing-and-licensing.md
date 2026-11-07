@@ -1,3 +1,8 @@
+---
+description: YeetnGreet pricing by licensed users pooled across tenants. Free for
+  1–25; paid bands; yearly about 20% off.
+---
+
 # Pricing and licensing
 
 Pricing is based on **licensed users** pooled across every tenant on your YeetnGreet account — not per tenant. Prices are monthly; pay a year up front and save **about 20%**. Activate your plan in the app when checkout is live. Until then, join the [waitlist](https://yeetngreet.app/pricing.html).

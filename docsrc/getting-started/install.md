@@ -1,3 +1,8 @@
+---
+description: Install YeetnGreet on each technician Windows PC with YeetnGreet-Setup.exe
+  and Microsoft Edge WebView2.
+---
+
 # Install
 
 YeetnGreet is a **Windows** app that uses **Microsoft Edge WebView2** for the UI. Each technician installs it on their own Windows PC with **`YeetnGreet-Setup.exe`**.
