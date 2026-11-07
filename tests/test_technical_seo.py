@@ -151,7 +151,7 @@ class TechnicalSeoTests(unittest.TestCase):
         self.assertEqual(org["legalName"], "YeetnGreet LLC")
         self.assertEqual(org["url"], "https://yeetngreet.app/")
         self.assertEqual(org["email"], "support@yeetngreet.app")
-        self.assertEqual(org["logo"], "https://yeetngreet.app/apple-touch-icon.png")
+        self.assertEqual(org["logo"], "https://yeetngreet.app/favicon-96.png")
         self.assertEqual(org["contactPoint"]["email"], "support@yeetngreet.app")
         self.assertEqual(site["url"], "https://yeetngreet.app/")
         # Do not invent ratings, reviews, offers, or unsupported product claims.

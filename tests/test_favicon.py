@@ -12,7 +12,7 @@ from html.parser import HTMLParser
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 INDEX = (ROOT / "index.html").read_text(encoding="utf-8")
 ROBOTS = (ROOT / "robots.txt").read_text(encoding="utf-8")
-CACHE_BUST = "20261107a"
+CACHE_BUST = "20261107b"
 
 # Marketing + redirect/go shells that must advertise the same root icons.
 HEAD_PAGES = (
@@ -96,6 +96,45 @@ class FaviconTests(unittest.TestCase):
         ):
             w, h = png_dimensions(ROOT / rel)
             self.assertEqual((w, h), (96, 96), rel)
+
+    def test_favicon_pngs_match_website_light_mark(self) -> None:
+        """White tile + CSS --brand-mark ink (#3a3f4b) from logo.png geometry."""
+        try:
+            from PIL import Image
+        except ImportError:  # pragma: no cover
+            self.skipTest("Pillow not installed")
+
+        brand_ink = (0x3A, 0x3F, 0x4B)
+        white = (255, 255, 255)
+        logo_alpha = Image.open(ROOT / "logo.png").convert("RGBA").split()[3]
+
+        for rel, size in (("favicon-96.png", 96), ("favicon-32.png", 32)):
+            im = Image.open(ROOT / rel).convert("RGBA")
+            self.assertEqual(im.size, (size, size), rel)
+            self.assertEqual(im.getpixel((0, 0))[:3], white, rel)
+            self.assertEqual(im.getpixel((size - 1, size - 1))[:3], white, rel)
+
+            # Opaque mark pixels should be exact brand-mark ink (website light mark).
+            solid = [
+                px[:3]
+                for px in im.getdata()
+                if px[3] >= 250 and px[0] < 100
+            ]
+            self.assertTrue(solid, rel)
+            self.assertEqual(max(set(solid), key=solid.count), brand_ink, rel)
+
+            # Geometry: favicon RGB darkness follows logo.png alpha (same artwork).
+            expected_a = logo_alpha.resize((size, size), Image.Resampling.LANCZOS)
+            # Sample center-ish mark coverage: average alpha where logo is opaque
+            opaque_logo = sum(1 for px in expected_a.getdata() if px > 200)
+            dark_favicon = sum(
+                1
+                for px in im.getdata()
+                if px[3] > 200 and (px[0] + px[1] + px[2]) / 3 < 120
+            )
+            # Coverage should be in the same ballpark (antialias variance OK).
+            self.assertGreater(dark_favicon, opaque_logo * 0.35, rel)
+            self.assertLess(dark_favicon, opaque_logo * 1.35, rel)
 
     def test_ico_fallback_includes_usable_sizes(self) -> None:
         sizes = ico_dimensions(ROOT / "favicon.ico")
