@@ -46,7 +46,37 @@ class PaddlePricingTests(unittest.TestCase):
         self.assertIn("ygPaddleOpenCheckout", PADDLE)
         self.assertIn("Paddle.Checkout.open", PADDLE)
         self.assertIn("YG_PADDLE_PRICES", PADDLE)
-        self.assertIn("REPLACE_WITH_PADDLE_PRICE_ID_", PADDLE)
+        self.assertIn("SANDBOX only", PADDLE)
+        self.assertIn("Swap every pri_", PADDLE)
+        self.assertNotIn("REPLACE_WITH_PADDLE_PRICE_ID_", PADDLE)
+
+    def test_sandbox_price_ids_are_wired(self) -> None:
+        expected = {
+            "starter": {
+                "monthly": "pri_01m63yp7ktegz147hrcarqqwxp",
+                "yearly": "pri_01m63yppecwe5wqx2n80hy2a6f",
+            },
+            "growth": {
+                "monthly": "pri_01m63yq7hwkmnm5brnqerrpnxs",
+                "yearly": "pri_01m63yqhc6zdmc3a9ffgscyrgr",
+            },
+            "business": {
+                "monthly": "pri_01m63yr35xcqp138dbrb65qshb",
+                "yearly": "pri_01m63yrcnc6sp58rk72wa0zqah",
+            },
+            "scale": {
+                "monthly": "pri_01m63ys3s0r2egmx4r5tv8rv9y",
+                "yearly": "pri_01m63yscyxt8vjfg6zq18kdzeq",
+            },
+            "large": {
+                "monthly": "pri_01m63ytfp22f89hbx8ttxnn0qa",
+                "yearly": "pri_01m63ytsaqqx19hzf2ayq3skwd",
+            },
+        }
+        for plan, intervals in expected.items():
+            self.assertIn(f"{plan}:", PADDLE)
+            for interval, price_id in intervals.items():
+                self.assertIn(f'{interval}: "{price_id}"', PADDLE)
 
     def test_paid_plans_have_buy_buttons_free_waitlist_enterprise_email(self) -> None:
         for plan in ("starter", "growth", "business", "scale", "large"):
@@ -56,7 +86,7 @@ class PaddlePricingTests(unittest.TestCase):
                 PRICING,
             )
             self.assertIn(
-                f'data-paddle-plan="{plan}" data-paddle-interval="annual"',
+                f'data-paddle-plan="{plan}" data-paddle-interval="yearly"',
                 PRICING,
             )
         self.assertIn("Buy monthly", PRICING)
