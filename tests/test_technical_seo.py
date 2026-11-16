@@ -97,6 +97,7 @@ class TechnicalSeoTests(unittest.TestCase):
                 "https://yeetngreet.app/privacy.html",
                 "https://yeetngreet.app/terms.html",
                 "https://yeetngreet.app/refunds.html",
+                "https://yeetngreet.app/eula.html",
             ],
         )
         # Thin redirect shells and utility pages stay out of the marketing sitemap.
@@ -119,6 +120,7 @@ class TechnicalSeoTests(unittest.TestCase):
             "privacy.html": "https://yeetngreet.app/privacy.html",
             "terms.html": "https://yeetngreet.app/terms.html",
             "refunds.html": "https://yeetngreet.app/refunds.html",
+            "eula.html": "https://yeetngreet.app/eula.html",
         }
         for rel, canonical in expected.items():
             head = parse_head((ROOT / rel).read_text(encoding="utf-8"))

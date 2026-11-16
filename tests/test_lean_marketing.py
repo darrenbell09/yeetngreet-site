@@ -192,6 +192,7 @@ class LeanMarketingTests(unittest.TestCase):
             )
             self.assertIn("product.html", page.footer_hrefs)
             self.assertIn("terms.html", page.footer_hrefs)
+            self.assertIn("eula.html", page.footer_hrefs)
             self.assertIn("refunds.html", page.footer_hrefs)
             self.assertIn("privacy.html", page.footer_hrefs)
             self.assertIn("mailto:support@yeetngreet.app", page.footer_hrefs)
@@ -202,6 +203,7 @@ class LeanMarketingTests(unittest.TestCase):
             "privacy.html",
             "terms.html",
             "refunds.html",
+            "eula.html",
             "404.html",
         ):
             html = (ROOT / filename).read_text(encoding="utf-8")
