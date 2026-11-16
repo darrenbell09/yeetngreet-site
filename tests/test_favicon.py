@@ -22,6 +22,7 @@ HEAD_PAGES = (
     "privacy.html",
     "terms.html",
     "refunds.html",
+    "eula.html",
     "404.html",
     "go/founding/index.html",
     "go/waitlist/index.html",
