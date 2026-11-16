@@ -116,13 +116,12 @@ class MarketingOptInTests(unittest.TestCase):
         self.assertIn("Never log email", WORKER)
         self.assertNotIn("console.log", WORKER)
 
-    def test_pricing_keeps_waitlist_ctas(self) -> None:
+    def test_pricing_keeps_free_waitlist_cta(self) -> None:
         self.assertIn("Join the waitlist", PRICING)
         self.assertIn('href="/go/waitlist/"', PRICING)
-        self.assertNotIn("Buy monthly", PRICING)
-        self.assertNotIn("Buy annual", PRICING)
-        self.assertNotIn("data-paddle-plan", PRICING)
         self.assertIn("licensed users", PRICING)
+        # Free keeps the waitlist; paid Buy buttons are covered in test_paddle_pricing.py.
+        self.assertNotIn('data-paddle-plan="free"', PRICING)
 
     def test_privacy_covers_marketing_and_unsubscribe(self) -> None:
         self.assertIn('id="marketing-emails"', PRIVACY)
