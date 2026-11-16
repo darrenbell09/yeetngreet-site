@@ -5,3 +5,7 @@ _site/
 __pycache__/
 *.pyc
 .cache/
+
+.wrangler/
+node_modules/
+.dev.vars

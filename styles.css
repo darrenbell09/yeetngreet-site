@@ -353,11 +353,13 @@ a:hover { text-decoration: underline; }
   min-height: 42px;
   padding: 0 1.15rem;
   border-radius: var(--radius);
+  font-family: inherit;
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
   border: 1px solid transparent;
+  cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s ease, border-color 0.2s ease;
 }
 
@@ -877,6 +879,19 @@ a:hover { text-decoration: underline; }
   color: var(--ink-secondary);
   font-size: 0.92rem;
   line-height: 1.45;
+}
+
+.plan-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.plan-cta .btn {
+  min-height: 38px;
+  padding: 0 0.85rem;
+  font-size: 0.86rem;
 }
 
 .pricing-teaser {
@@ -1869,4 +1884,131 @@ footer {
   .steps, .proof { padding-top: 2rem; }
   .audience-card { padding: 1.5rem 1.15rem; }
   .pricing-teaser-card .btn { min-height: 44px; }
+}
+
+/* Privacy-first analytics consent banner (injected by analytics.js) */
+.yg-consent-banner {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1rem 1.1rem;
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 28px rgba(18, 20, 26, 0.08);
+}
+
+:root[data-theme="dark"] .yg-consent-banner {
+  box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.yg-consent-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.55rem 1rem;
+  align-items: center;
+}
+
+@media (min-width: 720px) {
+  .yg-consent-inner {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+  .yg-consent-title { grid-column: 1; grid-row: 1; }
+  .yg-consent-desc { grid-column: 1; grid-row: 2; }
+  .yg-consent-actions {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+}
+
+.yg-consent-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.yg-consent-desc {
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.yg-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.yg-consent-actions .btn {
+  min-height: 40px;
+}
+
+.yg-marketing-optin {
+  margin: 1.25rem 0 1.5rem;
+  max-width: 32rem;
+}
+.yg-marketing-optin label.yg-marketing-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.yg-marketing-optin input[type="checkbox"] {
+  margin-top: 0.3rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  accent-color: var(--brand, #3a3f4b);
+}
+.yg-marketing-email {
+  margin: 0.85rem 0 0 1.75rem;
+}
+.yg-marketing-email[hidden] {
+  display: none;
+}
+.yg-marketing-email label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.yg-marketing-email input[type="email"] {
+  width: 100%;
+  max-width: 24rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border, #cfd3da);
+  border-radius: 8px;
+  font: inherit;
+  background: var(--surface, #fff);
+  color: inherit;
+}
+.yg-marketing-note {
+  margin: 0.65rem 0 0;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+.yg-marketing-error {
+  margin: 0.65rem 0 0;
+  color: #9b1c1c;
+  font-size: 0.92rem;
+}
+.yg-marketing-error:empty {
+  display: none;
+}
+
+/* Honeypot field on marketing opt-in forms — keep visually hidden. */
+.yg-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
