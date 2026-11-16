@@ -38,7 +38,7 @@
       );
     })();
   </script>
-  <script src="analytics.js?v=20261018h" defer></script>
+  <script src="analytics.js?v=20261115c" defer></script>
 </head>
 <body>
   <div class="shell">
@@ -83,17 +83,34 @@
       <p>Local template cache, logs, and related working files remain on your device (typically under AppData or Documents) unless you choose to keep them somewhere else. Published company templates are mirrored to your license account so every tech PC can sync them.</p>
 
       <h2 id="website">This website</h2>
-      <p>yeetngreet.app is a static site hosted on GitHub Pages. It does not set cookies and does not use advertising or cross-site tracking. If you switch between light and dark mode, that choice is saved in your browser’s local storage and is never sent to us.</p>
+      <p>yeetngreet.app is a static site hosted on GitHub Pages. It does not use advertising or cross-site tracking. Theme preference and your analytics opt-in choice (if you make one) are saved in your browser’s local storage and are never sent to us as account data.</p>
       <ul>
-        <li><strong>Analytics.</strong> We use Cloudflare Web Analytics, which is cookie-free and does not fingerprint visitors. It counts page views, referring sites, and page-load performance in aggregate, so we can see which pages are useful. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s privacy policy</a>.</li>
-        <li><strong>Waitlist and founding beta form.</strong> The sign-up buttons open a Google Form. It asks for your name, work email, company, approximate number of managed tenants, whether you would prepay when checkout opens, and optional notes. We use your answers only to contact you about YeetnGreet early access and launch. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies to the form itself.</li>
+        <li><strong>Optional analytics (opt-in).</strong> See <a href="#optional-analytics">Optional analytics</a> below. No Google Analytics tag loads until you accept; if you decline, it stays unloaded. Advertising / personalization storage stays denied.</li>
+        <li><strong>Waitlist and founding beta form.</strong> The Free and founding sign-up buttons open a Google Form. It asks for your name, work email, company, approximate number of managed tenants, whether you would prepay when checkout opens, and optional notes. We use your answers only to contact you about YeetnGreet early access and launch. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies to the form itself. You can separately tick a box to get news and updates; see <a href="#marketing-emails">Marketing emails</a>.</li>
         <li><strong>Fonts.</strong> Pages load the IBM Plex Sans and Sora fonts from Google Fonts, so your browser requests them from Google’s servers. See <a href="https://policies.google.com/privacy">Google’s privacy policy</a>.</li>
         <li><strong>Hosting.</strong> GitHub, which serves the site, may keep standard server logs such as IP addresses for security. See <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</li>
       </ul>
 
+      <h2 id="optional-analytics">Optional analytics</h2>
+      <p>We may use optional site analytics (Google Analytics 4) to understand which pages are useful. This is <strong>opt-in</strong>: we set Google Consent Mode defaults to denied, and we do not load a Google Analytics or googletagmanager tag until you accept the banner. If you decline, those requests stay off and no analytics events are sent. After you accept, the measurement tag loads with IP anonymization and Google ads/signals turned off. Advertising storage, ad user data, and ad personalization stay denied even if you opt in. You can decline and continue using the site without analytics cookies from us. If we also enable cookie-free Cloudflare Web Analytics later, it would only load after the same opt-in. See <a href="https://policies.google.com/privacy">Google’s privacy policy</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s privacy policy</a>.</p>
+      <p>If you opt in, we may collect:</p>
+      <ul>
+        <li>Page views, including a docs page-view event on documentation pages.</li>
+        <li>Buy-button clicks and checkout steps: plan name, billing period, price, and currency. When Paddle checkout loads, completes, closes, or a payment fails, we record those events. A completed purchase includes Paddle’s transaction ID, the amount, and the currency. We do not send your name, email, address, or other Paddle customer details.</li>
+        <li>Clicks on download and trial calls to action, and waitlist or founding-beta form handoffs (which form, not any field values).</li>
+        <li>Outbound link clicks (destination address without query strings) and clicks on the support email link (as a support contact, not your email address).</li>
+        <li>Pricing billing-period toggle changes, if that control is present.</li>
+        <li>Scroll-depth milestones (25%, 50%, 75%, and 90%).</li>
+        <li>Docs site-search terms. Terms that look like an email address or phone number are not sent.</li>
+      </ul>
+
+      <h2 id="marketing-emails">Marketing emails</h2>
+      <p>If you tick the unticked box labelled “Email me YeetnGreet news and updates” on the waitlist or founding-beta page, we will store the email you enter, the time you consented, and the page you came from, so we can send YeetnGreet news and updates. We do this only when that box is ticked. Waitlist answers on the Google Form are separate and are still used only for early access and launch, unless you also tick the news box.</p>
+      <p>We do not send your email address to Google Analytics. To stop marketing emails, or to update or delete a marketing-list address, email <a href="mailto:support@yeetngreet.app">support@yeetngreet.app</a> and we will unsubscribe you. We will add a one-click unsubscribe link in those emails when the list is in use.</p>
+
       <h2 id="contact">Contact</h2>
-      <p>YeetnGreet is operated by YeetnGreet LLC. Questions about privacy, or a request to update or delete your waitlist details: <a href="mailto:support@yeetngreet.app">support@yeetngreet.app</a>.</p>
-      <p class="privacy-updated">Last updated: October 18, 2026</p>
+      <p>YeetnGreet is operated by YeetnGreet LLC. Questions about privacy, a request to update or delete your waitlist details, or a marketing-email unsubscribe request: <a href="mailto:support@yeetngreet.app">support@yeetngreet.app</a>.</p>
+      <p class="privacy-updated">Last updated: November 15, 2026</p>
 
       <p class="privacy-back"><a href="/">Back to YeetnGreet</a></p>
     </section>
