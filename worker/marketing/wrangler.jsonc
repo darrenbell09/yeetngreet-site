@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "yeetngreet-marketing",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-15",
+  "account_id": "c9bdb7514d2ffc3a0845df5bce71ab12",
+  "workers_dev": true,
+  "preview_urls": false,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yeetngreet-marketing",
+      "database_id": "1799af3b-2a74-47c1-aeac-352bd1d04524"
+    }
+  ]
+}
