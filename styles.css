@@ -1950,3 +1950,56 @@ footer {
 .yg-consent-actions .btn {
   min-height: 40px;
 }
+
+.yg-marketing-optin {
+  margin: 1.25rem 0 1.5rem;
+  max-width: 32rem;
+}
+.yg-marketing-optin label.yg-marketing-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.yg-marketing-optin input[type="checkbox"] {
+  margin-top: 0.3rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  accent-color: var(--brand, #3a3f4b);
+}
+.yg-marketing-email {
+  margin: 0.85rem 0 0 1.75rem;
+}
+.yg-marketing-email[hidden] {
+  display: none;
+}
+.yg-marketing-email label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.yg-marketing-email input[type="email"] {
+  width: 100%;
+  max-width: 24rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border, #cfd3da);
+  border-radius: 8px;
+  font: inherit;
+  background: var(--surface, #fff);
+  color: inherit;
+}
+.yg-marketing-note {
+  margin: 0.65rem 0 0;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+.yg-marketing-error {
+  margin: 0.65rem 0 0;
+  color: #9b1c1c;
+  font-size: 0.92rem;
+}
+.yg-marketing-error:empty {
+  display: none;
+}
