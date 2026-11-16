@@ -217,6 +217,7 @@ class TechnicalSeoTests(unittest.TestCase):
         self.assertIn("licensed users", pricing.lower())
         self.assertIn("14-day trial", home)
         self.assertIn("Free", pricing)
+        self.assertNotIn("google-site-verification", home)
 
 
 if __name__ == "__main__":
