@@ -59,9 +59,17 @@ function ygPaddleOpenCheckout(priceId) {
   if (YG_PADDLE_ENVIRONMENT === "sandbox") {
     Paddle.Environment.set("sandbox");
   }
-  Paddle.Initialize({ token: YG_PADDLE_TOKEN });
+  Paddle.Initialize({
+    token: YG_PADDLE_TOKEN,
+    eventCallback: function (event) {
+      if (typeof window.ygHandlePaddleEvent === "function") {
+        window.ygHandlePaddleEvent(event);
+      }
+    }
+  });
   // No Checkout.open on load — Paddle.js opens ?_ptxn= automatically.
   // Buy buttons call ygPaddleOpenCheckout after click.
+  // Analytics (select_item / begin_checkout) is handled in analytics.js when consent is granted.
 
   document.addEventListener("click", function (event) {
     var btn = event.target && event.target.closest
