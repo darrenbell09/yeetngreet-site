@@ -28,10 +28,12 @@ class _MetaCollector(HTMLParser):
 
 
 class ConsentAnalyticsTests(unittest.TestCase):
-    def test_ga_measurement_id_is_empty_placeholder(self) -> None:
-        self.assertRegex(ANALYTICS, r'YG_GA_MEASUREMENT_ID\s*=\s*""')
-        self.assertIn("PLACEHOLDER", ANALYTICS)
+    def test_ga_measurement_id_is_configured(self) -> None:
+        self.assertRegex(ANALYTICS, r'YG_GA_MEASUREMENT_ID\s*=\s*"G-4QZ4FZPC5X"')
         self.assertIn("googletagmanager.com/gtag/js", ANALYTICS)
+        self.assertIn("anonymize_ip: true", ANALYTICS)
+        self.assertIn("allow_google_signals: false", ANALYTICS)
+        self.assertIn("allow_ad_personalization_signals: false", ANALYTICS)
 
     def test_consent_mode_defaults_deny_ads_and_analytics(self) -> None:
         self.assertIn('gtag("consent", "default"', ANALYTICS)
@@ -67,17 +69,19 @@ class ConsentAnalyticsTests(unittest.TestCase):
         self.assertIn("opt-in", PRIVACY.lower())
         self.assertIn("Consent Mode", PRIVACY)
         self.assertIn("advertising storage", PRIVACY.lower())
+        self.assertIn("Google Analytics 4", PRIVACY)
+        self.assertIn("IP anonymization", PRIVACY)
+        self.assertNotIn("Until a measurement ID is configured", PRIVACY)
 
-    def test_homepage_has_empty_search_console_verification_hook(self) -> None:
-        self.assertIn("google-site-verification", INDEX)
-        self.assertIn("Google Search Console HTML tag verification", INDEX)
+    def test_homepage_has_no_search_console_meta_tag(self) -> None:
+        self.assertNotIn("google-site-verification", INDEX)
+        self.assertNotIn("Google Search Console HTML tag verification", INDEX)
         parser = _MetaCollector()
         parser.feed(INDEX)
         matches = [
             m for m in parser.metas if m.get("name") == "google-site-verification"
         ]
-        self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0].get("content", "missing"), "")
+        self.assertEqual(matches, [])
 
     def test_copy_rules_on_consent_surfaces(self) -> None:
         for name, text in (("analytics.js", ANALYTICS), ("privacy.html", PRIVACY)):

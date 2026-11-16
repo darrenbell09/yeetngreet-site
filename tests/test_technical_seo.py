@@ -218,8 +218,7 @@ class TechnicalSeoTests(unittest.TestCase):
         self.assertIn("14-day trial", home)
         self.assertIn("14-day trial", pricing)
         self.assertIn("Free", pricing)
-        self.assertIn('name="google-site-verification"', home)
-        self.assertIn('content=""', home)
+        self.assertNotIn("google-site-verification", home)
 
 
 if __name__ == "__main__":

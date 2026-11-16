@@ -3,11 +3,11 @@
  *
  * - Google Consent Mode defaults start denied; no GA tag loads before consent.
  * - ad_storage, ad_user_data, and ad_personalization stay denied even after opt-in.
- * - YG_GA_MEASUREMENT_ID is empty so tracking stays off until you paste a real ID
- *   AND the visitor opts in.
+ * - After the visitor accepts, GA4 (YG_GA_MEASUREMENT_ID) loads with IP anonymization
+ *   and Google ads/signals turned off. Decline keeps the tag unloaded.
  * - Cloudflare Web Analytics stays off while YG_CF_BEACON_TOKEN is empty.
  */
-var YG_GA_MEASUREMENT_ID = ""; // PLACEHOLDER — paste G-… when ready; leave empty to keep GA off
+var YG_GA_MEASUREMENT_ID = "G-4QZ4FZPC5X";
 var YG_CF_BEACON_TOKEN = "";
 
 var YG_CONSENT_STORAGE_KEY = "yeetngreet-analytics-consent";
@@ -51,7 +51,11 @@ var YG_CONSENT_STORAGE_KEY = "yeetngreet-analytics-consent";
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
     document.head.appendChild(s);
     gtag("js", new Date());
-    gtag("config", id, { anonymize_ip: true });
+    gtag("config", id, {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
     return true;
   }
 
