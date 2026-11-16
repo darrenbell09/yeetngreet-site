@@ -4,43 +4,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Join the pre-release waitlist: YeetnGreet</title>
-  <meta name="description" content="Opening the YeetnGreet waitlist form (Google Forms)." />
+  <meta name="description" content="Continue to the YeetnGreet waitlist form (Google Forms). Optionally join the news and updates list." />
   <meta name="robots" content="noindex, follow" />
-  <meta http-equiv="refresh" content="3;url=https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform" />
   <link rel="canonical" href="https://yeetngreet.app/go/waitlist/" />
   <link rel="icon" href="/favicon.ico?v=20261107b" sizes="any" />
   <link rel="icon" href="/favicon-96.png?v=20261107b" type="image/png" sizes="96x96" />
   <link rel="icon" href="/favicon-32.png?v=20261107b" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261107b" sizes="256x256" />
-<link rel="stylesheet" href="/styles.css?v=20261018h" />
+  <link rel="stylesheet" href="/styles.css?v=20261018h" />
   <script>
     (function () {
       var t = localStorage.getItem("yeetngreet-site-theme");
       document.documentElement.setAttribute("data-theme", t === "dark" || t === "light" ? t : "light");
     })();
   </script>
-  <script src="/analytics.js?v=20261018h"></script>
+  <script src="/analytics.js?v=20261115c"></script>
 </head>
 <body>
   <div class="shell">
     <main id="main" class="page">
       <h1>Join the pre-release waitlist</h1>
-      <p class="lede">Taking you to the sign-up form on Google Forms…</p>
-      <p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform">Continue to the form</a></p>
+      <p class="lede">Continue to the sign-up form on Google Forms for early access. You can also choose to get YeetnGreet news and updates.</p>
+      <form id="yg-signup-form" class="yg-signup-form" data-yg-source="waitlist" action="#" method="post">
+        <div class="yg-marketing-optin">
+          <label class="yg-marketing-check" for="yg-marketing-optin">
+            <input type="checkbox" id="yg-marketing-optin" name="marketing_opt_in" value="yes" />
+            <span>Email me YeetnGreet news and updates</span>
+          </label>
+          <div id="yg-marketing-email-wrap" class="yg-marketing-email" hidden>
+            <label for="yg-marketing-email">Email for news and updates</label>
+            <input type="email" id="yg-marketing-email" name="marketing_email" autocomplete="email" inputmode="email" />
+          </div>
+          <p class="yg-marketing-note">Unticked by default. We only add you to the news list if you tick this box. Early-access answers still go to the waitlist form. See the <a href="/privacy.html#marketing-emails">privacy policy</a>.</p>
+          <p class="yg-marketing-error" id="yg-marketing-error" role="alert"></p>
+        </div>
+        <p><button type="submit" class="btn primary">Continue to the form</button></p>
+      </form>
       <p class="privacy-back"><a href="/">Back to YeetnGreet</a></p>
     </main>
   </div>
-  <script>
-    (function () {
-      var form = "https://docs.google.com/forms/d/e/1FAIpQLSddlwVg9FklzgEKhfQf8RRNzlv9BNJipgWBOsotXISDmg5OTw/viewform";
-      var gone = false;
-      function go() { if (!gone) { gone = true; window.location.replace(form); } }
-      // Give the cookie-free analytics beacon a moment to load (when enabled), then forward.
-      (window.ygAnalyticsReady || Promise.resolve(false)).then(function (on) {
-        setTimeout(go, on ? 600 : 0);
-      });
-      setTimeout(go, 1500);
-    })();
-  </script>
+  <script src="/marketing.js?v=20261115c"></script>
 </body>
 </html>

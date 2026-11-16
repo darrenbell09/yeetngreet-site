@@ -38,7 +38,7 @@
       );
     })();
   </script>
-  <script src="analytics.js?v=20261018h" defer></script>
+  <script src="analytics.js?v=20261115c" defer></script>
 </head>
 <body>
   <div class="shell">
@@ -65,62 +65,88 @@
     <main id="main">
     <section class="hero page-hero">
       <h1>Pricing</h1>
-      <p class="lede">Billed by licensed users pooled across every tenant on your account. Pay monthly, or pay a year up front and save about 20%.</p>
+      <p class="lede">Billed by licensed users pooled across every tenant on your account. Pay monthly, or pay a year up front and save about 20%. Paid plans include a 14-day trial.</p>
       <div class="cta">
-        <a class="btn primary" href="/go/waitlist/" target="_blank" rel="noopener">Join the waitlist</a>
-        <a class="btn ghost" href="#plans">See plans</a>
+        <a class="btn primary" href="#plans">See plans</a>
+        <a class="btn ghost" href="#founding">Founding beta</a>
       </div>
     </section>
 
     <section id="plans" class="pricing-section">
       <h2 class="section-label">Plans</h2>
-      <p class="section-note">A licensed user is an enabled account with at least one paid Microsoft 365 license. Trial, developer, and free licenses, disabled accounts, and shared mailboxes do not count. Free includes a limited license-report preview, one tenant, and no card required. <a href="/docs/reports/samples/">See sample reports</a>.</p>
+      <p class="section-note">A licensed user is an enabled account with at least one paid Microsoft 365 license. Trial, developer, and free licenses, disabled accounts, and shared mailboxes do not count. Free includes a limited license-report preview, one tenant, and no card required. Paid plans include a 14-day trial. <a href="/docs/reports/samples/">See sample reports</a>.</p>
       <div class="pricing pricing-bands">
         <article class="plan">
           <h3>Free</h3>
           <p class="price">$0</p>
           <p class="plan-band">1–25 licensed users</p>
           <p>License reports, 1 tenant, no credit card.</p>
+          <div class="plan-cta">
+            <a class="btn ghost" href="/go/waitlist/" target="_blank" rel="noopener">Join the waitlist</a>
+          </div>
         </article>
         <article class="plan">
           <h3>Starter</h3>
           <p class="price">$19<span>/mo</span></p>
           <p class="price-annual">or $182/yr</p>
           <p class="plan-band">26–50 licensed users</p>
+          <div class="plan-cta">
+            <button type="button" class="btn primary" data-paddle-plan="starter" data-paddle-interval="monthly">Buy monthly</button>
+            <button type="button" class="btn ghost" data-paddle-plan="starter" data-paddle-interval="yearly">Buy annual</button>
+          </div>
         </article>
         <article class="plan featured">
           <h3>Growth</h3>
           <p class="price">$49<span>/mo</span></p>
           <p class="price-annual">or $470/yr</p>
           <p class="plan-band">51–100 licensed users</p>
+          <div class="plan-cta">
+            <button type="button" class="btn primary" data-paddle-plan="growth" data-paddle-interval="monthly">Buy monthly</button>
+            <button type="button" class="btn ghost" data-paddle-plan="growth" data-paddle-interval="yearly">Buy annual</button>
+          </div>
         </article>
         <article class="plan">
           <h3>Business</h3>
           <p class="price">$99<span>/mo</span></p>
           <p class="price-annual">or $950/yr</p>
           <p class="plan-band">101–300 licensed users</p>
+          <div class="plan-cta">
+            <button type="button" class="btn primary" data-paddle-plan="business" data-paddle-interval="monthly">Buy monthly</button>
+            <button type="button" class="btn ghost" data-paddle-plan="business" data-paddle-interval="yearly">Buy annual</button>
+          </div>
         </article>
         <article class="plan">
           <h3>Scale</h3>
           <p class="price">$149<span>/mo</span></p>
           <p class="price-annual">or $1,430/yr</p>
           <p class="plan-band">301–500 licensed users</p>
+          <div class="plan-cta">
+            <button type="button" class="btn primary" data-paddle-plan="scale" data-paddle-interval="monthly">Buy monthly</button>
+            <button type="button" class="btn ghost" data-paddle-plan="scale" data-paddle-interval="yearly">Buy annual</button>
+          </div>
         </article>
         <article class="plan">
           <h3>Large</h3>
           <p class="price">$249<span>/mo</span></p>
           <p class="price-annual">or $2,390/yr</p>
           <p class="plan-band">501–700 licensed users</p>
+          <div class="plan-cta">
+            <button type="button" class="btn primary" data-paddle-plan="large" data-paddle-interval="monthly">Buy monthly</button>
+            <button type="button" class="btn ghost" data-paddle-plan="large" data-paddle-interval="yearly">Buy annual</button>
+          </div>
         </article>
         <article class="plan">
           <h3>Enterprise</h3>
           <p class="price">Quote</p>
           <p class="plan-band">701+ licensed users</p>
-          <p>Custom terms for larger estates. <a href="mailto:support@yeetngreet.app">Contact us</a>.</p>
+          <p>Custom terms for larger estates.</p>
+          <div class="plan-cta">
+            <a class="btn ghost" href="mailto:support@yeetngreet.app">Contact us</a>
+          </div>
         </article>
       </div>
       <p class="section-note">Annual prices are about 20% off the monthly rate. Licensed users are pooled across all tenants on the account. YeetnGreet is proprietary software.</p>
-      <p class="section-note">When checkout opens, payments are processed by Paddle, our Merchant of Record. 30-day money-back guarantee on your first purchase. See the <a href="/terms.html">Terms</a> and <a href="/refunds.html">Refund Policy</a>.</p>
+      <p class="section-note">Payments are processed by Paddle, our Merchant of Record. Paid plans include a 14-day trial. 30-day money-back guarantee on your first purchase. See the <a href="/terms.html">Terms</a> and <a href="/refunds.html">Refund Policy</a>.</p>
     </section>
 
     <section id="founding" class="pricing-section founding-quiet">
@@ -147,6 +173,6 @@
   </div>
   <script src="theme.js?v=20261018h"></script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-  <script src="paddle.js?v=20261030a"></script>
+  <script src="paddle.js?v=20261115c"></script>
 </body>
 </html>
