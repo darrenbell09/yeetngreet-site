@@ -29,14 +29,17 @@ class PaddlePricingTests(unittest.TestCase):
         self.assertIn('YG_PADDLE_TOKEN = "test_c665c31e7dbd12543f5dcd84304"', PADDLE)
         self.assertIn('YG_PADDLE_ENVIRONMENT = "sandbox"', PADDLE)
         self.assertIn('Paddle.Environment.set("sandbox")', PADDLE)
-        self.assertIn("Paddle.Initialize({ token: YG_PADDLE_TOKEN })", PADDLE)
+        self.assertIn("Paddle.Initialize({", PADDLE)
+        self.assertIn("token: YG_PADDLE_TOKEN", PADDLE)
+        self.assertIn("eventCallback", PADDLE)
+        self.assertIn("ygHandlePaddleEvent", PADDLE)
         self.assertIn("YG_PADDLE_ENVIRONMENT", PADDLE)
         self.assertRegex(PADDLE, r"live_")
         self.assertIn("production", PADDLE)
 
     def test_does_not_open_checkout_with_items_on_load(self) -> None:
         # Initialize must not open checkout; Buy click handler may call Checkout.open.
-        init_block = PADDLE.split("Paddle.Initialize({ token: YG_PADDLE_TOKEN });", 1)[1]
+        init_block = PADDLE.split("eventCallback", 1)[1]
         self.assertNotRegex(
             init_block.split("document.addEventListener", 1)[0],
             r"Checkout\.open\s*\(",

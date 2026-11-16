@@ -90,6 +90,55 @@ class ConsentAnalyticsTests(unittest.TestCase):
             self.assertNotRegex(lower, r"\bmsp\b", name)
             self.assertNotIn("open source", lower, name)
 
+    def test_events_are_consent_gated_and_named(self) -> None:
+        for needle in (
+            "function ygTrack",
+            "consentState === \"granted\"",
+            'ygTrack("select_item"',
+            'ygTrack("begin_checkout"',
+            'ygTrack("purchase"',
+            'ygTrack("checkout_closed"',
+            'ygTrack("checkout_payment_failed"',
+            'ygTrack("file_download"',
+            'ygTrack("trial_cta_click"',
+            'ygTrack("generate_lead"',
+            'ygTrack("docs_page_view"',
+            'ygTrack("click"',
+            'ygTrack("mailto_click"',
+            'ygTrack("pricing_toggle"',
+            'ygTrack("scroll"',
+            'ygTrack("search"',
+            "percent_scrolled",
+            "item_name",
+            "transaction_id",
+            "lead_type",
+            "contact_type: \"support\"",
+        ):
+            self.assertIn(needle, ANALYTICS, needle)
+        self.assertIn("checkout.loaded", ANALYTICS)
+        self.assertIn("checkout.completed", ANALYTICS)
+        self.assertIn("checkout.closed", ANALYTICS)
+        self.assertIn("checkout.payment.failed", ANALYTICS)
+
+    def test_analytics_strips_emails_and_never_tracks_raw_event_data(self) -> None:
+        self.assertIn("function sanitizeParams", ANALYTICS)
+        self.assertIn("looksLikeEmail", ANALYTICS)
+        self.assertIn("safeTransactionId", ANALYTICS)
+        self.assertNotIn("ygTrack(event.data", ANALYTICS)
+        self.assertIn('window.gtag("event", eventName, sanitizeParams', ANALYTICS)
+        # Search redacts email-like terms; track helpers do not pass email fields.
+        self.assertIn("sanitizeSearchTerm", ANALYTICS)
+        self.assertNotRegex(ANALYTICS, r'ygTrack\([^)]*email')
+
+    def test_privacy_lists_collected_events_and_marketing(self) -> None:
+        self.assertIn("Scroll-depth milestones", PRIVACY)
+        self.assertIn("transaction ID", PRIVACY)
+        self.assertIn("id=\"marketing-emails\"", PRIVACY)
+        self.assertIn("news and updates", PRIVACY.lower())
+        self.assertIn("unsubscribe", PRIVACY.lower())
+        self.assertIn("We do not send your email address to Google Analytics", PRIVACY)
+
 
 if __name__ == "__main__":
     unittest.main()
+
